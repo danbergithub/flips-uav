@@ -1,0 +1,65 @@
+define waypoint
+   SanfordStadium = 84.324n 98.433w
+   Boyd = 84.234n 98.843w
+   Home = 84.523n 98.823w
+
+define action
+   TakePicture = 0x01
+   DeployParachute = 0b10
+
+takeoff
+   to 1.00e+02 feet
+   at full throttle
+
+fly
+  to 78.754n 32.463w
+  for 1 hour 12 sec
+
+fly
+  to 78.754 -32.463
+  for 1:00:12
+
+fly
+  to 78¡ 30' n 32¡ 45' w
+  for 3612s
+
+fly
+   ssw
+   at 7.3m/s
+   for 3 min
+
+fly
+   heading 242 deg
+   at cruise speed
+   for 10 minutes
+   descending 50 ft
+
+fly
+   to SanfordStadium
+   at max speed
+   at fl250
+
+action
+   TakePicture
+
+fly
+   to Boyd
+   at 75.3% throttle
+
+action
+   TakePicture
+
+loiter
+   clockwise
+   at 15mph
+   for 37 seconds
+
+return to Home
+
+fly
+   with no power
+
+action
+   DeployParachute
+
+land at 3pm
