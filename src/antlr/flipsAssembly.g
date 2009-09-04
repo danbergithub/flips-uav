@@ -25,7 +25,7 @@
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-tree grammar flipsCode;
+tree grammar flipsAssembly;
 
 options {
   language = Java;
