@@ -126,6 +126,136 @@ void ParseFLIPS() {
       printf("POS PRE REL %f\n", CommGetFloat());
       break;
       
+    // VELOCITY INSTRUCTIONS
+    
+    case 15: // VEL X FIX value
+      printf("VEL   X FIX %f\n", CommGetFloat());
+      break;
+      
+    case 16: // VEL X REL value
+      printf("VEL   X REL %f\n", CommGetFloat());
+      break;
+      
+    case 17: // VEL X OPT MIN
+      printf("VEL   X OPT MIN\n");
+      break;
+      
+    case 18: // VEL X OPT CRU
+      printf("VEL   X OPT CRU\n");
+      break;
+      
+    case 19: // VEL X OPT MAX
+      printf("VEL   X OPT MAX\n");
+      break;
+    
+    case 20: // VEL Y FIX value
+      printf("VEL   Y FIX %f\n", CommGetFloat());
+      break;
+      
+    case 21: // VEL Y REL value
+      printf("VEL   Y REL %f\n", CommGetFloat());
+      break;
+      
+    case 22: // VEL Y OPT MIN
+      printf("VEL   Y OPT MIN\n");
+      break;
+      
+    case 23: // VEL Y OPT CRU
+      printf("VEL   Y OPT CRU\n");
+      break;
+      
+    case 24: // VEL Y OPT MAX
+      printf("VEL   Y OPT MAX\n");
+      break;
+      
+    case 25: // VEL Z FIX value
+      printf("VEL   Z FIX %f\n", CommGetFloat());
+      break;
+      
+    case 26: // VEL Z REL value
+      printf("VEL   Z REL %f\n", CommGetFloat());
+      break;
+      
+    case 27: // VEL Z OPT MIN
+      printf("VEL   Z OPT MIN\n");
+      break;
+      
+    case 28: // VEL Z OPT CRU
+      printf("VEL   Z OPT CRU\n");
+      break;
+      
+    case 29: // VEL Z OPT MAX
+      printf("VEL   Z OPT MAX\n");
+      break;
+      
+    case 30: // VEL ROL FIX value
+      printf("VEL ROL FIX %f\n", CommGetFloat());
+      break;
+      
+    case 31: // VEL ROL REL value
+      printf("VEL ROL REL %f\n", CommGetFloat());
+      break;
+      
+    case 32: // VEL ROL OPT MIN
+      printf("VEL ROL OPT MIN\n");
+      break;
+      
+    case 33: // VEL ROL OPT CRU
+      printf("VEL ROL OPT CRU\n");
+      break;
+      
+    case 34: // VEL ROL OPT MAX
+      printf("VEL ROL OPT MAX\n");
+      break;
+      
+    case 35: // VEL PIT FIX value
+      printf("VEL PIT FIX %f\n", CommGetFloat());
+      break;
+      
+    case 36: // VEL PIT REL value
+      printf("VEL PIT REL %f\n", CommGetFloat());
+      break;
+      
+    case 37: // VEL PIT OPT MIN
+      printf("VEL PIT OPT MIN\n");
+      break;
+      
+    case 38: // VEL PIT OPT CRU
+      printf("VEL PIT OPT CRU\n");
+      break;
+      
+    case 39: // VEL PIT OPT MAX
+      printf("VEL PIT OPT MAX\n");
+      break;
+      
+    case 40: // VEL YAW FIX value
+      printf("VEL YAW FIX %f\n", CommGetFloat());
+      break;
+      
+    case 41: // VEL YAW REL value
+      printf("VEL YAW REL %f\n", CommGetFloat());
+      break;
+      
+    case 42: // VEL YAW OPT MIN
+      printf("VEL YAW OPT MIN\n");
+      break;
+      
+    case 43: // VEL YAW OPT CRU
+      printf("VEL YAW OPT CRU\n");
+      break;
+      
+    case 44: // VEL YAW OPT MAX
+      printf("VEL YAW OPT MAX\n");
+      break;
+      
+    case 45: // VEL PRE FIX value
+      printf("VEL PRE FIX %f\n", CommGetFloat());
+      break;
+      
+    case 46: // VEL PRE REL value
+      printf("VEL PRE REL %f\n", CommGetFloat());
+      break;
+      
     // SPEED INSTRUCTIONS
     
     case 47: // SPD AIR FIX value
