@@ -29,58 +29,90 @@ grammar flipsTargetUAV;
 
 options {
   language = Java;
-  ASTLabelType = CommonTree;
 }
 
 @header {
-  import java.io.IOException;
-  import java.io.ByteArrayOutputStream;
-  import java.io.DataOutputStream;
+  import java.nio.ByteBuffer;
 }
 
 @members {
-  public ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
-  public DataOutputStream dataOutput = new DataOutputStream(byteOutput);
+      public ByteBuffer output = ByteBuffer.allocate(4096);
 
-  public void emit(int instruction) {
-    try {
-      dataOutput.writeByte(instruction);
-    }
-    catch (IOException e) {
-      e.printStackTrace();
-    }
-    System.out.println(instruction + " = " + Integer.toHexString(instruction).toUpperCase());
-  }
+      public void emitByte(int value) {
+        output.put((byte)value);
+        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+      }
 
-  public void emit(int instruction, double value) {
-    try {
-      dataOutput.writeByte(instruction);
-      dataOutput.writeFloat((float)value);
-      //dataOutput.writeDouble(value);
+      public void emitShort(int value) {
+        output.putShort((short)value);
+        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+      }
+
+      public void emitShort(int instruction, int value) {
+        output.put((byte)instruction);
+        output.putShort((short)value);
+        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+      }
+
+      public void emitInt(int value) {
+        output.putInt(value);
+        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+      }
+
+      public void emit(int instruction) {
+        output.putInt(instruction);
+        System.out.println(instruction + " = " + Integer.toHexString(instruction).toUpperCase());
+      }
+
+      public void emit(int instruction, double value) {
+        output.put((byte)instruction);
+        output.putFloat((float)value);
+        System.out.print(Integer.toString(instruction) + " " + value);
+        System.out.print(" = " + Integer.toHexString(instruction).toUpperCase() + " ");
+        //long data = Double.doubleToRawLongBits(value);
+        //System.out.print(Integer.toHexString((int)((data >> 56) & 0xFF)).toUpperCase() + " ");
+        //System.out.print(Integer.toHexString((int)((data >> 48) & 0xFF)).toUpperCase() + " ");
+        //System.out.print(Integer.toHexString((int)((data >> 40) & 0xFF)).toUpperCase() + " ");
+        //System.out.print(Integer.toHexString((int)((data >> 32) & 0xFF)).toUpperCase() + " ");
+        int data = Float.floatToRawIntBits((float)value);
+        System.out.print(Integer.toHexString((int)((data >> 24) & 0xFF)).toUpperCase() + " ");
+        System.out.print(Integer.toHexString((int)((data >> 16) & 0xFF)).toUpperCase() + " ");
+        System.out.print(Integer.toHexString((int)((data >> 8) & 0xFF)).toUpperCase() + " ");
+        System.out.print(Integer.toHexString((int)((data >> 0) & 0xFF)).toUpperCase());
+        System.out.println();
+      }
+      
+      public void reserveCharacters() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.put(output.get(0));
+        for (int i = 1; i < output.position() - 1; i++) {
+            if (output.get(i) == (byte)0xAA) {
+                buffer.put((byte)0xCC);
+                buffer.put((byte)0x00);
+            }
+            else if (output.get(i) == (byte)0xCC) {
+                buffer.put((byte)0xCC);
+                buffer.put((byte)0x01);
+            }
+            else if (output.get(i) == (byte)0xFF) {
+                buffer.put((byte)0xCC);
+                buffer.put((byte)0x02);
+            }
+            else {
+                buffer.put(output.get(i));
+            }
+        }
+        buffer.put(output.get(output.position() - 1));
+        output = buffer;
     }
-    catch (IOException e) {
-      e.printStackTrace();
-    }
-    System.out.print(Integer.toString(instruction) + " " + value);
-    System.out.print(" = " + Integer.toHexString(instruction).toUpperCase() + " ");
-    //long data = Double.doubleToRawLongBits(value);
-    //System.out.print(Integer.toHexString((int)((data >> 56) & 0xFF)).toUpperCase() + " ");
-    //System.out.print(Integer.toHexString((int)((data >> 48) & 0xFF)).toUpperCase() + " ");
-    //System.out.print(Integer.toHexString((int)((data >> 40) & 0xFF)).toUpperCase() + " ");
-    //System.out.print(Integer.toHexString((int)((data >> 32) & 0xFF)).toUpperCase() + " ");
-    int data = Float.floatToRawIntBits((float)value);
-    System.out.print(Integer.toHexString((int)((data >> 24) & 0xFF)).toUpperCase() + " ");
-    System.out.print(Integer.toHexString((int)((data >> 16) & 0xFF)).toUpperCase() + " ");
-    System.out.print(Integer.toHexString((int)((data >> 8) & 0xFF)).toUpperCase() + " ");
-    System.out.print(Integer.toHexString((int)((data >> 0) & 0xFF)).toUpperCase());
-    System.out.println();
-  }
 }
 
 flightPlan
-	:	{emit(0,1);}
+	:	{emitByte(0xAA);}
 		instruction*
-		{emit(255);}
+		{emitByte(0xFF);}
+		{reserveCharacters();}
+		{output.flip();}
 	;
 
 instruction
@@ -107,7 +139,7 @@ fly	:	FLY {emit(90);};
 
 loiter	:	LTR {emit(91);};
 
-command	:	CMD x=integerValue {emit(92,x);};
+command	:	CMD x=integerValue {emitShort(92,x);};
 
 land	:	LND {emit(93);};
 

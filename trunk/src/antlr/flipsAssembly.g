@@ -40,30 +40,35 @@ options {
 @members {
   HashMap<String,Double[]> waypoints = new HashMap<String,Double[]>();
   HashMap<String,Integer> actions = new HashMap<String,Integer>();
+  public StringBuilder output = new StringBuilder();
   
   public void addWaypoint(String name, Double latitude, Double longitude) {
-      Double[] coordinate = new Double[2];
-      coordinate[0] = latitude;
-      coordinate[1] = longitude;
-      waypoints.put(name, coordinate);
+    Double[] coordinate = new Double[2];
+    coordinate[0] = latitude;
+    coordinate[1] = longitude;
+    waypoints.put(name, coordinate);
   }
     
   public Double[] getWaypoint(String name) {
-      if (waypoints.containsKey(name)) {
-          return waypoints.get(name);
-      }
-      return null;
+    if (waypoints.containsKey(name)) {
+      return waypoints.get(name);
+    }
+    return null;
   }
 
   public void addAction(String name, Integer value) {
-      actions.put(name, value);
+    actions.put(name, value);
   }
 
   public Integer getAction(String name) {
-      if (actions.containsKey(name)) {
-          return actions.get(name);
-      }
-      return null;
+    if (actions.containsKey(name)) {
+      return actions.get(name);
+    }
+    return null;
+  }
+
+  public void emit(String instruction) {
+    output.append(instruction + '\n');
   }
 }
 
@@ -100,19 +105,19 @@ postFlight
 // COMMAND EXPRESSIONS
 
 takeoff	:	^(TAKEOFF time? speed? altitude?)
-                {System.out.println("TOF");}
+                {emit("TOF");}
         ;
 
 fly	:	^(FLY time? yaw? speed? distance? pitch? roll? duration? waypoint* altitude?)
-                {System.out.println("FLY");}
+                {emit("FLY");}
         ;
 
 loiter	:	^(LOITER time? speed? loiterDirection? radius? duration? waypoint* altitude?)
-                {System.out.println("LTR");}
+                {emit("LTR");}
         ;
 
 land	:	^(LAND time? speed?)
-                {System.out.println("LND");}
+                {emit("LND");}
         ;
 
 action	:	^(ACTION x=Identifier)
@@ -123,7 +128,7 @@ if (value != null){
     runValue = value.toString();
 }
 
-System.out.println("CMD " + runValue);
+emit("CMD " + runValue);
 	}
 	;
 
@@ -131,108 +136,108 @@ System.out.println("CMD " + runValue);
 
 time	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
 		{x = (x == 43200d) ? 0d : x;}
-		{System.out.println("TIM FIX " + (x + y + z));}
+		{emit("TIM FIX " + (x + y + z));}
 	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? PM)
 		{x = (x == 43200d) ? 0d : x;}
-		{System.out.println("TIM FIX " + (x + y + z + 43200d));}
+		{emit("TIM FIX " + (x + y + z + 43200d));}
 	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? HOUR24)
-		{System.out.println("TIM FIX " + (x + y + z));}
+		{emit("TIM FIX " + (x + y + z));}
 	;
 
 duration:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
-                {System.out.println("TIM REL " + (x + y + z));}
+                {emit("TIM REL " + (x + y + z));}
         ;
 
 pitch	:	^(PITCH x=convertAngle)
-                {System.out.println("POS PIT FIX " + x);}
+                {emit("POS PIT FIX " + x);}
         ;
 
 roll	:	^(ROLL x=convertAngle)
-                {System.out.println("POS ROL FIX " + x);}
+                {emit("POS ROL FIX " + x);}
         ;
 
 yaw
 	:	^(DIRECTION FIXED x=convertCardinalDirection)
-                {System.out.println("POS YAW FIX " + x);}
+                {emit("POS YAW FIX " + x);}
 	|	^(DIRECTION FIXED x=convertOrdinalDirection)
-                {System.out.println("POS YAW FIX " + x);}
+                {emit("POS YAW FIX " + x);}
 	|	^(DIRECTION FIXED x=convertSubOrdinalDirection)
-                {System.out.println("POS YAW FIX " + x);}
+                {emit("POS YAW FIX " + x);}
 	|       ^(DIRECTION FIXED y=convertAngle)
-                {System.out.println("POS YAW FIX " + y);}
+                {emit("POS YAW FIX " + y);}
 	|       ^(DIRECTION RELATIVE LEFT y=convertAngle)
-                {System.out.println("POS YAW REL " + -y);}
+                {emit("POS YAW REL " + -y);}
 	|       ^(DIRECTION RELATIVE RIGHT y=convertAngle)
-                {System.out.println("POS YAW REL " + y);}
+                {emit("POS YAW REL " + y);}
 	;
 
 altitude:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
-                {System.out.println("POS   Z FIX " + -x);}
+                {emit("POS   Z FIX " + -x);}
         |       ^(ALTITUDE FIXED PRESSURE y=convertPressure)
-                {System.out.println("POS PRE FIX " + y);}
+                {emit("POS PRE FIX " + y);}
 	|	^(ALTITUDE FIXED x=convertFlightLevel)
-		{System.out.println("POS   Z FIX " + -x);}
+		{emit("POS   Z FIX " + -x);}
         |       ^(ALTITUDE RELATIVE CLIMB DISTANCE x=convertDistance)
-                {System.out.println("POS   Z REL " + -x);}
+                {emit("POS   Z REL " + -x);}
         |       ^(ALTITUDE RELATIVE CLIMB PRESSURE y=convertPressure)
-                {System.out.println("POS PRE REL " + -y);}
+                {emit("POS PRE REL " + -y);}
         |       ^(ALTITUDE RELATIVE DESCEND DISTANCE x=convertDistance)
-                {System.out.println("POS   Z REL " + x);}
+                {emit("POS   Z REL " + x);}
         |       ^(ALTITUDE RELATIVE DESCEND PRESSURE y=convertPressure)
-                {System.out.println("POS PRE REL " + y);}
+                {emit("POS PRE REL " + y);}
         ;
 
 distance:	^(DISTANCE x=convertDistance)
-                {System.out.println("POS   X REL " + x);}
+                {emit("POS   X REL " + x);}
         |       ^(DISTANCE LEFT x=convertDistance)
-                {System.out.println("POS   Y REL " + (0d - x));}
+                {emit("POS   Y REL " + (0d - x));}
         |       ^(DISTANCE RIGHT x=convertDistance)
-                {System.out.println("POS   Y REL " + x);}
+                {emit("POS   Y REL " + x);}
         ;
 
 radius	:	^(RADIUS x=convertDistance)
-                {System.out.println("RAD " + x);}
+                {emit("RAD " + x);}
         ;
 
 speed	:	^(SPEED FIXED x=convertSpeed)
-                {System.out.println("SPD AIR FIX " + x);}
+                {emit("SPD AIR FIX " + x);}
         |       ^(SPEED OPTIMAL MINIMUM)
-                {System.out.println("SPD AIR OPT MIN");}
+                {emit("SPD AIR OPT MIN");}
         |       ^(SPEED OPTIMAL CRUISE)
-                {System.out.println("SPD AIR OPT CRU");}
+                {emit("SPD AIR OPT CRU");}
         |       ^(SPEED OPTIMAL MAXIMUM)
-                {System.out.println("SPD AIR OPT MAX");}
+                {emit("SPD AIR OPT MAX");}
         |       ^(SPEED THROTTLE y=convertThrottle)
-        	{System.out.println("ACT THR FIX " + y);}
+        	{emit("ACT THR FIX " + y);}
         ;
 
 turnDirection
 	:	^(DIRECTION TURN LEFT)
-                {System.out.println("DIR L");}
+                {emit("DIR L");}
 	|	^(DIRECTION TURN RIGHT)
-                {System.out.println("DIR R");}
+                {emit("DIR R");}
 	;
 
 loiterDirection
 	:	^(DIRECTION TURN CLOCKWISE)
-                {System.out.println("DIR CW");}
+                {emit("DIR CW");}
 	|	^(DIRECTION TURN COUNTERCLOCKWISE)
-                {System.out.println("DIR CCW");}
+                {emit("DIR CCW");}
 	;
 
 waypoint:	geo=geoCoordinate
-                {System.out.println("POS   X FIX " + geo.longitude);}
-                {System.out.println("POS   Y FIX " + geo.latitude);}
+                {emit("POS   X FIX " + geo.longitude);}
+                {emit("POS   Y FIX " + geo.latitude);}
 	|	^(WAYPOINT x=Identifier)
 	{
 Double[] coordinate = getWaypoint(x.getText());
 if (coordinate != null) {
-  System.out.println("POS   X FIX " + coordinate[1]);
-  System.out.println("POS   Y FIX " + coordinate[0]);
+  emit("POS   X FIX " + coordinate[1]);
+  emit("POS   Y FIX " + coordinate[0]);
 }
 else {
-  System.out.println("POS   X FIX " + x.getText());
-  System.out.println("POS   Y FIX " + x.getText());
+  emit("POS   X FIX " + x.getText());
+  emit("POS   Y FIX " + x.getText());
 }
 	}
         ;
