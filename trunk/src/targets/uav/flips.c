@@ -36,17 +36,33 @@ void ConfigureFLIPS() {
 }
 
 void FLIPSReceive(const uint_fast8_t instruction) {
-  if (instruction == 255) { // End of the program
-    FLIPSBuffer.Memory[++FLIPSBuffer.PC] = instruction; // Place the instruction into memory
-    FLIPSBuffer.Status = 1; // Indicate the buffer is ready for processing
+  if (instruction == 0xAA) { // Beginning of the program
+    FLIPSBuffer.PC = -1; // Reset the program counter
+    FLIPSBuffer.Status = 0; // Buffer is not ready for processing
+  }
+  else if (instruction == 0xCC) { // Found a reserved character
+    FLIPSBuffer.Status = 2; // Buffer is processing a reserved character
+  }
+  else if (FLIPSBuffer.Status == 2) { // Process the reserved character
+    if (instruction == 0x00) {
+      FLIPSBuffer.Memory[FLIPSBuffer.PC] = 0xAA; // Replace [0xCC 0x00] with [0xAA]
+    }
+    else if (instruction == 0x01) {
+      FLIPSBuffer.Memory[FLIPSBuffer.PC] = 0xCC; // Replace [0xCC 0x01] with [0xCC]
+    }
+    else if (instruction == 0x02) {
+      FLIPSBuffer.Memory[FLIPSBuffer.PC] = 0xFF; // Replace [0xCC 0x02] with [0xFF]
+    }
+    FLIPSBuffer.Status = 0; // Buffer is not ready for processing
+    return;
+  }
+  else if (instruction == 0xFF) { // End of the program
+    FLIPSBuffer.Status = 1; // Buffer is ready for processing
   }
   else {
-    if (instruction == 0) { // Beginning of the program
-      FLIPSBuffer.PC = -1; // Reset the program counter
-    }
-    FLIPSBuffer.Memory[++FLIPSBuffer.PC] = instruction; // Place the instruction into memory
-    FLIPSBuffer.Status = 0; // Indicate the buffer is not ready for processing
+    FLIPSBuffer.Status = 0; // Buffer is not ready for processing
   }
+  FLIPSBuffer.Memory[++FLIPSBuffer.PC] = instruction; // Place the instruction into memory
 }
 
 void FLIPSExecute() {
