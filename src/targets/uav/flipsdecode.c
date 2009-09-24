@@ -70,12 +70,12 @@ static void FLIPSDecode() {
     
     // RESERVED INSTRUCTIONS
     
-    case 0: // BEGIN PROGRAM
+    case 0xAA: // BEGIN PROGRAM
       printf("FLIPS: BEGIN PROGRAM\n");
       FLIPS.Status = 1; // Continue
       break;
       
-    case 255: // END PROGRAM
+    case 0xFF: // END PROGRAM
       printf("FLIPS: END PROGRAM\n");
       FLIPS.Status = 0; // Halt
       break;
