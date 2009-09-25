@@ -60,8 +60,7 @@ options {
       }
 
       public void emit(int instruction) {
-        output.putInt(instruction);
-        System.out.println(instruction + " = " + Integer.toHexString(instruction).toUpperCase());
+        emitByte(instruction);
       }
 
       public void emit(int instruction, double value) {
