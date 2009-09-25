@@ -68,7 +68,33 @@ options {
   }
 
   public void emit(String instruction) {
-    output.append(instruction + '\n');
+    output.append(instruction + "\n");
+  }
+
+  public void emit(String instruction, String comment) {
+    instruction = padRight(instruction, 25) + "// " + comment;
+    output.append(instruction + "\n");
+  }
+  
+  public static String padRight(String string, int count) {
+    return String.format("\%1$-" + count + "s", string);
+  }
+  
+  static String sToHHMMSS(double value) {
+    int hours = (int)value / 3600;
+    int remainder = (int)value \% 3600;
+    int minutes = remainder / 60;
+    int seconds = remainder \% 60;
+    int decimal = (int)Math.round((value - (int)value) * 1000f);
+    
+    return hours + ":" +
+           (minutes < 10 ? "0" : "") + minutes + ":" +
+           (seconds < 10 ? "0" : "") + seconds +
+           (decimal != 0 ? "." + decimal : "");
+  }
+  
+  public static String mToft(double meters) {
+    return meters + " m (" + (meters / 0.3048) + " ft) ";
   }
 }
 
@@ -105,19 +131,19 @@ postFlight
 // COMMAND EXPRESSIONS
 
 takeoff	:	^(TAKEOFF time? speed? altitude?)
-                {emit("TOF");}
+                {emit("TOF", "Execute Takeoff");}
         ;
 
 fly	:	^(FLY time? yaw? speed? distance? pitch? roll? duration? waypoint* altitude?)
-                {emit("FLY");}
+                {emit("FLY", "Execute");}
         ;
 
 loiter	:	^(LOITER time? speed? loiterDirection? radius? duration? waypoint* altitude?)
-                {emit("LTR");}
+                {emit("LTR", "Execute Loiter");}
         ;
 
 land	:	^(LAND time? speed?)
-                {emit("LND");}
+                {emit("LND", "Execute Landing");}
         ;
 
 action	:	^(ACTION x=Identifier)
@@ -128,7 +154,7 @@ if (value != null){
     runValue = value.toString();
 }
 
-emit("CMD " + runValue);
+emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
 	}
 	;
 
@@ -136,108 +162,112 @@ emit("CMD " + runValue);
 
 time	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
 		{x = (x == 43200d) ? 0d : x;}
-		{emit("TIM FIX " + (x + y + z));}
+		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + " AM) Time");}
 	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? PM)
 		{x = (x == 43200d) ? 0d : x;}
-		{emit("TIM FIX " + (x + y + z + 43200d));}
+		{emit("TIM FIX " + (x + y + z + 43200d), (x + y + z + 43200d) + " s (" + sToHHMMSS(x + y + z) + " PM) Time");}
 	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? HOUR24)
-		{emit("TIM FIX " + (x + y + z));}
+		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Time");}
 	;
 
 duration:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
-                {emit("TIM REL " + (x + y + z));}
+                {emit("TIM REL " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Duration");}
         ;
 
 pitch	:	^(PITCH x=convertAngle)
-                {emit("POS PIT FIX " + x);}
+                {emit("POS PIT FIX " + x, x + " deg Pitch");}
         ;
 
 roll	:	^(ROLL x=convertAngle)
-                {emit("POS ROL FIX " + x);}
+                {emit("POS ROL FIX " + x, x + " deg Roll");}
         ;
 
 yaw
 	:	^(DIRECTION FIXED x=convertCardinalDirection)
-                {emit("POS YAW FIX " + x);}
+                {emit("POS YAW FIX " + x, x + " deg Heading");}
 	|	^(DIRECTION FIXED x=convertOrdinalDirection)
-                {emit("POS YAW FIX " + x);}
+                {emit("POS YAW FIX " + x, x + " deg Heading");}
 	|	^(DIRECTION FIXED x=convertSubOrdinalDirection)
-                {emit("POS YAW FIX " + x);}
+                {emit("POS YAW FIX " + x, x + " deg Heading");}
 	|       ^(DIRECTION FIXED y=convertAngle)
-                {emit("POS YAW FIX " + y);}
+                {emit("POS YAW FIX " + y, y + " deg Heading");}
 	|       ^(DIRECTION RELATIVE LEFT y=convertAngle)
-                {emit("POS YAW REL " + -y);}
+                {emit("POS YAW REL " + -y, -y + " deg Yaw");}
 	|       ^(DIRECTION RELATIVE RIGHT y=convertAngle)
-                {emit("POS YAW REL " + y);}
+                {emit("POS YAW REL " + y, y + " deg Yaw");}
 	;
 
 altitude:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
-                {emit("POS   Z FIX " + -x);}
+                {emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
         |       ^(ALTITUDE FIXED PRESSURE y=convertPressure)
-                {emit("POS PRE FIX " + y);}
+                {emit("POS PRE FIX " + y, y + " kPa Pressure Altitude");}
 	|	^(ALTITUDE FIXED x=convertFlightLevel)
-		{emit("POS   Z FIX " + -x);}
+		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
         |       ^(ALTITUDE RELATIVE CLIMB DISTANCE x=convertDistance)
-                {emit("POS   Z REL " + -x);}
+                {emit("POS   Z REL " + -x, mToft(x) + "Relative Altitude");}
         |       ^(ALTITUDE RELATIVE CLIMB PRESSURE y=convertPressure)
-                {emit("POS PRE REL " + -y);}
+                {emit("POS PRE REL " + -y, -y + " kPa Relative Pressure Altitude");}
         |       ^(ALTITUDE RELATIVE DESCEND DISTANCE x=convertDistance)
-                {emit("POS   Z REL " + x);}
+                {emit("POS   Z REL " + x, mToft(-x) + "Relative Altitude");}
         |       ^(ALTITUDE RELATIVE DESCEND PRESSURE y=convertPressure)
-                {emit("POS PRE REL " + y);}
+                {emit("POS PRE REL " + y, y + " kPa Relative Pressure Altitude");}
         ;
 
 distance:	^(DISTANCE x=convertDistance)
-                {emit("POS   X REL " + x);}
+                {emit("POS   X REL " + x, mToft(x) + "Relative Distance");}
         |       ^(DISTANCE LEFT x=convertDistance)
-                {emit("POS   Y REL " + (0d - x));}
+                {emit("POS   Y REL " + -x, mToft(-x) + "Relative Left Distance");}
         |       ^(DISTANCE RIGHT x=convertDistance)
-                {emit("POS   Y REL " + x);}
+                {emit("POS   Y REL " + x, mToft(x) + "Relative Right Distance");}
         ;
 
 radius	:	^(RADIUS x=convertDistance)
-                {emit("RAD " + x);}
+                {emit("RAD " + x, mToft(x) + "Radius");}
         ;
 
 speed	:	^(SPEED FIXED x=convertSpeed)
-                {emit("SPD AIR FIX " + x);}
+                {emit("SPD AIR FIX " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Air Speed");}
         |       ^(SPEED OPTIMAL MINIMUM)
-                {emit("SPD AIR OPT MIN");}
+                {emit("SPD AIR OPT MIN", "Minimum Air Speed");}
         |       ^(SPEED OPTIMAL CRUISE)
-                {emit("SPD AIR OPT CRU");}
+                {emit("SPD AIR OPT CRU", "Cruise Air Speed");}
         |       ^(SPEED OPTIMAL MAXIMUM)
-                {emit("SPD AIR OPT MAX");}
+                {emit("SPD AIR OPT MAX", "Maximum Air Speed");}
         |       ^(SPEED THROTTLE y=convertThrottle)
-        	{emit("ACT THR FIX " + y);}
+        	{emit("ACT THR FIX " + y, y + "\% Throttle");}
         ;
 
 turnDirection
 	:	^(DIRECTION TURN LEFT)
-                {emit("DIR L");}
+                {emit("DIR L", "Left Turn Direction");}
 	|	^(DIRECTION TURN RIGHT)
-                {emit("DIR R");}
+                {emit("DIR R", "Right Turn Direction");}
 	;
 
 loiterDirection
 	:	^(DIRECTION TURN CLOCKWISE)
-                {emit("DIR CW");}
+                {emit("DIR CW", "Clockwise Loiter Direction");}
 	|	^(DIRECTION TURN COUNTERCLOCKWISE)
-                {emit("DIR CCW");}
+                {emit("DIR CCW", "Counterclockwise Loiter Direction");}
 	;
 
 waypoint:	geo=geoCoordinate
-                {emit("POS   X FIX " + geo.longitude);}
-                {emit("POS   Y FIX " + geo.latitude);}
+		{String ns = geo.latitude >= 0 ? "N" : "S";}
+		{String ew = geo.longitude >= 0 ? "E" : "W";}
+                {emit("POS   X FIX " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");}
+                {emit("POS   Y FIX " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");}
 	|	^(WAYPOINT x=Identifier)
 	{
 Double[] coordinate = getWaypoint(x.getText());
 if (coordinate != null) {
-  emit("POS   X FIX " + coordinate[1]);
-  emit("POS   Y FIX " + coordinate[0]);
+  String ns = coordinate[0] >= 0 ? "N" : "S";
+  String ew = coordinate[1] >= 0 ? "E" : "W";
+  emit("POS   X FIX " + coordinate[1], x.getText().toUpperCase() + " / " + Math.abs(coordinate[1]) + " " + ew + " Longitude");
+  emit("POS   Y FIX " + coordinate[0], x.getText().toUpperCase() + " / " + Math.abs(coordinate[0]) + " " + ns + " Latitude");
 }
 else {
-  emit("POS   X FIX " + x.getText());
-  emit("POS   Y FIX " + x.getText());
+  emit("POS   X FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
+  emit("POS   Y FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
 }
 	}
         ;
