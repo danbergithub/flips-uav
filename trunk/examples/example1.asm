@@ -1,53 +1,53 @@
-SPD AIR OPT MAX
-POS   Z FIX -60.96
-TOF
-POS YAW FIX 230.1
-TIM REL 60.0
-FLY
-SPD AIR FIX 11.176
-POS   X FIX -84.0252
-POS   Y FIX 35.8962
-FLY
-DIR CW
-RAD 30.48
-TIM REL 30.0
-POS   X FIX -84.0985
-POS   Y FIX 34.2623
-LTR
-POS YAW FIX 90.0
-SPD AIR OPT CRU
-TIM REL 180.0
-FLY
-POS PIT FIX 10.0
-POS ROL FIX 20.0
-TIM REL 45.0
-FLY
-SPD AIR FIX 8.180832
-POS   X FIX -84.2522
-POS   Y FIX 36.9852
-FLY
-SPD AIR FIX 8.9408
-POS   X FIX -84.25
-POS   Y FIX 34.59
-POS   X FIX -84.95
-POS   Y FIX 34.52
-POS   X FIX -84.89
-POS   Y FIX 34.252
-FLY
-POS   Z FIX -60.96
-FLY
-SPD AIR FIX 6.7056
-POS   X FIX -84.0252
-POS   Y FIX 35.8962
-FLY
-SPD AIR FIX 10.0
-POS PIT FIX 10.0
-POS ROL FIX 5.0
-TIM REL 3600.0
-POS   Z FIX -9.144
-FLY
-TIM REL 120.0
-POS   Z FIX -35.052
-LTR
-SPD AIR OPT MIN
-LND
+SPD AIR OPT MAX          // Maximum Air Speed
+POS   Z FIX -60.96       // 60.96 m (200.0 ft) Altitude
+TOF                      // Execute Takeoff
+POS YAW FIX 230.1        // 230.1 deg Heading
+TIM REL 60.0             // 60.0 s (0:01:00) Duration
+FLY                      // Execute
+SPD AIR FIX 11.176       // 11.176 m/s (25.0 mph) Air Speed
+POS   X FIX -84.0252     // 84.0252 W Longitude
+POS   Y FIX 35.8962      // 35.8962 N Latitude
+FLY                      // Execute
+DIR CW                   // Clockwise Loiter Direction
+RAD 30.48                // 30.48 m (100.0 ft) Radius
+TIM REL 30.0             // 30.0 s (0:00:30) Duration
+POS   X FIX -84.0985     // 84.0985 W Longitude
+POS   Y FIX 34.2623      // 34.2623 N Latitude
+LTR                      // Execute Loiter
+POS YAW FIX 90.0         // 90.0 deg Heading
+SPD AIR OPT CRU          // Cruise Air Speed
+TIM REL 180.0            // 180.0 s (0:03:00) Duration
+FLY                      // Execute
+POS PIT FIX 10.0         // 10.0 deg Pitch
+POS ROL FIX 20.0         // 20.0 deg Roll
+TIM REL 45.0             // 45.0 s (0:00:45) Duration
+FLY                      // Execute
+SPD AIR FIX 8.180832     // 8.180832 m/s (18.3 mph) Air Speed
+POS   X FIX -84.2522     // 84.2522 W Longitude
+POS   Y FIX 36.9852      // 36.9852 N Latitude
+FLY                      // Execute
+SPD AIR FIX 8.9408       // 8.9408 m/s (20.0 mph) Air Speed
+POS   X FIX -84.25       // 84.25 W Longitude
+POS   Y FIX 34.59        // 34.59 N Latitude
+POS   X FIX -84.95       // 84.95 W Longitude
+POS   Y FIX 34.52        // 34.52 N Latitude
+POS   X FIX -84.89       // 84.89 W Longitude
+POS   Y FIX 34.252       // 34.252 N Latitude
+FLY                      // Execute
+POS   Z FIX -60.96       // 60.96 m (200.0 ft) Altitude
+FLY                      // Execute
+SPD AIR FIX 6.7056       // 6.7056 m/s (15.0 mph) Air Speed
+POS   X FIX -84.0252     // HOME / 84.0252 W Longitude
+POS   Y FIX 35.8962      // HOME / 35.8962 N Latitude
+FLY                      // Execute
+SPD AIR FIX 10.0         // 10.0 m/s (22.37 mph) Air Speed
+POS PIT FIX 10.0         // 10.0 deg Pitch
+POS ROL FIX 5.0          // 5.0 deg Roll
+TIM REL 3600.0           // 3600.0 s (1:00:00) Duration
+POS   Z FIX -9.144       // 9.144 m (30.0 ft) Altitude
+FLY                      // Execute
+TIM REL 120.0            // 120.0 s (0:02:00) Duration
+POS   Z FIX -35.052      // 35.052 m (115.0 ft) Altitude
+LTR                      // Execute Loiter
+SPD AIR OPT MIN          // Minimum Air Speed
+LND                      // Execute Landing
