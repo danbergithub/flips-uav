@@ -95,7 +95,7 @@ static void FLIPSDecode() {
       break;
       
     case 92: { // CMD value
-      uint_fast8_t command = FLIPSLoadUInt8();
+      uint_fast16_t command = FLIPSLoadUInt16();
       printf("CMD %d\n", command);
       
       // Command Decode
