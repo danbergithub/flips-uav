@@ -56,9 +56,9 @@ void FLIPSExecute();
 static void FLIPSDecode();
 static uint_fast8_t FLIPSChecksumValid();
 
-static uint_fast32_t FLIPSLoadUInt32();
-static uint_fast16_t FLIPSLoadUInt16();
-static uint_fast8_t FLIPSLoadUInt8();
-static float FLIPSLoadFloat();
+extern uint_fast32_t FLIPSLoadUInt32();
+extern uint_fast16_t FLIPSLoadUInt16();
+extern uint_fast8_t FLIPSLoadUInt8();
+extern float FLIPSLoadFloat();
 
 #endif

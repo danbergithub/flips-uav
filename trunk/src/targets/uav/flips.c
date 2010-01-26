@@ -98,7 +98,7 @@ static uint_fast8_t FLIPSChecksumValid() {
   return 1;
 }
 
-static uint_fast32_t FLIPSLoadUInt32() {
+extern uint_fast32_t FLIPSLoadUInt32() {
   uint_fast32_t value = 0;
   
   value |= FLIPS.Memory[++FLIPS.PC] << 24;
@@ -109,7 +109,7 @@ static uint_fast32_t FLIPSLoadUInt32() {
   return value;
 }
 
-static uint_fast16_t FLIPSLoadUInt16() {
+extern uint_fast16_t FLIPSLoadUInt16() {
   uint_fast16_t value = 0;
   
   value |= FLIPS.Memory[++FLIPS.PC] << 8;
@@ -118,7 +118,7 @@ static uint_fast16_t FLIPSLoadUInt16() {
   return value;
 }
 
-static uint_fast8_t FLIPSLoadUInt8() {
+extern uint_fast8_t FLIPSLoadUInt8() {
   uint_fast8_t value = 0;
   
   value |= FLIPS.Memory[++FLIPS.PC];
@@ -126,7 +126,7 @@ static uint_fast8_t FLIPSLoadUInt8() {
   return value;
 }
 
-static float FLIPSLoadFloat() {
+extern float FLIPSLoadFloat() {
   uint_fast32_t value = FLIPSLoadUInt32();
   
   return *(float*)&value;
