@@ -33,6 +33,8 @@ void ConfigureFLIPS() {
   FLIPSBuffer.Memory = FLIPSMemory[1]; // Assign buffer memory
   FLIPS.PC = -1; // Reset the program counter
   FLIPSBuffer.PC = -1; // Reset the program counter
+  FLIPS.Status = 0; // Halt
+  FLIPSBuffer.Status = 0; // Buffer is not ready for processing
 }
 
 void FLIPSReceive(const uint_fast8_t instruction) {
@@ -80,14 +82,16 @@ void FLIPSExecute() {
         FLIPSBuffer.Memory = FLIPSMemory[1];
       }
       FLIPS.PC = -1; // Reset the program counter
+      FLIPS.Status = 0; // Halt
+      FLIPS.IR = FLIPS.Memory[++FLIPS.PC]; // Instruction Fetch
+      FLIPSDecode(); // Instruction Decode
     }
   }
   
-  do {
+  while (FLIPS.Status == 1) { // Continue
     FLIPS.IR = FLIPS.Memory[++FLIPS.PC]; // Instruction Fetch
     FLIPSDecode(); // Instruction Decode
   }
-  while (FLIPS.Status == 1); // Continue
 }
 
 static uint_fast8_t FLIPSChecksumValid() {
