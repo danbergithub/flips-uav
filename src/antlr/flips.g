@@ -218,14 +218,16 @@ actionParameters
 
 // ATTITUDE EXPRESSIONS
 
-pitch	:	('pit'|'pitch') angularValue
-	->      ^(PITCH angularValue)
+pitch
+	:	('pit'|'pitch') angularValue
+	->	^(PITCH angularValue)
 	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValue
 	->	^(PITCH angularValue)
 	;
 
-roll	:	('rol'|'roll') angularValue
-	->      ^(ROLL angularValue)
+roll
+	:	('rol'|'roll') angularValue
+	->	^(ROLL angularValue)
 	;
 
 // ALTITUDE EXPRESSIONS
@@ -247,9 +249,9 @@ relativeAltitude
 
 altitudeValue
 	:	distanceValue
-        ->      DISTANCE distanceValue
-	|       pressureValue
-	->      PRESSURE pressureValue
+	->	DISTANCE distanceValue
+	|	pressureValue
+	->	PRESSURE pressureValue
 	|	FlightLevel
 	->	FLIGHTLEVEL FlightLevel
 	;
@@ -260,27 +262,29 @@ pressureValue
 
 pressureUnit
 	:	('kpa'|'kilopascal'|'kilopascals')
-	->      KILOPASCAL
-	|       ('hpa'|'hectopascal'|'hectopascals')
-	->      HECTOPASCAL
-	|       ('pa'|'pascal'|'pascals')
-	->      PASCAL
-	|       ('bar'|'bars')
-	->      BAR
-	|       ('mbar'|'millibar'|'millibars')
-	->      MILLIBAR
-	|       ('atm'|'atms'|'atmosphere'|'atmospheres')
-	->      ATMOSPHERE
+	->	KILOPASCAL
+	|	('hpa'|'hectopascal'|'hectopascals')
+	->	HECTOPASCAL
+	|	('pa'|'pascal'|'pascals')
+	->	PASCAL
+	|	('bar'|'bars')
+	->	BAR
+	|	('mbar'|'millibar'|'millibars')
+	->	MILLIBAR
+	|	('atm'|'atms'|'atmosphere'|'atmospheres')
+	->	ATMOSPHERE
 	;
 
 // DISTANCE EXPRESSIONS
 
-radius	:	('in'|With)? 'a'? ('radius' 'of'? distanceValue|distanceValue 'radius')
-	->      ^(RADIUS distanceValue)
+radius
+	:	('in'|With)? 'a'? ('radius' 'of'? distanceValue|distanceValue 'radius')
+	->	^(RADIUS distanceValue)
 	;
 
-distance:	leftRightDirection? distanceValue
-	->      ^(DISTANCE leftRightDirection? distanceValue)
+distance
+	:	leftRightDirection? distanceValue
+	->	^(DISTANCE leftRightDirection? distanceValue)
 	;
 
 distanceValue
@@ -289,17 +293,17 @@ distanceValue
 
 distanceUnit
 	:	('km'|'kilometer'|'kilometers')
-	->      KILOMETER
-	|       ('m'|'meter'|'meters')
-	->      METER
+	->	KILOMETER
+	|	('m'|'meter'|'meters')
+	->	METER
 	|	('nm'|'nautical' ('mi'|'mile'|'miles'))
 	->	NAUTICAL MILE
-	|       ('statute')? ('mi'|'mile'|'miles')
-	->      MILE
-	|       ('yd'|'yard'|'yards')
-	->      YARD
-	|       ('ft'|'foot'|'feet')
-	->      FOOT
+	|	('statute')? ('mi'|'mile'|'miles')
+	->	MILE
+	|	('yd'|'yard'|'yards')
+	->	YARD
+	|	('ft'|'foot'|'feet')
+	->	FOOT
 	;
 
 // SPEED EXPRESSIONS
@@ -391,20 +395,24 @@ timeUnit:	hour
 	|	second
 	;
 
-hour	:	('h'|'hr'|'hrs'|'hour'|'hours')
-        ->      HOUR
-        ;
+hour
+	:	('h'|'hr'|'hrs'|'hour'|'hours')
+	->	HOUR
+	;
 
-minute	:	('min'|'mins'|'minute'|'minutes')
-        ->      MINUTE
-        ;
+minute
+	:	('min'|'mins'|'minute'|'minutes')
+	->	MINUTE
+	;
 
-second	:	('s'|'sec'|'secs'|'second'|'seconds')
-        ->      SECOND
-        ;
+second
+	:	('s'|'sec'|'secs'|'second'|'seconds')
+	->	SECOND
+	;
 
-duration:	'for' durationValue
-	->      ^(DURATION durationValue)
+duration
+	:	'for' durationValue
+	->	^(DURATION durationValue)
 	;
 
 durationValue
@@ -419,25 +427,25 @@ durationValue
 
 direction
 	:	fixedDirection
-	->      ^(DIRECTION FIXED fixedDirection)
-	|       relativeDirection
-	->      ^(DIRECTION RELATIVE relativeDirection)
+	->	^(DIRECTION FIXED fixedDirection)
+	|	relativeDirection
+	->	^(DIRECTION RELATIVE relativeDirection)
 	;
 
 fixedDirection
 	:	cardinalDirection
-	->      cardinalDirection
+	->	cardinalDirection
 	|	ordinalDirection
 	->	ordinalDirection
 	|	subOrdinalDirection
 	->	subOrdinalDirection
-	|       (Turning|Heading) (cardinalDirection|ordinalDirection|subOrdinalDirection|angularValue)
-	->      cardinalDirection? ordinalDirection? subOrdinalDirection? angularValue?
+	|	(Turning|Heading) (cardinalDirection|ordinalDirection|subOrdinalDirection|angularValue)
+	->	cardinalDirection? ordinalDirection? subOrdinalDirection? angularValue?
 	;
 
 relativeDirection
-	:       (Turning|Heading) leftRightDirection angularValue
-	->      leftRightDirection angularValue
+	:	(Turning|Heading) leftRightDirection angularValue
+	->	leftRightDirection angularValue
 	;
 
 cardinalDirection
@@ -447,16 +455,16 @@ cardinalDirection
 
 northSouthDirection
 	:	('n'|'north')
-	->      NORTH
-	|       ('s'|'south')
-	->      SOUTH
+	->	NORTH
+	|	('s'|'south')
+	->	SOUTH
 	;
 
 eastWestDirection
 	:	('e'|'east')
-	->     	EAST
-	|       ('w'|'west')
-	->      WEST
+	->	EAST
+	|	('w'|'west')
+	->	WEST
 	;
 
 ordinalDirection
@@ -491,28 +499,28 @@ subOrdinalDirection
 
 loiterDirection
 	:	Turning? clockDirection
-	->      ^(DIRECTION TURN clockDirection)
+	->	^(DIRECTION TURN clockDirection)
 	;
 
 upDownDirection
 	:	('u'|'up'|'c'|'climb'|'climbing'|'ascend'|'ascending')
-	->      CLIMB
-	|       ('d'|'down'|'descend'|'descending')
-	->      DESCEND
+	->	CLIMB
+	|	('d'|'down'|'descend'|'descending')
+	->	DESCEND
 	;
 
 leftRightDirection
 	:	('l'|'left'|'port')
-	->      LEFT
-	|       ('r'|'right'|'starboard')
-	->      RIGHT
+	->	LEFT
+	|	('r'|'right'|'starboard')
+	->	RIGHT
 	;
 
 clockDirection
 	:	('cw'|'clockwise')
-	->      CLOCKWISE
-	|       ('ccw'|'counterclockwise')
-	->      COUNTERCLOCKWISE
+	->	CLOCKWISE
+	|	('ccw'|'counterclockwise')
+	->	COUNTERCLOCKWISE
 	;
 
 angularValue
@@ -526,21 +534,22 @@ angularValue
 
 // WAYPOINT EXPRESSIONS
 
-waypoint:	'to' waypointValue
-	->      waypointValue
+waypoint
+	:	'to' waypointValue
+	->	waypointValue
 	;
 
 waypointValue
 	:	geoCoordinate
-        ->      geoCoordinate
-        |	Identifier
-        ->	^(WAYPOINT Identifier)
-        ;
+	->	geoCoordinate
+	|	Identifier
+	->	^(WAYPOINT Identifier)
+	;
 
 geoCoordinate
 	:	latitudeLongitude
-        ->      ^(GEOCOORDINATE latitudeLongitude)
-        ;
+	->	^(GEOCOORDINATE latitudeLongitude)
+	;
 
 latitudeLongitude
 	:	x=latitudeLongitudeValue northSouthDirection ','? y=latitudeLongitudeValue eastWestDirection
@@ -583,24 +592,24 @@ percentValue
 // RELATIONAL OPERATOR EXPRESSIONS
 /*
 relationCommand
-	:       'is'? relationalOp (time|distance|pressure|speed|optimalSpeed|throttleSpeed|cardinalDirection|angle);
+	:	'is'? relationalOp (time|distance|pressure|speed|optimalSpeed|throttleSpeed|cardinalDirection|angle);
 
 // RELATIONAL OPERATOR TOKENS
 
 relationalOp
 	:	('=='|'eq')
-        ->      EQ
-        |	('!='|'ne')
-        ->	NE
-        |       ('<'|'lt')
-        ->      LT
-        |       ('>'|'gt')
-        ->      GT
-        |       ('<='|'le')
-        ->      LE
-        |       ('>='|'ge')
-        ->      GE
-        ;
+	->	EQ
+	|	('!='|'ne')
+	->	NE
+	|	('<'|'lt')
+	->	LT
+	|	('>'|'gt')
+	->	GT
+	|	('<='|'le')
+	->	LE
+	|	('>='|'ge')
+	->	GE
+	;
 */
 
 // LEXER
@@ -626,7 +635,7 @@ Identifier
 	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
 
 StringLiteral
-	:  '"' (~('"'))* '"';
+	:	'"' (~('"'))* '"';
 
 // NUMERIC TOKENS
 
@@ -658,8 +667,8 @@ HexLiteral
 
 FloatingPointLiteral
 	:	Digit+ '.' Digit* Exponent?
-        |       '.' Digit+ Exponent?
-        |	Digit+ Exponent
+	|	'.' Digit+ Exponent?
+	|	Digit+ Exponent
 	;
 
 fragment
