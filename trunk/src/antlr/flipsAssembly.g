@@ -160,20 +160,6 @@ emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
 
 // CONTROL EXPRESSIONS
 
-time	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
-		{x = (x == 43200d) ? 0d : x;}
-		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + " AM) Time");}
-	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? PM)
-		{x = (x == 43200d) ? 0d : x;}
-		{emit("TIM FIX " + (x + y + z + 43200d), (x + y + z + 43200d) + " s (" + sToHHMMSS(x + y + z) + " PM) Time");}
-	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? HOUR24)
-		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Time");}
-	;
-
-duration:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
-                {emit("TIM REL " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Duration");}
-        ;
-
 pitch	:	^(PITCH x=convertAngle)
                 {emit("POS PIT FIX " + x, x + " deg Pitch");}
         ;
@@ -243,6 +229,24 @@ speed	:	^(SPEED FIXED x=convertSpeed)
 		{emit("ACT THR FIX " + y, y + "\% Throttle");}
 	;
 
+// TIME EXPRESSIONS
+
+time	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
+		{x = (x == 43200d) ? 0d : x;}
+		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + " AM) Time");}
+	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? PM)
+		{x = (x == 43200d) ? 0d : x;}
+		{emit("TIM FIX " + (x + y + z + 43200d), (x + y + z + 43200d) + " s (" + sToHHMMSS(x + y + z) + " PM) Time");}
+	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? HOUR24)
+		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Time");}
+	;
+
+duration:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
+                {emit("TIM REL " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Duration");}
+        ;
+
+// DIRECTION EXPRESSIONS
+
 turnDirection
 	:	^(DIRECTION TURN LEFT)
                 {emit("DIR L", "Left Turn Direction");}
@@ -256,6 +260,8 @@ loiterDirection
 	|	^(DIRECTION TURN COUNTERCLOCKWISE)
                 {emit("DIR CCW", "Counterclockwise Loiter Direction");}
 	;
+
+// WAYPOINT EXPRESSIONS
 
 waypoint:	geo=geoCoordinate
 		{String ns = geo.latitude >= 0 ? "N" : "S";}
