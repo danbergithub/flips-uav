@@ -1,0 +1,1 @@
+javac -classpath java/lib/antlr-3.2.jar java/flipsLexer.java java/flipsParser.java java/flipsAssembly.java java/flipsCompiler.java -d java/classes -verbose
