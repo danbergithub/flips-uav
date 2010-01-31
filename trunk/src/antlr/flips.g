@@ -230,18 +230,19 @@ roll	:	('rol'|'roll'|'rolling') angularValue
 
 // ALTITUDE EXPRESSIONS
 
-altitude:	(fixedAltitude|relativeAltitude)
-	->      ^(ALTITUDE fixedAltitude? relativeAltitude?)
+altitude
+	:	fixedAltitude
+	|	relativeAltitude
 	;
 
 fixedAltitude
 	:	(upDownDirection? 'to'|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
-	->      FIXED altitudeValue
+	->	^(ALTITUDE FIXED altitudeValue)
 	;
 
 relativeAltitude
 	:	upDownDirection altitudeValue
-	->      RELATIVE upDownDirection altitudeValue
+	->	^(ALTITUDE RELATIVE upDownDirection altitudeValue)
 	;
 
 altitudeValue
@@ -328,7 +329,7 @@ relativeSpeed
 
 speedValue
 	:	numericValue speedUnit
-        ;
+	;
 
 speedUnit
 	:	'kph'
