@@ -134,7 +134,7 @@ takeoff	:	^(TAKEOFF time? speed? altitude?)
                 {emit("TOF", "Execute Takeoff");}
         ;
 
-fly	:	^(FLY time? yaw? speed? distance? pitch? roll? duration? waypoint* altitude?)
+fly	:	^(FLY time? direction? speed? distance? pitch? roll? duration? waypoint* altitude?)
                 {emit("FLY", "Execute");}
         ;
 
@@ -158,7 +158,7 @@ emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
 	}
 	;
 
-// CONTROL EXPRESSIONS
+// ATTITUDE EXPRESSIONS
 
 pitch	:	^(PITCH x=convertAngle)
                 {emit("POS PIT FIX " + x, x + " deg Pitch");}
@@ -168,20 +168,7 @@ roll	:	^(ROLL x=convertAngle)
                 {emit("POS ROL FIX " + x, x + " deg Roll");}
         ;
 
-yaw
-	:	^(DIRECTION FIXED x=convertCardinalDirection)
-                {emit("POS YAW FIX " + x, x + " deg Heading");}
-	|	^(DIRECTION FIXED x=convertOrdinalDirection)
-                {emit("POS YAW FIX " + x, x + " deg Heading");}
-	|	^(DIRECTION FIXED x=convertSubOrdinalDirection)
-                {emit("POS YAW FIX " + x, x + " deg Heading");}
-	|       ^(DIRECTION FIXED y=convertAngle)
-                {emit("POS YAW FIX " + y, y + " deg Heading");}
-	|       ^(DIRECTION RELATIVE LEFT y=convertAngle)
-                {emit("POS YAW REL " + -y, -y + " deg Yaw");}
-	|       ^(DIRECTION RELATIVE RIGHT y=convertAngle)
-                {emit("POS YAW REL " + y, y + " deg Yaw");}
-	;
+// ALTITUDE EXPRESSIONS
 
 altitude:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
                 {emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
@@ -199,6 +186,8 @@ altitude:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
                 {emit("POS PRE REL " + y, y + " kPa Relative Pressure Altitude");}
         ;
 
+// DISTANCE EXPRESSIONS
+
 distance:	^(DISTANCE x=convertDistance)
                 {emit("POS   X REL " + x, mToft(x) + "Relative Distance");}
         |       ^(DISTANCE LEFT x=convertDistance)
@@ -210,6 +199,8 @@ distance:	^(DISTANCE x=convertDistance)
 radius	:	^(RADIUS x=convertDistance)
                 {emit("RAD " + x, mToft(x) + "Radius");}
         ;
+
+// SPEED EXPRESSIONS
 
 speed	:	^(SPEED FIXED x=convertSpeed)
 		{emit("SPD AIR FIX " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Air Speed");}
@@ -246,6 +237,21 @@ duration:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
         ;
 
 // DIRECTION EXPRESSIONS
+
+direction
+	:	^(DIRECTION FIXED x=convertCardinalDirection)
+                {emit("POS YAW FIX " + x, x + " deg Heading");}
+	|	^(DIRECTION FIXED x=convertOrdinalDirection)
+                {emit("POS YAW FIX " + x, x + " deg Heading");}
+	|	^(DIRECTION FIXED x=convertSubOrdinalDirection)
+                {emit("POS YAW FIX " + x, x + " deg Heading");}
+	|       ^(DIRECTION FIXED y=convertAngle)
+                {emit("POS YAW FIX " + y, y + " deg Heading");}
+	|       ^(DIRECTION RELATIVE LEFT y=convertAngle)
+                {emit("POS YAW REL " + -y, -y + " deg Yaw");}
+	|       ^(DIRECTION RELATIVE RIGHT y=convertAngle)
+                {emit("POS YAW REL " + y, y + " deg Yaw");}
+	;
 
 turnDirection
 	:	^(DIRECTION TURN LEFT)
