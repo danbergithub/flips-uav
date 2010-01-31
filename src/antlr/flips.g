@@ -158,7 +158,8 @@ flyCommandValue
 	|	pitch
 	|	roll
 	|	duration
-	|	To waypoint
+	|	To waypoint (('and'|',' 'and'?) waypoint)*
+	->	waypoint+
 	|	altitude
 	;
 
@@ -183,6 +184,7 @@ loiterCommandValue
 	|	radius
 	|	duration
 	|	At waypoint
+	->	waypoint
 	|	altitude
 	;
 
