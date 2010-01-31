@@ -3,25 +3,23 @@ define waypoint
    Boyd = 84.234n 98.843w
    Home = 84.523n 98.823w
 
-define action
-   TakePicture = 0x01
-   DeployParachute = 0b10
+define command
+   TakeAPicture = 0x01
+   DeployTheParachute = 0b10
 
 takeoff
-   to 1.00e+02 feet
-   at full throttle
 
 fly
-  to 78.754n 32.463w
-  for 1 hour 12 sec
+   to 78.754n 32.463w
+   for 1 hour 12 sec
 
 fly
-  to 78.754 -32.463
-  for 1:00:12
+   to 78.754 -32.463
+   for 1:00:12
 
 fly
-  to 78¡ 30' n 32¡ 45' w
-  for 3612s
+// to 78Â° 30' n 32Â° 45' w
+   for 3612s
 
 fly
    ssw
@@ -39,27 +37,24 @@ fly
    at max speed
    at fl250
 
-action
-   TakePicture
+TakeAPicture
 
 fly
    to Boyd
    at 75.3% throttle
 
-action
-   TakePicture
+TakeAPicture
 
 loiter
    clockwise
    at 15mph
    for 37 seconds
 
-return to Home
+go to Home
 
 fly
-   with no power
+   at 0 percent power
 
-action
-   DeployParachute
+DeployTheParachute
 
-land at 3pm
+land
