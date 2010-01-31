@@ -160,8 +160,8 @@ takeoffCommand
 	;
 
 takeoffParameters
-	:	(time|speedCommand|altitudeCommand)*
-	->      time* speedCommand* altitudeCommand*
+	:	(time|speedCommand|altitude)*
+	->      time* speedCommand* altitude*
 	;
 
 flyCommand
@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(time|direction|speedCommand|distance|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
-	->      time* direction* speedCommand* distance* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
+	:	(time|direction|speedCommand|distance|pitchCommand|rollCommand|duration|waypoint|altitude)*
+	->      time* direction* speedCommand* distance* pitchCommand* rollCommand* duration* waypoint* altitude*
 	;
 
 turnCommand
@@ -190,8 +190,8 @@ loiterCommand
 	;
 
 loiterParameters
-	:	(time|speedCommand|loiterDirection|radius|duration|waypoint|altitudeCommand)*
-	->      time* speedCommand* loiterDirection* radius* duration* waypoint* altitudeCommand*
+	:	(time|speedCommand|loiterDirection|radius|duration|waypoint|altitude)*
+	->      time* speedCommand* loiterDirection* radius* duration* waypoint* altitude*
 	;
 
 landCommand
@@ -230,8 +230,7 @@ rollCommand
 
 // ALTITUDE EXPRESSIONS
 
-altitudeCommand
-	:	(fixedAltitude|relativeAltitude)
+altitude:	(fixedAltitude|relativeAltitude)
 	->      ^(ALTITUDE fixedAltitude? relativeAltitude?)
 	;
 
@@ -243,16 +242,17 @@ altitudeDirection
 	;
 
 fixedAltitude
-	:	(altitudeDirection? 'to'|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitude
-	->      FIXED altitude
+	:	(altitudeDirection? 'to'|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
+	->      FIXED altitudeValue
 	;
 
 relativeAltitude
-	:	altitudeDirection altitude
-	->      RELATIVE altitudeDirection altitude
+	:	altitudeDirection altitudeValue
+	->      RELATIVE altitudeDirection altitudeValue
 	;
 
-altitude:	distanceValue
+altitudeValue
+	:	distanceValue
         ->      DISTANCE distanceValue
 	|       pressureValue
 	->      PRESSURE pressureValue
