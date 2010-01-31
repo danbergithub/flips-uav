@@ -148,7 +148,7 @@ preFlightCommand
 inFlightCommand
 	:	flyCommand
 	|	turnCommand
-	|       loiterCommand
+	|	loiterCommand
 	|	actionCommand
 	;
 
@@ -157,21 +157,21 @@ postFlightCommand
 
 conjunction
 	:	('then'|'next'|'and'|'finally'|'continue'|'while'|'before'|','|'.')
-	->      // No AST output.
+	->	// No AST output.
 	;
 
 takeoffCommand
 	:	('tof'|'takeoff') takeoffParameters
-	->      ^(TAKEOFF takeoffParameters)
+	->	^(TAKEOFF takeoffParameters)
 	;
 
 takeoffParameters
 	:	(time|speed|altitude)*
-	->      time* speed* altitude*
+	->	time* speed* altitude*
 	;
 
 flyCommand
-        :	('fly'|'go') flyCommandValue*
+	:	('fly'|'go') flyCommandValue*
 	->	^(FLY flyCommandValue*)
 	;
 
@@ -213,12 +213,12 @@ loiterCommandValue
 
 landCommand
 	:	('lnd'|'land'|'landing') landParameters
-	->      ^(LAND landParameters)
+	->	^(LAND landParameters)
 	;
 
 landParameters
 	:	(time|speed)*
-	->      time* speed*
+	->	time* speed*
 	;
 
 actionCommand
