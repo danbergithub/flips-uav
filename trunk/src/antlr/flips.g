@@ -160,8 +160,8 @@ takeoffCommand
 	;
 
 takeoffParameters
-	:	(timeCommand|speedCommand|altitudeCommand)*
-	->      timeCommand* speedCommand* altitudeCommand*
+	:	(time|speedCommand|altitudeCommand)*
+	->      time* speedCommand* altitudeCommand*
 	;
 
 flyCommand
@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(timeCommand|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
-	->      timeCommand* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
+	:	(time|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
+	->      time* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
 	;
 
 turnCommand
@@ -190,8 +190,8 @@ loiterCommand
 	;
 
 loiterParameters
-	:	(timeCommand|speedCommand|loiterDirection|radiusCommand|duration|waypoint|altitudeCommand)*
-	->      timeCommand* speedCommand* loiterDirection* radiusCommand* duration* waypoint* altitudeCommand*
+	:	(time|speedCommand|loiterDirection|radiusCommand|duration|waypoint|altitudeCommand)*
+	->      time* speedCommand* loiterDirection* radiusCommand* duration* waypoint* altitudeCommand*
 	;
 
 landCommand
@@ -200,8 +200,8 @@ landCommand
 	;
 
 landParameters
-	:	(timeCommand|speedCommand)*
-	->      timeCommand* speedCommand*
+	:	(time|speedCommand)*
+	->      time* speedCommand*
 	;
 
 actionCommand
@@ -354,8 +354,7 @@ throttleValue
 
 // TIME EXPRESSIONS
 
-timeCommand
-	:	At timeFormat ('am'|'a.m.')
+time	:	At timeFormat ('am'|'a.m.')
 	->	^(TIME timeFormat AM)
 	|	At integerValue ('am'|'a.m.')
 	->	^(TIME integerValue HOUR AM)
