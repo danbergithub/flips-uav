@@ -1,11 +1,11 @@
-define waypoint
+define waypoints
    SanfordStadium = 84.324n 98.433w
    Boyd = 84.234n 98.843w
    Home = 84.523n 98.823w
 
-define command
-   TakeAPicture = 0x01
-   DeployTheParachute = 0b10
+define commands
+   TakeAPicture = 0x01       // Command 1
+   DeployTheParachute = 0b10 // Command 2
 
 takeoff
 
@@ -58,3 +58,21 @@ fly
 DeployTheParachute
 
 land
+
+/* A condensed version of this mission, exactly as above
+takeoff
+fly to 78.754n 32.463w for 1 hour 12 sec
+fly to 78.754 -32.463 for 1:00:12
+fly to 78° 30' n 32° 45' w for 3612s
+fly ssw at 7.3m/s for 3 min
+fly heading 242 deg at cruise speed for 10 minutes descending 50 ft
+fly to SanfordStadium at max speed at fl250
+TakeAPicture
+fly to Boyd at 75.3% throttle
+TakeAPicture
+loiter clockwise at 15mph for 37 seconds
+go to Home
+fly at 0 percent power
+DeployTheParachute
+land
+*/
