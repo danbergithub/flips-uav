@@ -506,8 +506,8 @@ angularValue
 
 // WAYPOINT EXPRESSIONS
 
-waypoint:	('and'|',')* (At|'to')? ('the'? Waypoint)? waypointValue
-	->      waypointValue+
+waypoint:	'to' waypointValue
+	->      waypointValue
 	;
 
 waypointValue
