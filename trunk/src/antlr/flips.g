@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(time|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
-	->      time* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
+	:	(time|direction|speedCommand|distanceCommand|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
+	->      time* direction* speedCommand* distanceCommand* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
 	;
 
 turnCommand
@@ -180,8 +180,8 @@ turnCommand
 	;
 
 turnParameters
-	:	directionCommand
-	->	directionCommand*
+	:	direction
+	->	direction*
 	;
 
 loiterCommand
@@ -401,7 +401,7 @@ durationValue
 
 // DIRECTION EXPRESSIONS
 
-directionCommand
+direction
 	:	fixedDirection
 	->      ^(DIRECTION FIXED fixedDirection)
 	|       relativeDirection
