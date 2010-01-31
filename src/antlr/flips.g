@@ -106,34 +106,38 @@ tokens {
 }
 
 flightPlan
-	:	defineCommands flightCommands
-	->      ^(FLIGHTPLAN defineCommands? flightCommands?)
+	:	define* flightCommands
+	->	^(FLIGHTPLAN define* flightCommands?)
 	;
 
-defineCommands
-	:	(defineWaypointCommand|defineActionCommand)*
-	->	defineWaypointCommand* defineActionCommand*
+// DEFINITIONS
+
+define
+	:	defineWaypoint
+	|	defineAction
 	;
 
-defineWaypointCommand
-	:	('def'|'define') ('wpt'|'waypoint'|'waypoints') defineWaypointParameters
-	->	defineWaypointParameters
+defineWaypoint
+	:	('def'|'define') ('wpt'|'waypoint'|'waypoints') defineWaypointValue
+	->	defineWaypointValue
 	;
 
-defineWaypointParameters
+defineWaypointValue
 	:	Identifier '=' geoCoordinate (('and'|',')* Identifier '=' geoCoordinate)*
 	->	^(DEFINE Identifier geoCoordinate)+
 	;
 
-defineActionCommand
-	:	('def'|'define') Action defineActionParameters
-	->	defineActionParameters
+defineAction
+	:	('def'|'define') ('act'|'action') defineActionValue
+	->	defineActionValue
 	;
 
-defineActionParameters
+defineActionValue
 	:	Identifier '=' integerValue (('and'|',')* Identifier '=' integerValue)*
 	->	^(DEFINE Identifier ^(ACTION integerValue))+
 	;
+
+// COMMANDS
 
 flightCommands
 	:	(preFlightCommand conjunction*)* (inFlightCommand conjunction*)* (postFlightCommand conjunction*)*;
@@ -207,7 +211,7 @@ landParameters
 	;
 
 actionCommand
-	:	Action actionParameters
+	:	('act'|'action') actionParameters
 	->	actionParameters
 	;
 
@@ -619,8 +623,6 @@ relationalOp
 At	:	'@'|'at';
 
 With	:	'w/'|'with';
-
-Action	:	'act'|'action';
 
 Turning	:	'trn'|'turning';
 
