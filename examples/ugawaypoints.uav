@@ -1,0 +1,55 @@
+define waypoints
+  
+  // Fields
+  DWBrooksMall = 33.945002 -83.374758
+  FoleyBaseballField = 33.940824 -83.380275
+  HertyField = 33.955901 -83.375565
+  LegionPool = 33.949603 -83.378618
+  MemorialHallQuad = 33.951500 -83.372696
+  MyersQuad = 33.946507 -83.376987
+  SpecTownsTrack = 33.943198 -83.381419
+  WoodruffField1 = 33.943698 -83.380135
+  WoodruffField2 = 33.942810 -83.379495
+  
+  // Points of Interest
+  NorthCampusEntrance = 33.952985 -83.374610
+  TheArch = 33.957597 -83.375143
+  
+  // Buildings / Structures
+  Bookstore = 33.951436 -83.374695
+  Boyd = 33.945886 -83.374767
+  Brumby = 33.949705 -83.382886
+  Creswell = 33.950014 -83.379993
+  MainLibrary = 33.954148 -83.373733
+  Ramsey = 33.937716 -83.371339
+  Russell = 33.949964 -83.381432
+  SanfordStadium = 33.949794 -83.373299
+  ScienceLibrary = 33.946045 -83.375392
+  SLC = 33.951627 -83.375802
+  StegemanColiseum = 33.942806 -83.378179
+  Tate = 33.950388 -83.374915
+  Tate2 = 33.950579 -83.375864
+  
+  // Parking Decks
+  EastCampusDeck = 33.938152 -83.369369
+  EastVillageDeck = 33.938440 -83.366328
+  HullStreetDeck = 33.952826 -83.378643
+  IMParkingDeck = 33.932512 -83.372375
+  NorthCampusDeck = 33.956097 -83.372408
+  SouthCampusDeck = 33.945631 -83.377638
+  TateDeck = 33.950690 -83.376579
+  WestCampusDeck = 33.948801 -83.381774
+  
+  // Intramural Fields
+  IMField1 = 33.934403 -83.371665
+  IMField2 = 33.934614 -83.372928
+  IMField3 = 33.933866 -83.373373
+  IMField4 = 33.933136 -83.373885
+  IMField5 = 33.932424 -83.374463
+  IMField6 = 33.931841 -83.372768
+  IMField7 = 33.933029 -83.371767
+  IMField8 = 33.929974 -83.375788
+  IMField9 = 33.929065 -83.375840
+  IMParkingLot = 33.933489 -83.370106
+  LakeHerrick = 33.930426 -83.371598
+  
