@@ -158,7 +158,7 @@ flyCommandValue
 	|	pitch
 	|	roll
 	|	duration
-	|	waypoint
+	|	To waypoint
 	|	altitude
 	;
 
@@ -182,7 +182,7 @@ loiterCommandValue
 	|	loiterDirection
 	|	radius
 	|	duration
-	|	waypoint
+	|	At waypoint
 	|	altitude
 	;
 
@@ -213,7 +213,7 @@ altitude
 	;
 
 fixedAltitude
-	:	(upDownDirection? 'to'|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
+	:	(upDownDirection? To|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
 	->	^(ALTITUDE FIXED altitudeValue)
 	;
 
@@ -510,11 +510,6 @@ angularValue
 // WAYPOINT EXPRESSIONS
 
 waypoint
-	:	'to' waypointValue
-	->	waypointValue
-	;
-
-waypointValue
 	:	geoCoordinate
 	->	geoCoordinate
 	|	Identifier
@@ -590,6 +585,8 @@ relationalOp
 // LEXER
 
 // COMMON TOKENS
+
+To	:	'to';
 
 At	:	'@'|'at';
 
