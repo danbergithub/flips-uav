@@ -218,13 +218,13 @@ actionParameters
 
 // ATTITUDE EXPRESSIONS
 
-pitch	:	('pit'|'pitch'|'pitching') angularValue
+pitch	:	('pit'|'pitch') angularValue
 	->      ^(PITCH angularValue)
 	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValue
 	->	^(PITCH angularValue)
 	;
 
-roll	:	('rol'|'roll'|'rolling') angularValue
+roll	:	('rol'|'roll') angularValue
 	->      ^(ROLL angularValue)
 	;
 
