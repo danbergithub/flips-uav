@@ -232,21 +232,14 @@ altitude:	(fixedAltitude|relativeAltitude)
 	->      ^(ALTITUDE fixedAltitude? relativeAltitude?)
 	;
 
-altitudeDirection
-	:	('u'|'up'|'c'|'climb'|'climbing'|'ascend'|'ascending')
-	->      CLIMB
-	|       ('d'|'down'|'descend'|'descending')
-	->      DESCEND
-	;
-
 fixedAltitude
-	:	(altitudeDirection? 'to'|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
+	:	(upDownDirection? 'to'|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
 	->      FIXED altitudeValue
 	;
 
 relativeAltitude
-	:	altitudeDirection altitudeValue
-	->      RELATIVE altitudeDirection altitudeValue
+	:	upDownDirection altitudeValue
+	->      RELATIVE upDownDirection altitudeValue
 	;
 
 altitudeValue
@@ -479,6 +472,13 @@ subOrdinalDirection
 loiterDirection
 	:	Turning? clockDirection
 	->      ^(DIRECTION TURN clockDirection)
+	;
+
+upDownDirection
+	:	('u'|'up'|'c'|'climb'|'climbing'|'ascend'|'ascending')
+	->      CLIMB
+	|       ('d'|'down'|'descend'|'descending')
+	->      DESCEND
 	;
 
 leftRightDirection
