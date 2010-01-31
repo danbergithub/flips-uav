@@ -1,0 +1,18 @@
+define command EnableCamera = 1 // More verbose syntax 
+def cmd DisableCamera = 2 // Less verbose syntax 
+def cmd TakeAPicture = 3 
+def cmd PanCamera = 4(1) // Command takes 1 parameter 
+def cmd SendPictureConfirmation = 5
+
+// Beginning of Program 
+def wpt Atlanta = 33.884245 -84.376091 
+EnableCamera 
+fly to Atlanta 
+TakeAPicture 
+SendPictureConfirmation 
+fly north for 28.5 seconds 
+PanCamera(180) // Pan the camera 180 degrees 
+TakeAPicture 
+SendPictureConfirmation 
+DisableCamera 
+// End of Program

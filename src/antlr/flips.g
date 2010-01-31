@@ -37,6 +37,7 @@ tokens {
   FLIGHTPLAN;
   DEFINE;
   COMMAND;
+  PARAMETER;
   FLY;
   LOITER;
   EXECUTE;
@@ -122,8 +123,10 @@ defineCommand
 	;
 
 defineCommandValue
-	:	Identifier '=' integerValue (('and'|',' 'and'?)? Identifier '=' integerValue)*
-	->	^(DEFINE Identifier ^(COMMAND integerValue))+
+	:	Identifier '=' cmd=integerValue (('and'|',' 'and'?)? Identifier '=' cmd=integerValue)*
+	->	^(DEFINE Identifier ^(COMMAND $cmd))+
+	|	Identifier '=' cmd=integerValue '(' par=integerValue ')' (('and'|',' 'and'?)? Identifier '=' cmd=integerValue '(' par=integerValue ')')*
+	->	^(DEFINE Identifier ^(COMMAND $cmd PARAMETER $par))+
 	;
 
 defineWaypoint
@@ -191,6 +194,8 @@ loiterCommandValue
 executeCommand
 	:	Identifier
 	->	^(EXECUTE Identifier)
+	|	Identifier '(' numericValue (',' numericValue)*  ')'
+	->	^(EXECUTE Identifier ^(PARAMETER numericValue)+)
 	;
 
 // ATTITUDE EXPRESSIONS
