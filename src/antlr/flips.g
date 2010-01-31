@@ -122,7 +122,7 @@ defineCommand
 	;
 
 defineCommandValue
-	:	Identifier '=' integerValue (('and'|',')* Identifier '=' integerValue)*
+	:	Identifier '=' integerValue (('and'|',' 'and'?)? Identifier '=' integerValue)*
 	->	^(DEFINE Identifier ^(COMMAND integerValue))+
 	;
 
@@ -132,7 +132,7 @@ defineWaypoint
 	;
 
 defineWaypointValue
-	:	Identifier '=' geoCoordinate (('and'|',')* Identifier '=' geoCoordinate)*
+	:	Identifier '=' geoCoordinate (('and'|',' 'and'?)? Identifier '=' geoCoordinate)*
 	->	^(DEFINE Identifier geoCoordinate)+
 	;
 
