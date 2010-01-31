@@ -181,13 +181,12 @@ flyParameters
 	;
 
 turnCommand
-	:	('tn'|'turn'|'hd'|'head') turnParameters
-	->	^(FLY turnParameters)
+	:	('trn'|'turn') turnCommandValue*
+	->	^(FLY turnCommandValue*)
 	;
 
-turnParameters
+turnCommandValue
 	:	direction
-	->	direction*
 	;
 
 loiterCommand
