@@ -36,11 +36,10 @@ options {
 tokens {
   FLIGHTPLAN;
   DEFINE;
-  TAKEOFF;
+  COMMAND;
   FLY;
   LOITER;
-  LAND;
-  ACTION;
+  EXECUTE;
   DIRECTION;
   TURN;
   FIXED;
@@ -113,18 +112,18 @@ flightPlan
 // DEFINITIONS
 
 define
-	:	defineAction
+	:	defineCommand
 	|	defineWaypoint
 	;
 
-defineAction
-	:	('def'|'define') ('act'|'action') defineActionValue
-	->	defineActionValue
+defineCommand
+	:	('def'|'define') ('cmd'|'command'|'commands') defineCommandValue
+	->	defineCommandValue
 	;
 
-defineActionValue
+defineCommandValue
 	:	Identifier '=' integerValue (('and'|',')* Identifier '=' integerValue)*
-	->	^(DEFINE Identifier ^(ACTION integerValue))+
+	->	^(DEFINE Identifier ^(COMMAND integerValue))+
 	;
 
 defineWaypoint
@@ -143,7 +142,7 @@ command
 	:	flyCommand
 	|	turnCommand
 	|	loiterCommand
-	|	actionCommand
+	|	executeCommand
 	;
 
 flyCommand
@@ -187,14 +186,9 @@ loiterCommandValue
 	|	altitude
 	;
 
-actionCommand
-	:	('act'|'action') actionParameters
-	->	actionParameters
-	;
-
-actionParameters
-	:	Identifier (('and'|',')* Identifier)*
-	->	^(ACTION Identifier)+
+executeCommand
+	:	Identifier
+	->	^(EXECUTE Identifier)
 	;
 
 // ATTITUDE EXPRESSIONS
