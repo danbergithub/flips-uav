@@ -260,7 +260,9 @@ altitude:	distanceValue
 	->	FLIGHTLEVEL FlightLevel
 	;
 
-pressureValue:	numericValue pressureUnit;
+pressureValue
+	:	numericValue pressureUnit
+	;
 
 pressureUnit
 	:	('kpa'|'kilopascal'|'kilopascals')
