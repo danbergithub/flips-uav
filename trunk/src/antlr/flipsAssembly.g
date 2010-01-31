@@ -361,13 +361,7 @@ convertSpeed returns [double r]
 
 // Standard throttle unit is the percent
 convertThrottle returns [double r]
-	:	('no'|'zero')
-		{r = 0;}
-	|	'half'
-		{r = 50;}
-	|	'full'
-		{r = 100;}
-	|	x=percentValue
+	:	x=percentValue
 		{r = x;}
 	;
 
