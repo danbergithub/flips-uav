@@ -190,8 +190,8 @@ loiterCommand
 	;
 
 loiterParameters
-	:	(time|speedCommand|loiterDirection|radiusCommand|duration|waypoint|altitudeCommand)*
-	->      time* speedCommand* loiterDirection* radiusCommand* duration* waypoint* altitudeCommand*
+	:	(time|speedCommand|loiterDirection|radius|duration|waypoint|altitudeCommand)*
+	->      time* speedCommand* loiterDirection* radius* duration* waypoint* altitudeCommand*
 	;
 
 landCommand
@@ -279,8 +279,7 @@ pressureUnit
 
 // DISTANCE EXPRESSIONS
 
-radiusCommand
-	:	('in'|With)? 'a'? ('radius' 'of'? distance|distance 'radius')
+radius	:	('in'|With)? 'a'? ('radius' 'of'? distance|distance 'radius')
 	->      ^(RADIUS distance)
 	;
 
