@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(time|direction|speed|distance|pitchCommand|roll|duration|waypoint|altitude)*
-	->      time* direction* speed* distance* pitchCommand* roll* duration* waypoint* altitude*
+	:	(time|direction|speed|distance|pitch|roll|duration|waypoint|altitude)*
+	->      time* direction* speed* distance* pitch* roll* duration* waypoint* altitude*
 	;
 
 turnCommand
@@ -216,8 +216,7 @@ actionParameters
 
 // ATTITUDE EXPRESSIONS
 
-pitchCommand
-	:	('pit'|'pitch'|'pitching') angularValue
+pitch	:	('pit'|'pitch'|'pitching') angularValue
 	->      ^(PITCH angularValue)
 	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValue
 	->	^(PITCH angularValue)
