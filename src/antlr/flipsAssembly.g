@@ -38,9 +38,20 @@ options {
 }
 
 @members {
+  HashMap<String,Integer> commands = new HashMap<String,Integer>();
   HashMap<String,Double[]> waypoints = new HashMap<String,Double[]>();
-  HashMap<String,Integer> actions = new HashMap<String,Integer>();
   public StringBuilder output = new StringBuilder();
+
+  public void addCommand(String name, Integer value) {
+    commands.put(name, value);
+  }
+
+  public Integer getCommand(String name) {
+    if (commands.containsKey(name)) {
+      return commands.get(name);
+    }
+    return null;
+  }
   
   public void addWaypoint(String name, Double latitude, Double longitude) {
     Double[] coordinate = new Double[2];
@@ -52,17 +63,6 @@ options {
   public Double[] getWaypoint(String name) {
     if (waypoints.containsKey(name)) {
       return waypoints.get(name);
-    }
-    return null;
-  }
-
-  public void addAction(String name, Integer value) {
-    actions.put(name, value);
-  }
-
-  public Integer getAction(String name) {
-    if (actions.containsKey(name)) {
-      return actions.get(name);
     }
     return null;
   }
@@ -101,19 +101,26 @@ options {
 // FLIGHT EXPRESSIONS
 
 flightPlan
-	:	^(FLIGHTPLAN set flight);
+	:	^(FLIGHTPLAN define* flight);
 
-set	:	defineWaypoint* defineAction*;
+// DEFINITIONS
+
+define
+	:	defineCommand
+	|	defineWaypoint
+	;
+
+defineCommand
+	:	^(DEFINE name=Identifier ^(COMMAND x=integerValue))
+		{addCommand(name.getText(),x);}
+	;
 
 defineWaypoint
 	:	^(DEFINE name=Identifier geo=geoCoordinate)
 		{addWaypoint(name.getText(),geo.latitude,geo.longitude);}
 	;
 
-defineAction
-	:	^(DEFINE name=Identifier ^(ACTION x=integerValue))
-		{addAction(name.getText(),x);}
-	;
+// COMMANDS
 
 flight	:	preFlight* inFlight* postFlight*;
 
@@ -122,7 +129,7 @@ preFlight
 
 inFlight:	fly
         |       loiter
-        |	action
+        |	executeCommand
         ;
 
 postFlight
@@ -146,15 +153,17 @@ land	:	^(LAND time? speed?)
                 {emit("LND", "Execute Landing");}
         ;
 
-action	:	^(ACTION x=Identifier)
+executeCommand
+	:	^(EXECUTE x=Identifier)
 	{
-Integer value = getAction(x.getText());
-String runValue = x.getText();
-if (value != null){
-    runValue = value.toString();
+Integer value = getCommand(x.getText());
+if (value != null) {
+  String runValue = value.toString();
+  emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
 }
-
-emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
+else {
+  emit("\$INCLUDE " + x.getText() + ".uav", "Include The File '" + x.getText() + ".uav'");
+}
 	}
 	;
 
