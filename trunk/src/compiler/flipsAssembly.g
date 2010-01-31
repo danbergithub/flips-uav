@@ -111,8 +111,10 @@ define
 	;
 
 defineCommand
-	:	^(DEFINE name=Identifier ^(COMMAND x=integerValue))
-		{addCommand(name.getText(),x);}
+	:	^(DEFINE name=Identifier ^(COMMAND cmd=integerValue))
+		{addCommand(name.getText(),cmd);}
+	|	^(DEFINE name=Identifier ^(COMMAND cmd=integerValue PARAMETER par=integerValue))
+		{addCommand(name.getText(),cmd);}
 	;
 
 defineWaypoint
@@ -163,7 +165,7 @@ loiterCommandValue
 	;
 
 executeCommand
-	:	^(EXECUTE x=Identifier)
+	:	^(EXECUTE x=Identifier executeCommandParameter*)
 	{
 Integer value = getCommand(x.getText());
 if (value != null) {
@@ -174,6 +176,11 @@ else {
   emit("\$INCLUDE " + x.getText() + ".uav", "Include The File '" + x.getText() + ".uav'");
 }
 	}
+	;
+
+executeCommandParameter
+	:	^(PARAMETER x=numericValue)
+		{emit("CMD PAR " + x, x + " Command Parameter");}
 	;
 
 // ATTITUDE EXPRESSIONS

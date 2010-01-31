@@ -1,16 +1,14 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-01-31 07:31:21
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-01-31 07:59:21
 
 import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.antlr.runtime.debug.*;
-import java.io.IOException;
 
 import org.antlr.runtime.tree.*;
 
-public class flipsParser extends DebugParser {
+public class flipsParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "COMMAND", "PARAMETER", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "ROLL", "PITCH", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "OPTIMAL", "THROTTLE", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "HOUR", "MINUTE", "SECOND", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "NAUTICAL", "MILE", "YARD", "FOOT", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "MINIMUM", "MAXIMUM", "CRUISE", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "Identifier", "To", "At", "With", "FlightLevel", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "StringLiteral", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'def'", "'define'", "'cmd'", "'command'", "'commands'", "'='", "'and'", "','", "'('", "')'", "'wpt'", "'waypoint'", "'waypoints'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'/'", "'per'", "'spd'", "'speed'", "'min'", "'minimum'", "'cru'", "'cruise'", "'max'", "'maximum'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'for'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'d'", "'down'", "'descend'", "'descending'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'¡'", "'deg'", "'degs'", "'degree'", "'degrees'", "'\\''", "'rad'", "'rads'", "'radian'", "'radians'", "'+'", "'-'", "'%'", "'percent'"
     };
@@ -287,69 +285,23 @@ public class flipsParser extends DebugParser {
     // delegates
     // delegators
 
-    public static final String[] ruleNames = new String[] {
-        "invalidRule", "throttleValue", "geoCoordinate", "defineWaypointValue", 
-        "ordinalDirection", "second", "throttleSpeed", "direction", "speedUnit", 
-        "loiterCommand", "defineCommandValue", "optimalSpeed", "flyCommand", 
-        "distance", "turnCommand", "relativeSpeed", "durationValue", "numericValue", 
-        "time", "upDownDirection", "command", "fixedAltitude", "relativeAltitude", 
-        "latitudeLongitudeValue", "timeUnit", "distanceUnit", "distanceValue", 
-        "altitudeValue", "turnCommandValue", "pressureUnit", "hour", "pressureValue", 
-        "subOrdinalDirection", "roll", "speedValue", "relativeDirection", 
-        "duration", "flyCommandValue", "pitch", "fixedSpeed", "latitudeLongitude", 
-        "altitude", "clockDirection", "integerValue", "cardinalDirection", 
-        "leftRightDirection", "loiterDirection", "angularValue", "defineWaypoint", 
-        "fixedDirection", "northSouthDirection", "timeFormat", "eastWestDirection", 
-        "percentValue", "radius", "speed", "minute", "flightPlan", "define", 
-        "executeCommand", "waypoint", "optimalUnit", "loiterCommandValue", 
-        "defineCommand"
-    };
-     
-        public int ruleLevel = 0;
-        public int getRuleLevel() { return ruleLevel; }
-        public void incRuleLevel() { ruleLevel++; }
-        public void decRuleLevel() { ruleLevel--; }
+
         public flipsParser(TokenStream input) {
-            this(input, DebugEventSocketProxy.DEFAULT_DEBUGGER_PORT, new RecognizerSharedState());
+            this(input, new RecognizerSharedState());
         }
-        public flipsParser(TokenStream input, int port, RecognizerSharedState state) {
+        public flipsParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
-            DebugEventSocketProxy proxy =
-                new DebugEventSocketProxy(this,port,adaptor);
-            setDebugListener(proxy);
-            setTokenStream(new DebugTokenStream(input,proxy));
-            try {
-                proxy.handshake();
-            }
-            catch (IOException ioe) {
-                reportError(ioe);
-            }
-            TreeAdaptor adap = new CommonTreeAdaptor();
-            setTreeAdaptor(adap);
-            proxy.setTreeAdaptor(adap);
+             
         }
-    public flipsParser(TokenStream input, DebugEventListener dbg) {
-        super(input, dbg);
+        
+    protected TreeAdaptor adaptor = new CommonTreeAdaptor();
 
-         
-        TreeAdaptor adap = new CommonTreeAdaptor();
-        setTreeAdaptor(adap);
-
-    }
-    protected boolean evalPredicate(boolean result, String predicate) {
-        dbg.semanticPredicate(result, predicate);
-        return result;
-    }
-
-    protected DebugTreeAdaptor adaptor;
     public void setTreeAdaptor(TreeAdaptor adaptor) {
-        this.adaptor = new DebugTreeAdaptor(dbg,adaptor);
-
+        this.adaptor = adaptor;
     }
     public TreeAdaptor getTreeAdaptor() {
         return adaptor;
     }
-
 
     public String[] getTokenNames() { return flipsParser.tokenNames; }
     public String getGrammarFileName() { return "/Users/reunice/Documents/flips-uav/src/compiler/flips.g"; }
@@ -375,26 +327,14 @@ public class flipsParser extends DebugParser {
 
         RewriteRuleSubtreeStream stream_define=new RewriteRuleSubtreeStream(adaptor,"rule define");
         RewriteRuleSubtreeStream stream_command=new RewriteRuleSubtreeStream(adaptor,"rule command");
-        try { dbg.enterRule(getGrammarFileName(), "flightPlan");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(108, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:109:2: ( ( define )* ( command )* -> ^( FLIGHTPLAN ( define )* ( command )* ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:109:4: ( define )* ( command )*
             {
-            dbg.location(109,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:109:4: ( define )*
-            try { dbg.enterSubRule(1);
-
             loop1:
             do {
                 int alt1=2;
-                try { dbg.enterDecision(1);
-
                 int LA1_0 = input.LA(1);
 
                 if ( ((LA1_0>=94 && LA1_0<=95)) ) {
@@ -402,15 +342,10 @@ public class flipsParser extends DebugParser {
                 }
 
 
-                } finally {dbg.exitDecision(1);}
-
                 switch (alt1) {
             	case 1 :
-            	    dbg.enterAlt(1);
-
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:109:4: define
             	    {
-            	    dbg.location(109,4);
             	    pushFollow(FOLLOW_define_in_flightPlan396);
             	    define1=define();
 
@@ -425,17 +360,11 @@ public class flipsParser extends DebugParser {
             	    break loop1;
                 }
             } while (true);
-            } finally {dbg.exitSubRule(1);}
 
-            dbg.location(109,12);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:109:12: ( command )*
-            try { dbg.enterSubRule(2);
-
             loop2:
             do {
                 int alt2=2;
-                try { dbg.enterDecision(2);
-
                 int LA2_0 = input.LA(1);
 
                 if ( (LA2_0==Identifier||(LA2_0>=107 && LA2_0<=112)) ) {
@@ -443,15 +372,10 @@ public class flipsParser extends DebugParser {
                 }
 
 
-                } finally {dbg.exitDecision(2);}
-
                 switch (alt2) {
             	case 1 :
-            	    dbg.enterAlt(1);
-
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:109:12: command
             	    {
-            	    dbg.location(109,12);
             	    pushFollow(FOLLOW_command_in_flightPlan399);
             	    command2=command();
 
@@ -466,7 +390,6 @@ public class flipsParser extends DebugParser {
             	    break loop2;
                 }
             } while (true);
-            } finally {dbg.exitSubRule(2);}
 
 
 
@@ -483,25 +406,19 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 110:2: -> ^( FLIGHTPLAN ( define )* ( command )* )
             {
-                dbg.location(110,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:110:5: ^( FLIGHTPLAN ( define )* ( command )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(110,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FLIGHTPLAN, "FLIGHTPLAN"), root_1);
 
-                dbg.location(110,18);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:110:18: ( define )*
                 while ( stream_define.hasNext() ) {
-                    dbg.location(110,18);
                     adaptor.addChild(root_1, stream_define.nextTree());
 
                 }
                 stream_define.reset();
-                dbg.location(110,26);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:110:26: ( command )*
                 while ( stream_command.hasNext() ) {
-                    dbg.location(110,26);
                     adaptor.addChild(root_1, stream_command.nextTree());
 
                 }
@@ -529,15 +446,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(111, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "flightPlan");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "flightPlan"
@@ -561,16 +469,9 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "define");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(115, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:116:2: ( defineCommand | defineWaypoint )
             int alt3=2;
-            try { dbg.enterDecision(3);
-
             int LA3_0 = input.LA(1);
 
             if ( (LA3_0==94) ) {
@@ -586,7 +487,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 3, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
             }
@@ -603,7 +503,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 3, 2, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
             }
@@ -611,20 +510,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 3, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(3);}
-
             switch (alt3) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:116:4: defineCommand
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(116,4);
                     pushFollow(FOLLOW_defineCommand_in_define426);
                     defineCommand3=defineCommand();
 
@@ -635,13 +528,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:117:4: defineWaypoint
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(117,4);
                     pushFollow(FOLLOW_defineWaypoint_in_define431);
                     defineWaypoint4=defineWaypoint();
 
@@ -667,15 +557,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(118, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "define");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "define"
@@ -712,23 +593,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_95=new RewriteRuleTokenStream(adaptor,"token 95");
         RewriteRuleTokenStream stream_94=new RewriteRuleTokenStream(adaptor,"token 94");
         RewriteRuleSubtreeStream stream_defineCommandValue=new RewriteRuleSubtreeStream(adaptor,"rule defineCommandValue");
-        try { dbg.enterRule(getGrammarFileName(), "defineCommand");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(120, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:2: ( ( 'def' | 'define' ) ( 'cmd' | 'command' | 'commands' ) defineCommandValue -> defineCommandValue )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:4: ( 'def' | 'define' ) ( 'cmd' | 'command' | 'commands' ) defineCommandValue
             {
-            dbg.location(121,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:4: ( 'def' | 'define' )
             int alt4=2;
-            try { dbg.enterSubRule(4);
-            try { dbg.enterDecision(4);
-
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0==94) ) {
@@ -741,18 +611,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 4, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(4);}
-
             switch (alt4) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:5: 'def'
                     {
-                    dbg.location(121,5);
                     string_literal5=(Token)match(input,94,FOLLOW_94_in_defineCommand443);  
                     stream_94.add(string_literal5);
 
@@ -760,11 +624,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:11: 'define'
                     {
-                    dbg.location(121,11);
                     string_literal6=(Token)match(input,95,FOLLOW_95_in_defineCommand445);  
                     stream_95.add(string_literal6);
 
@@ -773,14 +634,9 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(4);}
 
-            dbg.location(121,21);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:21: ( 'cmd' | 'command' | 'commands' )
             int alt5=3;
-            try { dbg.enterSubRule(5);
-            try { dbg.enterDecision(5);
-
             switch ( input.LA(1) ) {
             case 96:
                 {
@@ -801,19 +657,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 5, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(5);}
-
             switch (alt5) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:22: 'cmd'
                     {
-                    dbg.location(121,22);
                     string_literal7=(Token)match(input,96,FOLLOW_96_in_defineCommand449);  
                     stream_96.add(string_literal7);
 
@@ -821,11 +671,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:28: 'command'
                     {
-                    dbg.location(121,28);
                     string_literal8=(Token)match(input,97,FOLLOW_97_in_defineCommand451);  
                     stream_97.add(string_literal8);
 
@@ -833,11 +680,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:121:38: 'commands'
                     {
-                    dbg.location(121,38);
                     string_literal9=(Token)match(input,98,FOLLOW_98_in_defineCommand453);  
                     stream_98.add(string_literal9);
 
@@ -846,9 +690,7 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(5);}
 
-            dbg.location(121,50);
             pushFollow(FOLLOW_defineCommandValue_in_defineCommand456);
             defineCommandValue10=defineCommandValue();
 
@@ -870,7 +712,6 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 122:2: -> defineCommandValue
             {
-                dbg.location(122,5);
                 adaptor.addChild(root_0, stream_defineCommandValue.nextTree());
 
             }
@@ -892,15 +733,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(123, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "defineCommand");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "defineCommand"
@@ -966,16 +798,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_101=new RewriteRuleTokenStream(adaptor,"token 101");
         RewriteRuleTokenStream stream_100=new RewriteRuleTokenStream(adaptor,"token 100");
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
-        try { dbg.enterRule(getGrammarFileName(), "defineCommandValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(125, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:2: ( Identifier '=' cmd= integerValue ( ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue )* -> ( ^( DEFINE Identifier ^( COMMAND $cmd) ) )+ | Identifier '=' cmd= integerValue '(' par= integerValue ')' ( ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue '(' par= integerValue ')' )* -> ( ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) ) )+ )
             int alt12=2;
-            try { dbg.enterDecision(12);
-
             int LA12_0 = input.LA(1);
 
             if ( (LA12_0==Identifier) ) {
@@ -997,7 +822,6 @@ public class flipsParser extends DebugParser {
                             NoViableAltException nvae =
                                 new NoViableAltException("", 12, 3, input);
 
-                            dbg.recognitionException(nvae);
                             throw nvae;
                         }
                     }
@@ -1005,7 +829,6 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 12, 2, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
                 }
@@ -1013,7 +836,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 12, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
             }
@@ -1021,41 +843,28 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 12, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(12);}
-
             switch (alt12) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:4: Identifier '=' cmd= integerValue ( ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue )*
                     {
-                    dbg.location(126,4);
                     Identifier11=(Token)match(input,Identifier,FOLLOW_Identifier_in_defineCommandValue472);  
                     stream_Identifier.add(Identifier11);
 
-                    dbg.location(126,15);
                     char_literal12=(Token)match(input,99,FOLLOW_99_in_defineCommandValue474);  
                     stream_99.add(char_literal12);
 
-                    dbg.location(126,22);
                     pushFollow(FOLLOW_integerValue_in_defineCommandValue478);
                     cmd=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(cmd.getTree());
-                    dbg.location(126,36);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:36: ( ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue )*
-                    try { dbg.enterSubRule(8);
-
                     loop8:
                     do {
                         int alt8=2;
-                        try { dbg.enterDecision(8);
-
                         int LA8_0 = input.LA(1);
 
                         if ( (LA8_0==Identifier) ) {
@@ -1072,20 +881,12 @@ public class flipsParser extends DebugParser {
                         }
 
 
-                        } finally {dbg.exitDecision(8);}
-
                         switch (alt8) {
                     	case 1 :
-                    	    dbg.enterAlt(1);
-
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:37: ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue
                     	    {
-                    	    dbg.location(126,37);
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:37: ( 'and' | ',' ( 'and' )? )?
                     	    int alt7=3;
-                    	    try { dbg.enterSubRule(7);
-                    	    try { dbg.enterDecision(7);
-
                     	    int LA7_0 = input.LA(1);
 
                     	    if ( (LA7_0==100) ) {
@@ -1094,15 +895,10 @@ public class flipsParser extends DebugParser {
                     	    else if ( (LA7_0==101) ) {
                     	        alt7=2;
                     	    }
-                    	    } finally {dbg.exitDecision(7);}
-
                     	    switch (alt7) {
                     	        case 1 :
-                    	            dbg.enterAlt(1);
-
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:38: 'and'
                     	            {
-                    	            dbg.location(126,38);
                     	            string_literal13=(Token)match(input,100,FOLLOW_100_in_defineCommandValue482);  
                     	            stream_100.add(string_literal13);
 
@@ -1110,34 +906,22 @@ public class flipsParser extends DebugParser {
                     	            }
                     	            break;
                     	        case 2 :
-                    	            dbg.enterAlt(2);
-
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:44: ',' ( 'and' )?
                     	            {
-                    	            dbg.location(126,44);
                     	            char_literal14=(Token)match(input,101,FOLLOW_101_in_defineCommandValue484);  
                     	            stream_101.add(char_literal14);
 
-                    	            dbg.location(126,48);
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:48: ( 'and' )?
                     	            int alt6=2;
-                    	            try { dbg.enterSubRule(6);
-                    	            try { dbg.enterDecision(6);
-
                     	            int LA6_0 = input.LA(1);
 
                     	            if ( (LA6_0==100) ) {
                     	                alt6=1;
                     	            }
-                    	            } finally {dbg.exitDecision(6);}
-
                     	            switch (alt6) {
                     	                case 1 :
-                    	                    dbg.enterAlt(1);
-
                     	                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:126:48: 'and'
                     	                    {
-                    	                    dbg.location(126,48);
                     	                    string_literal15=(Token)match(input,100,FOLLOW_100_in_defineCommandValue486);  
                     	                    stream_100.add(string_literal15);
 
@@ -1146,24 +930,19 @@ public class flipsParser extends DebugParser {
                     	                    break;
 
                     	            }
-                    	            } finally {dbg.exitSubRule(6);}
 
 
                     	            }
                     	            break;
 
                     	    }
-                    	    } finally {dbg.exitSubRule(7);}
 
-                    	    dbg.location(126,57);
                     	    Identifier16=(Token)match(input,Identifier,FOLLOW_Identifier_in_defineCommandValue491);  
                     	    stream_Identifier.add(Identifier16);
 
-                    	    dbg.location(126,68);
                     	    char_literal17=(Token)match(input,99,FOLLOW_99_in_defineCommandValue493);  
                     	    stream_99.add(char_literal17);
 
-                    	    dbg.location(126,75);
                     	    pushFollow(FOLLOW_integerValue_in_defineCommandValue497);
                     	    cmd=integerValue();
 
@@ -1178,7 +957,6 @@ public class flipsParser extends DebugParser {
                     	    break loop8;
                         }
                     } while (true);
-                    } finally {dbg.exitSubRule(8);}
 
 
 
@@ -1196,28 +974,21 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 127:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd) ) )+
                     {
-                        dbg.location(127,5);
                         if ( !(stream_cmd.hasNext()||stream_Identifier.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
                         while ( stream_cmd.hasNext()||stream_Identifier.hasNext() ) {
-                            dbg.location(127,5);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:127:5: ^( DEFINE Identifier ^( COMMAND $cmd) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
-                            dbg.location(127,7);
                             root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DEFINE, "DEFINE"), root_1);
 
-                            dbg.location(127,14);
                             adaptor.addChild(root_1, stream_Identifier.nextNode());
-                            dbg.location(127,25);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:127:25: ^( COMMAND $cmd)
                             {
                             CommonTree root_2 = (CommonTree)adaptor.nil();
-                            dbg.location(127,27);
                             root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COMMAND, "COMMAND"), root_2);
 
-                            dbg.location(127,35);
                             adaptor.addChild(root_2, stream_cmd.nextTree());
 
                             adaptor.addChild(root_1, root_2);
@@ -1236,49 +1007,36 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:4: Identifier '=' cmd= integerValue '(' par= integerValue ')' ( ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue '(' par= integerValue ')' )*
                     {
-                    dbg.location(128,4);
                     Identifier18=(Token)match(input,Identifier,FOLLOW_Identifier_in_defineCommandValue521);  
                     stream_Identifier.add(Identifier18);
 
-                    dbg.location(128,15);
                     char_literal19=(Token)match(input,99,FOLLOW_99_in_defineCommandValue523);  
                     stream_99.add(char_literal19);
 
-                    dbg.location(128,22);
                     pushFollow(FOLLOW_integerValue_in_defineCommandValue527);
                     cmd=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(cmd.getTree());
-                    dbg.location(128,36);
                     char_literal20=(Token)match(input,102,FOLLOW_102_in_defineCommandValue529);  
                     stream_102.add(char_literal20);
 
-                    dbg.location(128,43);
                     pushFollow(FOLLOW_integerValue_in_defineCommandValue533);
                     par=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(par.getTree());
-                    dbg.location(128,57);
                     char_literal21=(Token)match(input,103,FOLLOW_103_in_defineCommandValue535);  
                     stream_103.add(char_literal21);
 
-                    dbg.location(128,61);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:61: ( ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue '(' par= integerValue ')' )*
-                    try { dbg.enterSubRule(11);
-
                     loop11:
                     do {
                         int alt11=2;
-                        try { dbg.enterDecision(11);
-
                         int LA11_0 = input.LA(1);
 
                         if ( (LA11_0==Identifier) ) {
@@ -1295,20 +1053,12 @@ public class flipsParser extends DebugParser {
                         }
 
 
-                        } finally {dbg.exitDecision(11);}
-
                         switch (alt11) {
                     	case 1 :
-                    	    dbg.enterAlt(1);
-
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:62: ( 'and' | ',' ( 'and' )? )? Identifier '=' cmd= integerValue '(' par= integerValue ')'
                     	    {
-                    	    dbg.location(128,62);
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:62: ( 'and' | ',' ( 'and' )? )?
                     	    int alt10=3;
-                    	    try { dbg.enterSubRule(10);
-                    	    try { dbg.enterDecision(10);
-
                     	    int LA10_0 = input.LA(1);
 
                     	    if ( (LA10_0==100) ) {
@@ -1317,15 +1067,10 @@ public class flipsParser extends DebugParser {
                     	    else if ( (LA10_0==101) ) {
                     	        alt10=2;
                     	    }
-                    	    } finally {dbg.exitDecision(10);}
-
                     	    switch (alt10) {
                     	        case 1 :
-                    	            dbg.enterAlt(1);
-
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:63: 'and'
                     	            {
-                    	            dbg.location(128,63);
                     	            string_literal22=(Token)match(input,100,FOLLOW_100_in_defineCommandValue539);  
                     	            stream_100.add(string_literal22);
 
@@ -1333,34 +1078,22 @@ public class flipsParser extends DebugParser {
                     	            }
                     	            break;
                     	        case 2 :
-                    	            dbg.enterAlt(2);
-
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:69: ',' ( 'and' )?
                     	            {
-                    	            dbg.location(128,69);
                     	            char_literal23=(Token)match(input,101,FOLLOW_101_in_defineCommandValue541);  
                     	            stream_101.add(char_literal23);
 
-                    	            dbg.location(128,73);
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:73: ( 'and' )?
                     	            int alt9=2;
-                    	            try { dbg.enterSubRule(9);
-                    	            try { dbg.enterDecision(9);
-
                     	            int LA9_0 = input.LA(1);
 
                     	            if ( (LA9_0==100) ) {
                     	                alt9=1;
                     	            }
-                    	            } finally {dbg.exitDecision(9);}
-
                     	            switch (alt9) {
                     	                case 1 :
-                    	                    dbg.enterAlt(1);
-
                     	                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:128:73: 'and'
                     	                    {
-                    	                    dbg.location(128,73);
                     	                    string_literal24=(Token)match(input,100,FOLLOW_100_in_defineCommandValue543);  
                     	                    stream_100.add(string_literal24);
 
@@ -1369,42 +1102,34 @@ public class flipsParser extends DebugParser {
                     	                    break;
 
                     	            }
-                    	            } finally {dbg.exitSubRule(9);}
 
 
                     	            }
                     	            break;
 
                     	    }
-                    	    } finally {dbg.exitSubRule(10);}
 
-                    	    dbg.location(128,82);
                     	    Identifier25=(Token)match(input,Identifier,FOLLOW_Identifier_in_defineCommandValue548);  
                     	    stream_Identifier.add(Identifier25);
 
-                    	    dbg.location(128,93);
                     	    char_literal26=(Token)match(input,99,FOLLOW_99_in_defineCommandValue550);  
                     	    stream_99.add(char_literal26);
 
-                    	    dbg.location(128,100);
                     	    pushFollow(FOLLOW_integerValue_in_defineCommandValue554);
                     	    cmd=integerValue();
 
                     	    state._fsp--;
 
                     	    stream_integerValue.add(cmd.getTree());
-                    	    dbg.location(128,114);
                     	    char_literal27=(Token)match(input,102,FOLLOW_102_in_defineCommandValue556);  
                     	    stream_102.add(char_literal27);
 
-                    	    dbg.location(128,121);
                     	    pushFollow(FOLLOW_integerValue_in_defineCommandValue560);
                     	    par=integerValue();
 
                     	    state._fsp--;
 
                     	    stream_integerValue.add(par.getTree());
-                    	    dbg.location(128,135);
                     	    char_literal28=(Token)match(input,103,FOLLOW_103_in_defineCommandValue562);  
                     	    stream_103.add(char_literal28);
 
@@ -1416,12 +1141,11 @@ public class flipsParser extends DebugParser {
                     	    break loop11;
                         }
                     } while (true);
-                    } finally {dbg.exitSubRule(11);}
 
 
 
                     // AST REWRITE
-                    // elements: Identifier, cmd, par
+                    // elements: par, cmd, Identifier
                     // token labels: 
                     // rule labels: par, retval, cmd
                     // token list labels: 
@@ -1435,32 +1159,23 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 129:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) ) )+
                     {
-                        dbg.location(129,5);
-                        if ( !(stream_Identifier.hasNext()||stream_cmd.hasNext()||stream_par.hasNext()) ) {
+                        if ( !(stream_par.hasNext()||stream_cmd.hasNext()||stream_Identifier.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
-                        while ( stream_Identifier.hasNext()||stream_cmd.hasNext()||stream_par.hasNext() ) {
-                            dbg.location(129,5);
+                        while ( stream_par.hasNext()||stream_cmd.hasNext()||stream_Identifier.hasNext() ) {
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:129:5: ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
-                            dbg.location(129,7);
                             root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DEFINE, "DEFINE"), root_1);
 
-                            dbg.location(129,14);
                             adaptor.addChild(root_1, stream_Identifier.nextNode());
-                            dbg.location(129,25);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:129:25: ^( COMMAND $cmd PARAMETER $par)
                             {
                             CommonTree root_2 = (CommonTree)adaptor.nil();
-                            dbg.location(129,27);
                             root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COMMAND, "COMMAND"), root_2);
 
-                            dbg.location(129,35);
                             adaptor.addChild(root_2, stream_cmd.nextTree());
-                            dbg.location(129,40);
                             adaptor.addChild(root_2, (CommonTree)adaptor.create(PARAMETER, "PARAMETER"));
-                            dbg.location(129,50);
                             adaptor.addChild(root_2, stream_par.nextTree());
 
                             adaptor.addChild(root_1, root_2);
@@ -1470,9 +1185,9 @@ public class flipsParser extends DebugParser {
                             }
 
                         }
-                        stream_Identifier.reset();
-                        stream_cmd.reset();
                         stream_par.reset();
+                        stream_cmd.reset();
+                        stream_Identifier.reset();
 
                     }
 
@@ -1495,15 +1210,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(130, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "defineCommandValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "defineCommandValue"
@@ -1540,23 +1246,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_105=new RewriteRuleTokenStream(adaptor,"token 105");
         RewriteRuleTokenStream stream_104=new RewriteRuleTokenStream(adaptor,"token 104");
         RewriteRuleSubtreeStream stream_defineWaypointValue=new RewriteRuleSubtreeStream(adaptor,"rule defineWaypointValue");
-        try { dbg.enterRule(getGrammarFileName(), "defineWaypoint");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(132, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:2: ( ( 'def' | 'define' ) ( 'wpt' | 'waypoint' | 'waypoints' ) defineWaypointValue -> defineWaypointValue )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:4: ( 'def' | 'define' ) ( 'wpt' | 'waypoint' | 'waypoints' ) defineWaypointValue
             {
-            dbg.location(133,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:4: ( 'def' | 'define' )
             int alt13=2;
-            try { dbg.enterSubRule(13);
-            try { dbg.enterDecision(13);
-
             int LA13_0 = input.LA(1);
 
             if ( (LA13_0==94) ) {
@@ -1569,18 +1264,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 13, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(13);}
-
             switch (alt13) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:5: 'def'
                     {
-                    dbg.location(133,5);
                     string_literal29=(Token)match(input,94,FOLLOW_94_in_defineWaypoint598);  
                     stream_94.add(string_literal29);
 
@@ -1588,11 +1277,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:11: 'define'
                     {
-                    dbg.location(133,11);
                     string_literal30=(Token)match(input,95,FOLLOW_95_in_defineWaypoint600);  
                     stream_95.add(string_literal30);
 
@@ -1601,14 +1287,9 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(13);}
 
-            dbg.location(133,21);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:21: ( 'wpt' | 'waypoint' | 'waypoints' )
             int alt14=3;
-            try { dbg.enterSubRule(14);
-            try { dbg.enterDecision(14);
-
             switch ( input.LA(1) ) {
             case 104:
                 {
@@ -1629,19 +1310,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 14, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(14);}
-
             switch (alt14) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:22: 'wpt'
                     {
-                    dbg.location(133,22);
                     string_literal31=(Token)match(input,104,FOLLOW_104_in_defineWaypoint604);  
                     stream_104.add(string_literal31);
 
@@ -1649,11 +1324,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:28: 'waypoint'
                     {
-                    dbg.location(133,28);
                     string_literal32=(Token)match(input,105,FOLLOW_105_in_defineWaypoint606);  
                     stream_105.add(string_literal32);
 
@@ -1661,11 +1333,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:133:39: 'waypoints'
                     {
-                    dbg.location(133,39);
                     string_literal33=(Token)match(input,106,FOLLOW_106_in_defineWaypoint608);  
                     stream_106.add(string_literal33);
 
@@ -1674,9 +1343,7 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(14);}
 
-            dbg.location(133,52);
             pushFollow(FOLLOW_defineWaypointValue_in_defineWaypoint611);
             defineWaypointValue34=defineWaypointValue();
 
@@ -1698,7 +1365,6 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 134:2: -> defineWaypointValue
             {
-                dbg.location(134,5);
                 adaptor.addChild(root_0, stream_defineWaypointValue.nextTree());
 
             }
@@ -1720,15 +1386,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(135, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "defineWaypoint");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "defineWaypoint"
@@ -1770,41 +1427,26 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_101=new RewriteRuleTokenStream(adaptor,"token 101");
         RewriteRuleTokenStream stream_100=new RewriteRuleTokenStream(adaptor,"token 100");
         RewriteRuleSubtreeStream stream_geoCoordinate=new RewriteRuleSubtreeStream(adaptor,"rule geoCoordinate");
-        try { dbg.enterRule(getGrammarFileName(), "defineWaypointValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(137, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:2: ( Identifier '=' geoCoordinate ( ( 'and' | ',' ( 'and' )? )? Identifier '=' geoCoordinate )* -> ( ^( DEFINE Identifier geoCoordinate ) )+ )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:4: Identifier '=' geoCoordinate ( ( 'and' | ',' ( 'and' )? )? Identifier '=' geoCoordinate )*
             {
-            dbg.location(138,4);
             Identifier35=(Token)match(input,Identifier,FOLLOW_Identifier_in_defineWaypointValue627);  
             stream_Identifier.add(Identifier35);
 
-            dbg.location(138,15);
             char_literal36=(Token)match(input,99,FOLLOW_99_in_defineWaypointValue629);  
             stream_99.add(char_literal36);
 
-            dbg.location(138,19);
             pushFollow(FOLLOW_geoCoordinate_in_defineWaypointValue631);
             geoCoordinate37=geoCoordinate();
 
             state._fsp--;
 
             stream_geoCoordinate.add(geoCoordinate37.getTree());
-            dbg.location(138,33);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:33: ( ( 'and' | ',' ( 'and' )? )? Identifier '=' geoCoordinate )*
-            try { dbg.enterSubRule(17);
-
             loop17:
             do {
                 int alt17=2;
-                try { dbg.enterDecision(17);
-
                 int LA17_0 = input.LA(1);
 
                 if ( (LA17_0==Identifier) ) {
@@ -1821,20 +1463,12 @@ public class flipsParser extends DebugParser {
                 }
 
 
-                } finally {dbg.exitDecision(17);}
-
                 switch (alt17) {
             	case 1 :
-            	    dbg.enterAlt(1);
-
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:34: ( 'and' | ',' ( 'and' )? )? Identifier '=' geoCoordinate
             	    {
-            	    dbg.location(138,34);
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:34: ( 'and' | ',' ( 'and' )? )?
             	    int alt16=3;
-            	    try { dbg.enterSubRule(16);
-            	    try { dbg.enterDecision(16);
-
             	    int LA16_0 = input.LA(1);
 
             	    if ( (LA16_0==100) ) {
@@ -1843,15 +1477,10 @@ public class flipsParser extends DebugParser {
             	    else if ( (LA16_0==101) ) {
             	        alt16=2;
             	    }
-            	    } finally {dbg.exitDecision(16);}
-
             	    switch (alt16) {
             	        case 1 :
-            	            dbg.enterAlt(1);
-
             	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:35: 'and'
             	            {
-            	            dbg.location(138,35);
             	            string_literal38=(Token)match(input,100,FOLLOW_100_in_defineWaypointValue635);  
             	            stream_100.add(string_literal38);
 
@@ -1859,34 +1488,22 @@ public class flipsParser extends DebugParser {
             	            }
             	            break;
             	        case 2 :
-            	            dbg.enterAlt(2);
-
             	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:41: ',' ( 'and' )?
             	            {
-            	            dbg.location(138,41);
             	            char_literal39=(Token)match(input,101,FOLLOW_101_in_defineWaypointValue637);  
             	            stream_101.add(char_literal39);
 
-            	            dbg.location(138,45);
             	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:45: ( 'and' )?
             	            int alt15=2;
-            	            try { dbg.enterSubRule(15);
-            	            try { dbg.enterDecision(15);
-
             	            int LA15_0 = input.LA(1);
 
             	            if ( (LA15_0==100) ) {
             	                alt15=1;
             	            }
-            	            } finally {dbg.exitDecision(15);}
-
             	            switch (alt15) {
             	                case 1 :
-            	                    dbg.enterAlt(1);
-
             	                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:138:45: 'and'
             	                    {
-            	                    dbg.location(138,45);
             	                    string_literal40=(Token)match(input,100,FOLLOW_100_in_defineWaypointValue639);  
             	                    stream_100.add(string_literal40);
 
@@ -1895,24 +1512,19 @@ public class flipsParser extends DebugParser {
             	                    break;
 
             	            }
-            	            } finally {dbg.exitSubRule(15);}
 
 
             	            }
             	            break;
 
             	    }
-            	    } finally {dbg.exitSubRule(16);}
 
-            	    dbg.location(138,54);
             	    Identifier41=(Token)match(input,Identifier,FOLLOW_Identifier_in_defineWaypointValue644);  
             	    stream_Identifier.add(Identifier41);
 
-            	    dbg.location(138,65);
             	    char_literal42=(Token)match(input,99,FOLLOW_99_in_defineWaypointValue646);  
             	    stream_99.add(char_literal42);
 
-            	    dbg.location(138,69);
             	    pushFollow(FOLLOW_geoCoordinate_in_defineWaypointValue648);
             	    geoCoordinate43=geoCoordinate();
 
@@ -1927,12 +1539,11 @@ public class flipsParser extends DebugParser {
             	    break loop17;
                 }
             } while (true);
-            } finally {dbg.exitSubRule(17);}
 
 
 
             // AST REWRITE
-            // elements: geoCoordinate, Identifier
+            // elements: Identifier, geoCoordinate
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1944,29 +1555,24 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 139:2: -> ( ^( DEFINE Identifier geoCoordinate ) )+
             {
-                dbg.location(139,5);
-                if ( !(stream_geoCoordinate.hasNext()||stream_Identifier.hasNext()) ) {
+                if ( !(stream_Identifier.hasNext()||stream_geoCoordinate.hasNext()) ) {
                     throw new RewriteEarlyExitException();
                 }
-                while ( stream_geoCoordinate.hasNext()||stream_Identifier.hasNext() ) {
-                    dbg.location(139,5);
+                while ( stream_Identifier.hasNext()||stream_geoCoordinate.hasNext() ) {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:139:5: ^( DEFINE Identifier geoCoordinate )
                     {
                     CommonTree root_1 = (CommonTree)adaptor.nil();
-                    dbg.location(139,7);
                     root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DEFINE, "DEFINE"), root_1);
 
-                    dbg.location(139,14);
                     adaptor.addChild(root_1, stream_Identifier.nextNode());
-                    dbg.location(139,25);
                     adaptor.addChild(root_1, stream_geoCoordinate.nextTree());
 
                     adaptor.addChild(root_0, root_1);
                     }
 
                 }
-                stream_geoCoordinate.reset();
                 stream_Identifier.reset();
+                stream_geoCoordinate.reset();
 
             }
 
@@ -1987,15 +1593,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(140, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "defineWaypointValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "defineWaypointValue"
@@ -2023,16 +1620,9 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "command");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(144, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:145:2: ( flyCommand | turnCommand | loiterCommand | executeCommand )
             int alt18=4;
-            try { dbg.enterDecision(18);
-
             switch ( input.LA(1) ) {
             case 107:
             case 108:
@@ -2061,21 +1651,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 18, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(18);}
-
             switch (alt18) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:145:4: flyCommand
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(145,4);
                     pushFollow(FOLLOW_flyCommand_in_command675);
                     flyCommand44=flyCommand();
 
@@ -2086,13 +1670,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:146:4: turnCommand
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(146,4);
                     pushFollow(FOLLOW_turnCommand_in_command680);
                     turnCommand45=turnCommand();
 
@@ -2103,13 +1684,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:147:4: loiterCommand
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(147,4);
                     pushFollow(FOLLOW_loiterCommand_in_command685);
                     loiterCommand46=loiterCommand();
 
@@ -2120,13 +1698,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:148:4: executeCommand
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(148,4);
                     pushFollow(FOLLOW_executeCommand_in_command690);
                     executeCommand47=executeCommand();
 
@@ -2152,15 +1727,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(149, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "command");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "command"
@@ -2188,23 +1754,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_108=new RewriteRuleTokenStream(adaptor,"token 108");
         RewriteRuleTokenStream stream_107=new RewriteRuleTokenStream(adaptor,"token 107");
         RewriteRuleSubtreeStream stream_flyCommandValue=new RewriteRuleSubtreeStream(adaptor,"rule flyCommandValue");
-        try { dbg.enterRule(getGrammarFileName(), "flyCommand");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(151, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:2: ( ( 'fly' | 'go' ) ( flyCommandValue )* -> ^( FLY ( flyCommandValue )* ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:4: ( 'fly' | 'go' ) ( flyCommandValue )*
             {
-            dbg.location(152,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:4: ( 'fly' | 'go' )
             int alt19=2;
-            try { dbg.enterSubRule(19);
-            try { dbg.enterDecision(19);
-
             int LA19_0 = input.LA(1);
 
             if ( (LA19_0==107) ) {
@@ -2217,18 +1772,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 19, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(19);}
-
             switch (alt19) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:5: 'fly'
                     {
-                    dbg.location(152,5);
                     string_literal48=(Token)match(input,107,FOLLOW_107_in_flyCommand702);  
                     stream_107.add(string_literal48);
 
@@ -2236,11 +1785,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:11: 'go'
                     {
-                    dbg.location(152,11);
                     string_literal49=(Token)match(input,108,FOLLOW_108_in_flyCommand704);  
                     stream_108.add(string_literal49);
 
@@ -2249,17 +1795,11 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(19);}
 
-            dbg.location(152,17);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:17: ( flyCommandValue )*
-            try { dbg.enterSubRule(20);
-
             loop20:
             do {
                 int alt20=2;
-                try { dbg.enterDecision(20);
-
                 int LA20_0 = input.LA(1);
 
                 if ( ((LA20_0>=To && LA20_0<=With)||(LA20_0>=Turning && LA20_0<=HexLiteral)||(LA20_0>=113 && LA20_0<=114)||(LA20_0>=116 && LA20_0<=117)||(LA20_0>=119 && LA20_0<=120)||LA20_0==200||(LA20_0>=205 && LA20_0<=253)) ) {
@@ -2267,15 +1807,10 @@ public class flipsParser extends DebugParser {
                 }
 
 
-                } finally {dbg.exitDecision(20);}
-
                 switch (alt20) {
             	case 1 :
-            	    dbg.enterAlt(1);
-
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:152:17: flyCommandValue
             	    {
-            	    dbg.location(152,17);
             	    pushFollow(FOLLOW_flyCommandValue_in_flyCommand707);
             	    flyCommandValue50=flyCommandValue();
 
@@ -2290,7 +1825,6 @@ public class flipsParser extends DebugParser {
             	    break loop20;
                 }
             } while (true);
-            } finally {dbg.exitSubRule(20);}
 
 
 
@@ -2307,17 +1841,13 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 153:2: -> ^( FLY ( flyCommandValue )* )
             {
-                dbg.location(153,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:153:5: ^( FLY ( flyCommandValue )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(153,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FLY, "FLY"), root_1);
 
-                dbg.location(153,11);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:153:11: ( flyCommandValue )*
                 while ( stream_flyCommandValue.hasNext() ) {
-                    dbg.location(153,11);
                     adaptor.addChild(root_1, stream_flyCommandValue.nextTree());
 
                 }
@@ -2345,15 +1875,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(154, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "flyCommand");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "flyCommand"
@@ -2404,35 +1925,16 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_101=new RewriteRuleTokenStream(adaptor,"token 101");
         RewriteRuleTokenStream stream_100=new RewriteRuleTokenStream(adaptor,"token 100");
         RewriteRuleSubtreeStream stream_waypoint=new RewriteRuleSubtreeStream(adaptor,"rule waypoint");
-        try { dbg.enterRule(getGrammarFileName(), "flyCommandValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(156, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:157:2: ( time | direction | speed | distance | pitch | roll | duration | To waypoint ( ( 'and' | ',' ( 'and' )? ) waypoint )* -> ( waypoint )+ | altitude )
             int alt24=9;
-            try { dbg.enterDecision(24);
-
-            try {
-                isCyclicDecision = true;
-                alt24 = dfa24.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(24);}
-
+            alt24 = dfa24.predict(input);
             switch (alt24) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:157:4: time
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(157,4);
                     pushFollow(FOLLOW_time_in_flyCommandValue729);
                     time51=time();
 
@@ -2443,13 +1945,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:158:4: direction
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(158,4);
                     pushFollow(FOLLOW_direction_in_flyCommandValue734);
                     direction52=direction();
 
@@ -2460,13 +1959,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:159:4: speed
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(159,4);
                     pushFollow(FOLLOW_speed_in_flyCommandValue739);
                     speed53=speed();
 
@@ -2477,13 +1973,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:160:4: distance
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(160,4);
                     pushFollow(FOLLOW_distance_in_flyCommandValue744);
                     distance54=distance();
 
@@ -2494,13 +1987,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:161:4: pitch
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(161,4);
                     pushFollow(FOLLOW_pitch_in_flyCommandValue749);
                     pitch55=pitch();
 
@@ -2511,13 +2001,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 6 :
-                    dbg.enterAlt(6);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:162:4: roll
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(162,4);
                     pushFollow(FOLLOW_roll_in_flyCommandValue754);
                     roll56=roll();
 
@@ -2528,13 +2015,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 7 :
-                    dbg.enterAlt(7);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:163:4: duration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(163,4);
                     pushFollow(FOLLOW_duration_in_flyCommandValue759);
                     duration57=duration();
 
@@ -2545,30 +2029,21 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 8 :
-                    dbg.enterAlt(8);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:4: To waypoint ( ( 'and' | ',' ( 'and' )? ) waypoint )*
                     {
-                    dbg.location(164,4);
                     To58=(Token)match(input,To,FOLLOW_To_in_flyCommandValue764);  
                     stream_To.add(To58);
 
-                    dbg.location(164,7);
                     pushFollow(FOLLOW_waypoint_in_flyCommandValue766);
                     waypoint59=waypoint();
 
                     state._fsp--;
 
                     stream_waypoint.add(waypoint59.getTree());
-                    dbg.location(164,16);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:16: ( ( 'and' | ',' ( 'and' )? ) waypoint )*
-                    try { dbg.enterSubRule(23);
-
                     loop23:
                     do {
                         int alt23=2;
-                        try { dbg.enterDecision(23);
-
                         int LA23_0 = input.LA(1);
 
                         if ( ((LA23_0>=100 && LA23_0<=101)) ) {
@@ -2576,20 +2051,12 @@ public class flipsParser extends DebugParser {
                         }
 
 
-                        } finally {dbg.exitDecision(23);}
-
                         switch (alt23) {
                     	case 1 :
-                    	    dbg.enterAlt(1);
-
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:17: ( 'and' | ',' ( 'and' )? ) waypoint
                     	    {
-                    	    dbg.location(164,17);
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:17: ( 'and' | ',' ( 'and' )? )
                     	    int alt22=2;
-                    	    try { dbg.enterSubRule(22);
-                    	    try { dbg.enterDecision(22);
-
                     	    int LA22_0 = input.LA(1);
 
                     	    if ( (LA22_0==100) ) {
@@ -2602,18 +2069,12 @@ public class flipsParser extends DebugParser {
                     	        NoViableAltException nvae =
                     	            new NoViableAltException("", 22, 0, input);
 
-                    	        dbg.recognitionException(nvae);
                     	        throw nvae;
                     	    }
-                    	    } finally {dbg.exitDecision(22);}
-
                     	    switch (alt22) {
                     	        case 1 :
-                    	            dbg.enterAlt(1);
-
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:18: 'and'
                     	            {
-                    	            dbg.location(164,18);
                     	            string_literal60=(Token)match(input,100,FOLLOW_100_in_flyCommandValue770);  
                     	            stream_100.add(string_literal60);
 
@@ -2621,34 +2082,22 @@ public class flipsParser extends DebugParser {
                     	            }
                     	            break;
                     	        case 2 :
-                    	            dbg.enterAlt(2);
-
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:24: ',' ( 'and' )?
                     	            {
-                    	            dbg.location(164,24);
                     	            char_literal61=(Token)match(input,101,FOLLOW_101_in_flyCommandValue772);  
                     	            stream_101.add(char_literal61);
 
-                    	            dbg.location(164,28);
                     	            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:28: ( 'and' )?
                     	            int alt21=2;
-                    	            try { dbg.enterSubRule(21);
-                    	            try { dbg.enterDecision(21);
-
                     	            int LA21_0 = input.LA(1);
 
                     	            if ( (LA21_0==100) ) {
                     	                alt21=1;
                     	            }
-                    	            } finally {dbg.exitDecision(21);}
-
                     	            switch (alt21) {
                     	                case 1 :
-                    	                    dbg.enterAlt(1);
-
                     	                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:164:28: 'and'
                     	                    {
-                    	                    dbg.location(164,28);
                     	                    string_literal62=(Token)match(input,100,FOLLOW_100_in_flyCommandValue774);  
                     	                    stream_100.add(string_literal62);
 
@@ -2657,16 +2106,13 @@ public class flipsParser extends DebugParser {
                     	                    break;
 
                     	            }
-                    	            } finally {dbg.exitSubRule(21);}
 
 
                     	            }
                     	            break;
 
                     	    }
-                    	    } finally {dbg.exitSubRule(22);}
 
-                    	    dbg.location(164,36);
                     	    pushFollow(FOLLOW_waypoint_in_flyCommandValue778);
                     	    waypoint63=waypoint();
 
@@ -2681,7 +2127,6 @@ public class flipsParser extends DebugParser {
                     	    break loop23;
                         }
                     } while (true);
-                    } finally {dbg.exitSubRule(23);}
 
 
 
@@ -2698,12 +2143,10 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 165:2: -> ( waypoint )+
                     {
-                        dbg.location(165,5);
                         if ( !(stream_waypoint.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
                         while ( stream_waypoint.hasNext() ) {
-                            dbg.location(165,5);
                             adaptor.addChild(root_0, stream_waypoint.nextTree());
 
                         }
@@ -2715,13 +2158,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 9 :
-                    dbg.enterAlt(9);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:166:4: altitude
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(166,4);
                     pushFollow(FOLLOW_altitude_in_flyCommandValue791);
                     altitude64=altitude();
 
@@ -2747,15 +2187,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(167, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "flyCommandValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "flyCommandValue"
@@ -2783,23 +2214,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_109=new RewriteRuleTokenStream(adaptor,"token 109");
         RewriteRuleTokenStream stream_110=new RewriteRuleTokenStream(adaptor,"token 110");
         RewriteRuleSubtreeStream stream_turnCommandValue=new RewriteRuleSubtreeStream(adaptor,"rule turnCommandValue");
-        try { dbg.enterRule(getGrammarFileName(), "turnCommand");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(169, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:2: ( ( 'trn' | 'turn' ) ( turnCommandValue )* -> ^( FLY ( turnCommandValue )* ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:4: ( 'trn' | 'turn' ) ( turnCommandValue )*
             {
-            dbg.location(170,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:4: ( 'trn' | 'turn' )
             int alt25=2;
-            try { dbg.enterSubRule(25);
-            try { dbg.enterDecision(25);
-
             int LA25_0 = input.LA(1);
 
             if ( (LA25_0==109) ) {
@@ -2812,18 +2232,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 25, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(25);}
-
             switch (alt25) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:5: 'trn'
                     {
-                    dbg.location(170,5);
                     string_literal65=(Token)match(input,109,FOLLOW_109_in_turnCommand803);  
                     stream_109.add(string_literal65);
 
@@ -2831,11 +2245,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:11: 'turn'
                     {
-                    dbg.location(170,11);
                     string_literal66=(Token)match(input,110,FOLLOW_110_in_turnCommand805);  
                     stream_110.add(string_literal66);
 
@@ -2844,17 +2255,11 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(25);}
 
-            dbg.location(170,19);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:19: ( turnCommandValue )*
-            try { dbg.enterSubRule(26);
-
             loop26:
             do {
                 int alt26=2;
-                try { dbg.enterDecision(26);
-
                 int LA26_0 = input.LA(1);
 
                 if ( ((LA26_0>=Turning && LA26_0<=Heading)||LA26_0==200||(LA26_0>=206 && LA26_0<=236)) ) {
@@ -2862,15 +2267,10 @@ public class flipsParser extends DebugParser {
                 }
 
 
-                } finally {dbg.exitDecision(26);}
-
                 switch (alt26) {
             	case 1 :
-            	    dbg.enterAlt(1);
-
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:170:19: turnCommandValue
             	    {
-            	    dbg.location(170,19);
             	    pushFollow(FOLLOW_turnCommandValue_in_turnCommand808);
             	    turnCommandValue67=turnCommandValue();
 
@@ -2885,7 +2285,6 @@ public class flipsParser extends DebugParser {
             	    break loop26;
                 }
             } while (true);
-            } finally {dbg.exitSubRule(26);}
 
 
 
@@ -2902,17 +2301,13 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 171:2: -> ^( FLY ( turnCommandValue )* )
             {
-                dbg.location(171,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:171:5: ^( FLY ( turnCommandValue )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(171,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FLY, "FLY"), root_1);
 
-                dbg.location(171,11);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:171:11: ( turnCommandValue )*
                 while ( stream_turnCommandValue.hasNext() ) {
-                    dbg.location(171,11);
                     adaptor.addChild(root_1, stream_turnCommandValue.nextTree());
 
                 }
@@ -2940,15 +2335,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(172, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "turnCommand");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "turnCommand"
@@ -2970,20 +2356,12 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "turnCommandValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(174, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:175:2: ( direction )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:175:4: direction
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            dbg.location(175,4);
             pushFollow(FOLLOW_direction_in_turnCommandValue830);
             direction68=direction();
 
@@ -3007,15 +2385,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(176, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "turnCommandValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "turnCommandValue"
@@ -3043,23 +2412,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_112=new RewriteRuleTokenStream(adaptor,"token 112");
         RewriteRuleTokenStream stream_111=new RewriteRuleTokenStream(adaptor,"token 111");
         RewriteRuleSubtreeStream stream_loiterCommandValue=new RewriteRuleSubtreeStream(adaptor,"rule loiterCommandValue");
-        try { dbg.enterRule(getGrammarFileName(), "loiterCommand");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(178, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:2: ( ( 'ltr' | 'loiter' ) ( loiterCommandValue )* -> ^( LOITER ( loiterCommandValue )* ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:4: ( 'ltr' | 'loiter' ) ( loiterCommandValue )*
             {
-            dbg.location(179,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:4: ( 'ltr' | 'loiter' )
             int alt27=2;
-            try { dbg.enterSubRule(27);
-            try { dbg.enterDecision(27);
-
             int LA27_0 = input.LA(1);
 
             if ( (LA27_0==111) ) {
@@ -3072,18 +2430,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 27, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(27);}
-
             switch (alt27) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:5: 'ltr'
                     {
-                    dbg.location(179,5);
                     string_literal69=(Token)match(input,111,FOLLOW_111_in_loiterCommand842);  
                     stream_111.add(string_literal69);
 
@@ -3091,11 +2443,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:11: 'loiter'
                     {
-                    dbg.location(179,11);
                     string_literal70=(Token)match(input,112,FOLLOW_112_in_loiterCommand844);  
                     stream_112.add(string_literal70);
 
@@ -3104,17 +2453,11 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(27);}
 
-            dbg.location(179,21);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:21: ( loiterCommandValue )*
-            try { dbg.enterSubRule(28);
-
             loop28:
             do {
                 int alt28=2;
-                try { dbg.enterDecision(28);
-
                 int LA28_0 = input.LA(1);
 
                 if ( ((LA28_0>=To && LA28_0<=With)||LA28_0==Turning||(LA28_0>=FloatingPointLiteral && LA28_0<=HexLiteral)||LA28_0==123||(LA28_0>=144 && LA28_0<=145)||LA28_0==205||(LA28_0>=237 && LA28_0<=247)||(LA28_0>=254 && LA28_0<=257)) ) {
@@ -3122,15 +2465,10 @@ public class flipsParser extends DebugParser {
                 }
 
 
-                } finally {dbg.exitDecision(28);}
-
                 switch (alt28) {
             	case 1 :
-            	    dbg.enterAlt(1);
-
             	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:179:21: loiterCommandValue
             	    {
-            	    dbg.location(179,21);
             	    pushFollow(FOLLOW_loiterCommandValue_in_loiterCommand847);
             	    loiterCommandValue71=loiterCommandValue();
 
@@ -3145,7 +2483,6 @@ public class flipsParser extends DebugParser {
             	    break loop28;
                 }
             } while (true);
-            } finally {dbg.exitSubRule(28);}
 
 
 
@@ -3162,17 +2499,13 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 180:2: -> ^( LOITER ( loiterCommandValue )* )
             {
-                dbg.location(180,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:180:5: ^( LOITER ( loiterCommandValue )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(180,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LOITER, "LOITER"), root_1);
 
-                dbg.location(180,14);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:180:14: ( loiterCommandValue )*
                 while ( stream_loiterCommandValue.hasNext() ) {
-                    dbg.location(180,14);
                     adaptor.addChild(root_1, stream_loiterCommandValue.nextTree());
 
                 }
@@ -3200,15 +2533,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(181, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "loiterCommand");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "loiterCommand"
@@ -3245,35 +2569,16 @@ public class flipsParser extends DebugParser {
         CommonTree At77_tree=null;
         RewriteRuleTokenStream stream_At=new RewriteRuleTokenStream(adaptor,"token At");
         RewriteRuleSubtreeStream stream_waypoint=new RewriteRuleSubtreeStream(adaptor,"rule waypoint");
-        try { dbg.enterRule(getGrammarFileName(), "loiterCommandValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(183, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:184:2: ( time | speed | loiterDirection | radius | duration | At waypoint -> waypoint | altitude )
             int alt29=7;
-            try { dbg.enterDecision(29);
-
-            try {
-                isCyclicDecision = true;
-                alt29 = dfa29.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(29);}
-
+            alt29 = dfa29.predict(input);
             switch (alt29) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:184:4: time
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(184,4);
                     pushFollow(FOLLOW_time_in_loiterCommandValue869);
                     time72=time();
 
@@ -3284,13 +2589,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:185:4: speed
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(185,4);
                     pushFollow(FOLLOW_speed_in_loiterCommandValue874);
                     speed73=speed();
 
@@ -3301,13 +2603,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:186:4: loiterDirection
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(186,4);
                     pushFollow(FOLLOW_loiterDirection_in_loiterCommandValue879);
                     loiterDirection74=loiterDirection();
 
@@ -3318,13 +2617,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:187:4: radius
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(187,4);
                     pushFollow(FOLLOW_radius_in_loiterCommandValue884);
                     radius75=radius();
 
@@ -3335,13 +2631,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:188:4: duration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(188,4);
                     pushFollow(FOLLOW_duration_in_loiterCommandValue889);
                     duration76=duration();
 
@@ -3352,15 +2645,11 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 6 :
-                    dbg.enterAlt(6);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:189:4: At waypoint
                     {
-                    dbg.location(189,4);
                     At77=(Token)match(input,At,FOLLOW_At_in_loiterCommandValue894);  
                     stream_At.add(At77);
 
-                    dbg.location(189,7);
                     pushFollow(FOLLOW_waypoint_in_loiterCommandValue896);
                     waypoint78=waypoint();
 
@@ -3382,7 +2671,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 190:2: -> waypoint
                     {
-                        dbg.location(190,5);
                         adaptor.addChild(root_0, stream_waypoint.nextTree());
 
                     }
@@ -3391,13 +2679,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 7 :
-                    dbg.enterAlt(7);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:191:4: altitude
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(191,4);
                     pushFollow(FOLLOW_altitude_in_loiterCommandValue906);
                     altitude79=altitude();
 
@@ -3423,15 +2708,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(192, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "loiterCommandValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "loiterCommandValue"
@@ -3469,16 +2745,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
         RewriteRuleTokenStream stream_101=new RewriteRuleTokenStream(adaptor,"token 101");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
-        try { dbg.enterRule(getGrammarFileName(), "executeCommand");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(194, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:195:2: ( Identifier -> ^( EXECUTE Identifier ) | Identifier '(' numericValue ( ',' numericValue )* ')' -> ^( EXECUTE Identifier ( ^( PARAMETER numericValue ) )+ ) )
             int alt31=2;
-            try { dbg.enterDecision(31);
-
             int LA31_0 = input.LA(1);
 
             if ( (LA31_0==Identifier) ) {
@@ -3494,7 +2763,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 31, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
             }
@@ -3502,18 +2770,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 31, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(31);}
-
             switch (alt31) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:195:4: Identifier
                     {
-                    dbg.location(195,4);
                     Identifier80=(Token)match(input,Identifier,FOLLOW_Identifier_in_executeCommand917);  
                     stream_Identifier.add(Identifier80);
 
@@ -3532,14 +2794,11 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 196:2: -> ^( EXECUTE Identifier )
                     {
-                        dbg.location(196,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:196:5: ^( EXECUTE Identifier )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(196,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXECUTE, "EXECUTE"), root_1);
 
-                        dbg.location(196,15);
                         adaptor.addChild(root_1, stream_Identifier.nextNode());
 
                         adaptor.addChild(root_0, root_1);
@@ -3551,34 +2810,24 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:197:4: Identifier '(' numericValue ( ',' numericValue )* ')'
                     {
-                    dbg.location(197,4);
                     Identifier81=(Token)match(input,Identifier,FOLLOW_Identifier_in_executeCommand931);  
                     stream_Identifier.add(Identifier81);
 
-                    dbg.location(197,15);
                     char_literal82=(Token)match(input,102,FOLLOW_102_in_executeCommand933);  
                     stream_102.add(char_literal82);
 
-                    dbg.location(197,19);
                     pushFollow(FOLLOW_numericValue_in_executeCommand935);
                     numericValue83=numericValue();
 
                     state._fsp--;
 
                     stream_numericValue.add(numericValue83.getTree());
-                    dbg.location(197,32);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:197:32: ( ',' numericValue )*
-                    try { dbg.enterSubRule(30);
-
                     loop30:
                     do {
                         int alt30=2;
-                        try { dbg.enterDecision(30);
-
                         int LA30_0 = input.LA(1);
 
                         if ( (LA30_0==101) ) {
@@ -3586,19 +2835,13 @@ public class flipsParser extends DebugParser {
                         }
 
 
-                        } finally {dbg.exitDecision(30);}
-
                         switch (alt30) {
                     	case 1 :
-                    	    dbg.enterAlt(1);
-
                     	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:197:33: ',' numericValue
                     	    {
-                    	    dbg.location(197,33);
                     	    char_literal84=(Token)match(input,101,FOLLOW_101_in_executeCommand938);  
                     	    stream_101.add(char_literal84);
 
-                    	    dbg.location(197,37);
                     	    pushFollow(FOLLOW_numericValue_in_executeCommand940);
                     	    numericValue85=numericValue();
 
@@ -3613,16 +2856,14 @@ public class flipsParser extends DebugParser {
                     	    break loop30;
                         }
                     } while (true);
-                    } finally {dbg.exitSubRule(30);}
 
-                    dbg.location(197,53);
                     char_literal86=(Token)match(input,103,FOLLOW_103_in_executeCommand945);  
                     stream_103.add(char_literal86);
 
 
 
                     // AST REWRITE
-                    // elements: numericValue, Identifier
+                    // elements: Identifier, numericValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3634,28 +2875,21 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 198:2: -> ^( EXECUTE Identifier ( ^( PARAMETER numericValue ) )+ )
                     {
-                        dbg.location(198,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:198:5: ^( EXECUTE Identifier ( ^( PARAMETER numericValue ) )+ )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(198,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXECUTE, "EXECUTE"), root_1);
 
-                        dbg.location(198,15);
                         adaptor.addChild(root_1, stream_Identifier.nextNode());
-                        dbg.location(198,26);
                         if ( !(stream_numericValue.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
                         while ( stream_numericValue.hasNext() ) {
-                            dbg.location(198,26);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:198:26: ^( PARAMETER numericValue )
                             {
                             CommonTree root_2 = (CommonTree)adaptor.nil();
-                            dbg.location(198,28);
                             root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PARAMETER, "PARAMETER"), root_2);
 
-                            dbg.location(198,38);
                             adaptor.addChild(root_2, stream_numericValue.nextTree());
 
                             adaptor.addChild(root_1, root_2);
@@ -3688,15 +2922,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(199, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "executeCommand");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "executeCommand"
@@ -3741,16 +2966,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_With=new RewriteRuleTokenStream(adaptor,"token With");
         RewriteRuleTokenStream stream_118=new RewriteRuleTokenStream(adaptor,"token 118");
         RewriteRuleSubtreeStream stream_angularValue=new RewriteRuleSubtreeStream(adaptor,"rule angularValue");
-        try { dbg.enterRule(getGrammarFileName(), "pitch");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(203, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:204:2: ( ( 'pit' | 'pitch' ) angularValue -> ^( PITCH angularValue ) | ( With 'an' )? ( 'aoa' | 'angle of attack' ) ( 'of' )? angularValue -> ^( PITCH angularValue ) )
             int alt36=2;
-            try { dbg.enterDecision(36);
-
             int LA36_0 = input.LA(1);
 
             if ( ((LA36_0>=113 && LA36_0<=114)) ) {
@@ -3763,23 +2981,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 36, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(36);}
-
             switch (alt36) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:204:4: ( 'pit' | 'pitch' ) angularValue
                     {
-                    dbg.location(204,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:204:4: ( 'pit' | 'pitch' )
                     int alt32=2;
-                    try { dbg.enterSubRule(32);
-                    try { dbg.enterDecision(32);
-
                     int LA32_0 = input.LA(1);
 
                     if ( (LA32_0==113) ) {
@@ -3792,18 +3001,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 32, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(32);}
-
                     switch (alt32) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:204:5: 'pit'
                             {
-                            dbg.location(204,5);
                             string_literal87=(Token)match(input,113,FOLLOW_113_in_pitch975);  
                             stream_113.add(string_literal87);
 
@@ -3811,11 +3014,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:204:11: 'pitch'
                             {
-                            dbg.location(204,11);
                             string_literal88=(Token)match(input,114,FOLLOW_114_in_pitch977);  
                             stream_114.add(string_literal88);
 
@@ -3824,9 +3024,7 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(32);}
 
-                    dbg.location(204,20);
                     pushFollow(FOLLOW_angularValue_in_pitch980);
                     angularValue89=angularValue();
 
@@ -3848,14 +3046,11 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 205:2: -> ^( PITCH angularValue )
                     {
-                        dbg.location(205,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:205:5: ^( PITCH angularValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(205,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PITCH, "PITCH"), root_1);
 
-                        dbg.location(205,13);
                         adaptor.addChild(root_1, stream_angularValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -3867,34 +3062,22 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:4: ( With 'an' )? ( 'aoa' | 'angle of attack' ) ( 'of' )? angularValue
                     {
-                    dbg.location(206,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:4: ( With 'an' )?
                     int alt33=2;
-                    try { dbg.enterSubRule(33);
-                    try { dbg.enterDecision(33);
-
                     int LA33_0 = input.LA(1);
 
                     if ( (LA33_0==With) ) {
                         alt33=1;
                     }
-                    } finally {dbg.exitDecision(33);}
-
                     switch (alt33) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:5: With 'an'
                             {
-                            dbg.location(206,5);
                             With90=(Token)match(input,With,FOLLOW_With_in_pitch995);  
                             stream_With.add(With90);
 
-                            dbg.location(206,10);
                             string_literal91=(Token)match(input,115,FOLLOW_115_in_pitch997);  
                             stream_115.add(string_literal91);
 
@@ -3903,14 +3086,9 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(33);}
 
-                    dbg.location(206,17);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:17: ( 'aoa' | 'angle of attack' )
                     int alt34=2;
-                    try { dbg.enterSubRule(34);
-                    try { dbg.enterDecision(34);
-
                     int LA34_0 = input.LA(1);
 
                     if ( (LA34_0==116) ) {
@@ -3923,18 +3101,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 34, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(34);}
-
                     switch (alt34) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:18: 'aoa'
                             {
-                            dbg.location(206,18);
                             string_literal92=(Token)match(input,116,FOLLOW_116_in_pitch1002);  
                             stream_116.add(string_literal92);
 
@@ -3942,11 +3114,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:24: 'angle of attack'
                             {
-                            dbg.location(206,24);
                             string_literal93=(Token)match(input,117,FOLLOW_117_in_pitch1004);  
                             stream_117.add(string_literal93);
 
@@ -3955,28 +3124,18 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(34);}
 
-                    dbg.location(206,43);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:43: ( 'of' )?
                     int alt35=2;
-                    try { dbg.enterSubRule(35);
-                    try { dbg.enterDecision(35);
-
                     int LA35_0 = input.LA(1);
 
                     if ( (LA35_0==118) ) {
                         alt35=1;
                     }
-                    } finally {dbg.exitDecision(35);}
-
                     switch (alt35) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:206:43: 'of'
                             {
-                            dbg.location(206,43);
                             string_literal94=(Token)match(input,118,FOLLOW_118_in_pitch1007);  
                             stream_118.add(string_literal94);
 
@@ -3985,9 +3144,7 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(35);}
 
-                    dbg.location(206,49);
                     pushFollow(FOLLOW_angularValue_in_pitch1010);
                     angularValue95=angularValue();
 
@@ -4009,14 +3166,11 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 207:2: -> ^( PITCH angularValue )
                     {
-                        dbg.location(207,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:207:5: ^( PITCH angularValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(207,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PITCH, "PITCH"), root_1);
 
-                        dbg.location(207,13);
                         adaptor.addChild(root_1, stream_angularValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -4043,15 +3197,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(208, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "pitch");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "pitch"
@@ -4079,23 +3224,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_120=new RewriteRuleTokenStream(adaptor,"token 120");
         RewriteRuleTokenStream stream_119=new RewriteRuleTokenStream(adaptor,"token 119");
         RewriteRuleSubtreeStream stream_angularValue=new RewriteRuleSubtreeStream(adaptor,"rule angularValue");
-        try { dbg.enterRule(getGrammarFileName(), "roll");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(210, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:211:2: ( ( 'rol' | 'roll' ) angularValue -> ^( ROLL angularValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:211:4: ( 'rol' | 'roll' ) angularValue
             {
-            dbg.location(211,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:211:4: ( 'rol' | 'roll' )
             int alt37=2;
-            try { dbg.enterSubRule(37);
-            try { dbg.enterDecision(37);
-
             int LA37_0 = input.LA(1);
 
             if ( (LA37_0==119) ) {
@@ -4108,18 +3242,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 37, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(37);}
-
             switch (alt37) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:211:5: 'rol'
                     {
-                    dbg.location(211,5);
                     string_literal96=(Token)match(input,119,FOLLOW_119_in_roll1031);  
                     stream_119.add(string_literal96);
 
@@ -4127,11 +3255,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:211:11: 'roll'
                     {
-                    dbg.location(211,11);
                     string_literal97=(Token)match(input,120,FOLLOW_120_in_roll1033);  
                     stream_120.add(string_literal97);
 
@@ -4140,9 +3265,7 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(37);}
 
-            dbg.location(211,19);
             pushFollow(FOLLOW_angularValue_in_roll1036);
             angularValue98=angularValue();
 
@@ -4164,14 +3287,11 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 212:2: -> ^( ROLL angularValue )
             {
-                dbg.location(212,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:212:5: ^( ROLL angularValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(212,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ROLL, "ROLL"), root_1);
 
-                dbg.location(212,12);
                 adaptor.addChild(root_1, stream_angularValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -4196,15 +3316,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(213, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "roll");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "roll"
@@ -4228,35 +3339,16 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "altitude");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(217, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:218:2: ( fixedAltitude | relativeAltitude )
             int alt38=2;
-            try { dbg.enterDecision(38);
-
-            try {
-                isCyclicDecision = true;
-                alt38 = dfa38.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(38);}
-
+            alt38 = dfa38.predict(input);
             switch (alt38) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:218:4: fixedAltitude
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(218,4);
                     pushFollow(FOLLOW_fixedAltitude_in_altitude1058);
                     fixedAltitude99=fixedAltitude();
 
@@ -4267,13 +3359,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:219:4: relativeAltitude
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(219,4);
                     pushFollow(FOLLOW_relativeAltitude_in_altitude1063);
                     relativeAltitude100=relativeAltitude();
 
@@ -4299,15 +3388,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(220, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "altitude");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "altitude"
@@ -4362,23 +3442,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_118=new RewriteRuleTokenStream(adaptor,"token 118");
         RewriteRuleSubtreeStream stream_altitudeValue=new RewriteRuleSubtreeStream(adaptor,"rule altitudeValue");
         RewriteRuleSubtreeStream stream_upDownDirection=new RewriteRuleSubtreeStream(adaptor,"rule upDownDirection");
-        try { dbg.enterRule(getGrammarFileName(), "fixedAltitude");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(222, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:2: ( ( ( upDownDirection )? To | At | With ) ( ( ( 'an' )? ( 'alt' | 'altitude' ) | ( 'a' )? ( 'pres' | 'pressure' ) ) ( 'of' )? )? altitudeValue -> ^( ALTITUDE FIXED altitudeValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:4: ( ( upDownDirection )? To | At | With ) ( ( ( 'an' )? ( 'alt' | 'altitude' ) | ( 'a' )? ( 'pres' | 'pressure' ) ) ( 'of' )? )? altitudeValue
             {
-            dbg.location(223,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:4: ( ( upDownDirection )? To | At | With )
             int alt40=3;
-            try { dbg.enterSubRule(40);
-            try { dbg.enterDecision(40);
-
             switch ( input.LA(1) ) {
             case To:
             case 237:
@@ -4410,38 +3479,24 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 40, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(40);}
-
             switch (alt40) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:5: ( upDownDirection )? To
                     {
-                    dbg.location(223,5);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:5: ( upDownDirection )?
                     int alt39=2;
-                    try { dbg.enterSubRule(39);
-                    try { dbg.enterDecision(39);
-
                     int LA39_0 = input.LA(1);
 
                     if ( ((LA39_0>=237 && LA39_0<=247)) ) {
                         alt39=1;
                     }
-                    } finally {dbg.exitDecision(39);}
-
                     switch (alt39) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:5: upDownDirection
                             {
-                            dbg.location(223,5);
                             pushFollow(FOLLOW_upDownDirection_in_fixedAltitude1075);
                             upDownDirection101=upDownDirection();
 
@@ -4453,9 +3508,7 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(39);}
 
-                    dbg.location(223,22);
                     To102=(Token)match(input,To,FOLLOW_To_in_fixedAltitude1078);  
                     stream_To.add(To102);
 
@@ -4463,11 +3516,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:25: At
                     {
-                    dbg.location(223,25);
                     At103=(Token)match(input,At,FOLLOW_At_in_fixedAltitude1080);  
                     stream_At.add(At103);
 
@@ -4475,11 +3525,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:28: With
                     {
-                    dbg.location(223,28);
                     With104=(Token)match(input,With,FOLLOW_With_in_fixedAltitude1082);  
                     stream_With.add(With104);
 
@@ -4488,33 +3535,20 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(40);}
 
-            dbg.location(223,34);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:34: ( ( ( 'an' )? ( 'alt' | 'altitude' ) | ( 'a' )? ( 'pres' | 'pressure' ) ) ( 'of' )? )?
             int alt47=2;
-            try { dbg.enterSubRule(47);
-            try { dbg.enterDecision(47);
-
             int LA47_0 = input.LA(1);
 
             if ( (LA47_0==115||(LA47_0>=121 && LA47_0<=125)) ) {
                 alt47=1;
             }
-            } finally {dbg.exitDecision(47);}
-
             switch (alt47) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:35: ( ( 'an' )? ( 'alt' | 'altitude' ) | ( 'a' )? ( 'pres' | 'pressure' ) ) ( 'of' )?
                     {
-                    dbg.location(223,35);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:35: ( ( 'an' )? ( 'alt' | 'altitude' ) | ( 'a' )? ( 'pres' | 'pressure' ) )
                     int alt45=2;
-                    try { dbg.enterSubRule(45);
-                    try { dbg.enterDecision(45);
-
                     int LA45_0 = input.LA(1);
 
                     if ( (LA45_0==115||(LA45_0>=121 && LA45_0<=122)) ) {
@@ -4527,37 +3561,23 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 45, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(45);}
-
                     switch (alt45) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:36: ( 'an' )? ( 'alt' | 'altitude' )
                             {
-                            dbg.location(223,36);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:36: ( 'an' )?
                             int alt41=2;
-                            try { dbg.enterSubRule(41);
-                            try { dbg.enterDecision(41);
-
                             int LA41_0 = input.LA(1);
 
                             if ( (LA41_0==115) ) {
                                 alt41=1;
                             }
-                            } finally {dbg.exitDecision(41);}
-
                             switch (alt41) {
                                 case 1 :
-                                    dbg.enterAlt(1);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:36: 'an'
                                     {
-                                    dbg.location(223,36);
                                     string_literal105=(Token)match(input,115,FOLLOW_115_in_fixedAltitude1087);  
                                     stream_115.add(string_literal105);
 
@@ -4566,14 +3586,9 @@ public class flipsParser extends DebugParser {
                                     break;
 
                             }
-                            } finally {dbg.exitSubRule(41);}
 
-                            dbg.location(223,42);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:42: ( 'alt' | 'altitude' )
                             int alt42=2;
-                            try { dbg.enterSubRule(42);
-                            try { dbg.enterDecision(42);
-
                             int LA42_0 = input.LA(1);
 
                             if ( (LA42_0==121) ) {
@@ -4586,18 +3601,12 @@ public class flipsParser extends DebugParser {
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 42, 0, input);
 
-                                dbg.recognitionException(nvae);
                                 throw nvae;
                             }
-                            } finally {dbg.exitDecision(42);}
-
                             switch (alt42) {
                                 case 1 :
-                                    dbg.enterAlt(1);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:43: 'alt'
                                     {
-                                    dbg.location(223,43);
                                     string_literal106=(Token)match(input,121,FOLLOW_121_in_fixedAltitude1091);  
                                     stream_121.add(string_literal106);
 
@@ -4605,11 +3614,8 @@ public class flipsParser extends DebugParser {
                                     }
                                     break;
                                 case 2 :
-                                    dbg.enterAlt(2);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:49: 'altitude'
                                     {
-                                    dbg.location(223,49);
                                     string_literal107=(Token)match(input,122,FOLLOW_122_in_fixedAltitude1093);  
                                     stream_122.add(string_literal107);
 
@@ -4618,36 +3624,24 @@ public class flipsParser extends DebugParser {
                                     break;
 
                             }
-                            } finally {dbg.exitSubRule(42);}
 
 
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:61: ( 'a' )? ( 'pres' | 'pressure' )
                             {
-                            dbg.location(223,61);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:61: ( 'a' )?
                             int alt43=2;
-                            try { dbg.enterSubRule(43);
-                            try { dbg.enterDecision(43);
-
                             int LA43_0 = input.LA(1);
 
                             if ( (LA43_0==123) ) {
                                 alt43=1;
                             }
-                            } finally {dbg.exitDecision(43);}
-
                             switch (alt43) {
                                 case 1 :
-                                    dbg.enterAlt(1);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:61: 'a'
                                     {
-                                    dbg.location(223,61);
                                     char_literal108=(Token)match(input,123,FOLLOW_123_in_fixedAltitude1096);  
                                     stream_123.add(char_literal108);
 
@@ -4656,14 +3650,9 @@ public class flipsParser extends DebugParser {
                                     break;
 
                             }
-                            } finally {dbg.exitSubRule(43);}
 
-                            dbg.location(223,66);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:66: ( 'pres' | 'pressure' )
                             int alt44=2;
-                            try { dbg.enterSubRule(44);
-                            try { dbg.enterDecision(44);
-
                             int LA44_0 = input.LA(1);
 
                             if ( (LA44_0==124) ) {
@@ -4676,18 +3665,12 @@ public class flipsParser extends DebugParser {
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 44, 0, input);
 
-                                dbg.recognitionException(nvae);
                                 throw nvae;
                             }
-                            } finally {dbg.exitDecision(44);}
-
                             switch (alt44) {
                                 case 1 :
-                                    dbg.enterAlt(1);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:67: 'pres'
                                     {
-                                    dbg.location(223,67);
                                     string_literal109=(Token)match(input,124,FOLLOW_124_in_fixedAltitude1100);  
                                     stream_124.add(string_literal109);
 
@@ -4695,11 +3678,8 @@ public class flipsParser extends DebugParser {
                                     }
                                     break;
                                 case 2 :
-                                    dbg.enterAlt(2);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:74: 'pressure'
                                     {
-                                    dbg.location(223,74);
                                     string_literal110=(Token)match(input,125,FOLLOW_125_in_fixedAltitude1102);  
                                     stream_125.add(string_literal110);
 
@@ -4708,35 +3688,24 @@ public class flipsParser extends DebugParser {
                                     break;
 
                             }
-                            } finally {dbg.exitSubRule(44);}
 
 
                             }
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(45);}
 
-                    dbg.location(223,87);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:87: ( 'of' )?
                     int alt46=2;
-                    try { dbg.enterSubRule(46);
-                    try { dbg.enterDecision(46);
-
                     int LA46_0 = input.LA(1);
 
                     if ( (LA46_0==118) ) {
                         alt46=1;
                     }
-                    } finally {dbg.exitDecision(46);}
-
                     switch (alt46) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:223:87: 'of'
                             {
-                            dbg.location(223,87);
                             string_literal111=(Token)match(input,118,FOLLOW_118_in_fixedAltitude1106);  
                             stream_118.add(string_literal111);
 
@@ -4745,16 +3714,13 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(46);}
 
 
                     }
                     break;
 
             }
-            } finally {dbg.exitSubRule(47);}
 
-            dbg.location(223,95);
             pushFollow(FOLLOW_altitudeValue_in_fixedAltitude1111);
             altitudeValue112=altitudeValue();
 
@@ -4776,16 +3742,12 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 224:2: -> ^( ALTITUDE FIXED altitudeValue )
             {
-                dbg.location(224,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:224:5: ^( ALTITUDE FIXED altitudeValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(224,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ALTITUDE, "ALTITUDE"), root_1);
 
-                dbg.location(224,16);
                 adaptor.addChild(root_1, (CommonTree)adaptor.create(FIXED, "FIXED"));
-                dbg.location(224,22);
                 adaptor.addChild(root_1, stream_altitudeValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -4810,15 +3772,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(225, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "fixedAltitude");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "fixedAltitude"
@@ -4843,25 +3796,16 @@ public class flipsParser extends DebugParser {
 
         RewriteRuleSubtreeStream stream_altitudeValue=new RewriteRuleSubtreeStream(adaptor,"rule altitudeValue");
         RewriteRuleSubtreeStream stream_upDownDirection=new RewriteRuleSubtreeStream(adaptor,"rule upDownDirection");
-        try { dbg.enterRule(getGrammarFileName(), "relativeAltitude");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(227, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:228:2: ( upDownDirection altitudeValue -> ^( ALTITUDE RELATIVE upDownDirection altitudeValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:228:4: upDownDirection altitudeValue
             {
-            dbg.location(228,4);
             pushFollow(FOLLOW_upDownDirection_in_relativeAltitude1133);
             upDownDirection113=upDownDirection();
 
             state._fsp--;
 
             stream_upDownDirection.add(upDownDirection113.getTree());
-            dbg.location(228,20);
             pushFollow(FOLLOW_altitudeValue_in_relativeAltitude1135);
             altitudeValue114=altitudeValue();
 
@@ -4883,18 +3827,13 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 229:2: -> ^( ALTITUDE RELATIVE upDownDirection altitudeValue )
             {
-                dbg.location(229,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:229:5: ^( ALTITUDE RELATIVE upDownDirection altitudeValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(229,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ALTITUDE, "ALTITUDE"), root_1);
 
-                dbg.location(229,16);
                 adaptor.addChild(root_1, (CommonTree)adaptor.create(RELATIVE, "RELATIVE"));
-                dbg.location(229,25);
                 adaptor.addChild(root_1, stream_upDownDirection.nextTree());
-                dbg.location(229,41);
                 adaptor.addChild(root_1, stream_altitudeValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -4919,15 +3858,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(230, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "relativeAltitude");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "relativeAltitude"
@@ -4955,16 +3885,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_FlightLevel=new RewriteRuleTokenStream(adaptor,"token FlightLevel");
         RewriteRuleSubtreeStream stream_pressureValue=new RewriteRuleSubtreeStream(adaptor,"rule pressureValue");
         RewriteRuleSubtreeStream stream_distanceValue=new RewriteRuleSubtreeStream(adaptor,"rule distanceValue");
-        try { dbg.enterRule(getGrammarFileName(), "altitudeValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(232, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:233:2: ( distanceValue -> DISTANCE distanceValue | pressureValue -> PRESSURE pressureValue | FlightLevel -> FLIGHTLEVEL FlightLevel )
             int alt48=3;
-            try { dbg.enterDecision(48);
-
             switch ( input.LA(1) ) {
             case BinaryLiteral:
             case OctalLiteral:
@@ -4983,7 +3906,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 48, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
                 }
@@ -5002,7 +3924,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 48, 2, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
                 }
@@ -5016,19 +3937,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 48, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(48);}
-
             switch (alt48) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:233:4: distanceValue
                     {
-                    dbg.location(233,4);
                     pushFollow(FOLLOW_distanceValue_in_altitudeValue1159);
                     distanceValue115=distanceValue();
 
@@ -5050,9 +3965,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 234:2: -> DISTANCE distanceValue
                     {
-                        dbg.location(234,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DISTANCE, "DISTANCE"));
-                        dbg.location(234,14);
                         adaptor.addChild(root_0, stream_distanceValue.nextTree());
 
                     }
@@ -5061,11 +3974,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:235:4: pressureValue
                     {
-                    dbg.location(235,4);
                     pushFollow(FOLLOW_pressureValue_in_altitudeValue1171);
                     pressureValue116=pressureValue();
 
@@ -5087,9 +3997,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 236:2: -> PRESSURE pressureValue
                     {
-                        dbg.location(236,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(PRESSURE, "PRESSURE"));
-                        dbg.location(236,14);
                         adaptor.addChild(root_0, stream_pressureValue.nextTree());
 
                     }
@@ -5098,11 +4006,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:237:4: FlightLevel
                     {
-                    dbg.location(237,4);
                     FlightLevel117=(Token)match(input,FlightLevel,FOLLOW_FlightLevel_in_altitudeValue1183);  
                     stream_FlightLevel.add(FlightLevel117);
 
@@ -5121,9 +4026,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 238:2: -> FLIGHTLEVEL FlightLevel
                     {
-                        dbg.location(238,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(FLIGHTLEVEL, "FLIGHTLEVEL"));
-                        dbg.location(238,17);
                         adaptor.addChild(root_0, stream_FlightLevel.nextNode());
 
                     }
@@ -5147,15 +4050,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(239, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "altitudeValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "altitudeValue"
@@ -5179,27 +4073,18 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "pressureValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(241, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:242:2: ( numericValue pressureUnit )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:242:4: numericValue pressureUnit
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            dbg.location(242,4);
             pushFollow(FOLLOW_numericValue_in_pressureValue1201);
             numericValue118=numericValue();
 
             state._fsp--;
 
             adaptor.addChild(root_0, numericValue118.getTree());
-            dbg.location(242,17);
             pushFollow(FOLLOW_pressureUnit_in_pressureValue1203);
             pressureUnit119=pressureUnit();
 
@@ -5223,15 +4108,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(243, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "pressureValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "pressureValue"
@@ -5305,16 +4181,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_142=new RewriteRuleTokenStream(adaptor,"token 142");
         RewriteRuleTokenStream stream_141=new RewriteRuleTokenStream(adaptor,"token 141");
 
-        try { dbg.enterRule(getGrammarFileName(), "pressureUnit");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(245, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:246:2: ( ( 'kpa' | 'kilopascal' | 'kilopascals' ) -> KILOPASCAL | ( 'hpa' | 'hectopascal' | 'hectopascals' ) -> HECTOPASCAL | ( 'pa' | 'pascal' | 'pascals' ) -> PASCAL | ( 'bar' | 'bars' ) -> BAR | ( 'mbar' | 'millibar' | 'millibars' ) -> MILLIBAR | ( 'atm' | 'atms' | 'atmosphere' | 'atmospheres' ) -> ATMOSPHERE )
             int alt55=6;
-            try { dbg.enterDecision(55);
-
             switch ( input.LA(1) ) {
             case 126:
             case 127:
@@ -5362,24 +4231,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 55, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(55);}
-
             switch (alt55) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:246:4: ( 'kpa' | 'kilopascal' | 'kilopascals' )
                     {
-                    dbg.location(246,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:246:4: ( 'kpa' | 'kilopascal' | 'kilopascals' )
                     int alt49=3;
-                    try { dbg.enterSubRule(49);
-                    try { dbg.enterDecision(49);
-
                     switch ( input.LA(1) ) {
                     case 126:
                         {
@@ -5400,19 +4260,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 49, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(49);}
-
                     switch (alt49) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:246:5: 'kpa'
                             {
-                            dbg.location(246,5);
                             string_literal120=(Token)match(input,126,FOLLOW_126_in_pressureUnit1215);  
                             stream_126.add(string_literal120);
 
@@ -5420,11 +4274,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:246:11: 'kilopascal'
                             {
-                            dbg.location(246,11);
                             string_literal121=(Token)match(input,127,FOLLOW_127_in_pressureUnit1217);  
                             stream_127.add(string_literal121);
 
@@ -5432,11 +4283,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:246:24: 'kilopascals'
                             {
-                            dbg.location(246,24);
                             string_literal122=(Token)match(input,128,FOLLOW_128_in_pressureUnit1219);  
                             stream_128.add(string_literal122);
 
@@ -5445,7 +4293,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(49);}
 
 
 
@@ -5462,7 +4309,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 247:2: -> KILOPASCAL
                     {
-                        dbg.location(247,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(KILOPASCAL, "KILOPASCAL"));
 
                     }
@@ -5471,16 +4317,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:248:4: ( 'hpa' | 'hectopascal' | 'hectopascals' )
                     {
-                    dbg.location(248,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:248:4: ( 'hpa' | 'hectopascal' | 'hectopascals' )
                     int alt50=3;
-                    try { dbg.enterSubRule(50);
-                    try { dbg.enterDecision(50);
-
                     switch ( input.LA(1) ) {
                     case 129:
                         {
@@ -5501,19 +4341,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 50, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(50);}
-
                     switch (alt50) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:248:5: 'hpa'
                             {
-                            dbg.location(248,5);
                             string_literal123=(Token)match(input,129,FOLLOW_129_in_pressureUnit1231);  
                             stream_129.add(string_literal123);
 
@@ -5521,11 +4355,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:248:11: 'hectopascal'
                             {
-                            dbg.location(248,11);
                             string_literal124=(Token)match(input,130,FOLLOW_130_in_pressureUnit1233);  
                             stream_130.add(string_literal124);
 
@@ -5533,11 +4364,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:248:25: 'hectopascals'
                             {
-                            dbg.location(248,25);
                             string_literal125=(Token)match(input,131,FOLLOW_131_in_pressureUnit1235);  
                             stream_131.add(string_literal125);
 
@@ -5546,7 +4374,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(50);}
 
 
 
@@ -5563,7 +4390,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 249:2: -> HECTOPASCAL
                     {
-                        dbg.location(249,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HECTOPASCAL, "HECTOPASCAL"));
 
                     }
@@ -5572,16 +4398,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:250:4: ( 'pa' | 'pascal' | 'pascals' )
                     {
-                    dbg.location(250,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:250:4: ( 'pa' | 'pascal' | 'pascals' )
                     int alt51=3;
-                    try { dbg.enterSubRule(51);
-                    try { dbg.enterDecision(51);
-
                     switch ( input.LA(1) ) {
                     case 132:
                         {
@@ -5602,19 +4422,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 51, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(51);}
-
                     switch (alt51) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:250:5: 'pa'
                             {
-                            dbg.location(250,5);
                             string_literal126=(Token)match(input,132,FOLLOW_132_in_pressureUnit1247);  
                             stream_132.add(string_literal126);
 
@@ -5622,11 +4436,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:250:10: 'pascal'
                             {
-                            dbg.location(250,10);
                             string_literal127=(Token)match(input,133,FOLLOW_133_in_pressureUnit1249);  
                             stream_133.add(string_literal127);
 
@@ -5634,11 +4445,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:250:19: 'pascals'
                             {
-                            dbg.location(250,19);
                             string_literal128=(Token)match(input,134,FOLLOW_134_in_pressureUnit1251);  
                             stream_134.add(string_literal128);
 
@@ -5647,7 +4455,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(51);}
 
 
 
@@ -5664,7 +4471,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 251:2: -> PASCAL
                     {
-                        dbg.location(251,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(PASCAL, "PASCAL"));
 
                     }
@@ -5673,16 +4479,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:252:4: ( 'bar' | 'bars' )
                     {
-                    dbg.location(252,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:252:4: ( 'bar' | 'bars' )
                     int alt52=2;
-                    try { dbg.enterSubRule(52);
-                    try { dbg.enterDecision(52);
-
                     int LA52_0 = input.LA(1);
 
                     if ( (LA52_0==135) ) {
@@ -5695,18 +4495,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 52, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(52);}
-
                     switch (alt52) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:252:5: 'bar'
                             {
-                            dbg.location(252,5);
                             string_literal129=(Token)match(input,135,FOLLOW_135_in_pressureUnit1263);  
                             stream_135.add(string_literal129);
 
@@ -5714,11 +4508,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:252:11: 'bars'
                             {
-                            dbg.location(252,11);
                             string_literal130=(Token)match(input,136,FOLLOW_136_in_pressureUnit1265);  
                             stream_136.add(string_literal130);
 
@@ -5727,7 +4518,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(52);}
 
 
 
@@ -5744,7 +4534,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 253:2: -> BAR
                     {
-                        dbg.location(253,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(BAR, "BAR"));
 
                     }
@@ -5753,16 +4542,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:254:4: ( 'mbar' | 'millibar' | 'millibars' )
                     {
-                    dbg.location(254,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:254:4: ( 'mbar' | 'millibar' | 'millibars' )
                     int alt53=3;
-                    try { dbg.enterSubRule(53);
-                    try { dbg.enterDecision(53);
-
                     switch ( input.LA(1) ) {
                     case 137:
                         {
@@ -5783,19 +4566,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 53, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(53);}
-
                     switch (alt53) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:254:5: 'mbar'
                             {
-                            dbg.location(254,5);
                             string_literal131=(Token)match(input,137,FOLLOW_137_in_pressureUnit1277);  
                             stream_137.add(string_literal131);
 
@@ -5803,11 +4580,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:254:12: 'millibar'
                             {
-                            dbg.location(254,12);
                             string_literal132=(Token)match(input,138,FOLLOW_138_in_pressureUnit1279);  
                             stream_138.add(string_literal132);
 
@@ -5815,11 +4589,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:254:23: 'millibars'
                             {
-                            dbg.location(254,23);
                             string_literal133=(Token)match(input,139,FOLLOW_139_in_pressureUnit1281);  
                             stream_139.add(string_literal133);
 
@@ -5828,7 +4599,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(53);}
 
 
 
@@ -5845,7 +4615,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 255:2: -> MILLIBAR
                     {
-                        dbg.location(255,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MILLIBAR, "MILLIBAR"));
 
                     }
@@ -5854,16 +4623,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 6 :
-                    dbg.enterAlt(6);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:256:4: ( 'atm' | 'atms' | 'atmosphere' | 'atmospheres' )
                     {
-                    dbg.location(256,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:256:4: ( 'atm' | 'atms' | 'atmosphere' | 'atmospheres' )
                     int alt54=4;
-                    try { dbg.enterSubRule(54);
-                    try { dbg.enterDecision(54);
-
                     switch ( input.LA(1) ) {
                     case 140:
                         {
@@ -5889,19 +4652,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 54, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(54);}
-
                     switch (alt54) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:256:5: 'atm'
                             {
-                            dbg.location(256,5);
                             string_literal134=(Token)match(input,140,FOLLOW_140_in_pressureUnit1293);  
                             stream_140.add(string_literal134);
 
@@ -5909,11 +4666,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:256:11: 'atms'
                             {
-                            dbg.location(256,11);
                             string_literal135=(Token)match(input,141,FOLLOW_141_in_pressureUnit1295);  
                             stream_141.add(string_literal135);
 
@@ -5921,11 +4675,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:256:18: 'atmosphere'
                             {
-                            dbg.location(256,18);
                             string_literal136=(Token)match(input,142,FOLLOW_142_in_pressureUnit1297);  
                             stream_142.add(string_literal136);
 
@@ -5933,11 +4684,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:256:31: 'atmospheres'
                             {
-                            dbg.location(256,31);
                             string_literal137=(Token)match(input,143,FOLLOW_143_in_pressureUnit1299);  
                             stream_143.add(string_literal137);
 
@@ -5946,7 +4694,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(54);}
 
 
 
@@ -5963,7 +4710,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 257:2: -> ATMOSPHERE
                     {
-                        dbg.location(257,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(ATMOSPHERE, "ATMOSPHERE"));
 
                     }
@@ -5987,15 +4733,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(258, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "pressureUnit");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "pressureUnit"
@@ -6036,23 +4773,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_With=new RewriteRuleTokenStream(adaptor,"token With");
         RewriteRuleTokenStream stream_118=new RewriteRuleTokenStream(adaptor,"token 118");
         RewriteRuleSubtreeStream stream_distanceValue=new RewriteRuleSubtreeStream(adaptor,"rule distanceValue");
-        try { dbg.enterRule(getGrammarFileName(), "radius");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(262, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:2: ( ( 'in' | With )? ( 'a' )? ( 'radius' ( 'of' )? distanceValue | distanceValue 'radius' ) -> ^( RADIUS distanceValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:4: ( 'in' | With )? ( 'a' )? ( 'radius' ( 'of' )? distanceValue | distanceValue 'radius' )
             {
-            dbg.location(263,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:4: ( 'in' | With )?
             int alt56=3;
-            try { dbg.enterSubRule(56);
-            try { dbg.enterDecision(56);
-
             int LA56_0 = input.LA(1);
 
             if ( (LA56_0==144) ) {
@@ -6061,15 +4787,10 @@ public class flipsParser extends DebugParser {
             else if ( (LA56_0==With) ) {
                 alt56=2;
             }
-            } finally {dbg.exitDecision(56);}
-
             switch (alt56) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:5: 'in'
                     {
-                    dbg.location(263,5);
                     string_literal138=(Token)match(input,144,FOLLOW_144_in_radius1319);  
                     stream_144.add(string_literal138);
 
@@ -6077,11 +4798,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:10: With
                     {
-                    dbg.location(263,10);
                     With139=(Token)match(input,With,FOLLOW_With_in_radius1321);  
                     stream_With.add(With139);
 
@@ -6090,28 +4808,18 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(56);}
 
-            dbg.location(263,17);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:17: ( 'a' )?
             int alt57=2;
-            try { dbg.enterSubRule(57);
-            try { dbg.enterDecision(57);
-
             int LA57_0 = input.LA(1);
 
             if ( (LA57_0==123) ) {
                 alt57=1;
             }
-            } finally {dbg.exitDecision(57);}
-
             switch (alt57) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:17: 'a'
                     {
-                    dbg.location(263,17);
                     char_literal140=(Token)match(input,123,FOLLOW_123_in_radius1325);  
                     stream_123.add(char_literal140);
 
@@ -6120,14 +4828,9 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(57);}
 
-            dbg.location(263,22);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:22: ( 'radius' ( 'of' )? distanceValue | distanceValue 'radius' )
             int alt59=2;
-            try { dbg.enterSubRule(59);
-            try { dbg.enterDecision(59);
-
             int LA59_0 = input.LA(1);
 
             if ( (LA59_0==145) ) {
@@ -6140,41 +4843,26 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 59, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(59);}
-
             switch (alt59) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:23: 'radius' ( 'of' )? distanceValue
                     {
-                    dbg.location(263,23);
                     string_literal141=(Token)match(input,145,FOLLOW_145_in_radius1329);  
                     stream_145.add(string_literal141);
 
-                    dbg.location(263,32);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:32: ( 'of' )?
                     int alt58=2;
-                    try { dbg.enterSubRule(58);
-                    try { dbg.enterDecision(58);
-
                     int LA58_0 = input.LA(1);
 
                     if ( (LA58_0==118) ) {
                         alt58=1;
                     }
-                    } finally {dbg.exitDecision(58);}
-
                     switch (alt58) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:32: 'of'
                             {
-                            dbg.location(263,32);
                             string_literal142=(Token)match(input,118,FOLLOW_118_in_radius1331);  
                             stream_118.add(string_literal142);
 
@@ -6183,9 +4871,7 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(58);}
 
-                    dbg.location(263,38);
                     pushFollow(FOLLOW_distanceValue_in_radius1334);
                     distanceValue143=distanceValue();
 
@@ -6196,18 +4882,14 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:263:52: distanceValue 'radius'
                     {
-                    dbg.location(263,52);
                     pushFollow(FOLLOW_distanceValue_in_radius1336);
                     distanceValue144=distanceValue();
 
                     state._fsp--;
 
                     stream_distanceValue.add(distanceValue144.getTree());
-                    dbg.location(263,66);
                     string_literal145=(Token)match(input,145,FOLLOW_145_in_radius1338);  
                     stream_145.add(string_literal145);
 
@@ -6216,7 +4898,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(59);}
 
 
 
@@ -6233,14 +4914,11 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 264:2: -> ^( RADIUS distanceValue )
             {
-                dbg.location(264,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:264:5: ^( RADIUS distanceValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(264,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RADIUS, "RADIUS"), root_1);
 
-                dbg.location(264,14);
                 adaptor.addChild(root_1, stream_distanceValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -6265,15 +4943,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(265, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "radius");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "radius"
@@ -6298,37 +4967,21 @@ public class flipsParser extends DebugParser {
 
         RewriteRuleSubtreeStream stream_leftRightDirection=new RewriteRuleSubtreeStream(adaptor,"rule leftRightDirection");
         RewriteRuleSubtreeStream stream_distanceValue=new RewriteRuleSubtreeStream(adaptor,"rule distanceValue");
-        try { dbg.enterRule(getGrammarFileName(), "distance");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(267, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:268:2: ( ( leftRightDirection )? distanceValue -> ^( DISTANCE ( leftRightDirection )? distanceValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:268:4: ( leftRightDirection )? distanceValue
             {
-            dbg.location(268,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:268:4: ( leftRightDirection )?
             int alt60=2;
-            try { dbg.enterSubRule(60);
-            try { dbg.enterDecision(60);
-
             int LA60_0 = input.LA(1);
 
             if ( ((LA60_0>=248 && LA60_0<=253)) ) {
                 alt60=1;
             }
-            } finally {dbg.exitDecision(60);}
-
             switch (alt60) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:268:4: leftRightDirection
                     {
-                    dbg.location(268,4);
                     pushFollow(FOLLOW_leftRightDirection_in_distance1359);
                     leftRightDirection146=leftRightDirection();
 
@@ -6340,9 +4993,7 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(60);}
 
-            dbg.location(268,24);
             pushFollow(FOLLOW_distanceValue_in_distance1362);
             distanceValue147=distanceValue();
 
@@ -6364,22 +5015,17 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 269:2: -> ^( DISTANCE ( leftRightDirection )? distanceValue )
             {
-                dbg.location(269,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:269:5: ^( DISTANCE ( leftRightDirection )? distanceValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(269,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DISTANCE, "DISTANCE"), root_1);
 
-                dbg.location(269,16);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:269:16: ( leftRightDirection )?
                 if ( stream_leftRightDirection.hasNext() ) {
-                    dbg.location(269,16);
                     adaptor.addChild(root_1, stream_leftRightDirection.nextTree());
 
                 }
                 stream_leftRightDirection.reset();
-                dbg.location(269,36);
                 adaptor.addChild(root_1, stream_distanceValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -6404,15 +5050,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(270, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "distance");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "distance"
@@ -6436,27 +5073,18 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "distanceValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(272, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:273:2: ( numericValue distanceUnit )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:273:4: numericValue distanceUnit
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            dbg.location(273,4);
             pushFollow(FOLLOW_numericValue_in_distanceValue1385);
             numericValue148=numericValue();
 
             state._fsp--;
 
             adaptor.addChild(root_0, numericValue148.getTree());
-            dbg.location(273,17);
             pushFollow(FOLLOW_distanceUnit_in_distanceValue1387);
             distanceUnit149=distanceUnit();
 
@@ -6480,15 +5108,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(274, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "distanceValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "distanceValue"
@@ -6568,16 +5187,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_151=new RewriteRuleTokenStream(adaptor,"token 151");
         RewriteRuleTokenStream stream_160=new RewriteRuleTokenStream(adaptor,"token 160");
 
-        try { dbg.enterRule(getGrammarFileName(), "distanceUnit");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(276, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:277:2: ( ( 'km' | 'kilometer' | 'kilometers' ) -> KILOMETER | ( 'm' | 'meter' | 'meters' ) -> METER | ( 'nm' | 'nautical' ( 'mi' | 'mile' | 'miles' ) ) -> NAUTICAL MILE | ( 'statute' )? ( 'mi' | 'mile' | 'miles' ) -> MILE | ( 'yd' | 'yard' | 'yards' ) -> YARD | ( 'ft' | 'foot' | 'feet' ) -> FOOT )
             int alt69=6;
-            try { dbg.enterDecision(69);
-
             switch ( input.LA(1) ) {
             case 146:
             case 147:
@@ -6625,24 +5237,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 69, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(69);}
-
             switch (alt69) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:277:4: ( 'km' | 'kilometer' | 'kilometers' )
                     {
-                    dbg.location(277,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:277:4: ( 'km' | 'kilometer' | 'kilometers' )
                     int alt61=3;
-                    try { dbg.enterSubRule(61);
-                    try { dbg.enterDecision(61);
-
                     switch ( input.LA(1) ) {
                     case 146:
                         {
@@ -6663,19 +5266,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 61, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(61);}
-
                     switch (alt61) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:277:5: 'km'
                             {
-                            dbg.location(277,5);
                             string_literal150=(Token)match(input,146,FOLLOW_146_in_distanceUnit1399);  
                             stream_146.add(string_literal150);
 
@@ -6683,11 +5280,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:277:10: 'kilometer'
                             {
-                            dbg.location(277,10);
                             string_literal151=(Token)match(input,147,FOLLOW_147_in_distanceUnit1401);  
                             stream_147.add(string_literal151);
 
@@ -6695,11 +5289,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:277:22: 'kilometers'
                             {
-                            dbg.location(277,22);
                             string_literal152=(Token)match(input,148,FOLLOW_148_in_distanceUnit1403);  
                             stream_148.add(string_literal152);
 
@@ -6708,7 +5299,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(61);}
 
 
 
@@ -6725,7 +5315,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 278:2: -> KILOMETER
                     {
-                        dbg.location(278,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(KILOMETER, "KILOMETER"));
 
                     }
@@ -6734,16 +5323,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:279:4: ( 'm' | 'meter' | 'meters' )
                     {
-                    dbg.location(279,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:279:4: ( 'm' | 'meter' | 'meters' )
                     int alt62=3;
-                    try { dbg.enterSubRule(62);
-                    try { dbg.enterDecision(62);
-
                     switch ( input.LA(1) ) {
                     case 149:
                         {
@@ -6764,19 +5347,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 62, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(62);}
-
                     switch (alt62) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:279:5: 'm'
                             {
-                            dbg.location(279,5);
                             char_literal153=(Token)match(input,149,FOLLOW_149_in_distanceUnit1415);  
                             stream_149.add(char_literal153);
 
@@ -6784,11 +5361,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:279:9: 'meter'
                             {
-                            dbg.location(279,9);
                             string_literal154=(Token)match(input,150,FOLLOW_150_in_distanceUnit1417);  
                             stream_150.add(string_literal154);
 
@@ -6796,11 +5370,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:279:17: 'meters'
                             {
-                            dbg.location(279,17);
                             string_literal155=(Token)match(input,151,FOLLOW_151_in_distanceUnit1419);  
                             stream_151.add(string_literal155);
 
@@ -6809,7 +5380,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(62);}
 
 
 
@@ -6826,7 +5396,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 280:2: -> METER
                     {
-                        dbg.location(280,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(METER, "METER"));
 
                     }
@@ -6835,16 +5404,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:4: ( 'nm' | 'nautical' ( 'mi' | 'mile' | 'miles' ) )
                     {
-                    dbg.location(281,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:4: ( 'nm' | 'nautical' ( 'mi' | 'mile' | 'miles' ) )
                     int alt64=2;
-                    try { dbg.enterSubRule(64);
-                    try { dbg.enterDecision(64);
-
                     int LA64_0 = input.LA(1);
 
                     if ( (LA64_0==152) ) {
@@ -6857,18 +5420,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 64, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(64);}
-
                     switch (alt64) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:5: 'nm'
                             {
-                            dbg.location(281,5);
                             string_literal156=(Token)match(input,152,FOLLOW_152_in_distanceUnit1431);  
                             stream_152.add(string_literal156);
 
@@ -6876,20 +5433,13 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:10: 'nautical' ( 'mi' | 'mile' | 'miles' )
                             {
-                            dbg.location(281,10);
                             string_literal157=(Token)match(input,153,FOLLOW_153_in_distanceUnit1433);  
                             stream_153.add(string_literal157);
 
-                            dbg.location(281,21);
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:21: ( 'mi' | 'mile' | 'miles' )
                             int alt63=3;
-                            try { dbg.enterSubRule(63);
-                            try { dbg.enterDecision(63);
-
                             switch ( input.LA(1) ) {
                             case 154:
                                 {
@@ -6910,19 +5460,13 @@ public class flipsParser extends DebugParser {
                                 NoViableAltException nvae =
                                     new NoViableAltException("", 63, 0, input);
 
-                                dbg.recognitionException(nvae);
                                 throw nvae;
                             }
 
-                            } finally {dbg.exitDecision(63);}
-
                             switch (alt63) {
                                 case 1 :
-                                    dbg.enterAlt(1);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:22: 'mi'
                                     {
-                                    dbg.location(281,22);
                                     string_literal158=(Token)match(input,154,FOLLOW_154_in_distanceUnit1436);  
                                     stream_154.add(string_literal158);
 
@@ -6930,11 +5474,8 @@ public class flipsParser extends DebugParser {
                                     }
                                     break;
                                 case 2 :
-                                    dbg.enterAlt(2);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:27: 'mile'
                                     {
-                                    dbg.location(281,27);
                                     string_literal159=(Token)match(input,155,FOLLOW_155_in_distanceUnit1438);  
                                     stream_155.add(string_literal159);
 
@@ -6942,11 +5483,8 @@ public class flipsParser extends DebugParser {
                                     }
                                     break;
                                 case 3 :
-                                    dbg.enterAlt(3);
-
                                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:281:34: 'miles'
                                     {
-                                    dbg.location(281,34);
                                     string_literal160=(Token)match(input,156,FOLLOW_156_in_distanceUnit1440);  
                                     stream_156.add(string_literal160);
 
@@ -6955,14 +5493,12 @@ public class flipsParser extends DebugParser {
                                     break;
 
                             }
-                            } finally {dbg.exitSubRule(63);}
 
 
                             }
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(64);}
 
 
 
@@ -6979,9 +5515,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 282:2: -> NAUTICAL MILE
                     {
-                        dbg.location(282,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NAUTICAL, "NAUTICAL"));
-                        dbg.location(282,14);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MILE, "MILE"));
 
                     }
@@ -6990,30 +5524,19 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:4: ( 'statute' )? ( 'mi' | 'mile' | 'miles' )
                     {
-                    dbg.location(283,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:4: ( 'statute' )?
                     int alt65=2;
-                    try { dbg.enterSubRule(65);
-                    try { dbg.enterDecision(65);
-
                     int LA65_0 = input.LA(1);
 
                     if ( (LA65_0==157) ) {
                         alt65=1;
                     }
-                    } finally {dbg.exitDecision(65);}
-
                     switch (alt65) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:5: 'statute'
                             {
-                            dbg.location(283,5);
                             string_literal161=(Token)match(input,157,FOLLOW_157_in_distanceUnit1455);  
                             stream_157.add(string_literal161);
 
@@ -7022,14 +5545,9 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(65);}
 
-                    dbg.location(283,17);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:17: ( 'mi' | 'mile' | 'miles' )
                     int alt66=3;
-                    try { dbg.enterSubRule(66);
-                    try { dbg.enterDecision(66);
-
                     switch ( input.LA(1) ) {
                     case 154:
                         {
@@ -7050,19 +5568,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 66, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(66);}
-
                     switch (alt66) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:18: 'mi'
                             {
-                            dbg.location(283,18);
                             string_literal162=(Token)match(input,154,FOLLOW_154_in_distanceUnit1460);  
                             stream_154.add(string_literal162);
 
@@ -7070,11 +5582,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:23: 'mile'
                             {
-                            dbg.location(283,23);
                             string_literal163=(Token)match(input,155,FOLLOW_155_in_distanceUnit1462);  
                             stream_155.add(string_literal163);
 
@@ -7082,11 +5591,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:283:30: 'miles'
                             {
-                            dbg.location(283,30);
                             string_literal164=(Token)match(input,156,FOLLOW_156_in_distanceUnit1464);  
                             stream_156.add(string_literal164);
 
@@ -7095,7 +5601,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(66);}
 
 
 
@@ -7112,7 +5617,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 284:2: -> MILE
                     {
-                        dbg.location(284,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MILE, "MILE"));
 
                     }
@@ -7121,16 +5625,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:285:4: ( 'yd' | 'yard' | 'yards' )
                     {
-                    dbg.location(285,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:285:4: ( 'yd' | 'yard' | 'yards' )
                     int alt67=3;
-                    try { dbg.enterSubRule(67);
-                    try { dbg.enterDecision(67);
-
                     switch ( input.LA(1) ) {
                     case 158:
                         {
@@ -7151,19 +5649,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 67, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(67);}
-
                     switch (alt67) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:285:5: 'yd'
                             {
-                            dbg.location(285,5);
                             string_literal165=(Token)match(input,158,FOLLOW_158_in_distanceUnit1476);  
                             stream_158.add(string_literal165);
 
@@ -7171,11 +5663,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:285:10: 'yard'
                             {
-                            dbg.location(285,10);
                             string_literal166=(Token)match(input,159,FOLLOW_159_in_distanceUnit1478);  
                             stream_159.add(string_literal166);
 
@@ -7183,11 +5672,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:285:17: 'yards'
                             {
-                            dbg.location(285,17);
                             string_literal167=(Token)match(input,160,FOLLOW_160_in_distanceUnit1480);  
                             stream_160.add(string_literal167);
 
@@ -7196,7 +5682,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(67);}
 
 
 
@@ -7213,7 +5698,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 286:2: -> YARD
                     {
-                        dbg.location(286,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(YARD, "YARD"));
 
                     }
@@ -7222,16 +5706,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 6 :
-                    dbg.enterAlt(6);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:287:4: ( 'ft' | 'foot' | 'feet' )
                     {
-                    dbg.location(287,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:287:4: ( 'ft' | 'foot' | 'feet' )
                     int alt68=3;
-                    try { dbg.enterSubRule(68);
-                    try { dbg.enterDecision(68);
-
                     switch ( input.LA(1) ) {
                     case 161:
                         {
@@ -7252,19 +5730,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 68, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(68);}
-
                     switch (alt68) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:287:5: 'ft'
                             {
-                            dbg.location(287,5);
                             string_literal168=(Token)match(input,161,FOLLOW_161_in_distanceUnit1492);  
                             stream_161.add(string_literal168);
 
@@ -7272,11 +5744,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:287:10: 'foot'
                             {
-                            dbg.location(287,10);
                             string_literal169=(Token)match(input,162,FOLLOW_162_in_distanceUnit1494);  
                             stream_162.add(string_literal169);
 
@@ -7284,11 +5753,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:287:17: 'feet'
                             {
-                            dbg.location(287,17);
                             string_literal170=(Token)match(input,163,FOLLOW_163_in_distanceUnit1496);  
                             stream_163.add(string_literal170);
 
@@ -7297,7 +5763,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(68);}
 
 
 
@@ -7314,7 +5779,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 288:2: -> FOOT
                     {
-                        dbg.location(288,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(FOOT, "FOOT"));
 
                     }
@@ -7338,15 +5802,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(289, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "distanceUnit");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "distanceUnit"
@@ -7374,16 +5829,9 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "speed");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(293, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:294:2: ( fixedSpeed | relativeSpeed | optimalSpeed | throttleSpeed )
             int alt70=4;
-            try { dbg.enterDecision(70);
-
             int LA70_0 = input.LA(1);
 
             if ( (LA70_0==At) ) {
@@ -7405,7 +5853,6 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 70, 3, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
                     }
@@ -7424,7 +5871,6 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 70, 4, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
                     }
@@ -7443,7 +5889,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 70, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
 
@@ -7455,20 +5900,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 70, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(70);}
-
             switch (alt70) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:294:4: fixedSpeed
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(294,4);
                     pushFollow(FOLLOW_fixedSpeed_in_speed1515);
                     fixedSpeed171=fixedSpeed();
 
@@ -7479,13 +5918,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:295:4: relativeSpeed
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(295,4);
                     pushFollow(FOLLOW_relativeSpeed_in_speed1520);
                     relativeSpeed172=relativeSpeed();
 
@@ -7496,13 +5932,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:296:4: optimalSpeed
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(296,4);
                     pushFollow(FOLLOW_optimalSpeed_in_speed1525);
                     optimalSpeed173=optimalSpeed();
 
@@ -7513,13 +5946,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:297:4: throttleSpeed
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(297,4);
                     pushFollow(FOLLOW_throttleSpeed_in_speed1530);
                     throttleSpeed174=throttleSpeed();
 
@@ -7545,15 +5975,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(298, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "speed");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "speed"
@@ -7578,22 +5999,13 @@ public class flipsParser extends DebugParser {
         CommonTree At175_tree=null;
         RewriteRuleTokenStream stream_At=new RewriteRuleTokenStream(adaptor,"token At");
         RewriteRuleSubtreeStream stream_speedValue=new RewriteRuleSubtreeStream(adaptor,"rule speedValue");
-        try { dbg.enterRule(getGrammarFileName(), "fixedSpeed");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(300, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:301:2: ( At speedValue -> ^( SPEED FIXED speedValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:301:4: At speedValue
             {
-            dbg.location(301,4);
             At175=(Token)match(input,At,FOLLOW_At_in_fixedSpeed1541);  
             stream_At.add(At175);
 
-            dbg.location(301,7);
             pushFollow(FOLLOW_speedValue_in_fixedSpeed1543);
             speedValue176=speedValue();
 
@@ -7615,16 +6027,12 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 302:2: -> ^( SPEED FIXED speedValue )
             {
-                dbg.location(302,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:302:5: ^( SPEED FIXED speedValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(302,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                dbg.location(302,13);
                 adaptor.addChild(root_1, (CommonTree)adaptor.create(FIXED, "FIXED"));
-                dbg.location(302,19);
                 adaptor.addChild(root_1, stream_speedValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -7649,15 +6057,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(303, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "fixedSpeed");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "fixedSpeed"
@@ -7696,40 +6095,20 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_165=new RewriteRuleTokenStream(adaptor,"token 165");
         RewriteRuleSubtreeStream stream_speedValue=new RewriteRuleSubtreeStream(adaptor,"rule speedValue");
         RewriteRuleSubtreeStream stream_percentValue=new RewriteRuleSubtreeStream(adaptor,"rule percentValue");
-        try { dbg.enterRule(getGrammarFileName(), "relativeSpeed");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(305, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:306:2: ( speedValue 'faster' -> ^( SPEED RELATIVE FASTER speedValue ) | speedValue 'slower' -> ^( SPEED RELATIVE SLOWER speedValue ) | percentValue 'faster' -> ^( SPEED RELATIVE FASTER percentValue ) | percentValue 'slower' -> ^( SPEED RELATIVE SLOWER percentValue ) )
             int alt71=4;
-            try { dbg.enterDecision(71);
-
-            try {
-                isCyclicDecision = true;
-                alt71 = dfa71.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(71);}
-
+            alt71 = dfa71.predict(input);
             switch (alt71) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:306:4: speedValue 'faster'
                     {
-                    dbg.location(306,4);
                     pushFollow(FOLLOW_speedValue_in_relativeSpeed1565);
                     speedValue177=speedValue();
 
                     state._fsp--;
 
                     stream_speedValue.add(speedValue177.getTree());
-                    dbg.location(306,15);
                     string_literal178=(Token)match(input,164,FOLLOW_164_in_relativeSpeed1567);  
                     stream_164.add(string_literal178);
 
@@ -7748,18 +6127,13 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 307:2: -> ^( SPEED RELATIVE FASTER speedValue )
                     {
-                        dbg.location(307,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:307:5: ^( SPEED RELATIVE FASTER speedValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(307,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                        dbg.location(307,13);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(RELATIVE, "RELATIVE"));
-                        dbg.location(307,22);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(FASTER, "FASTER"));
-                        dbg.location(307,29);
                         adaptor.addChild(root_1, stream_speedValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -7771,18 +6145,14 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:308:4: speedValue 'slower'
                     {
-                    dbg.location(308,4);
                     pushFollow(FOLLOW_speedValue_in_relativeSpeed1585);
                     speedValue179=speedValue();
 
                     state._fsp--;
 
                     stream_speedValue.add(speedValue179.getTree());
-                    dbg.location(308,15);
                     string_literal180=(Token)match(input,165,FOLLOW_165_in_relativeSpeed1587);  
                     stream_165.add(string_literal180);
 
@@ -7801,18 +6171,13 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 309:2: -> ^( SPEED RELATIVE SLOWER speedValue )
                     {
-                        dbg.location(309,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:309:5: ^( SPEED RELATIVE SLOWER speedValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(309,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                        dbg.location(309,13);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(RELATIVE, "RELATIVE"));
-                        dbg.location(309,22);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(SLOWER, "SLOWER"));
-                        dbg.location(309,29);
                         adaptor.addChild(root_1, stream_speedValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -7824,18 +6189,14 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:310:4: percentValue 'faster'
                     {
-                    dbg.location(310,4);
                     pushFollow(FOLLOW_percentValue_in_relativeSpeed1605);
                     percentValue181=percentValue();
 
                     state._fsp--;
 
                     stream_percentValue.add(percentValue181.getTree());
-                    dbg.location(310,17);
                     string_literal182=(Token)match(input,164,FOLLOW_164_in_relativeSpeed1607);  
                     stream_164.add(string_literal182);
 
@@ -7854,18 +6215,13 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 311:2: -> ^( SPEED RELATIVE FASTER percentValue )
                     {
-                        dbg.location(311,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:311:5: ^( SPEED RELATIVE FASTER percentValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(311,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                        dbg.location(311,13);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(RELATIVE, "RELATIVE"));
-                        dbg.location(311,22);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(FASTER, "FASTER"));
-                        dbg.location(311,29);
                         adaptor.addChild(root_1, stream_percentValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -7877,18 +6233,14 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:312:4: percentValue 'slower'
                     {
-                    dbg.location(312,4);
                     pushFollow(FOLLOW_percentValue_in_relativeSpeed1625);
                     percentValue183=percentValue();
 
                     state._fsp--;
 
                     stream_percentValue.add(percentValue183.getTree());
-                    dbg.location(312,17);
                     string_literal184=(Token)match(input,165,FOLLOW_165_in_relativeSpeed1627);  
                     stream_165.add(string_literal184);
 
@@ -7907,18 +6259,13 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 313:2: -> ^( SPEED RELATIVE SLOWER percentValue )
                     {
-                        dbg.location(313,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:313:5: ^( SPEED RELATIVE SLOWER percentValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(313,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                        dbg.location(313,13);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(RELATIVE, "RELATIVE"));
-                        dbg.location(313,22);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(SLOWER, "SLOWER"));
-                        dbg.location(313,29);
                         adaptor.addChild(root_1, stream_percentValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -7945,15 +6292,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(314, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "relativeSpeed");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "relativeSpeed"
@@ -7977,27 +6315,18 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "speedValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(316, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:317:2: ( numericValue speedUnit )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:317:4: numericValue speedUnit
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            dbg.location(317,4);
             pushFollow(FOLLOW_numericValue_in_speedValue1651);
             numericValue185=numericValue();
 
             state._fsp--;
 
             adaptor.addChild(root_0, numericValue185.getTree());
-            dbg.location(317,17);
             pushFollow(FOLLOW_speedUnit_in_speedValue1653);
             speedUnit186=speedUnit();
 
@@ -8021,15 +6350,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(318, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "speedValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "speedValue"
@@ -8081,16 +6401,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_167=new RewriteRuleTokenStream(adaptor,"token 167");
         RewriteRuleSubtreeStream stream_timeUnit=new RewriteRuleSubtreeStream(adaptor,"rule timeUnit");
         RewriteRuleSubtreeStream stream_distanceUnit=new RewriteRuleSubtreeStream(adaptor,"rule distanceUnit");
-        try { dbg.enterRule(getGrammarFileName(), "speedUnit");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(320, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:321:2: ( 'kph' -> KILOMETER HOUR | 'mph' -> MILE HOUR | ( 'kn' | 'kt' | 'kts' | 'knot' | 'knots' ) -> NAUTICAL MILE HOUR | distanceUnit ( '/' | 'per' ) timeUnit -> distanceUnit timeUnit )
             int alt74=4;
-            try { dbg.enterDecision(74);
-
             switch ( input.LA(1) ) {
             case 166:
                 {
@@ -8137,19 +6450,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 74, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(74);}
-
             switch (alt74) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:321:4: 'kph'
                     {
-                    dbg.location(321,4);
                     string_literal187=(Token)match(input,166,FOLLOW_166_in_speedUnit1664);  
                     stream_166.add(string_literal187);
 
@@ -8168,9 +6475,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 322:2: -> KILOMETER HOUR
                     {
-                        dbg.location(322,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(KILOMETER, "KILOMETER"));
-                        dbg.location(322,15);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
 
                     }
@@ -8179,11 +6484,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:323:4: 'mph'
                     {
-                    dbg.location(323,4);
                     string_literal188=(Token)match(input,167,FOLLOW_167_in_speedUnit1676);  
                     stream_167.add(string_literal188);
 
@@ -8202,9 +6504,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 324:2: -> MILE HOUR
                     {
-                        dbg.location(324,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MILE, "MILE"));
-                        dbg.location(324,10);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
 
                     }
@@ -8213,16 +6513,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:4: ( 'kn' | 'kt' | 'kts' | 'knot' | 'knots' )
                     {
-                    dbg.location(325,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:4: ( 'kn' | 'kt' | 'kts' | 'knot' | 'knots' )
                     int alt72=5;
-                    try { dbg.enterSubRule(72);
-                    try { dbg.enterDecision(72);
-
                     switch ( input.LA(1) ) {
                     case 168:
                         {
@@ -8253,19 +6547,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 72, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(72);}
-
                     switch (alt72) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:5: 'kn'
                             {
-                            dbg.location(325,5);
                             string_literal189=(Token)match(input,168,FOLLOW_168_in_speedUnit1689);  
                             stream_168.add(string_literal189);
 
@@ -8273,11 +6561,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:10: 'kt'
                             {
-                            dbg.location(325,10);
                             string_literal190=(Token)match(input,169,FOLLOW_169_in_speedUnit1691);  
                             stream_169.add(string_literal190);
 
@@ -8285,11 +6570,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:15: 'kts'
                             {
-                            dbg.location(325,15);
                             string_literal191=(Token)match(input,170,FOLLOW_170_in_speedUnit1693);  
                             stream_170.add(string_literal191);
 
@@ -8297,11 +6579,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:21: 'knot'
                             {
-                            dbg.location(325,21);
                             string_literal192=(Token)match(input,171,FOLLOW_171_in_speedUnit1695);  
                             stream_171.add(string_literal192);
 
@@ -8309,11 +6588,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 5 :
-                            dbg.enterAlt(5);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:325:28: 'knots'
                             {
-                            dbg.location(325,28);
                             string_literal193=(Token)match(input,172,FOLLOW_172_in_speedUnit1697);  
                             stream_172.add(string_literal193);
 
@@ -8322,7 +6598,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(72);}
 
 
 
@@ -8339,11 +6614,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 326:2: -> NAUTICAL MILE HOUR
                     {
-                        dbg.location(326,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NAUTICAL, "NAUTICAL"));
-                        dbg.location(326,14);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MILE, "MILE"));
-                        dbg.location(326,19);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
 
                     }
@@ -8352,23 +6624,16 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:327:4: distanceUnit ( '/' | 'per' ) timeUnit
                     {
-                    dbg.location(327,4);
                     pushFollow(FOLLOW_distanceUnit_in_speedUnit1712);
                     distanceUnit194=distanceUnit();
 
                     state._fsp--;
 
                     stream_distanceUnit.add(distanceUnit194.getTree());
-                    dbg.location(327,17);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:327:17: ( '/' | 'per' )
                     int alt73=2;
-                    try { dbg.enterSubRule(73);
-                    try { dbg.enterDecision(73);
-
                     int LA73_0 = input.LA(1);
 
                     if ( (LA73_0==173) ) {
@@ -8381,18 +6646,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 73, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(73);}
-
                     switch (alt73) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:327:18: '/'
                             {
-                            dbg.location(327,18);
                             char_literal195=(Token)match(input,173,FOLLOW_173_in_speedUnit1715);  
                             stream_173.add(char_literal195);
 
@@ -8400,11 +6659,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:327:22: 'per'
                             {
-                            dbg.location(327,22);
                             string_literal196=(Token)match(input,174,FOLLOW_174_in_speedUnit1717);  
                             stream_174.add(string_literal196);
 
@@ -8413,9 +6669,7 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(73);}
 
-                    dbg.location(327,29);
                     pushFollow(FOLLOW_timeUnit_in_speedUnit1720);
                     timeUnit197=timeUnit();
 
@@ -8437,9 +6691,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 328:2: -> distanceUnit timeUnit
                     {
-                        dbg.location(328,5);
                         adaptor.addChild(root_0, stream_distanceUnit.nextTree());
-                        dbg.location(328,18);
                         adaptor.addChild(root_0, stream_timeUnit.nextTree());
 
                     }
@@ -8463,15 +6715,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(329, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "speedUnit");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "speedUnit"
@@ -8502,34 +6745,21 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_At=new RewriteRuleTokenStream(adaptor,"token At");
         RewriteRuleTokenStream stream_176=new RewriteRuleTokenStream(adaptor,"token 176");
         RewriteRuleSubtreeStream stream_optimalUnit=new RewriteRuleSubtreeStream(adaptor,"rule optimalUnit");
-        try { dbg.enterRule(getGrammarFileName(), "optimalSpeed");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(331, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:332:2: ( At optimalUnit ( 'spd' | 'speed' ) -> ^( SPEED OPTIMAL optimalUnit ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:332:4: At optimalUnit ( 'spd' | 'speed' )
             {
-            dbg.location(332,4);
             At198=(Token)match(input,At,FOLLOW_At_in_optimalSpeed1738);  
             stream_At.add(At198);
 
-            dbg.location(332,7);
             pushFollow(FOLLOW_optimalUnit_in_optimalSpeed1740);
             optimalUnit199=optimalUnit();
 
             state._fsp--;
 
             stream_optimalUnit.add(optimalUnit199.getTree());
-            dbg.location(332,19);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:332:19: ( 'spd' | 'speed' )
             int alt75=2;
-            try { dbg.enterSubRule(75);
-            try { dbg.enterDecision(75);
-
             int LA75_0 = input.LA(1);
 
             if ( (LA75_0==175) ) {
@@ -8542,18 +6772,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 75, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(75);}
-
             switch (alt75) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:332:20: 'spd'
                     {
-                    dbg.location(332,20);
                     string_literal200=(Token)match(input,175,FOLLOW_175_in_optimalSpeed1743);  
                     stream_175.add(string_literal200);
 
@@ -8561,11 +6785,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:332:26: 'speed'
                     {
-                    dbg.location(332,26);
                     string_literal201=(Token)match(input,176,FOLLOW_176_in_optimalSpeed1745);  
                     stream_176.add(string_literal201);
 
@@ -8574,7 +6795,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(75);}
 
 
 
@@ -8591,16 +6811,12 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 333:2: -> ^( SPEED OPTIMAL optimalUnit )
             {
-                dbg.location(333,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:333:5: ^( SPEED OPTIMAL optimalUnit )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(333,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                dbg.location(333,13);
                 adaptor.addChild(root_1, (CommonTree)adaptor.create(OPTIMAL, "OPTIMAL"));
-                dbg.location(333,21);
                 adaptor.addChild(root_1, stream_optimalUnit.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -8625,15 +6841,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(334, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "optimalSpeed");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "optimalSpeed"
@@ -8671,16 +6878,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_178=new RewriteRuleTokenStream(adaptor,"token 178");
         RewriteRuleTokenStream stream_177=new RewriteRuleTokenStream(adaptor,"token 177");
 
-        try { dbg.enterRule(getGrammarFileName(), "optimalUnit");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(336, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:337:2: ( ( 'min' | 'minimum' ) -> MINIMUM | ( 'cru' | 'cruise' ) -> CRUISE | ( 'max' | 'maximum' ) -> MAXIMUM )
             int alt79=3;
-            try { dbg.enterDecision(79);
-
             switch ( input.LA(1) ) {
             case 177:
             case 178:
@@ -8704,24 +6904,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 79, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(79);}
-
             switch (alt79) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:337:4: ( 'min' | 'minimum' )
                     {
-                    dbg.location(337,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:337:4: ( 'min' | 'minimum' )
                     int alt76=2;
-                    try { dbg.enterSubRule(76);
-                    try { dbg.enterDecision(76);
-
                     int LA76_0 = input.LA(1);
 
                     if ( (LA76_0==177) ) {
@@ -8734,18 +6925,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 76, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(76);}
-
                     switch (alt76) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:337:5: 'min'
                             {
-                            dbg.location(337,5);
                             string_literal202=(Token)match(input,177,FOLLOW_177_in_optimalUnit1769);  
                             stream_177.add(string_literal202);
 
@@ -8753,11 +6938,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:337:11: 'minimum'
                             {
-                            dbg.location(337,11);
                             string_literal203=(Token)match(input,178,FOLLOW_178_in_optimalUnit1771);  
                             stream_178.add(string_literal203);
 
@@ -8766,7 +6948,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(76);}
 
 
 
@@ -8783,7 +6964,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 338:2: -> MINIMUM
                     {
-                        dbg.location(338,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MINIMUM, "MINIMUM"));
 
                     }
@@ -8792,16 +6972,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:339:4: ( 'cru' | 'cruise' )
                     {
-                    dbg.location(339,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:339:4: ( 'cru' | 'cruise' )
                     int alt77=2;
-                    try { dbg.enterSubRule(77);
-                    try { dbg.enterDecision(77);
-
                     int LA77_0 = input.LA(1);
 
                     if ( (LA77_0==179) ) {
@@ -8814,18 +6988,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 77, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(77);}
-
                     switch (alt77) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:339:5: 'cru'
                             {
-                            dbg.location(339,5);
                             string_literal204=(Token)match(input,179,FOLLOW_179_in_optimalUnit1783);  
                             stream_179.add(string_literal204);
 
@@ -8833,11 +7001,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:339:11: 'cruise'
                             {
-                            dbg.location(339,11);
                             string_literal205=(Token)match(input,180,FOLLOW_180_in_optimalUnit1785);  
                             stream_180.add(string_literal205);
 
@@ -8846,7 +7011,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(77);}
 
 
 
@@ -8863,7 +7027,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 340:2: -> CRUISE
                     {
-                        dbg.location(340,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(CRUISE, "CRUISE"));
 
                     }
@@ -8872,16 +7035,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:341:4: ( 'max' | 'maximum' )
                     {
-                    dbg.location(341,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:341:4: ( 'max' | 'maximum' )
                     int alt78=2;
-                    try { dbg.enterSubRule(78);
-                    try { dbg.enterDecision(78);
-
                     int LA78_0 = input.LA(1);
 
                     if ( (LA78_0==181) ) {
@@ -8894,18 +7051,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 78, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(78);}
-
                     switch (alt78) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:341:5: 'max'
                             {
-                            dbg.location(341,5);
                             string_literal206=(Token)match(input,181,FOLLOW_181_in_optimalUnit1797);  
                             stream_181.add(string_literal206);
 
@@ -8913,11 +7064,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:341:11: 'maximum'
                             {
-                            dbg.location(341,11);
                             string_literal207=(Token)match(input,182,FOLLOW_182_in_optimalUnit1799);  
                             stream_182.add(string_literal207);
 
@@ -8926,7 +7074,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(78);}
 
 
 
@@ -8943,7 +7090,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 342:2: -> MAXIMUM
                     {
-                        dbg.location(342,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MAXIMUM, "MAXIMUM"));
 
                     }
@@ -8967,15 +7113,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(343, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "optimalUnit");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "optimalUnit"
@@ -9012,34 +7149,21 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_185=new RewriteRuleTokenStream(adaptor,"token 185");
         RewriteRuleTokenStream stream_186=new RewriteRuleTokenStream(adaptor,"token 186");
         RewriteRuleSubtreeStream stream_throttleValue=new RewriteRuleSubtreeStream(adaptor,"rule throttleValue");
-        try { dbg.enterRule(getGrammarFileName(), "throttleSpeed");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(345, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:2: ( At throttleValue ( 'pwr' | 'power' | 'thr' | 'throttle' ) -> ^( SPEED THROTTLE throttleValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:4: At throttleValue ( 'pwr' | 'power' | 'thr' | 'throttle' )
             {
-            dbg.location(346,4);
             At208=(Token)match(input,At,FOLLOW_At_in_throttleSpeed1816);  
             stream_At.add(At208);
 
-            dbg.location(346,7);
             pushFollow(FOLLOW_throttleValue_in_throttleSpeed1818);
             throttleValue209=throttleValue();
 
             state._fsp--;
 
             stream_throttleValue.add(throttleValue209.getTree());
-            dbg.location(346,21);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:21: ( 'pwr' | 'power' | 'thr' | 'throttle' )
             int alt80=4;
-            try { dbg.enterSubRule(80);
-            try { dbg.enterDecision(80);
-
             switch ( input.LA(1) ) {
             case 183:
                 {
@@ -9065,19 +7189,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 80, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(80);}
-
             switch (alt80) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:22: 'pwr'
                     {
-                    dbg.location(346,22);
                     string_literal210=(Token)match(input,183,FOLLOW_183_in_throttleSpeed1821);  
                     stream_183.add(string_literal210);
 
@@ -9085,11 +7203,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:28: 'power'
                     {
-                    dbg.location(346,28);
                     string_literal211=(Token)match(input,184,FOLLOW_184_in_throttleSpeed1823);  
                     stream_184.add(string_literal211);
 
@@ -9097,11 +7212,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:36: 'thr'
                     {
-                    dbg.location(346,36);
                     string_literal212=(Token)match(input,185,FOLLOW_185_in_throttleSpeed1825);  
                     stream_185.add(string_literal212);
 
@@ -9109,11 +7221,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:346:42: 'throttle'
                     {
-                    dbg.location(346,42);
                     string_literal213=(Token)match(input,186,FOLLOW_186_in_throttleSpeed1827);  
                     stream_186.add(string_literal213);
 
@@ -9122,7 +7231,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(80);}
 
 
 
@@ -9139,16 +7247,12 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 347:2: -> ^( SPEED THROTTLE throttleValue )
             {
-                dbg.location(347,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:347:5: ^( SPEED THROTTLE throttleValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(347,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                dbg.location(347,13);
                 adaptor.addChild(root_1, (CommonTree)adaptor.create(THROTTLE, "THROTTLE"));
-                dbg.location(347,22);
                 adaptor.addChild(root_1, stream_throttleValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -9173,15 +7277,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(348, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "throttleSpeed");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "throttleSpeed"
@@ -9203,20 +7298,12 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "throttleValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(350, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:351:2: ( percentValue )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:351:4: percentValue
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            dbg.location(351,4);
             pushFollow(FOLLOW_percentValue_in_throttleValue1850);
             percentValue214=percentValue();
 
@@ -9240,15 +7327,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(352, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "throttleValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "throttleValue"
@@ -9310,49 +7388,25 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_190=new RewriteRuleTokenStream(adaptor,"token 190");
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_timeFormat=new RewriteRuleSubtreeStream(adaptor,"rule timeFormat");
-        try { dbg.enterRule(getGrammarFileName(), "time");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(356, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:6: ( At timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | At integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | At timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | At integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | At timeFormat -> ^( TIME timeFormat HOUR24 ) )
             int alt85=5;
-            try { dbg.enterDecision(85);
-
-            try {
-                isCyclicDecision = true;
-                alt85 = dfa85.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(85);}
-
+            alt85 = dfa85.predict(input);
             switch (alt85) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:8: At timeFormat ( 'am' | 'a.m.' )
                     {
-                    dbg.location(356,8);
                     At215=(Token)match(input,At,FOLLOW_At_in_time1862);  
                     stream_At.add(At215);
 
-                    dbg.location(356,11);
                     pushFollow(FOLLOW_timeFormat_in_time1864);
                     timeFormat216=timeFormat();
 
                     state._fsp--;
 
                     stream_timeFormat.add(timeFormat216.getTree());
-                    dbg.location(356,22);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:22: ( 'am' | 'a.m.' )
                     int alt81=2;
-                    try { dbg.enterSubRule(81);
-                    try { dbg.enterDecision(81);
-
                     int LA81_0 = input.LA(1);
 
                     if ( (LA81_0==187) ) {
@@ -9365,18 +7419,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 81, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(81);}
-
                     switch (alt81) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:23: 'am'
                             {
-                            dbg.location(356,23);
                             string_literal217=(Token)match(input,187,FOLLOW_187_in_time1867);  
                             stream_187.add(string_literal217);
 
@@ -9384,11 +7432,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:28: 'a.m.'
                             {
-                            dbg.location(356,28);
                             string_literal218=(Token)match(input,188,FOLLOW_188_in_time1869);  
                             stream_188.add(string_literal218);
 
@@ -9397,7 +7442,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(81);}
 
 
 
@@ -9414,16 +7458,12 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 357:2: -> ^( TIME timeFormat AM )
                     {
-                        dbg.location(357,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:357:5: ^( TIME timeFormat AM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(357,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
 
-                        dbg.location(357,12);
                         adaptor.addChild(root_1, stream_timeFormat.nextTree());
-                        dbg.location(357,23);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(AM, "AM"));
 
                         adaptor.addChild(root_0, root_1);
@@ -9435,27 +7475,19 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:4: At integerValue ( 'am' | 'a.m.' )
                     {
-                    dbg.location(358,4);
                     At219=(Token)match(input,At,FOLLOW_At_in_time1886);  
                     stream_At.add(At219);
 
-                    dbg.location(358,7);
                     pushFollow(FOLLOW_integerValue_in_time1888);
                     integerValue220=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(integerValue220.getTree());
-                    dbg.location(358,20);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:20: ( 'am' | 'a.m.' )
                     int alt82=2;
-                    try { dbg.enterSubRule(82);
-                    try { dbg.enterDecision(82);
-
                     int LA82_0 = input.LA(1);
 
                     if ( (LA82_0==187) ) {
@@ -9468,18 +7500,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 82, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(82);}
-
                     switch (alt82) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:21: 'am'
                             {
-                            dbg.location(358,21);
                             string_literal221=(Token)match(input,187,FOLLOW_187_in_time1891);  
                             stream_187.add(string_literal221);
 
@@ -9487,11 +7513,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:26: 'a.m.'
                             {
-                            dbg.location(358,26);
                             string_literal222=(Token)match(input,188,FOLLOW_188_in_time1893);  
                             stream_188.add(string_literal222);
 
@@ -9500,7 +7523,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(82);}
 
 
 
@@ -9517,18 +7539,13 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 359:2: -> ^( TIME integerValue HOUR AM )
                     {
-                        dbg.location(359,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:359:5: ^( TIME integerValue HOUR AM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(359,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
 
-                        dbg.location(359,12);
                         adaptor.addChild(root_1, stream_integerValue.nextTree());
-                        dbg.location(359,25);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(HOUR, "HOUR"));
-                        dbg.location(359,30);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(AM, "AM"));
 
                         adaptor.addChild(root_0, root_1);
@@ -9540,27 +7557,19 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:4: At timeFormat ( 'pm' | 'p.m.' )
                     {
-                    dbg.location(360,4);
                     At223=(Token)match(input,At,FOLLOW_At_in_time1912);  
                     stream_At.add(At223);
 
-                    dbg.location(360,7);
                     pushFollow(FOLLOW_timeFormat_in_time1914);
                     timeFormat224=timeFormat();
 
                     state._fsp--;
 
                     stream_timeFormat.add(timeFormat224.getTree());
-                    dbg.location(360,18);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:18: ( 'pm' | 'p.m.' )
                     int alt83=2;
-                    try { dbg.enterSubRule(83);
-                    try { dbg.enterDecision(83);
-
                     int LA83_0 = input.LA(1);
 
                     if ( (LA83_0==189) ) {
@@ -9573,18 +7582,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 83, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(83);}
-
                     switch (alt83) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:19: 'pm'
                             {
-                            dbg.location(360,19);
                             string_literal225=(Token)match(input,189,FOLLOW_189_in_time1917);  
                             stream_189.add(string_literal225);
 
@@ -9592,11 +7595,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:24: 'p.m.'
                             {
-                            dbg.location(360,24);
                             string_literal226=(Token)match(input,190,FOLLOW_190_in_time1919);  
                             stream_190.add(string_literal226);
 
@@ -9605,7 +7605,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(83);}
 
 
 
@@ -9622,16 +7621,12 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 361:2: -> ^( TIME timeFormat PM )
                     {
-                        dbg.location(361,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:5: ^( TIME timeFormat PM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(361,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
 
-                        dbg.location(361,12);
                         adaptor.addChild(root_1, stream_timeFormat.nextTree());
-                        dbg.location(361,23);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(PM, "PM"));
 
                         adaptor.addChild(root_0, root_1);
@@ -9643,27 +7638,19 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:4: At integerValue ( 'pm' | 'p.m.' )
                     {
-                    dbg.location(362,4);
                     At227=(Token)match(input,At,FOLLOW_At_in_time1936);  
                     stream_At.add(At227);
 
-                    dbg.location(362,7);
                     pushFollow(FOLLOW_integerValue_in_time1938);
                     integerValue228=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(integerValue228.getTree());
-                    dbg.location(362,20);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:20: ( 'pm' | 'p.m.' )
                     int alt84=2;
-                    try { dbg.enterSubRule(84);
-                    try { dbg.enterDecision(84);
-
                     int LA84_0 = input.LA(1);
 
                     if ( (LA84_0==189) ) {
@@ -9676,18 +7663,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 84, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(84);}
-
                     switch (alt84) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:21: 'pm'
                             {
-                            dbg.location(362,21);
                             string_literal229=(Token)match(input,189,FOLLOW_189_in_time1941);  
                             stream_189.add(string_literal229);
 
@@ -9695,11 +7676,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:26: 'p.m.'
                             {
-                            dbg.location(362,26);
                             string_literal230=(Token)match(input,190,FOLLOW_190_in_time1943);  
                             stream_190.add(string_literal230);
 
@@ -9708,7 +7686,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(84);}
 
 
 
@@ -9725,18 +7702,13 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 363:2: -> ^( TIME integerValue HOUR PM )
                     {
-                        dbg.location(363,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:363:5: ^( TIME integerValue HOUR PM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(363,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
 
-                        dbg.location(363,12);
                         adaptor.addChild(root_1, stream_integerValue.nextTree());
-                        dbg.location(363,25);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(HOUR, "HOUR"));
-                        dbg.location(363,30);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(PM, "PM"));
 
                         adaptor.addChild(root_0, root_1);
@@ -9748,15 +7720,11 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:364:4: At timeFormat
                     {
-                    dbg.location(364,4);
                     At231=(Token)match(input,At,FOLLOW_At_in_time1962);  
                     stream_At.add(At231);
 
-                    dbg.location(364,7);
                     pushFollow(FOLLOW_timeFormat_in_time1964);
                     timeFormat232=timeFormat();
 
@@ -9778,16 +7746,12 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 365:2: -> ^( TIME timeFormat HOUR24 )
                     {
-                        dbg.location(365,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:365:5: ^( TIME timeFormat HOUR24 )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(365,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
 
-                        dbg.location(365,12);
                         adaptor.addChild(root_1, stream_timeFormat.nextTree());
-                        dbg.location(365,23);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(HOUR24, "HOUR24"));
 
                         adaptor.addChild(root_0, root_1);
@@ -9814,15 +7778,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(366, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "time");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "time"
@@ -9856,16 +7811,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_191=new RewriteRuleTokenStream(adaptor,"token 191");
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
-        try { dbg.enterRule(getGrammarFileName(), "timeFormat");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(368, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:369:2: (hr= integerValue ':' min= integerValue -> $hr HOUR $min MINUTE | hr= integerValue ':' min= integerValue ':' s= numericValue -> $hr HOUR $min MINUTE $s SECOND )
             int alt86=2;
-            try { dbg.enterDecision(86);
-
             int LA86_0 = input.LA(1);
 
             if ( ((LA86_0>=BinaryLiteral && LA86_0<=HexLiteral)) ) {
@@ -9887,7 +7835,6 @@ public class flipsParser extends DebugParser {
                             NoViableAltException nvae =
                                 new NoViableAltException("", 86, 3, input);
 
-                            dbg.recognitionException(nvae);
                             throw nvae;
                         }
                     }
@@ -9895,7 +7842,6 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 86, 2, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
                 }
@@ -9903,7 +7849,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 86, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
             }
@@ -9911,29 +7856,21 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 86, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(86);}
-
             switch (alt86) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:369:4: hr= integerValue ':' min= integerValue
                     {
-                    dbg.location(369,6);
                     pushFollow(FOLLOW_integerValue_in_timeFormat1988);
                     hr=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(hr.getTree());
-                    dbg.location(369,20);
                     char_literal233=(Token)match(input,191,FOLLOW_191_in_timeFormat1990);  
                     stream_191.add(char_literal233);
 
-                    dbg.location(369,27);
                     pushFollow(FOLLOW_integerValue_in_timeFormat1994);
                     min=integerValue();
 
@@ -9943,27 +7880,23 @@ public class flipsParser extends DebugParser {
 
 
                     // AST REWRITE
-                    // elements: hr, min
+                    // elements: min, hr
                     // token labels: 
-                    // rule labels: min, hr, retval
+                    // rule labels: hr, min, retval
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
+                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
                     // 370:2: -> $hr HOUR $min MINUTE
                     {
-                        dbg.location(370,5);
                         adaptor.addChild(root_0, stream_hr.nextTree());
-                        dbg.location(370,9);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
-                        dbg.location(370,14);
                         adaptor.addChild(root_0, stream_min.nextTree());
-                        dbg.location(370,19);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MINUTE, "MINUTE"));
 
                     }
@@ -9972,33 +7905,26 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:371:4: hr= integerValue ':' min= integerValue ':' s= numericValue
                     {
-                    dbg.location(371,6);
                     pushFollow(FOLLOW_integerValue_in_timeFormat2014);
                     hr=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(hr.getTree());
-                    dbg.location(371,20);
                     char_literal234=(Token)match(input,191,FOLLOW_191_in_timeFormat2016);  
                     stream_191.add(char_literal234);
 
-                    dbg.location(371,27);
                     pushFollow(FOLLOW_integerValue_in_timeFormat2020);
                     min=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(min.getTree());
-                    dbg.location(371,41);
                     char_literal235=(Token)match(input,191,FOLLOW_191_in_timeFormat2022);  
                     stream_191.add(char_literal235);
 
-                    dbg.location(371,46);
                     pushFollow(FOLLOW_numericValue_in_timeFormat2026);
                     s=numericValue();
 
@@ -10008,7 +7934,7 @@ public class flipsParser extends DebugParser {
 
 
                     // AST REWRITE
-                    // elements: s, min, hr
+                    // elements: min, s, hr
                     // token labels: 
                     // rule labels: hr, min, retval, s
                     // token list labels: 
@@ -10023,17 +7949,11 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 372:2: -> $hr HOUR $min MINUTE $s SECOND
                     {
-                        dbg.location(372,5);
                         adaptor.addChild(root_0, stream_hr.nextTree());
-                        dbg.location(372,9);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
-                        dbg.location(372,14);
                         adaptor.addChild(root_0, stream_min.nextTree());
-                        dbg.location(372,19);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MINUTE, "MINUTE"));
-                        dbg.location(372,26);
                         adaptor.addChild(root_0, stream_s.nextTree());
-                        dbg.location(372,29);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SECOND, "SECOND"));
 
                     }
@@ -10057,15 +7977,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(373, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "timeFormat");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "timeFormat"
@@ -10091,16 +8002,9 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "timeUnit");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(375, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:375:9: ( hour | minute | second )
             int alt87=3;
-            try { dbg.enterDecision(87);
-
             switch ( input.LA(1) ) {
             case 192:
             case 193:
@@ -10132,21 +8036,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 87, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(87);}
-
             switch (alt87) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:375:11: hour
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(375,11);
                     pushFollow(FOLLOW_hour_in_timeUnit2054);
                     hour236=hour();
 
@@ -10157,13 +8055,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:376:4: minute
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(376,4);
                     pushFollow(FOLLOW_minute_in_timeUnit2059);
                     minute237=minute();
 
@@ -10174,13 +8069,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:377:4: second
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(377,4);
                     pushFollow(FOLLOW_second_in_timeUnit2064);
                     second238=second();
 
@@ -10206,15 +8098,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(378, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "timeUnit");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "timeUnit"
@@ -10249,23 +8132,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_193=new RewriteRuleTokenStream(adaptor,"token 193");
         RewriteRuleTokenStream stream_192=new RewriteRuleTokenStream(adaptor,"token 192");
 
-        try { dbg.enterRule(getGrammarFileName(), "hour");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(380, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:2: ( ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' ) -> HOUR )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:4: ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' )
             {
-            dbg.location(381,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:4: ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' )
             int alt88=5;
-            try { dbg.enterSubRule(88);
-            try { dbg.enterDecision(88);
-
             switch ( input.LA(1) ) {
             case 192:
                 {
@@ -10296,19 +8168,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 88, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(88);}
-
             switch (alt88) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:5: 'h'
                     {
-                    dbg.location(381,5);
                     char_literal239=(Token)match(input,192,FOLLOW_192_in_hour2076);  
                     stream_192.add(char_literal239);
 
@@ -10316,11 +8182,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:9: 'hr'
                     {
-                    dbg.location(381,9);
                     string_literal240=(Token)match(input,193,FOLLOW_193_in_hour2078);  
                     stream_193.add(string_literal240);
 
@@ -10328,11 +8191,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:14: 'hrs'
                     {
-                    dbg.location(381,14);
                     string_literal241=(Token)match(input,194,FOLLOW_194_in_hour2080);  
                     stream_194.add(string_literal241);
 
@@ -10340,11 +8200,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:20: 'hour'
                     {
-                    dbg.location(381,20);
                     string_literal242=(Token)match(input,195,FOLLOW_195_in_hour2082);  
                     stream_195.add(string_literal242);
 
@@ -10352,11 +8209,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:27: 'hours'
                     {
-                    dbg.location(381,27);
                     string_literal243=(Token)match(input,196,FOLLOW_196_in_hour2084);  
                     stream_196.add(string_literal243);
 
@@ -10365,7 +8219,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(88);}
 
 
 
@@ -10382,7 +8235,6 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 382:2: -> HOUR
             {
-                dbg.location(382,5);
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
 
             }
@@ -10404,15 +8256,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(383, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "hour");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "hour"
@@ -10444,23 +8287,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_197=new RewriteRuleTokenStream(adaptor,"token 197");
         RewriteRuleTokenStream stream_177=new RewriteRuleTokenStream(adaptor,"token 177");
 
-        try { dbg.enterRule(getGrammarFileName(), "minute");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(385, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:2: ( ( 'min' | 'mins' | 'minute' | 'minutes' ) -> MINUTE )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:4: ( 'min' | 'mins' | 'minute' | 'minutes' )
             {
-            dbg.location(386,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:4: ( 'min' | 'mins' | 'minute' | 'minutes' )
             int alt89=4;
-            try { dbg.enterSubRule(89);
-            try { dbg.enterDecision(89);
-
             switch ( input.LA(1) ) {
             case 177:
                 {
@@ -10486,19 +8318,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 89, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(89);}
-
             switch (alt89) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:5: 'min'
                     {
-                    dbg.location(386,5);
                     string_literal244=(Token)match(input,177,FOLLOW_177_in_minute2102);  
                     stream_177.add(string_literal244);
 
@@ -10506,11 +8332,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:11: 'mins'
                     {
-                    dbg.location(386,11);
                     string_literal245=(Token)match(input,197,FOLLOW_197_in_minute2104);  
                     stream_197.add(string_literal245);
 
@@ -10518,11 +8341,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:18: 'minute'
                     {
-                    dbg.location(386,18);
                     string_literal246=(Token)match(input,198,FOLLOW_198_in_minute2106);  
                     stream_198.add(string_literal246);
 
@@ -10530,11 +8350,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:27: 'minutes'
                     {
-                    dbg.location(386,27);
                     string_literal247=(Token)match(input,199,FOLLOW_199_in_minute2108);  
                     stream_199.add(string_literal247);
 
@@ -10543,7 +8360,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(89);}
 
 
 
@@ -10560,7 +8376,6 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 387:2: -> MINUTE
             {
-                dbg.location(387,5);
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(MINUTE, "MINUTE"));
 
             }
@@ -10582,15 +8397,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(388, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "minute");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "minute"
@@ -10625,23 +8431,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_200=new RewriteRuleTokenStream(adaptor,"token 200");
         RewriteRuleTokenStream stream_201=new RewriteRuleTokenStream(adaptor,"token 201");
 
-        try { dbg.enterRule(getGrammarFileName(), "second");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(390, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:2: ( ( 's' | 'sec' | 'secs' | 'second' | 'seconds' ) -> SECOND )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:4: ( 's' | 'sec' | 'secs' | 'second' | 'seconds' )
             {
-            dbg.location(391,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:4: ( 's' | 'sec' | 'secs' | 'second' | 'seconds' )
             int alt90=5;
-            try { dbg.enterSubRule(90);
-            try { dbg.enterDecision(90);
-
             switch ( input.LA(1) ) {
             case 200:
                 {
@@ -10672,19 +8467,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 90, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(90);}
-
             switch (alt90) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:5: 's'
                     {
-                    dbg.location(391,5);
                     char_literal248=(Token)match(input,200,FOLLOW_200_in_second2126);  
                     stream_200.add(char_literal248);
 
@@ -10692,11 +8481,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:9: 'sec'
                     {
-                    dbg.location(391,9);
                     string_literal249=(Token)match(input,201,FOLLOW_201_in_second2128);  
                     stream_201.add(string_literal249);
 
@@ -10704,11 +8490,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:15: 'secs'
                     {
-                    dbg.location(391,15);
                     string_literal250=(Token)match(input,202,FOLLOW_202_in_second2130);  
                     stream_202.add(string_literal250);
 
@@ -10716,11 +8499,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:22: 'second'
                     {
-                    dbg.location(391,22);
                     string_literal251=(Token)match(input,203,FOLLOW_203_in_second2132);  
                     stream_203.add(string_literal251);
 
@@ -10728,11 +8508,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:31: 'seconds'
                     {
-                    dbg.location(391,31);
                     string_literal252=(Token)match(input,204,FOLLOW_204_in_second2134);  
                     stream_204.add(string_literal252);
 
@@ -10741,7 +8518,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(90);}
 
 
 
@@ -10758,7 +8534,6 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 392:2: -> SECOND
             {
-                dbg.location(392,5);
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(SECOND, "SECOND"));
 
             }
@@ -10780,15 +8555,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(393, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "second");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "second"
@@ -10813,22 +8579,13 @@ public class flipsParser extends DebugParser {
         CommonTree string_literal253_tree=null;
         RewriteRuleTokenStream stream_205=new RewriteRuleTokenStream(adaptor,"token 205");
         RewriteRuleSubtreeStream stream_durationValue=new RewriteRuleSubtreeStream(adaptor,"rule durationValue");
-        try { dbg.enterRule(getGrammarFileName(), "duration");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(395, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:2: ( 'for' durationValue -> ^( DURATION durationValue ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:4: 'for' durationValue
             {
-            dbg.location(396,4);
             string_literal253=(Token)match(input,205,FOLLOW_205_in_duration2151);  
             stream_205.add(string_literal253);
 
-            dbg.location(396,10);
             pushFollow(FOLLOW_durationValue_in_duration2153);
             durationValue254=durationValue();
 
@@ -10850,14 +8607,11 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 397:2: -> ^( DURATION durationValue )
             {
-                dbg.location(397,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:397:5: ^( DURATION durationValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(397,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DURATION, "DURATION"), root_1);
 
-                dbg.location(397,16);
                 adaptor.addChild(root_1, stream_durationValue.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -10882,15 +8636,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(398, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "duration");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "duration"
@@ -10946,42 +8691,22 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "durationValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(400, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:401:2: ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat )
             int alt92=5;
-            try { dbg.enterDecision(92);
-
-            try {
-                isCyclicDecision = true;
-                alt92 = dfa92.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(92);}
-
+            alt92 = dfa92.predict(input);
             switch (alt92) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:401:4: numericValue timeUnit
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(401,4);
                     pushFollow(FOLLOW_numericValue_in_durationValue2173);
                     numericValue255=numericValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, numericValue255.getTree());
-                    dbg.location(401,17);
                     pushFollow(FOLLOW_timeUnit_in_durationValue2175);
                     timeUnit256=timeUnit();
 
@@ -10992,39 +8717,30 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:4: integerValue hour numericValue ( minute | second )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(402,4);
                     pushFollow(FOLLOW_integerValue_in_durationValue2180);
                     integerValue257=integerValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, integerValue257.getTree());
-                    dbg.location(402,17);
                     pushFollow(FOLLOW_hour_in_durationValue2182);
                     hour258=hour();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, hour258.getTree());
-                    dbg.location(402,22);
                     pushFollow(FOLLOW_numericValue_in_durationValue2184);
                     numericValue259=numericValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, numericValue259.getTree());
-                    dbg.location(402,35);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:35: ( minute | second )
                     int alt91=2;
-                    try { dbg.enterSubRule(91);
-                    try { dbg.enterDecision(91);
-
                     int LA91_0 = input.LA(1);
 
                     if ( (LA91_0==177||(LA91_0>=197 && LA91_0<=199)) ) {
@@ -11037,18 +8753,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 91, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(91);}
-
                     switch (alt91) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:36: minute
                             {
-                            dbg.location(402,36);
                             pushFollow(FOLLOW_minute_in_durationValue2187);
                             minute260=minute();
 
@@ -11059,11 +8769,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:43: second
                             {
-                            dbg.location(402,43);
                             pushFollow(FOLLOW_second_in_durationValue2189);
                             second261=second();
 
@@ -11075,54 +8782,45 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(91);}
 
 
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:403:4: integerValue hour integerValue minute numericValue second
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(403,4);
                     pushFollow(FOLLOW_integerValue_in_durationValue2195);
                     integerValue262=integerValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, integerValue262.getTree());
-                    dbg.location(403,17);
                     pushFollow(FOLLOW_hour_in_durationValue2197);
                     hour263=hour();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, hour263.getTree());
-                    dbg.location(403,22);
                     pushFollow(FOLLOW_integerValue_in_durationValue2199);
                     integerValue264=integerValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, integerValue264.getTree());
-                    dbg.location(403,35);
                     pushFollow(FOLLOW_minute_in_durationValue2201);
                     minute265=minute();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, minute265.getTree());
-                    dbg.location(403,42);
                     pushFollow(FOLLOW_numericValue_in_durationValue2203);
                     numericValue266=numericValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, numericValue266.getTree());
-                    dbg.location(403,55);
                     pushFollow(FOLLOW_second_in_durationValue2205);
                     second267=second();
 
@@ -11133,34 +8831,28 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:404:4: integerValue minute numericValue second
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(404,4);
                     pushFollow(FOLLOW_integerValue_in_durationValue2210);
                     integerValue268=integerValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, integerValue268.getTree());
-                    dbg.location(404,17);
                     pushFollow(FOLLOW_minute_in_durationValue2212);
                     minute269=minute();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, minute269.getTree());
-                    dbg.location(404,24);
                     pushFollow(FOLLOW_numericValue_in_durationValue2214);
                     numericValue270=numericValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, numericValue270.getTree());
-                    dbg.location(404,37);
                     pushFollow(FOLLOW_second_in_durationValue2216);
                     second271=second();
 
@@ -11171,13 +8863,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:405:4: timeFormat
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(405,4);
                     pushFollow(FOLLOW_timeFormat_in_durationValue2221);
                     timeFormat272=timeFormat();
 
@@ -11203,15 +8892,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(406, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "durationValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "durationValue"
@@ -11236,16 +8916,9 @@ public class flipsParser extends DebugParser {
 
         RewriteRuleSubtreeStream stream_fixedDirection=new RewriteRuleSubtreeStream(adaptor,"rule fixedDirection");
         RewriteRuleSubtreeStream stream_relativeDirection=new RewriteRuleSubtreeStream(adaptor,"rule relativeDirection");
-        try { dbg.enterRule(getGrammarFileName(), "direction");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(410, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:411:2: ( fixedDirection -> ^( DIRECTION FIXED fixedDirection ) | relativeDirection -> ^( DIRECTION RELATIVE relativeDirection ) )
             int alt93=2;
-            try { dbg.enterDecision(93);
-
             switch ( input.LA(1) ) {
             case 200:
             case 206:
@@ -11297,7 +8970,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 93, 2, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
                 }
@@ -11316,7 +8988,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 93, 3, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
                 }
@@ -11325,19 +8996,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 93, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(93);}
-
             switch (alt93) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:411:4: fixedDirection
                     {
-                    dbg.location(411,4);
                     pushFollow(FOLLOW_fixedDirection_in_direction2234);
                     fixedDirection273=fixedDirection();
 
@@ -11359,16 +9024,12 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 412:2: -> ^( DIRECTION FIXED fixedDirection )
                     {
-                        dbg.location(412,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:412:5: ^( DIRECTION FIXED fixedDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(412,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DIRECTION, "DIRECTION"), root_1);
 
-                        dbg.location(412,17);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(FIXED, "FIXED"));
-                        dbg.location(412,23);
                         adaptor.addChild(root_1, stream_fixedDirection.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -11380,11 +9041,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:413:4: relativeDirection
                     {
-                    dbg.location(413,4);
                     pushFollow(FOLLOW_relativeDirection_in_direction2250);
                     relativeDirection274=relativeDirection();
 
@@ -11406,16 +9064,12 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 414:2: -> ^( DIRECTION RELATIVE relativeDirection )
                     {
-                        dbg.location(414,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:414:5: ^( DIRECTION RELATIVE relativeDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(414,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DIRECTION, "DIRECTION"), root_1);
 
-                        dbg.location(414,17);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(RELATIVE, "RELATIVE"));
-                        dbg.location(414,26);
                         adaptor.addChild(root_1, stream_relativeDirection.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -11442,15 +9096,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(415, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "direction");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "direction"
@@ -11493,16 +9138,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleSubtreeStream stream_ordinalDirection=new RewriteRuleSubtreeStream(adaptor,"rule ordinalDirection");
         RewriteRuleSubtreeStream stream_subOrdinalDirection=new RewriteRuleSubtreeStream(adaptor,"rule subOrdinalDirection");
         RewriteRuleSubtreeStream stream_cardinalDirection=new RewriteRuleSubtreeStream(adaptor,"rule cardinalDirection");
-        try { dbg.enterRule(getGrammarFileName(), "fixedDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(417, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:418:2: ( cardinalDirection -> cardinalDirection | ordinalDirection -> ordinalDirection | subOrdinalDirection -> subOrdinalDirection | ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue ) -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )? )
             int alt96=4;
-            try { dbg.enterDecision(96);
-
             switch ( input.LA(1) ) {
             case 200:
             case 206:
@@ -11558,19 +9196,13 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 96, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(96);}
-
             switch (alt96) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:418:4: cardinalDirection
                     {
-                    dbg.location(418,4);
                     pushFollow(FOLLOW_cardinalDirection_in_fixedDirection2272);
                     cardinalDirection275=cardinalDirection();
 
@@ -11592,7 +9224,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 419:2: -> cardinalDirection
                     {
-                        dbg.location(419,5);
                         adaptor.addChild(root_0, stream_cardinalDirection.nextTree());
 
                     }
@@ -11601,11 +9232,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:420:4: ordinalDirection
                     {
-                    dbg.location(420,4);
                     pushFollow(FOLLOW_ordinalDirection_in_fixedDirection2282);
                     ordinalDirection276=ordinalDirection();
 
@@ -11627,7 +9255,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 421:2: -> ordinalDirection
                     {
-                        dbg.location(421,5);
                         adaptor.addChild(root_0, stream_ordinalDirection.nextTree());
 
                     }
@@ -11636,11 +9263,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:422:4: subOrdinalDirection
                     {
-                    dbg.location(422,4);
                     pushFollow(FOLLOW_subOrdinalDirection_in_fixedDirection2292);
                     subOrdinalDirection277=subOrdinalDirection();
 
@@ -11662,7 +9286,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 423:2: -> subOrdinalDirection
                     {
-                        dbg.location(423,5);
                         adaptor.addChild(root_0, stream_subOrdinalDirection.nextTree());
 
                     }
@@ -11671,16 +9294,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:4: ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue )
                     {
-                    dbg.location(424,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:4: ( Turning | Heading )
                     int alt94=2;
-                    try { dbg.enterSubRule(94);
-                    try { dbg.enterDecision(94);
-
                     int LA94_0 = input.LA(1);
 
                     if ( (LA94_0==Turning) ) {
@@ -11693,18 +9310,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 94, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(94);}
-
                     switch (alt94) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:5: Turning
                             {
-                            dbg.location(424,5);
                             Turning278=(Token)match(input,Turning,FOLLOW_Turning_in_fixedDirection2303);  
                             stream_Turning.add(Turning278);
 
@@ -11712,11 +9323,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:13: Heading
                             {
-                            dbg.location(424,13);
                             Heading279=(Token)match(input,Heading,FOLLOW_Heading_in_fixedDirection2305);  
                             stream_Heading.add(Heading279);
 
@@ -11725,14 +9333,9 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(94);}
 
-                    dbg.location(424,22);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:22: ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue )
                     int alt95=4;
-                    try { dbg.enterSubRule(95);
-                    try { dbg.enterDecision(95);
-
                     switch ( input.LA(1) ) {
                     case 200:
                     case 206:
@@ -11791,19 +9394,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 95, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(95);}
-
                     switch (alt95) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:23: cardinalDirection
                             {
-                            dbg.location(424,23);
                             pushFollow(FOLLOW_cardinalDirection_in_fixedDirection2309);
                             cardinalDirection280=cardinalDirection();
 
@@ -11814,11 +9411,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:41: ordinalDirection
                             {
-                            dbg.location(424,41);
                             pushFollow(FOLLOW_ordinalDirection_in_fixedDirection2311);
                             ordinalDirection281=ordinalDirection();
 
@@ -11829,11 +9423,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:58: subOrdinalDirection
                             {
-                            dbg.location(424,58);
                             pushFollow(FOLLOW_subOrdinalDirection_in_fixedDirection2313);
                             subOrdinalDirection282=subOrdinalDirection();
 
@@ -11844,11 +9435,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:78: angularValue
                             {
-                            dbg.location(424,78);
                             pushFollow(FOLLOW_angularValue_in_fixedDirection2315);
                             angularValue283=angularValue();
 
@@ -11860,12 +9448,11 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(95);}
 
 
 
                     // AST REWRITE
-                    // elements: cardinalDirection, subOrdinalDirection, angularValue, ordinalDirection
+                    // elements: ordinalDirection, cardinalDirection, subOrdinalDirection, angularValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11877,34 +9464,26 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 425:2: -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )?
                     {
-                        dbg.location(425,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:5: ( cardinalDirection )?
                         if ( stream_cardinalDirection.hasNext() ) {
-                            dbg.location(425,5);
                             adaptor.addChild(root_0, stream_cardinalDirection.nextTree());
 
                         }
                         stream_cardinalDirection.reset();
-                        dbg.location(425,24);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:24: ( ordinalDirection )?
                         if ( stream_ordinalDirection.hasNext() ) {
-                            dbg.location(425,24);
                             adaptor.addChild(root_0, stream_ordinalDirection.nextTree());
 
                         }
                         stream_ordinalDirection.reset();
-                        dbg.location(425,42);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:42: ( subOrdinalDirection )?
                         if ( stream_subOrdinalDirection.hasNext() ) {
-                            dbg.location(425,42);
                             adaptor.addChild(root_0, stream_subOrdinalDirection.nextTree());
 
                         }
                         stream_subOrdinalDirection.reset();
-                        dbg.location(425,63);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:63: ( angularValue )?
                         if ( stream_angularValue.hasNext() ) {
-                            dbg.location(425,63);
                             adaptor.addChild(root_0, stream_angularValue.nextTree());
 
                         }
@@ -11931,15 +9510,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(426, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "fixedDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "fixedDirection"
@@ -11970,23 +9540,12 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_Heading=new RewriteRuleTokenStream(adaptor,"token Heading");
         RewriteRuleSubtreeStream stream_angularValue=new RewriteRuleSubtreeStream(adaptor,"rule angularValue");
         RewriteRuleSubtreeStream stream_leftRightDirection=new RewriteRuleSubtreeStream(adaptor,"rule leftRightDirection");
-        try { dbg.enterRule(getGrammarFileName(), "relativeDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(428, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:2: ( ( Turning | Heading ) leftRightDirection angularValue -> leftRightDirection angularValue )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:4: ( Turning | Heading ) leftRightDirection angularValue
             {
-            dbg.location(429,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:4: ( Turning | Heading )
             int alt97=2;
-            try { dbg.enterSubRule(97);
-            try { dbg.enterDecision(97);
-
             int LA97_0 = input.LA(1);
 
             if ( (LA97_0==Turning) ) {
@@ -11999,18 +9558,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 97, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(97);}
-
             switch (alt97) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:5: Turning
                     {
-                    dbg.location(429,5);
                     Turning284=(Token)match(input,Turning,FOLLOW_Turning_in_relativeDirection2343);  
                     stream_Turning.add(Turning284);
 
@@ -12018,11 +9571,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:13: Heading
                     {
-                    dbg.location(429,13);
                     Heading285=(Token)match(input,Heading,FOLLOW_Heading_in_relativeDirection2345);  
                     stream_Heading.add(Heading285);
 
@@ -12031,16 +9581,13 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(97);}
 
-            dbg.location(429,22);
             pushFollow(FOLLOW_leftRightDirection_in_relativeDirection2348);
             leftRightDirection286=leftRightDirection();
 
             state._fsp--;
 
             stream_leftRightDirection.add(leftRightDirection286.getTree());
-            dbg.location(429,41);
             pushFollow(FOLLOW_angularValue_in_relativeDirection2350);
             angularValue287=angularValue();
 
@@ -12062,9 +9609,7 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 430:2: -> leftRightDirection angularValue
             {
-                dbg.location(430,5);
                 adaptor.addChild(root_0, stream_leftRightDirection.nextTree());
-                dbg.location(430,24);
                 adaptor.addChild(root_0, stream_angularValue.nextTree());
 
             }
@@ -12086,15 +9631,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(431, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "relativeDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "relativeDirection"
@@ -12118,16 +9654,9 @@ public class flipsParser extends DebugParser {
 
 
 
-        try { dbg.enterRule(getGrammarFileName(), "cardinalDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(433, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:2: ( northSouthDirection | eastWestDirection )
             int alt98=2;
-            try { dbg.enterDecision(98);
-
             int LA98_0 = input.LA(1);
 
             if ( (LA98_0==200||(LA98_0>=206 && LA98_0<=208)) ) {
@@ -12140,20 +9669,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 98, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(98);}
-
             switch (alt98) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:4: northSouthDirection
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(434,4);
                     pushFollow(FOLLOW_northSouthDirection_in_cardinalDirection2368);
                     northSouthDirection288=northSouthDirection();
 
@@ -12164,13 +9687,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:435:4: eastWestDirection
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(435,4);
                     pushFollow(FOLLOW_eastWestDirection_in_cardinalDirection2373);
                     eastWestDirection289=eastWestDirection();
 
@@ -12196,15 +9716,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(436, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "cardinalDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "cardinalDirection"
@@ -12236,16 +9747,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_207=new RewriteRuleTokenStream(adaptor,"token 207");
         RewriteRuleTokenStream stream_208=new RewriteRuleTokenStream(adaptor,"token 208");
 
-        try { dbg.enterRule(getGrammarFileName(), "northSouthDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(438, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:2: ( ( 'n' | 'north' ) -> NORTH | ( 's' | 'south' ) -> SOUTH )
             int alt101=2;
-            try { dbg.enterDecision(101);
-
             int LA101_0 = input.LA(1);
 
             if ( ((LA101_0>=206 && LA101_0<=207)) ) {
@@ -12258,23 +9762,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 101, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(101);}
-
             switch (alt101) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:4: ( 'n' | 'north' )
                     {
-                    dbg.location(439,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:4: ( 'n' | 'north' )
                     int alt99=2;
-                    try { dbg.enterSubRule(99);
-                    try { dbg.enterDecision(99);
-
                     int LA99_0 = input.LA(1);
 
                     if ( (LA99_0==206) ) {
@@ -12287,18 +9782,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 99, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(99);}
-
                     switch (alt99) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:5: 'n'
                             {
-                            dbg.location(439,5);
                             char_literal290=(Token)match(input,206,FOLLOW_206_in_northSouthDirection2385);  
                             stream_206.add(char_literal290);
 
@@ -12306,11 +9795,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:9: 'north'
                             {
-                            dbg.location(439,9);
                             string_literal291=(Token)match(input,207,FOLLOW_207_in_northSouthDirection2387);  
                             stream_207.add(string_literal291);
 
@@ -12319,7 +9805,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(99);}
 
 
 
@@ -12336,7 +9821,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 440:2: -> NORTH
                     {
-                        dbg.location(440,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
 
                     }
@@ -12345,16 +9829,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:4: ( 's' | 'south' )
                     {
-                    dbg.location(441,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:4: ( 's' | 'south' )
                     int alt100=2;
-                    try { dbg.enterSubRule(100);
-                    try { dbg.enterDecision(100);
-
                     int LA100_0 = input.LA(1);
 
                     if ( (LA100_0==200) ) {
@@ -12367,18 +9845,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 100, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(100);}
-
                     switch (alt100) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:5: 's'
                             {
-                            dbg.location(441,5);
                             char_literal292=(Token)match(input,200,FOLLOW_200_in_northSouthDirection2399);  
                             stream_200.add(char_literal292);
 
@@ -12386,11 +9858,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:9: 'south'
                             {
-                            dbg.location(441,9);
                             string_literal293=(Token)match(input,208,FOLLOW_208_in_northSouthDirection2401);  
                             stream_208.add(string_literal293);
 
@@ -12399,7 +9868,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(100);}
 
 
 
@@ -12416,7 +9884,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 442:2: -> SOUTH
                     {
-                        dbg.location(442,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
 
                     }
@@ -12440,15 +9907,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(443, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "northSouthDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "northSouthDirection"
@@ -12480,16 +9938,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_210=new RewriteRuleTokenStream(adaptor,"token 210");
         RewriteRuleTokenStream stream_209=new RewriteRuleTokenStream(adaptor,"token 209");
 
-        try { dbg.enterRule(getGrammarFileName(), "eastWestDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(445, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:2: ( ( 'e' | 'east' ) -> EAST | ( 'w' | 'west' ) -> WEST )
             int alt104=2;
-            try { dbg.enterDecision(104);
-
             int LA104_0 = input.LA(1);
 
             if ( ((LA104_0>=209 && LA104_0<=210)) ) {
@@ -12502,23 +9953,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 104, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(104);}
-
             switch (alt104) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:4: ( 'e' | 'east' )
                     {
-                    dbg.location(446,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:4: ( 'e' | 'east' )
                     int alt102=2;
-                    try { dbg.enterSubRule(102);
-                    try { dbg.enterDecision(102);
-
                     int LA102_0 = input.LA(1);
 
                     if ( (LA102_0==209) ) {
@@ -12531,18 +9973,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 102, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(102);}
-
                     switch (alt102) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:5: 'e'
                             {
-                            dbg.location(446,5);
                             char_literal294=(Token)match(input,209,FOLLOW_209_in_eastWestDirection2419);  
                             stream_209.add(char_literal294);
 
@@ -12550,11 +9986,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:9: 'east'
                             {
-                            dbg.location(446,9);
                             string_literal295=(Token)match(input,210,FOLLOW_210_in_eastWestDirection2421);  
                             stream_210.add(string_literal295);
 
@@ -12563,7 +9996,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(102);}
 
 
 
@@ -12580,7 +10012,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 447:2: -> EAST
                     {
-                        dbg.location(447,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -12589,16 +10020,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:4: ( 'w' | 'west' )
                     {
-                    dbg.location(448,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:4: ( 'w' | 'west' )
                     int alt103=2;
-                    try { dbg.enterSubRule(103);
-                    try { dbg.enterDecision(103);
-
                     int LA103_0 = input.LA(1);
 
                     if ( (LA103_0==211) ) {
@@ -12611,18 +10036,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 103, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(103);}
-
                     switch (alt103) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:5: 'w'
                             {
-                            dbg.location(448,5);
                             char_literal296=(Token)match(input,211,FOLLOW_211_in_eastWestDirection2433);  
                             stream_211.add(char_literal296);
 
@@ -12630,11 +10049,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:9: 'west'
                             {
-                            dbg.location(448,9);
                             string_literal297=(Token)match(input,212,FOLLOW_212_in_eastWestDirection2435);  
                             stream_212.add(string_literal297);
 
@@ -12643,7 +10059,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(103);}
 
 
 
@@ -12660,7 +10075,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 449:2: -> WEST
                     {
-                        dbg.location(449,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -12684,15 +10098,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(450, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "eastWestDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "eastWestDirection"
@@ -12736,16 +10141,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_217=new RewriteRuleTokenStream(adaptor,"token 217");
         RewriteRuleTokenStream stream_218=new RewriteRuleTokenStream(adaptor,"token 218");
 
-        try { dbg.enterRule(getGrammarFileName(), "ordinalDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(452, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:2: ( ( 'ne' | 'northeast' ) -> NORTH EAST | ( 'se' | 'southeast' ) -> SOUTH EAST | ( 'sw' | 'southwest' ) -> SOUTH WEST | ( 'nw' | 'northwest' ) -> NORTH WEST )
             int alt109=4;
-            try { dbg.enterDecision(109);
-
             switch ( input.LA(1) ) {
             case 213:
             case 214:
@@ -12775,24 +10173,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 109, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(109);}
-
             switch (alt109) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:4: ( 'ne' | 'northeast' )
                     {
-                    dbg.location(453,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:4: ( 'ne' | 'northeast' )
                     int alt105=2;
-                    try { dbg.enterSubRule(105);
-                    try { dbg.enterDecision(105);
-
                     int LA105_0 = input.LA(1);
 
                     if ( (LA105_0==213) ) {
@@ -12805,18 +10194,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 105, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(105);}
-
                     switch (alt105) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:5: 'ne'
                             {
-                            dbg.location(453,5);
                             string_literal298=(Token)match(input,213,FOLLOW_213_in_ordinalDirection2453);  
                             stream_213.add(string_literal298);
 
@@ -12824,11 +10207,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:10: 'northeast'
                             {
-                            dbg.location(453,10);
                             string_literal299=(Token)match(input,214,FOLLOW_214_in_ordinalDirection2455);  
                             stream_214.add(string_literal299);
 
@@ -12837,7 +10217,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(105);}
 
 
 
@@ -12854,9 +10233,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 454:2: -> NORTH EAST
                     {
-                        dbg.location(454,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(454,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -12865,16 +10242,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:4: ( 'se' | 'southeast' )
                     {
-                    dbg.location(455,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:4: ( 'se' | 'southeast' )
                     int alt106=2;
-                    try { dbg.enterSubRule(106);
-                    try { dbg.enterDecision(106);
-
                     int LA106_0 = input.LA(1);
 
                     if ( (LA106_0==215) ) {
@@ -12887,18 +10258,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 106, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(106);}
-
                     switch (alt106) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:5: 'se'
                             {
-                            dbg.location(455,5);
                             string_literal300=(Token)match(input,215,FOLLOW_215_in_ordinalDirection2469);  
                             stream_215.add(string_literal300);
 
@@ -12906,11 +10271,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:10: 'southeast'
                             {
-                            dbg.location(455,10);
                             string_literal301=(Token)match(input,216,FOLLOW_216_in_ordinalDirection2471);  
                             stream_216.add(string_literal301);
 
@@ -12919,7 +10281,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(106);}
 
 
 
@@ -12936,9 +10297,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 456:2: -> SOUTH EAST
                     {
-                        dbg.location(456,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(456,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -12947,16 +10306,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:4: ( 'sw' | 'southwest' )
                     {
-                    dbg.location(457,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:4: ( 'sw' | 'southwest' )
                     int alt107=2;
-                    try { dbg.enterSubRule(107);
-                    try { dbg.enterDecision(107);
-
                     int LA107_0 = input.LA(1);
 
                     if ( (LA107_0==217) ) {
@@ -12969,18 +10322,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 107, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(107);}
-
                     switch (alt107) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:5: 'sw'
                             {
-                            dbg.location(457,5);
                             string_literal302=(Token)match(input,217,FOLLOW_217_in_ordinalDirection2485);  
                             stream_217.add(string_literal302);
 
@@ -12988,11 +10335,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:10: 'southwest'
                             {
-                            dbg.location(457,10);
                             string_literal303=(Token)match(input,218,FOLLOW_218_in_ordinalDirection2487);  
                             stream_218.add(string_literal303);
 
@@ -13001,7 +10345,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(107);}
 
 
 
@@ -13018,9 +10361,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 458:2: -> SOUTH WEST
                     {
-                        dbg.location(458,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(458,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -13029,16 +10370,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:4: ( 'nw' | 'northwest' )
                     {
-                    dbg.location(459,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:4: ( 'nw' | 'northwest' )
                     int alt108=2;
-                    try { dbg.enterSubRule(108);
-                    try { dbg.enterDecision(108);
-
                     int LA108_0 = input.LA(1);
 
                     if ( (LA108_0==219) ) {
@@ -13051,18 +10386,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 108, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(108);}
-
                     switch (alt108) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:5: 'nw'
                             {
-                            dbg.location(459,5);
                             string_literal304=(Token)match(input,219,FOLLOW_219_in_ordinalDirection2501);  
                             stream_219.add(string_literal304);
 
@@ -13070,11 +10399,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:10: 'northwest'
                             {
-                            dbg.location(459,10);
                             string_literal305=(Token)match(input,220,FOLLOW_220_in_ordinalDirection2503);  
                             stream_220.add(string_literal305);
 
@@ -13083,7 +10409,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(108);}
 
 
 
@@ -13100,9 +10425,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 460:2: -> NORTH WEST
                     {
-                        dbg.location(460,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(460,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -13126,15 +10449,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(461, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "ordinalDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "ordinalDirection"
@@ -13202,16 +10516,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_236=new RewriteRuleTokenStream(adaptor,"token 236");
         RewriteRuleTokenStream stream_235=new RewriteRuleTokenStream(adaptor,"token 235");
 
-        try { dbg.enterRule(getGrammarFileName(), "subOrdinalDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(463, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:2: ( ( 'nne' | 'north-northeast' ) -> NORTH NORTH EAST | ( 'ene' | 'east-northeast' ) -> EAST NORTH EAST | ( 'ese' | 'east-southeast' ) -> EAST SOUTH EAST | ( 'sse' | 'south-southeast' ) -> SOUTH SOUTH EAST | ( 'ssw' | 'south-southwest' ) -> SOUTH SOUTH WEST | ( 'wsw' | 'west-southwest' ) -> WEST SOUTH WEST | ( 'wnw' | 'west-northwest' ) -> WEST NORTH WEST | ( 'nnw' | 'north-northwest' ) -> NORTH NORTH WEST )
             int alt118=8;
-            try { dbg.enterDecision(118);
-
             switch ( input.LA(1) ) {
             case 221:
             case 222:
@@ -13265,24 +10572,15 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 118, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
 
-            } finally {dbg.exitDecision(118);}
-
             switch (alt118) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:4: ( 'nne' | 'north-northeast' )
                     {
-                    dbg.location(464,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:4: ( 'nne' | 'north-northeast' )
                     int alt110=2;
-                    try { dbg.enterSubRule(110);
-                    try { dbg.enterDecision(110);
-
                     int LA110_0 = input.LA(1);
 
                     if ( (LA110_0==221) ) {
@@ -13295,18 +10593,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 110, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(110);}
-
                     switch (alt110) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:5: 'nne'
                             {
-                            dbg.location(464,5);
                             string_literal306=(Token)match(input,221,FOLLOW_221_in_subOrdinalDirection2523);  
                             stream_221.add(string_literal306);
 
@@ -13314,11 +10606,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:11: 'north-northeast'
                             {
-                            dbg.location(464,11);
                             string_literal307=(Token)match(input,222,FOLLOW_222_in_subOrdinalDirection2525);  
                             stream_222.add(string_literal307);
 
@@ -13327,7 +10616,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(110);}
 
 
 
@@ -13344,11 +10632,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 465:2: -> NORTH NORTH EAST
                     {
-                        dbg.location(465,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(465,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(465,17);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -13357,16 +10642,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:4: ( 'ene' | 'east-northeast' )
                     {
-                    dbg.location(466,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:4: ( 'ene' | 'east-northeast' )
                     int alt111=2;
-                    try { dbg.enterSubRule(111);
-                    try { dbg.enterDecision(111);
-
                     int LA111_0 = input.LA(1);
 
                     if ( (LA111_0==223) ) {
@@ -13379,18 +10658,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 111, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(111);}
-
                     switch (alt111) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:5: 'ene'
                             {
-                            dbg.location(466,5);
                             string_literal308=(Token)match(input,223,FOLLOW_223_in_subOrdinalDirection2541);  
                             stream_223.add(string_literal308);
 
@@ -13398,11 +10671,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:11: 'east-northeast'
                             {
-                            dbg.location(466,11);
                             string_literal309=(Token)match(input,224,FOLLOW_224_in_subOrdinalDirection2543);  
                             stream_224.add(string_literal309);
 
@@ -13411,7 +10681,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(111);}
 
 
 
@@ -13428,11 +10697,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 467:2: -> EAST NORTH EAST
                     {
-                        dbg.location(467,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
-                        dbg.location(467,10);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(467,16);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -13441,16 +10707,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:4: ( 'ese' | 'east-southeast' )
                     {
-                    dbg.location(468,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:4: ( 'ese' | 'east-southeast' )
                     int alt112=2;
-                    try { dbg.enterSubRule(112);
-                    try { dbg.enterDecision(112);
-
                     int LA112_0 = input.LA(1);
 
                     if ( (LA112_0==225) ) {
@@ -13463,18 +10723,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 112, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(112);}
-
                     switch (alt112) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:5: 'ese'
                             {
-                            dbg.location(468,5);
                             string_literal310=(Token)match(input,225,FOLLOW_225_in_subOrdinalDirection2559);  
                             stream_225.add(string_literal310);
 
@@ -13482,11 +10736,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:11: 'east-southeast'
                             {
-                            dbg.location(468,11);
                             string_literal311=(Token)match(input,226,FOLLOW_226_in_subOrdinalDirection2561);  
                             stream_226.add(string_literal311);
 
@@ -13495,7 +10746,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(112);}
 
 
 
@@ -13512,11 +10762,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 469:2: -> EAST SOUTH EAST
                     {
-                        dbg.location(469,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
-                        dbg.location(469,10);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(469,16);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -13525,16 +10772,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 4 :
-                    dbg.enterAlt(4);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:4: ( 'sse' | 'south-southeast' )
                     {
-                    dbg.location(470,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:4: ( 'sse' | 'south-southeast' )
                     int alt113=2;
-                    try { dbg.enterSubRule(113);
-                    try { dbg.enterDecision(113);
-
                     int LA113_0 = input.LA(1);
 
                     if ( (LA113_0==227) ) {
@@ -13547,18 +10788,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 113, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(113);}
-
                     switch (alt113) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:5: 'sse'
                             {
-                            dbg.location(470,5);
                             string_literal312=(Token)match(input,227,FOLLOW_227_in_subOrdinalDirection2577);  
                             stream_227.add(string_literal312);
 
@@ -13566,11 +10801,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:11: 'south-southeast'
                             {
-                            dbg.location(470,11);
                             string_literal313=(Token)match(input,228,FOLLOW_228_in_subOrdinalDirection2579);  
                             stream_228.add(string_literal313);
 
@@ -13579,7 +10811,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(113);}
 
 
 
@@ -13596,11 +10827,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 471:2: -> SOUTH SOUTH EAST
                     {
-                        dbg.location(471,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(471,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(471,17);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
                     }
@@ -13609,16 +10837,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 5 :
-                    dbg.enterAlt(5);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:4: ( 'ssw' | 'south-southwest' )
                     {
-                    dbg.location(472,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:4: ( 'ssw' | 'south-southwest' )
                     int alt114=2;
-                    try { dbg.enterSubRule(114);
-                    try { dbg.enterDecision(114);
-
                     int LA114_0 = input.LA(1);
 
                     if ( (LA114_0==229) ) {
@@ -13631,18 +10853,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 114, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(114);}
-
                     switch (alt114) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:5: 'ssw'
                             {
-                            dbg.location(472,5);
                             string_literal314=(Token)match(input,229,FOLLOW_229_in_subOrdinalDirection2595);  
                             stream_229.add(string_literal314);
 
@@ -13650,11 +10866,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:11: 'south-southwest'
                             {
-                            dbg.location(472,11);
                             string_literal315=(Token)match(input,230,FOLLOW_230_in_subOrdinalDirection2597);  
                             stream_230.add(string_literal315);
 
@@ -13663,7 +10876,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(114);}
 
 
 
@@ -13680,11 +10892,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 473:2: -> SOUTH SOUTH WEST
                     {
-                        dbg.location(473,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(473,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(473,17);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -13693,16 +10902,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 6 :
-                    dbg.enterAlt(6);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:4: ( 'wsw' | 'west-southwest' )
                     {
-                    dbg.location(474,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:4: ( 'wsw' | 'west-southwest' )
                     int alt115=2;
-                    try { dbg.enterSubRule(115);
-                    try { dbg.enterDecision(115);
-
                     int LA115_0 = input.LA(1);
 
                     if ( (LA115_0==231) ) {
@@ -13715,18 +10918,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 115, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(115);}
-
                     switch (alt115) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:5: 'wsw'
                             {
-                            dbg.location(474,5);
                             string_literal316=(Token)match(input,231,FOLLOW_231_in_subOrdinalDirection2613);  
                             stream_231.add(string_literal316);
 
@@ -13734,11 +10931,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:11: 'west-southwest'
                             {
-                            dbg.location(474,11);
                             string_literal317=(Token)match(input,232,FOLLOW_232_in_subOrdinalDirection2615);  
                             stream_232.add(string_literal317);
 
@@ -13747,7 +10941,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(115);}
 
 
 
@@ -13764,11 +10957,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 475:2: -> WEST SOUTH WEST
                     {
-                        dbg.location(475,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
-                        dbg.location(475,10);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-                        dbg.location(475,16);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -13777,16 +10967,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 7 :
-                    dbg.enterAlt(7);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:4: ( 'wnw' | 'west-northwest' )
                     {
-                    dbg.location(476,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:4: ( 'wnw' | 'west-northwest' )
                     int alt116=2;
-                    try { dbg.enterSubRule(116);
-                    try { dbg.enterDecision(116);
-
                     int LA116_0 = input.LA(1);
 
                     if ( (LA116_0==233) ) {
@@ -13799,18 +10983,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 116, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(116);}
-
                     switch (alt116) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:5: 'wnw'
                             {
-                            dbg.location(476,5);
                             string_literal318=(Token)match(input,233,FOLLOW_233_in_subOrdinalDirection2631);  
                             stream_233.add(string_literal318);
 
@@ -13818,11 +10996,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:11: 'west-northwest'
                             {
-                            dbg.location(476,11);
                             string_literal319=(Token)match(input,234,FOLLOW_234_in_subOrdinalDirection2633);  
                             stream_234.add(string_literal319);
 
@@ -13831,7 +11006,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(116);}
 
 
 
@@ -13848,11 +11022,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 477:2: -> WEST NORTH WEST
                     {
-                        dbg.location(477,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
-                        dbg.location(477,10);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(477,16);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -13861,16 +11032,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 8 :
-                    dbg.enterAlt(8);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:4: ( 'nnw' | 'north-northwest' )
                     {
-                    dbg.location(478,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:4: ( 'nnw' | 'north-northwest' )
                     int alt117=2;
-                    try { dbg.enterSubRule(117);
-                    try { dbg.enterDecision(117);
-
                     int LA117_0 = input.LA(1);
 
                     if ( (LA117_0==235) ) {
@@ -13883,18 +11048,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 117, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(117);}
-
                     switch (alt117) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:5: 'nnw'
                             {
-                            dbg.location(478,5);
                             string_literal320=(Token)match(input,235,FOLLOW_235_in_subOrdinalDirection2649);  
                             stream_235.add(string_literal320);
 
@@ -13902,11 +11061,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:11: 'north-northwest'
                             {
-                            dbg.location(478,11);
                             string_literal321=(Token)match(input,236,FOLLOW_236_in_subOrdinalDirection2651);  
                             stream_236.add(string_literal321);
 
@@ -13915,7 +11071,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(117);}
 
 
 
@@ -13932,11 +11087,8 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 479:2: -> NORTH NORTH WEST
                     {
-                        dbg.location(479,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(479,11);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
-                        dbg.location(479,17);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
                     }
@@ -13960,15 +11112,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(480, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "subOrdinalDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "subOrdinalDirection"
@@ -13993,37 +11136,21 @@ public class flipsParser extends DebugParser {
         CommonTree Turning322_tree=null;
         RewriteRuleTokenStream stream_Turning=new RewriteRuleTokenStream(adaptor,"token Turning");
         RewriteRuleSubtreeStream stream_clockDirection=new RewriteRuleSubtreeStream(adaptor,"rule clockDirection");
-        try { dbg.enterRule(getGrammarFileName(), "loiterDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(482, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:2: ( ( Turning )? clockDirection -> ^( DIRECTION TURN clockDirection ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: ( Turning )? clockDirection
             {
-            dbg.location(483,4);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: ( Turning )?
             int alt119=2;
-            try { dbg.enterSubRule(119);
-            try { dbg.enterDecision(119);
-
             int LA119_0 = input.LA(1);
 
             if ( (LA119_0==Turning) ) {
                 alt119=1;
             }
-            } finally {dbg.exitDecision(119);}
-
             switch (alt119) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: Turning
                     {
-                    dbg.location(483,4);
                     Turning322=(Token)match(input,Turning,FOLLOW_Turning_in_loiterDirection2672);  
                     stream_Turning.add(Turning322);
 
@@ -14032,9 +11159,7 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(119);}
 
-            dbg.location(483,13);
             pushFollow(FOLLOW_clockDirection_in_loiterDirection2675);
             clockDirection323=clockDirection();
 
@@ -14056,16 +11181,12 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 484:2: -> ^( DIRECTION TURN clockDirection )
             {
-                dbg.location(484,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:484:5: ^( DIRECTION TURN clockDirection )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(484,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DIRECTION, "DIRECTION"), root_1);
 
-                dbg.location(484,17);
                 adaptor.addChild(root_1, (CommonTree)adaptor.create(TURN, "TURN"));
-                dbg.location(484,22);
                 adaptor.addChild(root_1, stream_clockDirection.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -14090,15 +11211,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(485, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "loiterDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "loiterDirection"
@@ -14151,16 +11263,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_246=new RewriteRuleTokenStream(adaptor,"token 246");
         RewriteRuleTokenStream stream_237=new RewriteRuleTokenStream(adaptor,"token 237");
 
-        try { dbg.enterRule(getGrammarFileName(), "upDownDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(487, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:2: ( ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' ) -> CLIMB | ( 'd' | 'down' | 'descend' | 'descending' ) -> DESCEND )
             int alt122=2;
-            try { dbg.enterDecision(122);
-
             int LA122_0 = input.LA(1);
 
             if ( ((LA122_0>=237 && LA122_0<=243)) ) {
@@ -14173,23 +11278,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 122, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(122);}
-
             switch (alt122) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' )
                     {
-                    dbg.location(488,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' )
                     int alt120=7;
-                    try { dbg.enterSubRule(120);
-                    try { dbg.enterDecision(120);
-
                     switch ( input.LA(1) ) {
                     case 237:
                         {
@@ -14230,19 +11326,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 120, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(120);}
-
                     switch (alt120) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:5: 'u'
                             {
-                            dbg.location(488,5);
                             char_literal324=(Token)match(input,237,FOLLOW_237_in_upDownDirection2698);  
                             stream_237.add(char_literal324);
 
@@ -14250,11 +11340,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:9: 'up'
                             {
-                            dbg.location(488,9);
                             string_literal325=(Token)match(input,238,FOLLOW_238_in_upDownDirection2700);  
                             stream_238.add(string_literal325);
 
@@ -14262,11 +11349,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:14: 'c'
                             {
-                            dbg.location(488,14);
                             char_literal326=(Token)match(input,239,FOLLOW_239_in_upDownDirection2702);  
                             stream_239.add(char_literal326);
 
@@ -14274,11 +11358,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:18: 'climb'
                             {
-                            dbg.location(488,18);
                             string_literal327=(Token)match(input,240,FOLLOW_240_in_upDownDirection2704);  
                             stream_240.add(string_literal327);
 
@@ -14286,11 +11367,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 5 :
-                            dbg.enterAlt(5);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:26: 'climbing'
                             {
-                            dbg.location(488,26);
                             string_literal328=(Token)match(input,241,FOLLOW_241_in_upDownDirection2706);  
                             stream_241.add(string_literal328);
 
@@ -14298,11 +11376,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 6 :
-                            dbg.enterAlt(6);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:37: 'ascend'
                             {
-                            dbg.location(488,37);
                             string_literal329=(Token)match(input,242,FOLLOW_242_in_upDownDirection2708);  
                             stream_242.add(string_literal329);
 
@@ -14310,11 +11385,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 7 :
-                            dbg.enterAlt(7);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:46: 'ascending'
                             {
-                            dbg.location(488,46);
                             string_literal330=(Token)match(input,243,FOLLOW_243_in_upDownDirection2710);  
                             stream_243.add(string_literal330);
 
@@ -14323,7 +11395,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(120);}
 
 
 
@@ -14340,7 +11411,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 489:2: -> CLIMB
                     {
-                        dbg.location(489,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(CLIMB, "CLIMB"));
 
                     }
@@ -14349,16 +11419,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:4: ( 'd' | 'down' | 'descend' | 'descending' )
                     {
-                    dbg.location(490,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:4: ( 'd' | 'down' | 'descend' | 'descending' )
                     int alt121=4;
-                    try { dbg.enterSubRule(121);
-                    try { dbg.enterDecision(121);
-
                     switch ( input.LA(1) ) {
                     case 244:
                         {
@@ -14384,19 +11448,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 121, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(121);}
-
                     switch (alt121) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:5: 'd'
                             {
-                            dbg.location(490,5);
                             char_literal331=(Token)match(input,244,FOLLOW_244_in_upDownDirection2722);  
                             stream_244.add(char_literal331);
 
@@ -14404,11 +11462,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:9: 'down'
                             {
-                            dbg.location(490,9);
                             string_literal332=(Token)match(input,245,FOLLOW_245_in_upDownDirection2724);  
                             stream_245.add(string_literal332);
 
@@ -14416,11 +11471,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:16: 'descend'
                             {
-                            dbg.location(490,16);
                             string_literal333=(Token)match(input,246,FOLLOW_246_in_upDownDirection2726);  
                             stream_246.add(string_literal333);
 
@@ -14428,11 +11480,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:26: 'descending'
                             {
-                            dbg.location(490,26);
                             string_literal334=(Token)match(input,247,FOLLOW_247_in_upDownDirection2728);  
                             stream_247.add(string_literal334);
 
@@ -14441,7 +11490,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(121);}
 
 
 
@@ -14458,7 +11506,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 491:2: -> DESCEND
                     {
-                        dbg.location(491,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DESCEND, "DESCEND"));
 
                     }
@@ -14482,15 +11529,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(492, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "upDownDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "upDownDirection"
@@ -14528,16 +11566,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_253=new RewriteRuleTokenStream(adaptor,"token 253");
         RewriteRuleTokenStream stream_248=new RewriteRuleTokenStream(adaptor,"token 248");
 
-        try { dbg.enterRule(getGrammarFileName(), "leftRightDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(494, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:2: ( ( 'l' | 'left' | 'port' ) -> LEFT | ( 'r' | 'right' | 'starboard' ) -> RIGHT )
             int alt125=2;
-            try { dbg.enterDecision(125);
-
             int LA125_0 = input.LA(1);
 
             if ( ((LA125_0>=248 && LA125_0<=250)) ) {
@@ -14550,23 +11581,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 125, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(125);}
-
             switch (alt125) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:4: ( 'l' | 'left' | 'port' )
                     {
-                    dbg.location(495,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:4: ( 'l' | 'left' | 'port' )
                     int alt123=3;
-                    try { dbg.enterSubRule(123);
-                    try { dbg.enterDecision(123);
-
                     switch ( input.LA(1) ) {
                     case 248:
                         {
@@ -14587,19 +11609,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 123, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(123);}
-
                     switch (alt123) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:5: 'l'
                             {
-                            dbg.location(495,5);
                             char_literal335=(Token)match(input,248,FOLLOW_248_in_leftRightDirection2746);  
                             stream_248.add(char_literal335);
 
@@ -14607,11 +11623,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:9: 'left'
                             {
-                            dbg.location(495,9);
                             string_literal336=(Token)match(input,249,FOLLOW_249_in_leftRightDirection2748);  
                             stream_249.add(string_literal336);
 
@@ -14619,11 +11632,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:16: 'port'
                             {
-                            dbg.location(495,16);
                             string_literal337=(Token)match(input,250,FOLLOW_250_in_leftRightDirection2750);  
                             stream_250.add(string_literal337);
 
@@ -14632,7 +11642,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(123);}
 
 
 
@@ -14649,7 +11658,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 496:2: -> LEFT
                     {
-                        dbg.location(496,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(LEFT, "LEFT"));
 
                     }
@@ -14658,16 +11666,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:4: ( 'r' | 'right' | 'starboard' )
                     {
-                    dbg.location(497,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:4: ( 'r' | 'right' | 'starboard' )
                     int alt124=3;
-                    try { dbg.enterSubRule(124);
-                    try { dbg.enterDecision(124);
-
                     switch ( input.LA(1) ) {
                     case 251:
                         {
@@ -14688,19 +11690,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 124, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(124);}
-
                     switch (alt124) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:5: 'r'
                             {
-                            dbg.location(497,5);
                             char_literal338=(Token)match(input,251,FOLLOW_251_in_leftRightDirection2762);  
                             stream_251.add(char_literal338);
 
@@ -14708,11 +11704,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:9: 'right'
                             {
-                            dbg.location(497,9);
                             string_literal339=(Token)match(input,252,FOLLOW_252_in_leftRightDirection2764);  
                             stream_252.add(string_literal339);
 
@@ -14720,11 +11713,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:17: 'starboard'
                             {
-                            dbg.location(497,17);
                             string_literal340=(Token)match(input,253,FOLLOW_253_in_leftRightDirection2766);  
                             stream_253.add(string_literal340);
 
@@ -14733,7 +11723,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(124);}
 
 
 
@@ -14750,7 +11739,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 498:2: -> RIGHT
                     {
-                        dbg.location(498,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(RIGHT, "RIGHT"));
 
                     }
@@ -14774,15 +11762,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(499, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "leftRightDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "leftRightDirection"
@@ -14814,16 +11793,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_256=new RewriteRuleTokenStream(adaptor,"token 256");
         RewriteRuleTokenStream stream_255=new RewriteRuleTokenStream(adaptor,"token 255");
 
-        try { dbg.enterRule(getGrammarFileName(), "clockDirection");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(501, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:2: ( ( 'cw' | 'clockwise' ) -> CLOCKWISE | ( 'ccw' | 'counterclockwise' ) -> COUNTERCLOCKWISE )
             int alt128=2;
-            try { dbg.enterDecision(128);
-
             int LA128_0 = input.LA(1);
 
             if ( ((LA128_0>=254 && LA128_0<=255)) ) {
@@ -14836,23 +11808,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 128, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(128);}
-
             switch (alt128) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:4: ( 'cw' | 'clockwise' )
                     {
-                    dbg.location(502,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:4: ( 'cw' | 'clockwise' )
                     int alt126=2;
-                    try { dbg.enterSubRule(126);
-                    try { dbg.enterDecision(126);
-
                     int LA126_0 = input.LA(1);
 
                     if ( (LA126_0==254) ) {
@@ -14865,18 +11828,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 126, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(126);}
-
                     switch (alt126) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:5: 'cw'
                             {
-                            dbg.location(502,5);
                             string_literal341=(Token)match(input,254,FOLLOW_254_in_clockDirection2784);  
                             stream_254.add(string_literal341);
 
@@ -14884,11 +11841,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:10: 'clockwise'
                             {
-                            dbg.location(502,10);
                             string_literal342=(Token)match(input,255,FOLLOW_255_in_clockDirection2786);  
                             stream_255.add(string_literal342);
 
@@ -14897,7 +11851,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(126);}
 
 
 
@@ -14914,7 +11867,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 503:2: -> CLOCKWISE
                     {
-                        dbg.location(503,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(CLOCKWISE, "CLOCKWISE"));
 
                     }
@@ -14923,16 +11875,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:4: ( 'ccw' | 'counterclockwise' )
                     {
-                    dbg.location(504,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:4: ( 'ccw' | 'counterclockwise' )
                     int alt127=2;
-                    try { dbg.enterSubRule(127);
-                    try { dbg.enterDecision(127);
-
                     int LA127_0 = input.LA(1);
 
                     if ( (LA127_0==256) ) {
@@ -14945,18 +11891,12 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 127, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
-                    } finally {dbg.exitDecision(127);}
-
                     switch (alt127) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:5: 'ccw'
                             {
-                            dbg.location(504,5);
                             string_literal343=(Token)match(input,256,FOLLOW_256_in_clockDirection2798);  
                             stream_256.add(string_literal343);
 
@@ -14964,11 +11904,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:11: 'counterclockwise'
                             {
-                            dbg.location(504,11);
                             string_literal344=(Token)match(input,257,FOLLOW_257_in_clockDirection2800);  
                             stream_257.add(string_literal344);
 
@@ -14977,7 +11914,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(127);}
 
 
 
@@ -14994,7 +11930,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 505:2: -> COUNTERCLOCKWISE
                     {
-                        dbg.location(505,5);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(COUNTERCLOCKWISE, "COUNTERCLOCKWISE"));
 
                     }
@@ -15018,15 +11953,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(506, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "clockDirection");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "clockDirection"
@@ -15090,16 +12016,9 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_264=new RewriteRuleTokenStream(adaptor,"token 264");
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
-        try { dbg.enterRule(getGrammarFileName(), "angularValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(508, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:2: ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
             int alt132=3;
-            try { dbg.enterDecision(132);
-
             int LA132_0 = input.LA(1);
 
             if ( ((LA132_0>=BinaryLiteral && LA132_0<=HexLiteral)) ) {
@@ -15210,7 +12129,6 @@ public class flipsParser extends DebugParser {
                             NoViableAltException nvae =
                                 new NoViableAltException("", 132, 7, input);
 
-                            dbg.recognitionException(nvae);
                             throw nvae;
                         }
                         }
@@ -15229,7 +12147,6 @@ public class flipsParser extends DebugParser {
                             NoViableAltException nvae =
                                 new NoViableAltException("", 132, 8, input);
 
-                            dbg.recognitionException(nvae);
                             throw nvae;
                         }
                         }
@@ -15238,7 +12155,6 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 132, 3, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
@@ -15274,7 +12190,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 132, 1, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
 
@@ -15292,7 +12207,6 @@ public class flipsParser extends DebugParser {
                     NoViableAltException nvae =
                         new NoViableAltException("", 132, 2, input);
 
-                    dbg.recognitionException(nvae);
                     throw nvae;
                 }
             }
@@ -15300,30 +12214,20 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 132, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(132);}
-
             switch (alt132) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:4: numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
                     {
-                    dbg.location(509,4);
                     pushFollow(FOLLOW_numericValue_in_angularValue2817);
                     numericValue345=numericValue();
 
                     state._fsp--;
 
                     stream_numericValue.add(numericValue345.getTree());
-                    dbg.location(509,17);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:17: ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
                     int alt129=5;
-                    try { dbg.enterSubRule(129);
-                    try { dbg.enterDecision(129);
-
                     switch ( input.LA(1) ) {
                     case 258:
                         {
@@ -15354,19 +12258,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 129, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(129);}
-
                     switch (alt129) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:18: '¡'
                             {
-                            dbg.location(509,18);
                             char_literal346=(Token)match(input,258,FOLLOW_258_in_angularValue2820);  
                             stream_258.add(char_literal346);
 
@@ -15374,11 +12272,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:22: 'deg'
                             {
-                            dbg.location(509,22);
                             string_literal347=(Token)match(input,259,FOLLOW_259_in_angularValue2822);  
                             stream_259.add(string_literal347);
 
@@ -15386,11 +12281,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:28: 'degs'
                             {
-                            dbg.location(509,28);
                             string_literal348=(Token)match(input,260,FOLLOW_260_in_angularValue2824);  
                             stream_260.add(string_literal348);
 
@@ -15398,11 +12290,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:35: 'degree'
                             {
-                            dbg.location(509,35);
                             string_literal349=(Token)match(input,261,FOLLOW_261_in_angularValue2826);  
                             stream_261.add(string_literal349);
 
@@ -15410,11 +12299,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 5 :
-                            dbg.enterAlt(5);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:44: 'degrees'
                             {
-                            dbg.location(509,44);
                             string_literal350=(Token)match(input,262,FOLLOW_262_in_angularValue2828);  
                             stream_262.add(string_literal350);
 
@@ -15423,7 +12309,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(129);}
 
 
 
@@ -15440,9 +12325,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 510:2: -> numericValue DEGREE
                     {
-                        dbg.location(510,5);
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
-                        dbg.location(510,18);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DEGREE, "DEGREE"));
 
                     }
@@ -15451,23 +12334,16 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:4: integerValue ( '¡' | 'd' )? numericValue '\\''
                     {
-                    dbg.location(511,4);
                     pushFollow(FOLLOW_integerValue_in_angularValue2841);
                     integerValue351=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(integerValue351.getTree());
-                    dbg.location(511,17);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:17: ( '¡' | 'd' )?
                     int alt130=3;
-                    try { dbg.enterSubRule(130);
-                    try { dbg.enterDecision(130);
-
                     int LA130_0 = input.LA(1);
 
                     if ( (LA130_0==258) ) {
@@ -15476,15 +12352,10 @@ public class flipsParser extends DebugParser {
                     else if ( (LA130_0==244) ) {
                         alt130=2;
                     }
-                    } finally {dbg.exitDecision(130);}
-
                     switch (alt130) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:18: '¡'
                             {
-                            dbg.location(511,18);
                             char_literal352=(Token)match(input,258,FOLLOW_258_in_angularValue2844);  
                             stream_258.add(char_literal352);
 
@@ -15492,11 +12363,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:22: 'd'
                             {
-                            dbg.location(511,22);
                             char_literal353=(Token)match(input,244,FOLLOW_244_in_angularValue2846);  
                             stream_244.add(char_literal353);
 
@@ -15505,23 +12373,20 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(130);}
 
-                    dbg.location(511,28);
                     pushFollow(FOLLOW_numericValue_in_angularValue2850);
                     numericValue354=numericValue();
 
                     state._fsp--;
 
                     stream_numericValue.add(numericValue354.getTree());
-                    dbg.location(511,41);
                     char_literal355=(Token)match(input,263,FOLLOW_263_in_angularValue2852);  
                     stream_263.add(char_literal355);
 
 
 
                     // AST REWRITE
-                    // elements: integerValue, numericValue
+                    // elements: numericValue, integerValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -15533,13 +12398,9 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 512:2: -> integerValue DEGREE numericValue MINUTE
                     {
-                        dbg.location(512,5);
                         adaptor.addChild(root_0, stream_integerValue.nextTree());
-                        dbg.location(512,18);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DEGREE, "DEGREE"));
-                        dbg.location(512,25);
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
-                        dbg.location(512,38);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(MINUTE, "MINUTE"));
 
                     }
@@ -15548,23 +12409,16 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 3 :
-                    dbg.enterAlt(3);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:4: numericValue ( 'rad' | 'rads' | 'radian' | 'radians' )
                     {
-                    dbg.location(513,4);
                     pushFollow(FOLLOW_numericValue_in_angularValue2868);
                     numericValue356=numericValue();
 
                     state._fsp--;
 
                     stream_numericValue.add(numericValue356.getTree());
-                    dbg.location(513,17);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:17: ( 'rad' | 'rads' | 'radian' | 'radians' )
                     int alt131=4;
-                    try { dbg.enterSubRule(131);
-                    try { dbg.enterDecision(131);
-
                     switch ( input.LA(1) ) {
                     case 264:
                         {
@@ -15590,19 +12444,13 @@ public class flipsParser extends DebugParser {
                         NoViableAltException nvae =
                             new NoViableAltException("", 131, 0, input);
 
-                        dbg.recognitionException(nvae);
                         throw nvae;
                     }
 
-                    } finally {dbg.exitDecision(131);}
-
                     switch (alt131) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:18: 'rad'
                             {
-                            dbg.location(513,18);
                             string_literal357=(Token)match(input,264,FOLLOW_264_in_angularValue2871);  
                             stream_264.add(string_literal357);
 
@@ -15610,11 +12458,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 2 :
-                            dbg.enterAlt(2);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:24: 'rads'
                             {
-                            dbg.location(513,24);
                             string_literal358=(Token)match(input,265,FOLLOW_265_in_angularValue2873);  
                             stream_265.add(string_literal358);
 
@@ -15622,11 +12467,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 3 :
-                            dbg.enterAlt(3);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:31: 'radian'
                             {
-                            dbg.location(513,31);
                             string_literal359=(Token)match(input,266,FOLLOW_266_in_angularValue2875);  
                             stream_266.add(string_literal359);
 
@@ -15634,11 +12476,8 @@ public class flipsParser extends DebugParser {
                             }
                             break;
                         case 4 :
-                            dbg.enterAlt(4);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:40: 'radians'
                             {
-                            dbg.location(513,40);
                             string_literal360=(Token)match(input,267,FOLLOW_267_in_angularValue2877);  
                             stream_267.add(string_literal360);
 
@@ -15647,7 +12486,6 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(131);}
 
 
 
@@ -15664,9 +12502,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 514:2: -> numericValue RADIAN
                     {
-                        dbg.location(514,5);
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
-                        dbg.location(514,18);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(RADIAN, "RADIAN"));
 
                     }
@@ -15690,15 +12526,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(515, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "angularValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "angularValue"
@@ -15723,16 +12550,9 @@ public class flipsParser extends DebugParser {
         CommonTree Identifier362_tree=null;
         RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
         RewriteRuleSubtreeStream stream_geoCoordinate=new RewriteRuleSubtreeStream(adaptor,"rule geoCoordinate");
-        try { dbg.enterRule(getGrammarFileName(), "waypoint");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(519, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:520:2: ( geoCoordinate -> geoCoordinate | Identifier -> ^( WAYPOINT Identifier ) )
             int alt133=2;
-            try { dbg.enterDecision(133);
-
             int LA133_0 = input.LA(1);
 
             if ( ((LA133_0>=FloatingPointLiteral && LA133_0<=HexLiteral)||(LA133_0>=268 && LA133_0<=269)) ) {
@@ -15745,18 +12565,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 133, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(133);}
-
             switch (alt133) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:520:4: geoCoordinate
                     {
-                    dbg.location(520,4);
                     pushFollow(FOLLOW_geoCoordinate_in_waypoint2898);
                     geoCoordinate361=geoCoordinate();
 
@@ -15778,7 +12592,6 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 521:2: -> geoCoordinate
                     {
-                        dbg.location(521,5);
                         adaptor.addChild(root_0, stream_geoCoordinate.nextTree());
 
                     }
@@ -15787,11 +12600,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:522:4: Identifier
                     {
-                    dbg.location(522,4);
                     Identifier362=(Token)match(input,Identifier,FOLLOW_Identifier_in_waypoint2908);  
                     stream_Identifier.add(Identifier362);
 
@@ -15810,14 +12620,11 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 523:2: -> ^( WAYPOINT Identifier )
                     {
-                        dbg.location(523,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:523:5: ^( WAYPOINT Identifier )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(523,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(WAYPOINT, "WAYPOINT"), root_1);
 
-                        dbg.location(523,16);
                         adaptor.addChild(root_1, stream_Identifier.nextNode());
 
                         adaptor.addChild(root_0, root_1);
@@ -15844,15 +12651,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(524, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "waypoint");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "waypoint"
@@ -15874,18 +12672,10 @@ public class flipsParser extends DebugParser {
 
 
         RewriteRuleSubtreeStream stream_latitudeLongitude=new RewriteRuleSubtreeStream(adaptor,"rule latitudeLongitude");
-        try { dbg.enterRule(getGrammarFileName(), "geoCoordinate");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(526, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:527:2: ( latitudeLongitude -> ^( GEOCOORDINATE latitudeLongitude ) )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:527:4: latitudeLongitude
             {
-            dbg.location(527,4);
             pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate2928);
             latitudeLongitude363=latitudeLongitude();
 
@@ -15907,14 +12697,11 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 528:2: -> ^( GEOCOORDINATE latitudeLongitude )
             {
-                dbg.location(528,5);
                 // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:5: ^( GEOCOORDINATE latitudeLongitude )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
-                dbg.location(528,7);
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GEOCOORDINATE, "GEOCOORDINATE"), root_1);
 
-                dbg.location(528,21);
                 adaptor.addChild(root_1, stream_latitudeLongitude.nextTree());
 
                 adaptor.addChild(root_0, root_1);
@@ -15939,15 +12726,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(529, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "geoCoordinate");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "geoCoordinate"
@@ -16006,66 +12784,37 @@ public class flipsParser extends DebugParser {
         RewriteRuleSubtreeStream stream_latitudeLongitudeValue=new RewriteRuleSubtreeStream(adaptor,"rule latitudeLongitudeValue");
         RewriteRuleSubtreeStream stream_eastWestDirection=new RewriteRuleSubtreeStream(adaptor,"rule eastWestDirection");
         RewriteRuleSubtreeStream stream_northSouthDirection=new RewriteRuleSubtreeStream(adaptor,"rule northSouthDirection");
-        try { dbg.enterRule(getGrammarFileName(), "latitudeLongitude");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(531, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:2: (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) )
             int alt143=5;
-            try { dbg.enterDecision(143);
-
-            try {
-                isCyclicDecision = true;
-                alt143 = dfa143.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(143);}
-
+            alt143 = dfa143.predict(input);
             switch (alt143) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:4: x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection
                     {
-                    dbg.location(532,5);
                     pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2950);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    dbg.location(532,29);
                     pushFollow(FOLLOW_northSouthDirection_in_latitudeLongitude2952);
                     northSouthDirection364=northSouthDirection();
 
                     state._fsp--;
 
                     stream_northSouthDirection.add(northSouthDirection364.getTree());
-                    dbg.location(532,49);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:49: ( ',' )?
                     int alt134=2;
-                    try { dbg.enterSubRule(134);
-                    try { dbg.enterDecision(134);
-
                     int LA134_0 = input.LA(1);
 
                     if ( (LA134_0==101) ) {
                         alt134=1;
                     }
-                    } finally {dbg.exitDecision(134);}
-
                     switch (alt134) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:49: ','
                             {
-                            dbg.location(532,49);
                             char_literal365=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude2954);  
                             stream_101.add(char_literal365);
 
@@ -16074,16 +12823,13 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(134);}
 
-                    dbg.location(532,55);
                     pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2959);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(y.getTree());
-                    dbg.location(532,79);
                     pushFollow(FOLLOW_eastWestDirection_in_latitudeLongitude2961);
                     eastWestDirection366=eastWestDirection();
 
@@ -16093,7 +12839,7 @@ public class flipsParser extends DebugParser {
 
 
                     // AST REWRITE
-                    // elements: eastWestDirection, x, northSouthDirection, y
+                    // elements: eastWestDirection, x, y, northSouthDirection
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -16107,30 +12853,22 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 533:2: -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection )
                     {
-                        dbg.location(533,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:533:5: ^( LATITUDE $x northSouthDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(533,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
 
-                        dbg.location(533,16);
                         adaptor.addChild(root_1, stream_x.nextTree());
-                        dbg.location(533,19);
                         adaptor.addChild(root_1, stream_northSouthDirection.nextTree());
 
                         adaptor.addChild(root_0, root_1);
                         }
-                        dbg.location(533,40);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:533:40: ^( LONGITUDE $y eastWestDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(533,42);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
 
-                        dbg.location(533,52);
                         adaptor.addChild(root_1, stream_y.nextTree());
-                        dbg.location(533,55);
                         adaptor.addChild(root_1, stream_eastWestDirection.nextTree());
 
                         adaptor.addChild(root_0, root_1);
@@ -16142,30 +12880,19 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
                     {
-                    dbg.location(534,4);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:4: ( '+' )?
                     int alt135=2;
-                    try { dbg.enterSubRule(135);
-                    try { dbg.enterDecision(135);
-
                     int LA135_0 = input.LA(1);
 
                     if ( (LA135_0==268) ) {
                         alt135=1;
                     }
-                    } finally {dbg.exitDecision(135);}
-
                     switch (alt135) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:4: '+'
                             {
-                            dbg.location(534,4);
                             char_literal367=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude2987);  
                             stream_268.add(char_literal367);
 
@@ -16174,35 +12901,24 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(135);}
 
-                    dbg.location(534,10);
                     pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2992);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    dbg.location(534,34);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:34: ( ',' )?
                     int alt136=2;
-                    try { dbg.enterSubRule(136);
-                    try { dbg.enterDecision(136);
-
                     int LA136_0 = input.LA(1);
 
                     if ( (LA136_0==101) ) {
                         alt136=1;
                     }
-                    } finally {dbg.exitDecision(136);}
-
                     switch (alt136) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:34: ','
                             {
-                            dbg.location(534,34);
                             char_literal368=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude2994);  
                             stream_101.add(char_literal368);
 
@@ -16211,28 +12927,18 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(136);}
 
-                    dbg.location(534,39);
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:39: ( '+' )?
                     int alt137=2;
-                    try { dbg.enterSubRule(137);
-                    try { dbg.enterDecision(137);
-
                     int LA137_0 = input.LA(1);
 
                     if ( (LA137_0==268) ) {
                         alt137=1;
                     }
-                    } finally {dbg.exitDecision(137);}
-
                     switch (alt137) {
                         case 1 :
-                            dbg.enterAlt(1);
-
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:39: '+'
                             {
-                            dbg.location(534,39);
                             char_literal369=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude2997);  
                             stream_268.add(char_literal369);
 
@@ -16241,278 +12947,8 @@ public class flipsParser extends DebugParser {
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(137);}
 
-                    dbg.location(534,45);
                     pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3002);
-                    y=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(y.getTree());
-
-
-                    // AST REWRITE
-                    // elements: y, x
-                    // token labels: 
-                    // rule labels: retval, y, x
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
-                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
-
-                    root_0 = (CommonTree)adaptor.nil();
-                    // 535:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST )
-                    {
-                        dbg.location(535,5);
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:535:5: ^( LATITUDE $x NORTH )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(535,7);
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
-
-                        dbg.location(535,16);
-                        adaptor.addChild(root_1, stream_x.nextTree());
-                        dbg.location(535,19);
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(NORTH, "NORTH"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-                        dbg.location(535,26);
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:535:26: ^( LONGITUDE $y EAST )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(535,28);
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
-
-                        dbg.location(535,38);
-                        adaptor.addChild(root_1, stream_y.nextTree());
-                        dbg.location(535,41);
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;
-                    }
-                    break;
-                case 3 :
-                    dbg.enterAlt(3);
-
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:4: '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
-                    {
-                    dbg.location(536,4);
-                    char_literal370=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3028);  
-                    stream_269.add(char_literal370);
-
-                    dbg.location(536,9);
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3032);
-                    x=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(x.getTree());
-                    dbg.location(536,33);
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:33: ( ',' )?
-                    int alt138=2;
-                    try { dbg.enterSubRule(138);
-                    try { dbg.enterDecision(138);
-
-                    int LA138_0 = input.LA(1);
-
-                    if ( (LA138_0==101) ) {
-                        alt138=1;
-                    }
-                    } finally {dbg.exitDecision(138);}
-
-                    switch (alt138) {
-                        case 1 :
-                            dbg.enterAlt(1);
-
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:33: ','
-                            {
-                            dbg.location(536,33);
-                            char_literal371=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3034);  
-                            stream_101.add(char_literal371);
-
-
-                            }
-                            break;
-
-                    }
-                    } finally {dbg.exitSubRule(138);}
-
-                    dbg.location(536,38);
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:38: ( '+' )?
-                    int alt139=2;
-                    try { dbg.enterSubRule(139);
-                    try { dbg.enterDecision(139);
-
-                    int LA139_0 = input.LA(1);
-
-                    if ( (LA139_0==268) ) {
-                        alt139=1;
-                    }
-                    } finally {dbg.exitDecision(139);}
-
-                    switch (alt139) {
-                        case 1 :
-                            dbg.enterAlt(1);
-
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:38: '+'
-                            {
-                            dbg.location(536,38);
-                            char_literal372=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3037);  
-                            stream_268.add(char_literal372);
-
-
-                            }
-                            break;
-
-                    }
-                    } finally {dbg.exitSubRule(139);}
-
-                    dbg.location(536,44);
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3042);
-                    y=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(y.getTree());
-
-
-                    // AST REWRITE
-                    // elements: y, x
-                    // token labels: 
-                    // rule labels: retval, y, x
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
-                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
-
-                    root_0 = (CommonTree)adaptor.nil();
-                    // 537:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST )
-                    {
-                        dbg.location(537,5);
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:5: ^( LATITUDE $x SOUTH )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(537,7);
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
-
-                        dbg.location(537,16);
-                        adaptor.addChild(root_1, stream_x.nextTree());
-                        dbg.location(537,19);
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-                        dbg.location(537,26);
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:26: ^( LONGITUDE $y EAST )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(537,28);
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
-
-                        dbg.location(537,38);
-                        adaptor.addChild(root_1, stream_y.nextTree());
-                        dbg.location(537,41);
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;
-                    }
-                    break;
-                case 4 :
-                    dbg.enterAlt(4);
-
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
-                    {
-                    dbg.location(538,4);
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: ( '+' )?
-                    int alt140=2;
-                    try { dbg.enterSubRule(140);
-                    try { dbg.enterDecision(140);
-
-                    int LA140_0 = input.LA(1);
-
-                    if ( (LA140_0==268) ) {
-                        alt140=1;
-                    }
-                    } finally {dbg.exitDecision(140);}
-
-                    switch (alt140) {
-                        case 1 :
-                            dbg.enterAlt(1);
-
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: '+'
-                            {
-                            dbg.location(538,4);
-                            char_literal373=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3068);  
-                            stream_268.add(char_literal373);
-
-
-                            }
-                            break;
-
-                    }
-                    } finally {dbg.exitSubRule(140);}
-
-                    dbg.location(538,10);
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3073);
-                    x=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(x.getTree());
-                    dbg.location(538,34);
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:34: ( ',' )?
-                    int alt141=2;
-                    try { dbg.enterSubRule(141);
-                    try { dbg.enterDecision(141);
-
-                    int LA141_0 = input.LA(1);
-
-                    if ( (LA141_0==101) ) {
-                        alt141=1;
-                    }
-                    } finally {dbg.exitDecision(141);}
-
-                    switch (alt141) {
-                        case 1 :
-                            dbg.enterAlt(1);
-
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:34: ','
-                            {
-                            dbg.location(538,34);
-                            char_literal374=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3075);  
-                            stream_101.add(char_literal374);
-
-
-                            }
-                            break;
-
-                    }
-                    } finally {dbg.exitSubRule(141);}
-
-                    dbg.location(538,39);
-                    char_literal375=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3078);  
-                    stream_269.add(char_literal375);
-
-                    dbg.location(538,44);
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3082);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -16533,33 +12969,25 @@ public class flipsParser extends DebugParser {
                     RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 539:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST )
+                    // 535:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST )
                     {
-                        dbg.location(539,5);
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:5: ^( LATITUDE $x NORTH )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:535:5: ^( LATITUDE $x NORTH )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(539,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
 
-                        dbg.location(539,16);
                         adaptor.addChild(root_1, stream_x.nextTree());
-                        dbg.location(539,19);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(NORTH, "NORTH"));
 
                         adaptor.addChild(root_0, root_1);
                         }
-                        dbg.location(539,26);
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:26: ^( LONGITUDE $y WEST )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:535:26: ^( LONGITUDE $y EAST )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(539,28);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
 
-                        dbg.location(539,38);
                         adaptor.addChild(root_1, stream_y.nextTree());
-                        dbg.location(539,41);
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(WEST, "WEST"));
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
 
                         adaptor.addChild(root_0, root_1);
                         }
@@ -16569,58 +12997,160 @@ public class flipsParser extends DebugParser {
                     retval.tree = root_0;
                     }
                     break;
-                case 5 :
-                    dbg.enterAlt(5);
-
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:4: '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
+                case 3 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:4: '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
                     {
-                    dbg.location(540,4);
-                    char_literal376=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3108);  
-                    stream_269.add(char_literal376);
+                    char_literal370=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3028);  
+                    stream_269.add(char_literal370);
 
-                    dbg.location(540,9);
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3112);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3032);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    dbg.location(540,33);
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:33: ( ',' )?
-                    int alt142=2;
-                    try { dbg.enterSubRule(142);
-                    try { dbg.enterDecision(142);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:33: ( ',' )?
+                    int alt138=2;
+                    int LA138_0 = input.LA(1);
 
-                    int LA142_0 = input.LA(1);
-
-                    if ( (LA142_0==101) ) {
-                        alt142=1;
+                    if ( (LA138_0==101) ) {
+                        alt138=1;
                     }
-                    } finally {dbg.exitDecision(142);}
-
-                    switch (alt142) {
+                    switch (alt138) {
                         case 1 :
-                            dbg.enterAlt(1);
-
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:33: ','
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:33: ','
                             {
-                            dbg.location(540,33);
-                            char_literal377=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3114);  
-                            stream_101.add(char_literal377);
+                            char_literal371=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3034);  
+                            stream_101.add(char_literal371);
 
 
                             }
                             break;
 
                     }
-                    } finally {dbg.exitSubRule(142);}
 
-                    dbg.location(540,38);
-                    char_literal378=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3117);  
-                    stream_269.add(char_literal378);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:38: ( '+' )?
+                    int alt139=2;
+                    int LA139_0 = input.LA(1);
 
-                    dbg.location(540,43);
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3121);
+                    if ( (LA139_0==268) ) {
+                        alt139=1;
+                    }
+                    switch (alt139) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:38: '+'
+                            {
+                            char_literal372=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3037);  
+                            stream_268.add(char_literal372);
+
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3042);
+                    y=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(y.getTree());
+
+
+                    // AST REWRITE
+                    // elements: x, y
+                    // token labels: 
+                    // rule labels: retval, y, x
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
+                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
+
+                    root_0 = (CommonTree)adaptor.nil();
+                    // 537:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST )
+                    {
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:5: ^( LATITUDE $x SOUTH )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_x.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:26: ^( LONGITUDE $y EAST )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_y.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;
+                    }
+                    break;
+                case 4 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
+                    {
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: ( '+' )?
+                    int alt140=2;
+                    int LA140_0 = input.LA(1);
+
+                    if ( (LA140_0==268) ) {
+                        alt140=1;
+                    }
+                    switch (alt140) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: '+'
+                            {
+                            char_literal373=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3068);  
+                            stream_268.add(char_literal373);
+
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3073);
+                    x=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(x.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:34: ( ',' )?
+                    int alt141=2;
+                    int LA141_0 = input.LA(1);
+
+                    if ( (LA141_0==101) ) {
+                        alt141=1;
+                    }
+                    switch (alt141) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:34: ','
+                            {
+                            char_literal374=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3075);  
+                            stream_101.add(char_literal374);
+
+
+                            }
+                            break;
+
+                    }
+
+                    char_literal375=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3078);  
+                    stream_269.add(char_literal375);
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3082);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -16641,32 +13171,108 @@ public class flipsParser extends DebugParser {
                     RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
+                    // 539:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST )
+                    {
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:5: ^( LATITUDE $x NORTH )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_x.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(NORTH, "NORTH"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:26: ^( LONGITUDE $y WEST )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_y.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(WEST, "WEST"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;
+                    }
+                    break;
+                case 5 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:4: '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
+                    {
+                    char_literal376=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3108);  
+                    stream_269.add(char_literal376);
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3112);
+                    x=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(x.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:33: ( ',' )?
+                    int alt142=2;
+                    int LA142_0 = input.LA(1);
+
+                    if ( (LA142_0==101) ) {
+                        alt142=1;
+                    }
+                    switch (alt142) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:33: ','
+                            {
+                            char_literal377=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3114);  
+                            stream_101.add(char_literal377);
+
+
+                            }
+                            break;
+
+                    }
+
+                    char_literal378=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3117);  
+                    stream_269.add(char_literal378);
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3121);
+                    y=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(y.getTree());
+
+
+                    // AST REWRITE
+                    // elements: x, y
+                    // token labels: 
+                    // rule labels: retval, y, x
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
+                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
+
+                    root_0 = (CommonTree)adaptor.nil();
                     // 541:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST )
                     {
-                        dbg.location(541,5);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:5: ^( LATITUDE $x SOUTH )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(541,7);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
 
-                        dbg.location(541,16);
                         adaptor.addChild(root_1, stream_x.nextTree());
-                        dbg.location(541,19);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
 
                         adaptor.addChild(root_0, root_1);
                         }
-                        dbg.location(541,26);
                         // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:26: ^( LONGITUDE $y WEST )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
-                        dbg.location(541,28);
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
 
-                        dbg.location(541,38);
                         adaptor.addChild(root_1, stream_y.nextTree());
-                        dbg.location(541,41);
                         adaptor.addChild(root_1, (CommonTree)adaptor.create(WEST, "WEST"));
 
                         adaptor.addChild(root_0, root_1);
@@ -16693,15 +13299,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(542, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "latitudeLongitude");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "latitudeLongitude"
@@ -16725,33 +13322,14 @@ public class flipsParser extends DebugParser {
 
 
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
-        try { dbg.enterRule(getGrammarFileName(), "latitudeLongitudeValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(544, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:2: ( numericValue -> numericValue DEGREE | angularValue )
             int alt144=2;
-            try { dbg.enterDecision(144);
-
-            try {
-                isCyclicDecision = true;
-                alt144 = dfa144.predict(input);
-            }
-            catch (NoViableAltException nvae) {
-                dbg.recognitionException(nvae);
-                throw nvae;
-            }
-            } finally {dbg.exitDecision(144);}
-
+            alt144 = dfa144.predict(input);
             switch (alt144) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:4: numericValue
                     {
-                    dbg.location(545,4);
                     pushFollow(FOLLOW_numericValue_in_latitudeLongitudeValue3153);
                     numericValue379=numericValue();
 
@@ -16773,9 +13351,7 @@ public class flipsParser extends DebugParser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 546:2: -> numericValue DEGREE
                     {
-                        dbg.location(546,5);
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
-                        dbg.location(546,18);
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DEGREE, "DEGREE"));
 
                     }
@@ -16784,13 +13360,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:547:4: angularValue
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(547,4);
                     pushFollow(FOLLOW_angularValue_in_latitudeLongitudeValue3165);
                     angularValue380=angularValue();
 
@@ -16816,15 +13389,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(548, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "latitudeLongitudeValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "latitudeLongitudeValue"
@@ -16848,16 +13412,9 @@ public class flipsParser extends DebugParser {
 
         CommonTree FloatingPointLiteral382_tree=null;
 
-        try { dbg.enterRule(getGrammarFileName(), "numericValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(552, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:2: ( integerValue | FloatingPointLiteral )
             int alt145=2;
-            try { dbg.enterDecision(145);
-
             int LA145_0 = input.LA(1);
 
             if ( ((LA145_0>=BinaryLiteral && LA145_0<=HexLiteral)) ) {
@@ -16870,20 +13427,14 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 145, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(145);}
-
             switch (alt145) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:4: integerValue
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(553,4);
                     pushFollow(FOLLOW_integerValue_in_numericValue3178);
                     integerValue381=integerValue();
 
@@ -16894,13 +13445,10 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:554:4: FloatingPointLiteral
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    dbg.location(554,4);
                     FloatingPointLiteral382=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue3183); 
                     FloatingPointLiteral382_tree = (CommonTree)adaptor.create(FloatingPointLiteral382);
                     adaptor.addChild(root_0, FloatingPointLiteral382_tree);
@@ -16924,15 +13472,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(555, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "numericValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "numericValue"
@@ -16954,20 +13493,12 @@ public class flipsParser extends DebugParser {
 
         CommonTree set383_tree=null;
 
-        try { dbg.enterRule(getGrammarFileName(), "integerValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(557, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:558:2: ( BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            dbg.location(558,2);
             set383=(Token)input.LT(1);
             if ( (input.LA(1)>=BinaryLiteral && input.LA(1)<=HexLiteral) ) {
                 input.consume();
@@ -16976,7 +13507,6 @@ public class flipsParser extends DebugParser {
             }
             else {
                 MismatchedSetException mse = new MismatchedSetException(null,input);
-                dbg.recognitionException(mse);
                 throw mse;
             }
 
@@ -16997,15 +13527,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(562, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "integerValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "integerValue"
@@ -17033,30 +13554,18 @@ public class flipsParser extends DebugParser {
         RewriteRuleTokenStream stream_270=new RewriteRuleTokenStream(adaptor,"token 270");
         RewriteRuleTokenStream stream_271=new RewriteRuleTokenStream(adaptor,"token 271");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
-        try { dbg.enterRule(getGrammarFileName(), "percentValue");
-        if ( getRuleLevel()==0 ) {dbg.commence();}
-        incRuleLevel();
-        dbg.location(564, 1);
-
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:2: ( numericValue ( '%' | 'percent' ) -> numericValue PERCENT )
-            dbg.enterAlt(1);
-
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:4: numericValue ( '%' | 'percent' )
             {
-            dbg.location(565,4);
             pushFollow(FOLLOW_numericValue_in_percentValue3220);
             numericValue384=numericValue();
 
             state._fsp--;
 
             stream_numericValue.add(numericValue384.getTree());
-            dbg.location(565,17);
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:17: ( '%' | 'percent' )
             int alt146=2;
-            try { dbg.enterSubRule(146);
-            try { dbg.enterDecision(146);
-
             int LA146_0 = input.LA(1);
 
             if ( (LA146_0==270) ) {
@@ -17069,18 +13578,12 @@ public class flipsParser extends DebugParser {
                 NoViableAltException nvae =
                     new NoViableAltException("", 146, 0, input);
 
-                dbg.recognitionException(nvae);
                 throw nvae;
             }
-            } finally {dbg.exitDecision(146);}
-
             switch (alt146) {
                 case 1 :
-                    dbg.enterAlt(1);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:18: '%'
                     {
-                    dbg.location(565,18);
                     char_literal385=(Token)match(input,270,FOLLOW_270_in_percentValue3223);  
                     stream_270.add(char_literal385);
 
@@ -17088,11 +13591,8 @@ public class flipsParser extends DebugParser {
                     }
                     break;
                 case 2 :
-                    dbg.enterAlt(2);
-
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:22: 'percent'
                     {
-                    dbg.location(565,22);
                     string_literal386=(Token)match(input,271,FOLLOW_271_in_percentValue3225);  
                     stream_271.add(string_literal386);
 
@@ -17101,7 +13601,6 @@ public class flipsParser extends DebugParser {
                     break;
 
             }
-            } finally {dbg.exitSubRule(146);}
 
 
 
@@ -17118,9 +13617,7 @@ public class flipsParser extends DebugParser {
             root_0 = (CommonTree)adaptor.nil();
             // 566:2: -> numericValue PERCENT
             {
-                dbg.location(566,5);
                 adaptor.addChild(root_0, stream_numericValue.nextTree());
-                dbg.location(566,18);
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(PERCENT, "PERCENT"));
 
             }
@@ -17142,15 +13639,6 @@ public class flipsParser extends DebugParser {
         }
         finally {
         }
-        dbg.location(567, 2);
-
-        }
-        finally {
-            dbg.exitRule(getGrammarFileName(), "percentValue");
-            decRuleLevel();
-            if ( getRuleLevel()==0 ) {dbg.terminate();}
-        }
-
         return retval;
     }
     // $ANTLR end "percentValue"
@@ -17329,9 +13817,6 @@ public class flipsParser extends DebugParser {
         }
         public String getDescription() {
             return "156:1: flyCommandValue : ( time | direction | speed | distance | pitch | roll | duration | To waypoint ( ( 'and' | ',' ( 'and' )? ) waypoint )* -> ( waypoint )+ | altitude );";
-        }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
         }
     }
     static final String DFA29_eotS =
@@ -17628,9 +14113,6 @@ public class flipsParser extends DebugParser {
         public String getDescription() {
             return "183:1: loiterCommandValue : ( time | speed | loiterDirection | radius | duration | At waypoint -> waypoint | altitude );";
         }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
-        }
     }
     static final String DFA38_eotS =
         "\16\uffff";
@@ -17693,9 +14175,6 @@ public class flipsParser extends DebugParser {
         }
         public String getDescription() {
             return "217:1: altitude : ( fixedAltitude | relativeAltitude );";
-        }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
         }
     }
     static final String DFA71_eotS =
@@ -17806,9 +14285,6 @@ public class flipsParser extends DebugParser {
         public String getDescription() {
             return "305:1: relativeSpeed : ( speedValue 'faster' -> ^( SPEED RELATIVE FASTER speedValue ) | speedValue 'slower' -> ^( SPEED RELATIVE SLOWER speedValue ) | percentValue 'faster' -> ^( SPEED RELATIVE FASTER percentValue ) | percentValue 'slower' -> ^( SPEED RELATIVE SLOWER percentValue ) );";
         }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
-        }
     }
     static final String DFA85_eotS =
         "\15\uffff";
@@ -17877,9 +14353,6 @@ public class flipsParser extends DebugParser {
         }
         public String getDescription() {
             return "356:1: time : ( At timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | At integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | At timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | At integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | At timeFormat -> ^( TIME timeFormat HOUR24 ) );";
-        }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
         }
     }
     static final String DFA92_eotS =
@@ -17974,9 +14447,6 @@ public class flipsParser extends DebugParser {
         }
         public String getDescription() {
             return "400:1: durationValue : ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat );";
-        }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
         }
     }
     static final String DFA143_eotS =
@@ -18123,9 +14593,6 @@ public class flipsParser extends DebugParser {
         public String getDescription() {
             return "531:1: latitudeLongitude : (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) );";
         }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
-        }
     }
     static final String DFA144_eotS =
         "\12\uffff";
@@ -18191,9 +14658,6 @@ public class flipsParser extends DebugParser {
         }
         public String getDescription() {
             return "544:1: latitudeLongitudeValue : ( numericValue -> numericValue DEGREE | angularValue );";
-        }
-        public void error(NoViableAltException nvae) {
-            dbg.recognitionException(nvae);
         }
     }
  
