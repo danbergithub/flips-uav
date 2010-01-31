@@ -373,7 +373,10 @@ timeFormat
 	->	$hr HOUR $min MINUTE $s SECOND
 	;
 	
-timeUnit:	hour|minute|second;
+timeUnit:	hour
+	|	minute
+	|	second
+	;
 
 hour	:	('h'|'hr'|'hrs'|'hour'|'hours')
         ->      HOUR
@@ -541,10 +544,16 @@ latitudeLongitudeValue
 // NUMERIC EXPRESSIONS
 
 numericValue
-	:	integerValue|FloatingPointLiteral;
+	:	integerValue
+	|	FloatingPointLiteral
+	;
 
 integerValue
-	:	BinaryLiteral|OctalLiteral|DecimalLiteral|HexLiteral;
+	:	BinaryLiteral
+	|	OctalLiteral
+	|	DecimalLiteral
+	|	HexLiteral
+	;
 
 percentValue
 	:	numericValue ('%'|'percent')
