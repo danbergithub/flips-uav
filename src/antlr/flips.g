@@ -113,18 +113,8 @@ flightPlan
 // DEFINITIONS
 
 define
-	:	defineWaypoint
-	|	defineAction
-	;
-
-defineWaypoint
-	:	('def'|'define') ('wpt'|'waypoint'|'waypoints') defineWaypointValue
-	->	defineWaypointValue
-	;
-
-defineWaypointValue
-	:	Identifier '=' geoCoordinate (('and'|',')* Identifier '=' geoCoordinate)*
-	->	^(DEFINE Identifier geoCoordinate)+
+	:	defineAction
+	|	defineWaypoint
 	;
 
 defineAction
@@ -135,6 +125,16 @@ defineAction
 defineActionValue
 	:	Identifier '=' integerValue (('and'|',')* Identifier '=' integerValue)*
 	->	^(DEFINE Identifier ^(ACTION integerValue))+
+	;
+
+defineWaypoint
+	:	('def'|'define') ('wpt'|'waypoint'|'waypoints') defineWaypointValue
+	->	defineWaypointValue
+	;
+
+defineWaypointValue
+	:	Identifier '=' geoCoordinate (('and'|',')* Identifier '=' geoCoordinate)*
+	->	^(DEFINE Identifier geoCoordinate)+
 	;
 
 // COMMANDS
