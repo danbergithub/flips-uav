@@ -101,7 +101,7 @@ options {
 // FLIGHT EXPRESSIONS
 
 flightPlan
-	:	^(FLIGHTPLAN define* flight);
+	:	^(FLIGHTPLAN define* command*);
 
 // DEFINITIONS
 
@@ -122,36 +122,44 @@ defineWaypoint
 
 // COMMANDS
 
-flight	:	preFlight* inFlight* postFlight*;
-
-preFlight
-	:	takeoff;
-
-inFlight:	fly
-        |       loiter
+command:	flyCommand
+        |       loiterCommand
         |	executeCommand
         ;
 
-postFlight
-	:	land;
-
 // COMMAND EXPRESSIONS
 
-takeoff	:	^(TAKEOFF time? speed? altitude?)
-                {emit("TOF", "Execute Takeoff");}
-        ;
-
-fly	:	^(FLY time? direction? speed? distance? pitch? roll? duration? waypoint* altitude?)
+flyCommand
+	:	^(FLY flyCommandValue*)
                 {emit("FLY", "Execute");}
         ;
 
-loiter	:	^(LOITER time? speed? loiterDirection? radius? duration? waypoint* altitude?)
+flyCommandValue
+	:	time
+	|	direction
+	|	speed
+	|	distance
+	|	pitch
+	|	roll
+	|	duration
+	|	waypoint
+	|	altitude
+	;
+
+loiterCommand
+	:	^(LOITER loiterCommandValue*)
                 {emit("LTR", "Execute Loiter");}
         ;
 
-land	:	^(LAND time? speed?)
-                {emit("LND", "Execute Landing");}
-        ;
+loiterCommandValue
+	:	time
+	|	speed
+	|	loiterDirection
+	|	radius
+	|	duration
+	|	waypoint
+	|	altitude
+	;
 
 executeCommand
 	:	^(EXECUTE x=Identifier)
