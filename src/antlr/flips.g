@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(time|direction|speed|distance|pitchCommand|rollCommand|duration|waypoint|altitude)*
-	->      time* direction* speed* distance* pitchCommand* rollCommand* duration* waypoint* altitude*
+	:	(time|direction|speed|distance|pitchCommand|roll|duration|waypoint|altitude)*
+	->      time* direction* speed* distance* pitchCommand* roll* duration* waypoint* altitude*
 	;
 
 turnCommand
@@ -223,8 +223,7 @@ pitchCommand
 	->	^(PITCH angularValue)
 	;
 
-rollCommand
-	:	('rol'|'roll'|'rolling') angularValue
+roll	:	('rol'|'roll'|'rolling') angularValue
 	->      ^(ROLL angularValue)
 	;
 
