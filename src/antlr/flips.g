@@ -114,7 +114,7 @@ defineCommands
 	;
 
 defineWaypointCommand
-	:	Define Waypoint defineWaypointParameters
+	:	('def'|'define') Waypoint defineWaypointParameters
 	->	defineWaypointParameters
 	;
 
@@ -124,7 +124,7 @@ defineWaypointParameters
 	;
 
 defineActionCommand
-	:	Define Action defineActionParameters
+	:	('def'|'define') Action defineActionParameters
 	->	defineActionParameters
 	;
 
@@ -590,8 +590,6 @@ relationalOp
 At	:	'@'|'at';
 
 With	:	'w/'|'with';
-
-Define	:	'def'|'define';
 
 Waypoint:	'wpt'|'waypoint'|'waypoints';
 
