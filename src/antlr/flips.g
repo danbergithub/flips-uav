@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(timeCommand|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|durationCommand|waypoint|altitudeCommand)*
-	->      timeCommand* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* durationCommand* waypoint* altitudeCommand*
+	:	(timeCommand|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
+	->      timeCommand* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
 	;
 
 turnCommand
@@ -190,8 +190,8 @@ loiterCommand
 	;
 
 loiterParameters
-	:	(timeCommand|speedCommand|loiterDirection|radiusCommand|durationCommand|waypoint|altitudeCommand)*
-	->      timeCommand* speedCommand* loiterDirection* radiusCommand* durationCommand* waypoint* altitudeCommand*
+	:	(timeCommand|speedCommand|loiterDirection|radiusCommand|duration|waypoint|altitudeCommand)*
+	->      timeCommand* speedCommand* loiterDirection* radiusCommand* duration* waypoint* altitudeCommand*
 	;
 
 landCommand
@@ -388,12 +388,12 @@ second	:	('s'|'sec'|'secs'|'second'|'seconds')
         ->      SECOND
         ;
 
-durationCommand
-	:	'for' duration
-	->      ^(DURATION duration)
+duration:	'for' durationValue
+	->      ^(DURATION durationValue)
 	;
 
-duration:	numericValue timeUnit
+durationValue
+	:	numericValue timeUnit
 	|	integerValue hour numericValue (minute|second)
 	|	integerValue hour integerValue minute numericValue second
 	|	integerValue minute numericValue second
