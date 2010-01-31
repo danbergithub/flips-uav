@@ -190,13 +190,18 @@ turnCommandValue
 	;
 
 loiterCommand
-	:	('ltr'|'loiter'|'loitering') loiterParameters
-	->      ^(LOITER loiterParameters)
+	:	('ltr'|'loiter') loiterCommandValue*
+	->	^(LOITER loiterCommandValue*)
 	;
 
-loiterParameters
-	:	(time|speed|loiterDirection|radius|duration|waypoint|altitude)*
-	->      time* speed* loiterDirection* radius* duration* waypoint* altitude*
+loiterCommandValue
+	:	time
+	|	speed
+	|	loiterDirection
+	|	radius
+	|	duration
+	|	waypoint
+	|	altitude
 	;
 
 landCommand
