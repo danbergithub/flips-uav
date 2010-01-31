@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(time|direction|speedCommand|distanceCommand|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
-	->      time* direction* speedCommand* distanceCommand* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
+	:	(time|direction|speedCommand|distance|pitchCommand|rollCommand|duration|waypoint|altitudeCommand)*
+	->      time* direction* speedCommand* distance* pitchCommand* rollCommand* duration* waypoint* altitudeCommand*
 	;
 
 turnCommand
@@ -252,8 +252,8 @@ relativeAltitude
 	->      RELATIVE altitudeDirection altitude
 	;
 
-altitude:	distance
-        ->      DISTANCE distance
+altitude:	distanceValue
+        ->      DISTANCE distanceValue
 	|       pressure
 	->      PRESSURE pressure
 	|	FlightLevel
@@ -279,16 +279,17 @@ pressureUnit
 
 // DISTANCE EXPRESSIONS
 
-radius	:	('in'|With)? 'a'? ('radius' 'of'? distance|distance 'radius')
-	->      ^(RADIUS distance)
+radius	:	('in'|With)? 'a'? ('radius' 'of'? distanceValue|distanceValue 'radius')
+	->      ^(RADIUS distanceValue)
 	;
 
-distanceCommand
-	:	leftRightDirection? distance
-	->      ^(DISTANCE leftRightDirection? distance)
+distance:	leftRightDirection? distanceValue
+	->      ^(DISTANCE leftRightDirection? distanceValue)
 	;
 
-distance:	numericValue distanceUnit;
+distanceValue
+	:	numericValue distanceUnit
+	;
 
 distanceUnit
 	:	('km'|'kilometer'|'kilometers')
