@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(timeCommand|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|durationCommand|waypointCommand|altitudeCommand)*
-	->      timeCommand* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* durationCommand* waypointCommand* altitudeCommand*
+	:	(timeCommand|directionCommand|speedCommand|distanceCommand|pitchCommand|rollCommand|durationCommand|waypoint|altitudeCommand)*
+	->      timeCommand* directionCommand* speedCommand* distanceCommand* pitchCommand* rollCommand* durationCommand* waypoint* altitudeCommand*
 	;
 
 turnCommand
@@ -190,8 +190,8 @@ loiterCommand
 	;
 
 loiterParameters
-	:	(timeCommand|speedCommand|loiterDirection|radiusCommand|durationCommand|waypointCommand|altitudeCommand)*
-	->      timeCommand* speedCommand* loiterDirection* radiusCommand* durationCommand* waypointCommand* altitudeCommand*
+	:	(timeCommand|speedCommand|loiterDirection|radiusCommand|durationCommand|waypoint|altitudeCommand)*
+	->      timeCommand* speedCommand* loiterDirection* radiusCommand* durationCommand* waypoint* altitudeCommand*
 	;
 
 landCommand
@@ -503,12 +503,12 @@ angle	:	numericValue ('¡'|'deg'|'degs'|'degree'|'degrees')
 
 // WAYPOINT EXPRESSIONS
 
-waypointCommand
-	:	('and'|',')* (At|'to')? ('the'? Waypoint)? waypoint
-	->      waypoint+
+waypoint:	('and'|',')* (At|'to')? ('the'? Waypoint)? waypointValue
+	->      waypointValue+
 	;
 
-waypoint:	geoCoordinate
+waypointValue
+	:	geoCoordinate
         ->      geoCoordinate
         |	Identifier
         ->	^(WAYPOINT Identifier)
