@@ -520,19 +520,19 @@ geoCoordinate
         ;
 
 latitudeLongitude
-	:	x=latitudeLongitudeAngle northSouthDirection ','? y=latitudeLongitudeAngle eastWestDirection
+	:	x=latitudeLongitudeValue northSouthDirection ','? y=latitudeLongitudeValue eastWestDirection
 	->	^(LATITUDE $x northSouthDirection) ^(LONGITUDE $y eastWestDirection)
-	|	'+'? x=latitudeLongitudeAngle ','? '+'? y=latitudeLongitudeAngle
+	|	'+'? x=latitudeLongitudeValue ','? '+'? y=latitudeLongitudeValue
 	->	^(LATITUDE $x NORTH) ^(LONGITUDE $y EAST)
-	|	'-' x=latitudeLongitudeAngle ','? '+'? y=latitudeLongitudeAngle
+	|	'-' x=latitudeLongitudeValue ','? '+'? y=latitudeLongitudeValue
 	->	^(LATITUDE $x SOUTH) ^(LONGITUDE $y EAST)
-	|	'+'? x=latitudeLongitudeAngle ','? '-' y=latitudeLongitudeAngle
+	|	'+'? x=latitudeLongitudeValue ','? '-' y=latitudeLongitudeValue
 	->	^(LATITUDE $x NORTH) ^(LONGITUDE $y WEST)
-	|	'-' x=latitudeLongitudeAngle ','? '-' y=latitudeLongitudeAngle
+	|	'-' x=latitudeLongitudeValue ','? '-' y=latitudeLongitudeValue
 	->	^(LATITUDE $x SOUTH) ^(LONGITUDE $y WEST)
 	;
 
-latitudeLongitudeAngle
+latitudeLongitudeValue
 	:	numericValue
 	->	numericValue DEGREE
 	|	angle
