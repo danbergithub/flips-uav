@@ -254,13 +254,13 @@ relativeAltitude
 
 altitude:	distanceValue
         ->      DISTANCE distanceValue
-	|       pressure
-	->      PRESSURE pressure
+	|       pressureValue
+	->      PRESSURE pressureValue
 	|	FlightLevel
 	->	FLIGHTLEVEL FlightLevel
 	;
 
-pressure:	numericValue pressureUnit;
+pressureValue:	numericValue pressureUnit;
 
 pressureUnit
 	:	('kpa'|'kilopascal'|'kilopascals')
