@@ -160,8 +160,8 @@ takeoffCommand
 	;
 
 takeoffParameters
-	:	(time|speedCommand|altitude)*
-	->      time* speedCommand* altitude*
+	:	(time|speed|altitude)*
+	->      time* speed* altitude*
 	;
 
 flyCommand
@@ -170,8 +170,8 @@ flyCommand
 	;
 
 flyParameters
-	:	(time|direction|speedCommand|distance|pitchCommand|rollCommand|duration|waypoint|altitude)*
-	->      time* direction* speedCommand* distance* pitchCommand* rollCommand* duration* waypoint* altitude*
+	:	(time|direction|speed|distance|pitchCommand|rollCommand|duration|waypoint|altitude)*
+	->      time* direction* speed* distance* pitchCommand* rollCommand* duration* waypoint* altitude*
 	;
 
 turnCommand
@@ -190,8 +190,8 @@ loiterCommand
 	;
 
 loiterParameters
-	:	(time|speedCommand|loiterDirection|radius|duration|waypoint|altitude)*
-	->      time* speedCommand* loiterDirection* radius* duration* waypoint* altitude*
+	:	(time|speed|loiterDirection|radius|duration|waypoint|altitude)*
+	->      time* speed* loiterDirection* radius* duration* waypoint* altitude*
 	;
 
 landCommand
@@ -200,8 +200,8 @@ landCommand
 	;
 
 landParameters
-	:	(time|speedCommand)*
-	->      time* speedCommand*
+	:	(time|speed)*
+	->      time* speed*
 	;
 
 actionCommand
@@ -310,12 +310,12 @@ distanceUnit
 
 // SPEED EXPRESSIONS
 
-speedCommand
-	:	(speed|optimalSpeed|throttleSpeed)
-	->      ^(SPEED speed? optimalSpeed? throttleSpeed?)
+speed	:	(speedValue|optimalSpeed|throttleSpeed)
+	->      ^(SPEED speedValue? optimalSpeed? throttleSpeed?)
 	;
 
-speed	:	At? numericValue speedUnit
+speedValue
+	:	At? numericValue speedUnit
         ->      FIXED numericValue speedUnit
         ;
 
