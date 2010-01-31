@@ -106,8 +106,8 @@ tokens {
 }
 
 flightPlan
-	:	define* flightCommands
-	->	^(FLIGHTPLAN define* flightCommands?)
+	:	define* command*
+	->	^(FLIGHTPLAN define* command*)
 	;
 
 // DEFINITIONS
@@ -139,35 +139,11 @@ defineWaypointValue
 
 // COMMANDS
 
-flightCommands
-	:	(preFlightCommand conjunction*)* (inFlightCommand conjunction*)* (postFlightCommand conjunction*)*;
-
-preFlightCommand
-	:	takeoffCommand;
-
-inFlightCommand
+command
 	:	flyCommand
 	|	turnCommand
 	|	loiterCommand
 	|	actionCommand
-	;
-
-postFlightCommand
-	:	landCommand;
-
-conjunction
-	:	('then'|'next'|'and'|'finally'|'continue'|'while'|'before'|','|'.')
-	->	// No AST output.
-	;
-
-takeoffCommand
-	:	('tof'|'takeoff') takeoffParameters
-	->	^(TAKEOFF takeoffParameters)
-	;
-
-takeoffParameters
-	:	(time|speed|altitude)*
-	->	time* speed* altitude*
 	;
 
 flyCommand
@@ -209,16 +185,6 @@ loiterCommandValue
 	|	duration
 	|	waypoint
 	|	altitude
-	;
-
-landCommand
-	:	('lnd'|'land'|'landing') landParameters
-	->	^(LAND landParameters)
-	;
-
-landParameters
-	:	(time|speed)*
-	->	time* speed*
 	;
 
 actionCommand
