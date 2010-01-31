@@ -49,6 +49,8 @@ tokens {
   PITCH;
   ALTITUDE;
   SPEED;
+  FASTER;
+  SLOWER;
   OPTIMAL;
   THROTTLE;
   TIME;
@@ -301,48 +303,65 @@ distanceUnit
 
 // SPEED EXPRESSIONS
 
-speed	:	(speedValue|optimalSpeed|throttleSpeed)
-	->      ^(SPEED speedValue? optimalSpeed? throttleSpeed?)
+speed
+	:	fixedSpeed
+	|	relativeSpeed
+	|	optimalSpeed
+	|	throttleSpeed
+	;
+
+fixedSpeed
+	:	At speedValue
+	->	^(SPEED FIXED speedValue)
+	;
+
+relativeSpeed
+	:	speedValue 'faster'
+	->	^(SPEED RELATIVE FASTER speedValue)
+	|	speedValue 'slower'
+	->	^(SPEED RELATIVE SLOWER speedValue)
+	|	percentValue 'faster'
+	->	^(SPEED RELATIVE FASTER percentValue)
+	|	percentValue 'slower'
+	->	^(SPEED RELATIVE SLOWER percentValue)
 	;
 
 speedValue
-	:	At? numericValue speedUnit
-        ->      FIXED numericValue speedUnit
+	:	numericValue speedUnit
         ;
 
 speedUnit
 	:	'kph'
-	->      KILOMETER HOUR
-	|       'mph'
-	->      MILE HOUR
+	->	KILOMETER HOUR
+	|	'mph'
+	->	MILE HOUR
 	|	('kn'|'kt'|'kts'|'knot'|'knots')
 	->	NAUTICAL MILE HOUR
-	|       distanceUnit ('/'|'per') timeUnit
-	->      distanceUnit timeUnit
+	|	distanceUnit ('/'|'per') timeUnit
+	->	distanceUnit timeUnit
 	;
 
 optimalSpeed
-	:	At? optimalUnit ('spd'|'speed')
-	->      OPTIMAL optimalUnit
+	:	At optimalUnit ('spd'|'speed')
+	->	^(SPEED OPTIMAL optimalUnit)
 	;
 
 optimalUnit
 	:	('min'|'minimum')
-	->      MINIMUM
-	|       ('cru'|'cruise')
-	->      CRUISE
-	|       ('max'|'maximum')
-	->      MAXIMUM
+	->	MINIMUM
+	|	('cru'|'cruise')
+	->	CRUISE
+	|	('max'|'maximum')
+	->	MAXIMUM
 	;
 
 throttleSpeed
-	:	(At|With)? throttleValue ('pwr'|'power'|'throttle')
-	->      THROTTLE throttleValue
+	:	At throttleValue ('pwr'|'power'|'thr'|'throttle')
+	->	^(SPEED THROTTLE throttleValue)
 	;
 
 throttleValue
-	:	('no'|'zero'|'half'|'full')
-	|	percentValue
+	:	percentValue
 	;
 
 // TIME EXPRESSIONS

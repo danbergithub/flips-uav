@@ -226,16 +226,22 @@ radius	:	^(RADIUS x=convertDistance)
         ;
 
 speed	:	^(SPEED FIXED x=convertSpeed)
-                {emit("SPD AIR FIX " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Air Speed");}
-        |       ^(SPEED OPTIMAL MINIMUM)
-                {emit("SPD AIR OPT MIN", "Minimum Air Speed");}
-        |       ^(SPEED OPTIMAL CRUISE)
-                {emit("SPD AIR OPT CRU", "Cruise Air Speed");}
-        |       ^(SPEED OPTIMAL MAXIMUM)
-                {emit("SPD AIR OPT MAX", "Maximum Air Speed");}
-        |       ^(SPEED THROTTLE y=convertThrottle)
-        	{emit("ACT THR FIX " + y, y + "\% Throttle");}
-        ;
+		{emit("SPD AIR FIX " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Air Speed");}
+	|	^(SPEED RELATIVE FASTER x=convertSpeed)
+		{emit("SPD AIR REL " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
+	|	^(SPEED RELATIVE SLOWER x=convertSpeed)
+		{emit("SPD AIR REL " + -x, -x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
+	|	^(SPEED RELATIVE FASTER x=percentValue)
+	|	^(SPEED RELATIVE SLOWER x=percentValue)
+	|	^(SPEED OPTIMAL MINIMUM)
+		{emit("SPD AIR OPT MIN", "Minimum Air Speed");}
+	|	^(SPEED OPTIMAL CRUISE)
+		{emit("SPD AIR OPT CRU", "Cruise Air Speed");}
+	|	^(SPEED OPTIMAL MAXIMUM)
+		{emit("SPD AIR OPT MAX", "Maximum Air Speed");}
+	|	^(SPEED THROTTLE y=convertThrottle)
+		{emit("ACT THR FIX " + y, y + "\% Throttle");}
+	;
 
 turnDirection
 	:	^(DIRECTION TURN LEFT)
