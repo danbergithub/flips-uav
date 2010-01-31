@@ -25,7 +25,7 @@
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-grammar flipsTargetUAV;
+grammar flipsTargetUGA;
 
 options {
   language = Java;
