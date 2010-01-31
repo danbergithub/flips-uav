@@ -122,17 +122,18 @@ defineWaypoint
 
 // COMMANDS
 
-command:	flyCommand
-        |       loiterCommand
-        |	executeCommand
-        ;
+command
+	:	flyCommand
+	|	loiterCommand
+	|	executeCommand
+	;
 
 // COMMAND EXPRESSIONS
 
 flyCommand
 	:	^(FLY flyCommandValue*)
-                {emit("FLY", "Execute");}
-        ;
+		{emit("FLY", "Execute");}
+	;
 
 flyCommandValue
 	:	time
@@ -148,8 +149,8 @@ flyCommandValue
 
 loiterCommand
 	:	^(LOITER loiterCommandValue*)
-                {emit("LTR", "Execute Loiter");}
-        ;
+		{emit("LTR", "Execute Loiter");}
+	;
 
 loiterCommandValue
 	:	time
@@ -177,49 +178,55 @@ else {
 
 // ATTITUDE EXPRESSIONS
 
-pitch	:	^(PITCH x=convertAngle)
-                {emit("POS PIT FIX " + x, x + " deg Pitch");}
-        ;
+pitch
+	:	^(PITCH x=convertAngle)
+		{emit("POS PIT FIX " + x, x + " deg Pitch");}
+	;
 
-roll	:	^(ROLL x=convertAngle)
-                {emit("POS ROL FIX " + x, x + " deg Roll");}
-        ;
+roll
+	:	^(ROLL x=convertAngle)
+		{emit("POS ROL FIX " + x, x + " deg Roll");}
+	;
 
 // ALTITUDE EXPRESSIONS
 
-altitude:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
-                {emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
-        |       ^(ALTITUDE FIXED PRESSURE y=convertPressure)
-                {emit("POS PRE FIX " + y, y + " kPa Pressure Altitude");}
+altitude
+	:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
+		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
+	|	^(ALTITUDE FIXED PRESSURE y=convertPressure)
+		{emit("POS PRE FIX " + y, y + " kPa Pressure Altitude");}
 	|	^(ALTITUDE FIXED x=convertFlightLevel)
 		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
-        |       ^(ALTITUDE RELATIVE CLIMB DISTANCE x=convertDistance)
-                {emit("POS   Z REL " + -x, mToft(x) + "Relative Altitude");}
-        |       ^(ALTITUDE RELATIVE CLIMB PRESSURE y=convertPressure)
-                {emit("POS PRE REL " + -y, -y + " kPa Relative Pressure Altitude");}
-        |       ^(ALTITUDE RELATIVE DESCEND DISTANCE x=convertDistance)
-                {emit("POS   Z REL " + x, mToft(-x) + "Relative Altitude");}
-        |       ^(ALTITUDE RELATIVE DESCEND PRESSURE y=convertPressure)
-                {emit("POS PRE REL " + y, y + " kPa Relative Pressure Altitude");}
-        ;
+	|	^(ALTITUDE RELATIVE CLIMB DISTANCE x=convertDistance)
+		{emit("POS   Z REL " + -x, mToft(x) + "Relative Altitude");}
+	|	^(ALTITUDE RELATIVE CLIMB PRESSURE y=convertPressure)
+		{emit("POS PRE REL " + -y, -y + " kPa Relative Pressure Altitude");}
+	|	^(ALTITUDE RELATIVE DESCEND DISTANCE x=convertDistance)
+		{emit("POS   Z REL " + x, mToft(-x) + "Relative Altitude");}
+	|	^(ALTITUDE RELATIVE DESCEND PRESSURE y=convertPressure)
+		{emit("POS PRE REL " + y, y + " kPa Relative Pressure Altitude");}
+	;
 
 // DISTANCE EXPRESSIONS
 
-distance:	^(DISTANCE x=convertDistance)
-                {emit("POS   X REL " + x, mToft(x) + "Relative Distance");}
-        |       ^(DISTANCE LEFT x=convertDistance)
-                {emit("POS   Y REL " + -x, mToft(-x) + "Relative Left Distance");}
-        |       ^(DISTANCE RIGHT x=convertDistance)
-                {emit("POS   Y REL " + x, mToft(x) + "Relative Right Distance");}
-        ;
+distance
+	:	^(DISTANCE x=convertDistance)
+		{emit("POS   X REL " + x, mToft(x) + "Relative Distance");}
+	|	^(DISTANCE LEFT x=convertDistance)
+		{emit("POS   Y REL " + -x, mToft(-x) + "Relative Left Distance");}
+	|	^(DISTANCE RIGHT x=convertDistance)
+		{emit("POS   Y REL " + x, mToft(x) + "Relative Right Distance");}
+	;
 
-radius	:	^(RADIUS x=convertDistance)
-                {emit("RAD " + x, mToft(x) + "Radius");}
-        ;
+radius
+	:	^(RADIUS x=convertDistance)
+		{emit("RAD " + x, mToft(x) + "Radius");}
+	;
 
 // SPEED EXPRESSIONS
 
-speed	:	^(SPEED FIXED x=convertSpeed)
+speed
+	:	^(SPEED FIXED x=convertSpeed)
 		{emit("SPD AIR FIX " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Air Speed");}
 	|	^(SPEED RELATIVE FASTER x=convertSpeed)
 		{emit("SPD AIR REL " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
@@ -239,7 +246,8 @@ speed	:	^(SPEED FIXED x=convertSpeed)
 
 // TIME EXPRESSIONS
 
-time	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
+time
+	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
 		{x = (x == 43200d) ? 0d : x;}
 		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + " AM) Time");}
 	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? PM)
@@ -249,48 +257,50 @@ time	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
 		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Time");}
 	;
 
-duration:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
-                {emit("TIM REL " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Duration");}
-        ;
+duration
+	:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
+		{emit("TIM REL " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Duration");}
+	;
 
 // DIRECTION EXPRESSIONS
 
 direction
 	:	^(DIRECTION FIXED x=convertCardinalDirection)
-                {emit("POS YAW FIX " + x, x + " deg Heading");}
+		{emit("POS YAW FIX " + x, x + " deg Heading");}
 	|	^(DIRECTION FIXED x=convertOrdinalDirection)
-                {emit("POS YAW FIX " + x, x + " deg Heading");}
+		{emit("POS YAW FIX " + x, x + " deg Heading");}
 	|	^(DIRECTION FIXED x=convertSubOrdinalDirection)
-                {emit("POS YAW FIX " + x, x + " deg Heading");}
-	|       ^(DIRECTION FIXED y=convertAngle)
-                {emit("POS YAW FIX " + y, y + " deg Heading");}
-	|       ^(DIRECTION RELATIVE LEFT y=convertAngle)
-                {emit("POS YAW REL " + -y, -y + " deg Yaw");}
-	|       ^(DIRECTION RELATIVE RIGHT y=convertAngle)
-                {emit("POS YAW REL " + y, y + " deg Yaw");}
+		{emit("POS YAW FIX " + x, x + " deg Heading");}
+	|	^(DIRECTION FIXED y=convertAngle)
+		{emit("POS YAW FIX " + y, y + " deg Heading");}
+	|	^(DIRECTION RELATIVE LEFT y=convertAngle)
+		{emit("POS YAW REL " + -y, -y + " deg Yaw");}
+	|	^(DIRECTION RELATIVE RIGHT y=convertAngle)
+		{emit("POS YAW REL " + y, y + " deg Yaw");}
 	;
 
 turnDirection
 	:	^(DIRECTION TURN LEFT)
-                {emit("DIR L", "Left Turn Direction");}
+		{emit("DIR L", "Left Turn Direction");}
 	|	^(DIRECTION TURN RIGHT)
-                {emit("DIR R", "Right Turn Direction");}
+		{emit("DIR R", "Right Turn Direction");}
 	;
 
 loiterDirection
 	:	^(DIRECTION TURN CLOCKWISE)
-                {emit("DIR CW", "Clockwise Loiter Direction");}
+		{emit("DIR CW", "Clockwise Loiter Direction");}
 	|	^(DIRECTION TURN COUNTERCLOCKWISE)
-                {emit("DIR CCW", "Counterclockwise Loiter Direction");}
+		{emit("DIR CCW", "Counterclockwise Loiter Direction");}
 	;
 
 // WAYPOINT EXPRESSIONS
 
-waypoint:	geo=geoCoordinate
+waypoint
+	:	geo=geoCoordinate
 		{String ns = geo.latitude >= 0 ? "N" : "S";}
 		{String ew = geo.longitude >= 0 ? "E" : "W";}
-                {emit("POS   X FIX " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");}
-                {emit("POS   Y FIX " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");}
+		{emit("POS   X FIX " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");}
+		{emit("POS   Y FIX " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");}
 	|	^(WAYPOINT x=Identifier)
 	{
 Double[] coordinate = getWaypoint(x.getText());
@@ -305,7 +315,7 @@ else {
   emit("POS   Y FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
 }
 	}
-        ;
+	;
 
 geoCoordinate returns [double latitude, double longitude]
 	:	^(GEOCOORDINATE x=latitude y=longitude)
@@ -332,27 +342,27 @@ longitude returns [double r]
 // Standard time unit is the second
 convertTime returns [double r]
 	:	x=numericValue HOUR
-	        {r = x * 3600d;}
-	|       x=numericValue MINUTE
-	        {r = x * 60d;}
-	|       x=numericValue SECOND
-	        {r = x;}
+		{r = x * 3600d;}
+	|	x=numericValue MINUTE
+		{r = x * 60d;}
+	|	x=numericValue SECOND
+		{r = x;}
 	;
 
 // Standard distance unit is the meter
 convertDistance returns [double r]
 	:	x=numericValue KILOMETER
-	        {r = x * 1000d;}
-	|       x=numericValue METER
-	        {r = x;}
+		{r = x * 1000d;}
+	|	x=numericValue METER
+		{r = x;}
 	|	x=numericValue NAUTICAL MILE
 		{r = x * 1852d;}
-	|       x=numericValue MILE
-	        {r = x * 1609.344d;}
-	|       x=numericValue YARD
-	        {r = x * 0.9144d;}
-	|       x=numericValue FOOT
-	        {r = x * 0.3048d;}
+	|	x=numericValue MILE
+		{r = x * 1609.344d;}
+	|	x=numericValue YARD
+		{r = x * 0.9144d;}
+	|	x=numericValue FOOT
+		{r = x * 0.3048d;}
 	;
 
 // Standard flight level (distance) unit is the meter
@@ -365,27 +375,27 @@ convertFlightLevel returns [double r]
 // Standard pressure unit is the pascal
 convertPressure returns [double r]
 	:	x=numericValue KILOPASCAL
-	        {r = x * 1000d;}
+		{r = x * 1000d;}
 	|	x=numericValue HECTOPASCAL
-	        {r = x * 100d;}
+		{r = x * 100d;}
 	|	x=numericValue PASCAL
-	        {r = x;}
+		{r = x;}
 	|	x=numericValue BAR
-	        {r = x * 100000d;}
+		{r = x * 100000d;}
 	|	x=numericValue MILLIBAR
-	        {r = x * 100d;}
+		{r = x * 100d;}
 	|	x=numericValue ATMOSPHERE
-	        {r = x * 101325d;}
+		{r = x * 101325d;}
 	;
 
 // Standard speed unit is the meter/second
 convertSpeed returns [double r]
 	:	x=convertDistance HOUR
-	        {r = x / 3600d;}
-	|       x=convertDistance MINUTE
-	        {r = x / 60d;}
-	|       x=convertDistance SECOND
-	        {r = x;}
+		{r = x / 3600d;}
+	|	x=convertDistance MINUTE
+		{r = x / 60d;}
+	|	x=convertDistance SECOND
+		{r = x;}
 	;
 
 // Standard throttle unit is the percent
@@ -397,23 +407,23 @@ convertThrottle returns [double r]
 // Standard angle unit is the degree
 convertAngle returns [double r]
 	:	x=numericValue DEGREE
-	        {r = x;}
+		{r = x;}
 	|	deg=integerValue DEGREE min=numericValue MINUTE
 		{r = deg + min/60d;}
-	|       x=numericValue RADIAN
-	        {r = x * 180d / Math.PI;}
+	|	x=numericValue RADIAN
+		{r = x * 180d / Math.PI;}
 	;
 
 // Standard heading unit is the degree
 convertCardinalDirection returns [double r]
 	:	NORTH
-	        {r = 0d;}
-	|       EAST
-	        {r = 90d;}
-	|       SOUTH
-	        {r = 180d;}
-	|       WEST
-	        {r = 270d;}
+		{r = 0d;}
+	|	EAST
+		{r = 90d;}
+	|	SOUTH
+		{r = 180d;}
+	|	WEST
+		{r = 270d;}
 	;
 
 // Standard heading unit is the degree
@@ -450,15 +460,15 @@ convertSubOrdinalDirection returns [double r]
 
 convertDirection[double r]
 	:	(CLIMB|RIGHT|CLOCKWISE)
-	|       (DESCEND|LEFT|COUNTERCLOCKWISE)
+	|	(DESCEND|LEFT|COUNTERCLOCKWISE)
 	;
 
 // Standard numeric value unit is the double
 numericValue returns [double r]
 	:	x=integerValue
 		{r = (double) x;}
-	|       y=FloatingPointLiteral
-	        {r = Double.parseDouble(y.getText());}
+	|	y=FloatingPointLiteral
+		{r = Double.parseDouble(y.getText());}
 	;
 
 integerValue returns [int r]
