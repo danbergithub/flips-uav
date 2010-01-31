@@ -217,15 +217,15 @@ actionParameters
 // ATTITUDE EXPRESSIONS
 
 pitchCommand
-	:	('pit'|'pitch'|'pitching') angle
-	->      ^(PITCH angle)
-	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angle
-	->	^(PITCH angle)
+	:	('pit'|'pitch'|'pitching') angularValue
+	->      ^(PITCH angularValue)
+	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValue
+	->	^(PITCH angularValue)
 	;
 
 rollCommand
-	:	('rol'|'roll'|'rolling') angle
-	->      ^(ROLL angle)
+	:	('rol'|'roll'|'rolling') angularValue
+	->      ^(ROLL angularValue)
 	;
 
 // ALTITUDE EXPRESSIONS
@@ -416,13 +416,13 @@ fixedDirection
 	->	ordinalDirection
 	|	subOrdinalDirection
 	->	subOrdinalDirection
-	|       (Turning|Heading) (cardinalDirection|ordinalDirection|subOrdinalDirection|angle)
-	->      cardinalDirection? ordinalDirection? subOrdinalDirection? angle?
+	|       (Turning|Heading) (cardinalDirection|ordinalDirection|subOrdinalDirection|angularValue)
+	->      cardinalDirection? ordinalDirection? subOrdinalDirection? angularValue?
 	;
 
 relativeDirection
-	:       (Turning|Heading) leftRightDirection angle
-	->      leftRightDirection angle
+	:       (Turning|Heading) leftRightDirection angularValue
+	->      leftRightDirection angularValue
 	;
 
 cardinalDirection
@@ -493,7 +493,8 @@ clockDirection
 	->      COUNTERCLOCKWISE
 	;
 
-angle	:	numericValue ('¡'|'deg'|'degs'|'degree'|'degrees')
+angularValue
+	:	numericValue ('¡'|'deg'|'degs'|'degree'|'degrees')
 	->	numericValue DEGREE
 	|	integerValue ('¡'|'d')? numericValue '\''
 	->	integerValue DEGREE numericValue MINUTE
@@ -535,7 +536,7 @@ latitudeLongitude
 latitudeLongitudeValue
 	:	numericValue
 	->	numericValue DEGREE
-	|	angle
+	|	angularValue
 	;
 
 // NUMERIC EXPRESSIONS
