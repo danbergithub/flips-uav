@@ -171,13 +171,20 @@ takeoffParameters
 	;
 
 flyCommand
-        :	('fly'|'flying'|'go'|'going'|'rtn'|'return'|'returning') flyParameters
-        ->      ^(FLY flyParameters)
+        :	('fly'|'go') flyCommandValue*
+	->	^(FLY flyCommandValue*)
 	;
 
-flyParameters
-	:	(time|direction|speed|distance|pitch|roll|duration|waypoint|altitude)*
-	->      time* direction* speed* distance* pitch* roll* duration* waypoint* altitude*
+flyCommandValue
+	:	time
+	|	direction
+	|	speed
+	|	distance
+	|	pitch
+	|	roll
+	|	duration
+	|	waypoint
+	|	altitude
 	;
 
 turnCommand
