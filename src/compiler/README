@@ -1,0 +1,9 @@
+Here's how to get started compiling your first program with FLIPS.
+
+1. “svn update” on the repository to get the latest changes.
+2. “cd src/compiler” to move into that directory.
+3. “mkdir java/classes” to create the directory src/compiler/java/classes.
+4. “cat compile | bash” to compile the java code.
+5. “cat run | bash” to run example2.uav and output the result to the screen.
+6. Edit the “run” file to change the location of your FLIPS program, as desired.
+
