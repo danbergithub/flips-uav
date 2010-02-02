@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-01-31 07:59:21
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-01 21:27:36
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -394,7 +394,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: command, define
+            // elements: define, command
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -477,11 +477,11 @@ public class flipsParser extends Parser {
             if ( (LA3_0==94) ) {
                 int LA3_1 = input.LA(2);
 
-                if ( ((LA3_1>=96 && LA3_1<=98)) ) {
-                    alt3=1;
-                }
-                else if ( ((LA3_1>=104 && LA3_1<=106)) ) {
+                if ( ((LA3_1>=104 && LA3_1<=106)) ) {
                     alt3=2;
+                }
+                else if ( ((LA3_1>=96 && LA3_1<=98)) ) {
+                    alt3=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -493,11 +493,11 @@ public class flipsParser extends Parser {
             else if ( (LA3_0==95) ) {
                 int LA3_2 = input.LA(2);
 
-                if ( ((LA3_2>=96 && LA3_2<=98)) ) {
-                    alt3=1;
-                }
-                else if ( ((LA3_2>=104 && LA3_2<=106)) ) {
+                if ( ((LA3_2>=104 && LA3_2<=106)) ) {
                     alt3=2;
+                }
+                else if ( ((LA3_2>=96 && LA3_2<=98)) ) {
+                    alt3=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1145,7 +1145,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: par, cmd, Identifier
+                    // elements: par, Identifier, cmd
                     // token labels: 
                     // rule labels: par, retval, cmd
                     // token list labels: 
@@ -1159,10 +1159,10 @@ public class flipsParser extends Parser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 129:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) ) )+
                     {
-                        if ( !(stream_par.hasNext()||stream_cmd.hasNext()||stream_Identifier.hasNext()) ) {
+                        if ( !(stream_par.hasNext()||stream_Identifier.hasNext()||stream_cmd.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
-                        while ( stream_par.hasNext()||stream_cmd.hasNext()||stream_Identifier.hasNext() ) {
+                        while ( stream_par.hasNext()||stream_Identifier.hasNext()||stream_cmd.hasNext() ) {
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:129:5: ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1186,8 +1186,8 @@ public class flipsParser extends Parser {
 
                         }
                         stream_par.reset();
-                        stream_cmd.reset();
                         stream_Identifier.reset();
+                        stream_cmd.reset();
 
                     }
 
@@ -1543,7 +1543,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: Identifier, geoCoordinate
+            // elements: geoCoordinate, Identifier
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1555,10 +1555,10 @@ public class flipsParser extends Parser {
             root_0 = (CommonTree)adaptor.nil();
             // 139:2: -> ( ^( DEFINE Identifier geoCoordinate ) )+
             {
-                if ( !(stream_Identifier.hasNext()||stream_geoCoordinate.hasNext()) ) {
+                if ( !(stream_geoCoordinate.hasNext()||stream_Identifier.hasNext()) ) {
                     throw new RewriteEarlyExitException();
                 }
-                while ( stream_Identifier.hasNext()||stream_geoCoordinate.hasNext() ) {
+                while ( stream_geoCoordinate.hasNext()||stream_Identifier.hasNext() ) {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:139:5: ^( DEFINE Identifier geoCoordinate )
                     {
                     CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1571,8 +1571,8 @@ public class flipsParser extends Parser {
                     }
 
                 }
-                stream_Identifier.reset();
                 stream_geoCoordinate.reset();
+                stream_Identifier.reset();
 
             }
 
@@ -2863,7 +2863,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: Identifier, numericValue
+                    // elements: numericValue, Identifier
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5003,7 +5003,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: distanceValue, leftRightDirection
+            // elements: leftRightDirection, distanceValue
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -5861,11 +5861,11 @@ public class flipsParser extends Parser {
                     {
                     int LA70_4 = input.LA(3);
 
-                    if ( ((LA70_4>=146 && LA70_4<=163)||(LA70_4>=166 && LA70_4<=172)) ) {
-                        alt70=1;
-                    }
-                    else if ( ((LA70_4>=270 && LA70_4<=271)) ) {
+                    if ( ((LA70_4>=270 && LA70_4<=271)) ) {
                         alt70=4;
+                    }
+                    else if ( ((LA70_4>=146 && LA70_4<=163)||(LA70_4>=166 && LA70_4<=172)) ) {
+                        alt70=1;
                     }
                     else {
                         NoViableAltException nvae =
@@ -7337,7 +7337,7 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "time"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:1: time : ( At timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | At integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | At timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | At integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | At timeFormat -> ^( TIME timeFormat HOUR24 ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:1: time : At timeValue ;
     public final flipsParser.time_return time() throws RecognitionException {
         flipsParser.time_return retval = new flipsParser.time_return();
         retval.start = input.LT(1);
@@ -7345,43 +7345,88 @@ public class flipsParser extends Parser {
         CommonTree root_0 = null;
 
         Token At215=null;
-        Token string_literal217=null;
-        Token string_literal218=null;
-        Token At219=null;
-        Token string_literal221=null;
-        Token string_literal222=null;
-        Token At223=null;
-        Token string_literal225=null;
-        Token string_literal226=null;
-        Token At227=null;
-        Token string_literal229=null;
-        Token string_literal230=null;
-        Token At231=null;
-        flipsParser.timeFormat_return timeFormat216 = null;
-
-        flipsParser.integerValue_return integerValue220 = null;
-
-        flipsParser.timeFormat_return timeFormat224 = null;
-
-        flipsParser.integerValue_return integerValue228 = null;
-
-        flipsParser.timeFormat_return timeFormat232 = null;
+        flipsParser.timeValue_return timeValue216 = null;
 
 
         CommonTree At215_tree=null;
-        CommonTree string_literal217_tree=null;
+
+        try {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:357:2: ( At timeValue )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:357:4: At timeValue
+            {
+            root_0 = (CommonTree)adaptor.nil();
+
+            At215=(Token)match(input,At,FOLLOW_At_in_time1863); 
+            At215_tree = (CommonTree)adaptor.create(At215);
+            adaptor.addChild(root_0, At215_tree);
+
+            pushFollow(FOLLOW_timeValue_in_time1865);
+            timeValue216=timeValue();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, timeValue216.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+            retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (CommonTree)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+        }
+        return retval;
+    }
+    // $ANTLR end "time"
+
+    public static class timeValue_return extends ParserRuleReturnScope {
+        CommonTree tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "timeValue"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:1: timeValue : ( timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | timeFormat -> ^( TIME timeFormat HOUR24 ) );
+    public final flipsParser.timeValue_return timeValue() throws RecognitionException {
+        flipsParser.timeValue_return retval = new flipsParser.timeValue_return();
+        retval.start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        Token string_literal218=null;
+        Token string_literal219=null;
+        Token string_literal221=null;
+        Token string_literal222=null;
+        Token string_literal224=null;
+        Token string_literal225=null;
+        Token string_literal227=null;
+        Token string_literal228=null;
+        flipsParser.timeFormat_return timeFormat217 = null;
+
+        flipsParser.integerValue_return integerValue220 = null;
+
+        flipsParser.timeFormat_return timeFormat223 = null;
+
+        flipsParser.integerValue_return integerValue226 = null;
+
+        flipsParser.timeFormat_return timeFormat229 = null;
+
+
         CommonTree string_literal218_tree=null;
-        CommonTree At219_tree=null;
+        CommonTree string_literal219_tree=null;
         CommonTree string_literal221_tree=null;
         CommonTree string_literal222_tree=null;
-        CommonTree At223_tree=null;
+        CommonTree string_literal224_tree=null;
         CommonTree string_literal225_tree=null;
-        CommonTree string_literal226_tree=null;
-        CommonTree At227_tree=null;
-        CommonTree string_literal229_tree=null;
-        CommonTree string_literal230_tree=null;
-        CommonTree At231_tree=null;
-        RewriteRuleTokenStream stream_At=new RewriteRuleTokenStream(adaptor,"token At");
+        CommonTree string_literal227_tree=null;
+        CommonTree string_literal228_tree=null;
         RewriteRuleTokenStream stream_188=new RewriteRuleTokenStream(adaptor,"token 188");
         RewriteRuleTokenStream stream_187=new RewriteRuleTokenStream(adaptor,"token 187");
         RewriteRuleTokenStream stream_189=new RewriteRuleTokenStream(adaptor,"token 189");
@@ -7389,23 +7434,20 @@ public class flipsParser extends Parser {
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_timeFormat=new RewriteRuleSubtreeStream(adaptor,"rule timeFormat");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:6: ( At timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | At integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | At timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | At integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | At timeFormat -> ^( TIME timeFormat HOUR24 ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:2: ( timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | timeFormat -> ^( TIME timeFormat HOUR24 ) )
             int alt85=5;
             alt85 = dfa85.predict(input);
             switch (alt85) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:8: At timeFormat ( 'am' | 'a.m.' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:4: timeFormat ( 'am' | 'a.m.' )
                     {
-                    At215=(Token)match(input,At,FOLLOW_At_in_time1862);  
-                    stream_At.add(At215);
-
-                    pushFollow(FOLLOW_timeFormat_in_time1864);
-                    timeFormat216=timeFormat();
+                    pushFollow(FOLLOW_timeFormat_in_timeValue1876);
+                    timeFormat217=timeFormat();
 
                     state._fsp--;
 
-                    stream_timeFormat.add(timeFormat216.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:22: ( 'am' | 'a.m.' )
+                    stream_timeFormat.add(timeFormat217.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:15: ( 'am' | 'a.m.' )
                     int alt81=2;
                     int LA81_0 = input.LA(1);
 
@@ -7423,19 +7465,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt81) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:23: 'am'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:16: 'am'
                             {
-                            string_literal217=(Token)match(input,187,FOLLOW_187_in_time1867);  
-                            stream_187.add(string_literal217);
+                            string_literal218=(Token)match(input,187,FOLLOW_187_in_timeValue1879);  
+                            stream_187.add(string_literal218);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:356:28: 'a.m.'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:21: 'a.m.'
                             {
-                            string_literal218=(Token)match(input,188,FOLLOW_188_in_time1869);  
-                            stream_188.add(string_literal218);
+                            string_literal219=(Token)match(input,188,FOLLOW_188_in_timeValue1881);  
+                            stream_188.add(string_literal219);
 
 
                             }
@@ -7456,9 +7498,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 357:2: -> ^( TIME timeFormat AM )
+                    // 362:2: -> ^( TIME timeFormat AM )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:357:5: ^( TIME timeFormat AM )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:5: ^( TIME timeFormat AM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
@@ -7475,18 +7517,15 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:4: At integerValue ( 'am' | 'a.m.' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:363:4: integerValue ( 'am' | 'a.m.' )
                     {
-                    At219=(Token)match(input,At,FOLLOW_At_in_time1886);  
-                    stream_At.add(At219);
-
-                    pushFollow(FOLLOW_integerValue_in_time1888);
+                    pushFollow(FOLLOW_integerValue_in_timeValue1898);
                     integerValue220=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(integerValue220.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:20: ( 'am' | 'a.m.' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:363:17: ( 'am' | 'a.m.' )
                     int alt82=2;
                     int LA82_0 = input.LA(1);
 
@@ -7504,18 +7543,18 @@ public class flipsParser extends Parser {
                     }
                     switch (alt82) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:21: 'am'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:363:18: 'am'
                             {
-                            string_literal221=(Token)match(input,187,FOLLOW_187_in_time1891);  
+                            string_literal221=(Token)match(input,187,FOLLOW_187_in_timeValue1901);  
                             stream_187.add(string_literal221);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:358:26: 'a.m.'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:363:23: 'a.m.'
                             {
-                            string_literal222=(Token)match(input,188,FOLLOW_188_in_time1893);  
+                            string_literal222=(Token)match(input,188,FOLLOW_188_in_timeValue1903);  
                             stream_188.add(string_literal222);
 
 
@@ -7537,9 +7576,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 359:2: -> ^( TIME integerValue HOUR AM )
+                    // 364:2: -> ^( TIME integerValue HOUR AM )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:359:5: ^( TIME integerValue HOUR AM )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:364:5: ^( TIME integerValue HOUR AM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
@@ -7557,18 +7596,15 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:4: At timeFormat ( 'pm' | 'p.m.' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:365:4: timeFormat ( 'pm' | 'p.m.' )
                     {
-                    At223=(Token)match(input,At,FOLLOW_At_in_time1912);  
-                    stream_At.add(At223);
-
-                    pushFollow(FOLLOW_timeFormat_in_time1914);
-                    timeFormat224=timeFormat();
+                    pushFollow(FOLLOW_timeFormat_in_timeValue1922);
+                    timeFormat223=timeFormat();
 
                     state._fsp--;
 
-                    stream_timeFormat.add(timeFormat224.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:18: ( 'pm' | 'p.m.' )
+                    stream_timeFormat.add(timeFormat223.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:365:15: ( 'pm' | 'p.m.' )
                     int alt83=2;
                     int LA83_0 = input.LA(1);
 
@@ -7586,19 +7622,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt83) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:19: 'pm'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:365:16: 'pm'
                             {
-                            string_literal225=(Token)match(input,189,FOLLOW_189_in_time1917);  
-                            stream_189.add(string_literal225);
+                            string_literal224=(Token)match(input,189,FOLLOW_189_in_timeValue1925);  
+                            stream_189.add(string_literal224);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:360:24: 'p.m.'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:365:21: 'p.m.'
                             {
-                            string_literal226=(Token)match(input,190,FOLLOW_190_in_time1919);  
-                            stream_190.add(string_literal226);
+                            string_literal225=(Token)match(input,190,FOLLOW_190_in_timeValue1927);  
+                            stream_190.add(string_literal225);
 
 
                             }
@@ -7619,9 +7655,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 361:2: -> ^( TIME timeFormat PM )
+                    // 366:2: -> ^( TIME timeFormat PM )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:361:5: ^( TIME timeFormat PM )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:366:5: ^( TIME timeFormat PM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
@@ -7638,18 +7674,15 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:4: At integerValue ( 'pm' | 'p.m.' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:367:4: integerValue ( 'pm' | 'p.m.' )
                     {
-                    At227=(Token)match(input,At,FOLLOW_At_in_time1936);  
-                    stream_At.add(At227);
-
-                    pushFollow(FOLLOW_integerValue_in_time1938);
-                    integerValue228=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_timeValue1944);
+                    integerValue226=integerValue();
 
                     state._fsp--;
 
-                    stream_integerValue.add(integerValue228.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:20: ( 'pm' | 'p.m.' )
+                    stream_integerValue.add(integerValue226.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:367:17: ( 'pm' | 'p.m.' )
                     int alt84=2;
                     int LA84_0 = input.LA(1);
 
@@ -7667,19 +7700,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt84) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:21: 'pm'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:367:18: 'pm'
                             {
-                            string_literal229=(Token)match(input,189,FOLLOW_189_in_time1941);  
-                            stream_189.add(string_literal229);
+                            string_literal227=(Token)match(input,189,FOLLOW_189_in_timeValue1947);  
+                            stream_189.add(string_literal227);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:362:26: 'p.m.'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:367:23: 'p.m.'
                             {
-                            string_literal230=(Token)match(input,190,FOLLOW_190_in_time1943);  
-                            stream_190.add(string_literal230);
+                            string_literal228=(Token)match(input,190,FOLLOW_190_in_timeValue1949);  
+                            stream_190.add(string_literal228);
 
 
                             }
@@ -7700,9 +7733,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 363:2: -> ^( TIME integerValue HOUR PM )
+                    // 368:2: -> ^( TIME integerValue HOUR PM )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:363:5: ^( TIME integerValue HOUR PM )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:368:5: ^( TIME integerValue HOUR PM )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
@@ -7720,17 +7753,14 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:364:4: At timeFormat
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:369:4: timeFormat
                     {
-                    At231=(Token)match(input,At,FOLLOW_At_in_time1962);  
-                    stream_At.add(At231);
-
-                    pushFollow(FOLLOW_timeFormat_in_time1964);
-                    timeFormat232=timeFormat();
+                    pushFollow(FOLLOW_timeFormat_in_timeValue1968);
+                    timeFormat229=timeFormat();
 
                     state._fsp--;
 
-                    stream_timeFormat.add(timeFormat232.getTree());
+                    stream_timeFormat.add(timeFormat229.getTree());
 
 
                     // AST REWRITE
@@ -7744,9 +7774,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 365:2: -> ^( TIME timeFormat HOUR24 )
+                    // 370:2: -> ^( TIME timeFormat HOUR24 )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:365:5: ^( TIME timeFormat HOUR24 )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:370:5: ^( TIME timeFormat HOUR24 )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TIME, "TIME"), root_1);
@@ -7780,7 +7810,7 @@ public class flipsParser extends Parser {
         }
         return retval;
     }
-    // $ANTLR end "time"
+    // $ANTLR end "timeValue"
 
     public static class timeFormat_return extends ParserRuleReturnScope {
         CommonTree tree;
@@ -7788,16 +7818,16 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "timeFormat"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:368:1: timeFormat : (hr= integerValue ':' min= integerValue -> $hr HOUR $min MINUTE | hr= integerValue ':' min= integerValue ':' s= numericValue -> $hr HOUR $min MINUTE $s SECOND );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:373:1: timeFormat : (hr= integerValue ':' min= integerValue -> $hr HOUR $min MINUTE | hr= integerValue ':' min= integerValue ':' s= numericValue -> $hr HOUR $min MINUTE $s SECOND );
     public final flipsParser.timeFormat_return timeFormat() throws RecognitionException {
         flipsParser.timeFormat_return retval = new flipsParser.timeFormat_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal233=null;
-        Token char_literal234=null;
-        Token char_literal235=null;
+        Token char_literal230=null;
+        Token char_literal231=null;
+        Token char_literal232=null;
         flipsParser.integerValue_return hr = null;
 
         flipsParser.integerValue_return min = null;
@@ -7805,14 +7835,14 @@ public class flipsParser extends Parser {
         flipsParser.numericValue_return s = null;
 
 
-        CommonTree char_literal233_tree=null;
-        CommonTree char_literal234_tree=null;
-        CommonTree char_literal235_tree=null;
+        CommonTree char_literal230_tree=null;
+        CommonTree char_literal231_tree=null;
+        CommonTree char_literal232_tree=null;
         RewriteRuleTokenStream stream_191=new RewriteRuleTokenStream(adaptor,"token 191");
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:369:2: (hr= integerValue ':' min= integerValue -> $hr HOUR $min MINUTE | hr= integerValue ':' min= integerValue ':' s= numericValue -> $hr HOUR $min MINUTE $s SECOND )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:374:2: (hr= integerValue ':' min= integerValue -> $hr HOUR $min MINUTE | hr= integerValue ':' min= integerValue ':' s= numericValue -> $hr HOUR $min MINUTE $s SECOND )
             int alt86=2;
             int LA86_0 = input.LA(1);
 
@@ -7825,11 +7855,11 @@ public class flipsParser extends Parser {
                     if ( ((LA86_2>=BinaryLiteral && LA86_2<=HexLiteral)) ) {
                         int LA86_3 = input.LA(4);
 
-                        if ( (LA86_3==191) ) {
-                            alt86=2;
-                        }
-                        else if ( (LA86_3==EOF||(LA86_3>=Identifier && LA86_3<=With)||(LA86_3>=Turning && LA86_3<=HexLiteral)||(LA86_3>=107 && LA86_3<=114)||(LA86_3>=116 && LA86_3<=117)||(LA86_3>=119 && LA86_3<=120)||LA86_3==123||(LA86_3>=144 && LA86_3<=145)||(LA86_3>=187 && LA86_3<=190)||LA86_3==200||(LA86_3>=205 && LA86_3<=257)) ) {
+                        if ( (LA86_3==EOF||(LA86_3>=Identifier && LA86_3<=With)||(LA86_3>=Turning && LA86_3<=HexLiteral)||(LA86_3>=107 && LA86_3<=114)||(LA86_3>=116 && LA86_3<=117)||(LA86_3>=119 && LA86_3<=120)||LA86_3==123||(LA86_3>=144 && LA86_3<=145)||(LA86_3>=187 && LA86_3<=190)||LA86_3==200||(LA86_3>=205 && LA86_3<=257)) ) {
                             alt86=1;
+                        }
+                        else if ( (LA86_3==191) ) {
+                            alt86=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -7860,18 +7890,18 @@ public class flipsParser extends Parser {
             }
             switch (alt86) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:369:4: hr= integerValue ':' min= integerValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:374:4: hr= integerValue ':' min= integerValue
                     {
-                    pushFollow(FOLLOW_integerValue_in_timeFormat1988);
+                    pushFollow(FOLLOW_integerValue_in_timeFormat1992);
                     hr=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(hr.getTree());
-                    char_literal233=(Token)match(input,191,FOLLOW_191_in_timeFormat1990);  
-                    stream_191.add(char_literal233);
+                    char_literal230=(Token)match(input,191,FOLLOW_191_in_timeFormat1994);  
+                    stream_191.add(char_literal230);
 
-                    pushFollow(FOLLOW_integerValue_in_timeFormat1994);
+                    pushFollow(FOLLOW_integerValue_in_timeFormat1998);
                     min=integerValue();
 
                     state._fsp--;
@@ -7880,19 +7910,19 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: min, hr
+                    // elements: hr, min
                     // token labels: 
-                    // rule labels: hr, min, retval
+                    // rule labels: min, hr, retval
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
                     RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
+                    RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 370:2: -> $hr HOUR $min MINUTE
+                    // 375:2: -> $hr HOUR $min MINUTE
                     {
                         adaptor.addChild(root_0, stream_hr.nextTree());
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
@@ -7905,27 +7935,27 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:371:4: hr= integerValue ':' min= integerValue ':' s= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:376:4: hr= integerValue ':' min= integerValue ':' s= numericValue
                     {
-                    pushFollow(FOLLOW_integerValue_in_timeFormat2014);
+                    pushFollow(FOLLOW_integerValue_in_timeFormat2018);
                     hr=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(hr.getTree());
-                    char_literal234=(Token)match(input,191,FOLLOW_191_in_timeFormat2016);  
-                    stream_191.add(char_literal234);
+                    char_literal231=(Token)match(input,191,FOLLOW_191_in_timeFormat2020);  
+                    stream_191.add(char_literal231);
 
-                    pushFollow(FOLLOW_integerValue_in_timeFormat2020);
+                    pushFollow(FOLLOW_integerValue_in_timeFormat2024);
                     min=integerValue();
 
                     state._fsp--;
 
                     stream_integerValue.add(min.getTree());
-                    char_literal235=(Token)match(input,191,FOLLOW_191_in_timeFormat2022);  
-                    stream_191.add(char_literal235);
+                    char_literal232=(Token)match(input,191,FOLLOW_191_in_timeFormat2026);  
+                    stream_191.add(char_literal232);
 
-                    pushFollow(FOLLOW_numericValue_in_timeFormat2026);
+                    pushFollow(FOLLOW_numericValue_in_timeFormat2030);
                     s=numericValue();
 
                     state._fsp--;
@@ -7934,7 +7964,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: min, s, hr
+                    // elements: min, hr, s
                     // token labels: 
                     // rule labels: hr, min, retval, s
                     // token list labels: 
@@ -7947,7 +7977,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_s=new RewriteRuleSubtreeStream(adaptor,"rule s",s!=null?s.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 372:2: -> $hr HOUR $min MINUTE $s SECOND
+                    // 377:2: -> $hr HOUR $min MINUTE $s SECOND
                     {
                         adaptor.addChild(root_0, stream_hr.nextTree());
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
@@ -7987,23 +8017,23 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "timeUnit"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:375:1: timeUnit : ( hour | minute | second );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:380:1: timeUnit : ( hour | minute | second );
     public final flipsParser.timeUnit_return timeUnit() throws RecognitionException {
         flipsParser.timeUnit_return retval = new flipsParser.timeUnit_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        flipsParser.hour_return hour236 = null;
+        flipsParser.hour_return hour233 = null;
 
-        flipsParser.minute_return minute237 = null;
+        flipsParser.minute_return minute234 = null;
 
-        flipsParser.second_return second238 = null;
+        flipsParser.second_return second235 = null;
 
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:375:9: ( hour | minute | second )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:380:9: ( hour | minute | second )
             int alt87=3;
             switch ( input.LA(1) ) {
             case 192:
@@ -8041,44 +8071,44 @@ public class flipsParser extends Parser {
 
             switch (alt87) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:375:11: hour
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:380:11: hour
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_hour_in_timeUnit2054);
-                    hour236=hour();
+                    pushFollow(FOLLOW_hour_in_timeUnit2058);
+                    hour233=hour();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, hour236.getTree());
+                    adaptor.addChild(root_0, hour233.getTree());
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:376:4: minute
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:4: minute
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_minute_in_timeUnit2059);
-                    minute237=minute();
+                    pushFollow(FOLLOW_minute_in_timeUnit2063);
+                    minute234=minute();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, minute237.getTree());
+                    adaptor.addChild(root_0, minute234.getTree());
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:377:4: second
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:382:4: second
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_second_in_timeUnit2064);
-                    second238=second();
+                    pushFollow(FOLLOW_second_in_timeUnit2068);
+                    second235=second();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, second238.getTree());
+                    adaptor.addChild(root_0, second235.getTree());
 
                     }
                     break;
@@ -8108,24 +8138,24 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "hour"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:380:1: hour : ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' ) -> HOUR ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:385:1: hour : ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' ) -> HOUR ;
     public final flipsParser.hour_return hour() throws RecognitionException {
         flipsParser.hour_return retval = new flipsParser.hour_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal239=null;
+        Token char_literal236=null;
+        Token string_literal237=null;
+        Token string_literal238=null;
+        Token string_literal239=null;
         Token string_literal240=null;
-        Token string_literal241=null;
-        Token string_literal242=null;
-        Token string_literal243=null;
 
-        CommonTree char_literal239_tree=null;
+        CommonTree char_literal236_tree=null;
+        CommonTree string_literal237_tree=null;
+        CommonTree string_literal238_tree=null;
+        CommonTree string_literal239_tree=null;
         CommonTree string_literal240_tree=null;
-        CommonTree string_literal241_tree=null;
-        CommonTree string_literal242_tree=null;
-        CommonTree string_literal243_tree=null;
         RewriteRuleTokenStream stream_195=new RewriteRuleTokenStream(adaptor,"token 195");
         RewriteRuleTokenStream stream_194=new RewriteRuleTokenStream(adaptor,"token 194");
         RewriteRuleTokenStream stream_196=new RewriteRuleTokenStream(adaptor,"token 196");
@@ -8133,10 +8163,10 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_192=new RewriteRuleTokenStream(adaptor,"token 192");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:2: ( ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' ) -> HOUR )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:4: ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:2: ( ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' ) -> HOUR )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:4: ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' )
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:4: ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:4: ( 'h' | 'hr' | 'hrs' | 'hour' | 'hours' )
             int alt88=5;
             switch ( input.LA(1) ) {
             case 192:
@@ -8173,46 +8203,46 @@ public class flipsParser extends Parser {
 
             switch (alt88) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:5: 'h'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:5: 'h'
                     {
-                    char_literal239=(Token)match(input,192,FOLLOW_192_in_hour2076);  
-                    stream_192.add(char_literal239);
+                    char_literal236=(Token)match(input,192,FOLLOW_192_in_hour2080);  
+                    stream_192.add(char_literal236);
 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:9: 'hr'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:9: 'hr'
                     {
-                    string_literal240=(Token)match(input,193,FOLLOW_193_in_hour2078);  
-                    stream_193.add(string_literal240);
+                    string_literal237=(Token)match(input,193,FOLLOW_193_in_hour2082);  
+                    stream_193.add(string_literal237);
 
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:14: 'hrs'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:14: 'hrs'
                     {
-                    string_literal241=(Token)match(input,194,FOLLOW_194_in_hour2080);  
-                    stream_194.add(string_literal241);
+                    string_literal238=(Token)match(input,194,FOLLOW_194_in_hour2084);  
+                    stream_194.add(string_literal238);
 
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:20: 'hour'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:20: 'hour'
                     {
-                    string_literal242=(Token)match(input,195,FOLLOW_195_in_hour2082);  
-                    stream_195.add(string_literal242);
+                    string_literal239=(Token)match(input,195,FOLLOW_195_in_hour2086);  
+                    stream_195.add(string_literal239);
 
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:381:27: 'hours'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:27: 'hours'
                     {
-                    string_literal243=(Token)match(input,196,FOLLOW_196_in_hour2084);  
-                    stream_196.add(string_literal243);
+                    string_literal240=(Token)match(input,196,FOLLOW_196_in_hour2088);  
+                    stream_196.add(string_literal240);
 
 
                     }
@@ -8233,7 +8263,7 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 382:2: -> HOUR
+            // 387:2: -> HOUR
             {
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(HOUR, "HOUR"));
 
@@ -8266,32 +8296,32 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "minute"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:385:1: minute : ( 'min' | 'mins' | 'minute' | 'minutes' ) -> MINUTE ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:390:1: minute : ( 'min' | 'mins' | 'minute' | 'minutes' ) -> MINUTE ;
     public final flipsParser.minute_return minute() throws RecognitionException {
         flipsParser.minute_return retval = new flipsParser.minute_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
+        Token string_literal241=null;
+        Token string_literal242=null;
+        Token string_literal243=null;
         Token string_literal244=null;
-        Token string_literal245=null;
-        Token string_literal246=null;
-        Token string_literal247=null;
 
+        CommonTree string_literal241_tree=null;
+        CommonTree string_literal242_tree=null;
+        CommonTree string_literal243_tree=null;
         CommonTree string_literal244_tree=null;
-        CommonTree string_literal245_tree=null;
-        CommonTree string_literal246_tree=null;
-        CommonTree string_literal247_tree=null;
         RewriteRuleTokenStream stream_198=new RewriteRuleTokenStream(adaptor,"token 198");
         RewriteRuleTokenStream stream_199=new RewriteRuleTokenStream(adaptor,"token 199");
         RewriteRuleTokenStream stream_197=new RewriteRuleTokenStream(adaptor,"token 197");
         RewriteRuleTokenStream stream_177=new RewriteRuleTokenStream(adaptor,"token 177");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:2: ( ( 'min' | 'mins' | 'minute' | 'minutes' ) -> MINUTE )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:4: ( 'min' | 'mins' | 'minute' | 'minutes' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:2: ( ( 'min' | 'mins' | 'minute' | 'minutes' ) -> MINUTE )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:4: ( 'min' | 'mins' | 'minute' | 'minutes' )
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:4: ( 'min' | 'mins' | 'minute' | 'minutes' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:4: ( 'min' | 'mins' | 'minute' | 'minutes' )
             int alt89=4;
             switch ( input.LA(1) ) {
             case 177:
@@ -8323,37 +8353,37 @@ public class flipsParser extends Parser {
 
             switch (alt89) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:5: 'min'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:5: 'min'
                     {
-                    string_literal244=(Token)match(input,177,FOLLOW_177_in_minute2102);  
-                    stream_177.add(string_literal244);
+                    string_literal241=(Token)match(input,177,FOLLOW_177_in_minute2106);  
+                    stream_177.add(string_literal241);
 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:11: 'mins'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:11: 'mins'
                     {
-                    string_literal245=(Token)match(input,197,FOLLOW_197_in_minute2104);  
-                    stream_197.add(string_literal245);
+                    string_literal242=(Token)match(input,197,FOLLOW_197_in_minute2108);  
+                    stream_197.add(string_literal242);
 
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:18: 'minute'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:18: 'minute'
                     {
-                    string_literal246=(Token)match(input,198,FOLLOW_198_in_minute2106);  
-                    stream_198.add(string_literal246);
+                    string_literal243=(Token)match(input,198,FOLLOW_198_in_minute2110);  
+                    stream_198.add(string_literal243);
 
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:386:27: 'minutes'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:27: 'minutes'
                     {
-                    string_literal247=(Token)match(input,199,FOLLOW_199_in_minute2108);  
-                    stream_199.add(string_literal247);
+                    string_literal244=(Token)match(input,199,FOLLOW_199_in_minute2112);  
+                    stream_199.add(string_literal244);
 
 
                     }
@@ -8374,7 +8404,7 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 387:2: -> MINUTE
+            // 392:2: -> MINUTE
             {
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(MINUTE, "MINUTE"));
 
@@ -8407,24 +8437,24 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "second"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:390:1: second : ( 's' | 'sec' | 'secs' | 'second' | 'seconds' ) -> SECOND ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:395:1: second : ( 's' | 'sec' | 'secs' | 'second' | 'seconds' ) -> SECOND ;
     public final flipsParser.second_return second() throws RecognitionException {
         flipsParser.second_return retval = new flipsParser.second_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal248=null;
+        Token char_literal245=null;
+        Token string_literal246=null;
+        Token string_literal247=null;
+        Token string_literal248=null;
         Token string_literal249=null;
-        Token string_literal250=null;
-        Token string_literal251=null;
-        Token string_literal252=null;
 
-        CommonTree char_literal248_tree=null;
+        CommonTree char_literal245_tree=null;
+        CommonTree string_literal246_tree=null;
+        CommonTree string_literal247_tree=null;
+        CommonTree string_literal248_tree=null;
         CommonTree string_literal249_tree=null;
-        CommonTree string_literal250_tree=null;
-        CommonTree string_literal251_tree=null;
-        CommonTree string_literal252_tree=null;
         RewriteRuleTokenStream stream_202=new RewriteRuleTokenStream(adaptor,"token 202");
         RewriteRuleTokenStream stream_203=new RewriteRuleTokenStream(adaptor,"token 203");
         RewriteRuleTokenStream stream_204=new RewriteRuleTokenStream(adaptor,"token 204");
@@ -8432,10 +8462,10 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_201=new RewriteRuleTokenStream(adaptor,"token 201");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:2: ( ( 's' | 'sec' | 'secs' | 'second' | 'seconds' ) -> SECOND )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:4: ( 's' | 'sec' | 'secs' | 'second' | 'seconds' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:2: ( ( 's' | 'sec' | 'secs' | 'second' | 'seconds' ) -> SECOND )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:4: ( 's' | 'sec' | 'secs' | 'second' | 'seconds' )
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:4: ( 's' | 'sec' | 'secs' | 'second' | 'seconds' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:4: ( 's' | 'sec' | 'secs' | 'second' | 'seconds' )
             int alt90=5;
             switch ( input.LA(1) ) {
             case 200:
@@ -8472,46 +8502,46 @@ public class flipsParser extends Parser {
 
             switch (alt90) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:5: 's'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:5: 's'
                     {
-                    char_literal248=(Token)match(input,200,FOLLOW_200_in_second2126);  
-                    stream_200.add(char_literal248);
+                    char_literal245=(Token)match(input,200,FOLLOW_200_in_second2130);  
+                    stream_200.add(char_literal245);
 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:9: 'sec'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:9: 'sec'
                     {
-                    string_literal249=(Token)match(input,201,FOLLOW_201_in_second2128);  
-                    stream_201.add(string_literal249);
+                    string_literal246=(Token)match(input,201,FOLLOW_201_in_second2132);  
+                    stream_201.add(string_literal246);
 
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:15: 'secs'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:15: 'secs'
                     {
-                    string_literal250=(Token)match(input,202,FOLLOW_202_in_second2130);  
-                    stream_202.add(string_literal250);
+                    string_literal247=(Token)match(input,202,FOLLOW_202_in_second2134);  
+                    stream_202.add(string_literal247);
 
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:22: 'second'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:22: 'second'
                     {
-                    string_literal251=(Token)match(input,203,FOLLOW_203_in_second2132);  
-                    stream_203.add(string_literal251);
+                    string_literal248=(Token)match(input,203,FOLLOW_203_in_second2136);  
+                    stream_203.add(string_literal248);
 
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:391:31: 'seconds'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:31: 'seconds'
                     {
-                    string_literal252=(Token)match(input,204,FOLLOW_204_in_second2134);  
-                    stream_204.add(string_literal252);
+                    string_literal249=(Token)match(input,204,FOLLOW_204_in_second2138);  
+                    stream_204.add(string_literal249);
 
 
                     }
@@ -8532,7 +8562,7 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 392:2: -> SECOND
+            // 397:2: -> SECOND
             {
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(SECOND, "SECOND"));
 
@@ -8565,33 +8595,33 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "duration"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:395:1: duration : 'for' durationValue -> ^( DURATION durationValue ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:400:1: duration : 'for' durationValue -> ^( DURATION durationValue ) ;
     public final flipsParser.duration_return duration() throws RecognitionException {
         flipsParser.duration_return retval = new flipsParser.duration_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token string_literal253=null;
-        flipsParser.durationValue_return durationValue254 = null;
+        Token string_literal250=null;
+        flipsParser.durationValue_return durationValue251 = null;
 
 
-        CommonTree string_literal253_tree=null;
+        CommonTree string_literal250_tree=null;
         RewriteRuleTokenStream stream_205=new RewriteRuleTokenStream(adaptor,"token 205");
         RewriteRuleSubtreeStream stream_durationValue=new RewriteRuleSubtreeStream(adaptor,"rule durationValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:2: ( 'for' durationValue -> ^( DURATION durationValue ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:396:4: 'for' durationValue
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:401:2: ( 'for' durationValue -> ^( DURATION durationValue ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:401:4: 'for' durationValue
             {
-            string_literal253=(Token)match(input,205,FOLLOW_205_in_duration2151);  
-            stream_205.add(string_literal253);
+            string_literal250=(Token)match(input,205,FOLLOW_205_in_duration2155);  
+            stream_205.add(string_literal250);
 
-            pushFollow(FOLLOW_durationValue_in_duration2153);
-            durationValue254=durationValue();
+            pushFollow(FOLLOW_durationValue_in_duration2157);
+            durationValue251=durationValue();
 
             state._fsp--;
 
-            stream_durationValue.add(durationValue254.getTree());
+            stream_durationValue.add(durationValue251.getTree());
 
 
             // AST REWRITE
@@ -8605,9 +8635,9 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 397:2: -> ^( DURATION durationValue )
+            // 402:2: -> ^( DURATION durationValue )
             {
-                // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:397:5: ^( DURATION durationValue )
+                // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:5: ^( DURATION durationValue )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DURATION, "DURATION"), root_1);
@@ -8646,100 +8676,100 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "durationValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:400:1: durationValue : ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:405:1: durationValue : ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat );
     public final flipsParser.durationValue_return durationValue() throws RecognitionException {
         flipsParser.durationValue_return retval = new flipsParser.durationValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        flipsParser.numericValue_return numericValue255 = null;
+        flipsParser.numericValue_return numericValue252 = null;
 
-        flipsParser.timeUnit_return timeUnit256 = null;
+        flipsParser.timeUnit_return timeUnit253 = null;
 
-        flipsParser.integerValue_return integerValue257 = null;
+        flipsParser.integerValue_return integerValue254 = null;
 
-        flipsParser.hour_return hour258 = null;
+        flipsParser.hour_return hour255 = null;
 
-        flipsParser.numericValue_return numericValue259 = null;
+        flipsParser.numericValue_return numericValue256 = null;
 
-        flipsParser.minute_return minute260 = null;
+        flipsParser.minute_return minute257 = null;
 
-        flipsParser.second_return second261 = null;
+        flipsParser.second_return second258 = null;
 
-        flipsParser.integerValue_return integerValue262 = null;
+        flipsParser.integerValue_return integerValue259 = null;
 
-        flipsParser.hour_return hour263 = null;
+        flipsParser.hour_return hour260 = null;
 
-        flipsParser.integerValue_return integerValue264 = null;
+        flipsParser.integerValue_return integerValue261 = null;
 
-        flipsParser.minute_return minute265 = null;
+        flipsParser.minute_return minute262 = null;
 
-        flipsParser.numericValue_return numericValue266 = null;
+        flipsParser.numericValue_return numericValue263 = null;
 
-        flipsParser.second_return second267 = null;
+        flipsParser.second_return second264 = null;
 
-        flipsParser.integerValue_return integerValue268 = null;
+        flipsParser.integerValue_return integerValue265 = null;
 
-        flipsParser.minute_return minute269 = null;
+        flipsParser.minute_return minute266 = null;
 
-        flipsParser.numericValue_return numericValue270 = null;
+        flipsParser.numericValue_return numericValue267 = null;
 
-        flipsParser.second_return second271 = null;
+        flipsParser.second_return second268 = null;
 
-        flipsParser.timeFormat_return timeFormat272 = null;
+        flipsParser.timeFormat_return timeFormat269 = null;
 
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:401:2: ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:406:2: ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat )
             int alt92=5;
             alt92 = dfa92.predict(input);
             switch (alt92) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:401:4: numericValue timeUnit
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:406:4: numericValue timeUnit
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_numericValue_in_durationValue2173);
-                    numericValue255=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_durationValue2177);
+                    numericValue252=numericValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, numericValue255.getTree());
-                    pushFollow(FOLLOW_timeUnit_in_durationValue2175);
-                    timeUnit256=timeUnit();
+                    adaptor.addChild(root_0, numericValue252.getTree());
+                    pushFollow(FOLLOW_timeUnit_in_durationValue2179);
+                    timeUnit253=timeUnit();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, timeUnit256.getTree());
+                    adaptor.addChild(root_0, timeUnit253.getTree());
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:4: integerValue hour numericValue ( minute | second )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:407:4: integerValue hour numericValue ( minute | second )
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_integerValue_in_durationValue2180);
-                    integerValue257=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_durationValue2184);
+                    integerValue254=integerValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, integerValue257.getTree());
-                    pushFollow(FOLLOW_hour_in_durationValue2182);
-                    hour258=hour();
+                    adaptor.addChild(root_0, integerValue254.getTree());
+                    pushFollow(FOLLOW_hour_in_durationValue2186);
+                    hour255=hour();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, hour258.getTree());
-                    pushFollow(FOLLOW_numericValue_in_durationValue2184);
-                    numericValue259=numericValue();
+                    adaptor.addChild(root_0, hour255.getTree());
+                    pushFollow(FOLLOW_numericValue_in_durationValue2188);
+                    numericValue256=numericValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, numericValue259.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:35: ( minute | second )
+                    adaptor.addChild(root_0, numericValue256.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:407:35: ( minute | second )
                     int alt91=2;
                     int LA91_0 = input.LA(1);
 
@@ -8757,26 +8787,26 @@ public class flipsParser extends Parser {
                     }
                     switch (alt91) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:36: minute
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:407:36: minute
                             {
-                            pushFollow(FOLLOW_minute_in_durationValue2187);
-                            minute260=minute();
+                            pushFollow(FOLLOW_minute_in_durationValue2191);
+                            minute257=minute();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, minute260.getTree());
+                            adaptor.addChild(root_0, minute257.getTree());
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:402:43: second
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:407:43: second
                             {
-                            pushFollow(FOLLOW_second_in_durationValue2189);
-                            second261=second();
+                            pushFollow(FOLLOW_second_in_durationValue2193);
+                            second258=second();
 
                             state._fsp--;
 
-                            adaptor.addChild(root_0, second261.getTree());
+                            adaptor.addChild(root_0, second258.getTree());
 
                             }
                             break;
@@ -8787,92 +8817,92 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:403:4: integerValue hour integerValue minute numericValue second
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:408:4: integerValue hour integerValue minute numericValue second
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_integerValue_in_durationValue2195);
-                    integerValue262=integerValue();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, integerValue262.getTree());
-                    pushFollow(FOLLOW_hour_in_durationValue2197);
-                    hour263=hour();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, hour263.getTree());
                     pushFollow(FOLLOW_integerValue_in_durationValue2199);
-                    integerValue264=integerValue();
+                    integerValue259=integerValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, integerValue264.getTree());
-                    pushFollow(FOLLOW_minute_in_durationValue2201);
-                    minute265=minute();
+                    adaptor.addChild(root_0, integerValue259.getTree());
+                    pushFollow(FOLLOW_hour_in_durationValue2201);
+                    hour260=hour();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, minute265.getTree());
-                    pushFollow(FOLLOW_numericValue_in_durationValue2203);
-                    numericValue266=numericValue();
+                    adaptor.addChild(root_0, hour260.getTree());
+                    pushFollow(FOLLOW_integerValue_in_durationValue2203);
+                    integerValue261=integerValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, numericValue266.getTree());
-                    pushFollow(FOLLOW_second_in_durationValue2205);
-                    second267=second();
+                    adaptor.addChild(root_0, integerValue261.getTree());
+                    pushFollow(FOLLOW_minute_in_durationValue2205);
+                    minute262=minute();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, second267.getTree());
+                    adaptor.addChild(root_0, minute262.getTree());
+                    pushFollow(FOLLOW_numericValue_in_durationValue2207);
+                    numericValue263=numericValue();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, numericValue263.getTree());
+                    pushFollow(FOLLOW_second_in_durationValue2209);
+                    second264=second();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, second264.getTree());
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:404:4: integerValue minute numericValue second
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:409:4: integerValue minute numericValue second
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_integerValue_in_durationValue2210);
-                    integerValue268=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_durationValue2214);
+                    integerValue265=integerValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, integerValue268.getTree());
-                    pushFollow(FOLLOW_minute_in_durationValue2212);
-                    minute269=minute();
+                    adaptor.addChild(root_0, integerValue265.getTree());
+                    pushFollow(FOLLOW_minute_in_durationValue2216);
+                    minute266=minute();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, minute269.getTree());
-                    pushFollow(FOLLOW_numericValue_in_durationValue2214);
-                    numericValue270=numericValue();
+                    adaptor.addChild(root_0, minute266.getTree());
+                    pushFollow(FOLLOW_numericValue_in_durationValue2218);
+                    numericValue267=numericValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, numericValue270.getTree());
-                    pushFollow(FOLLOW_second_in_durationValue2216);
-                    second271=second();
+                    adaptor.addChild(root_0, numericValue267.getTree());
+                    pushFollow(FOLLOW_second_in_durationValue2220);
+                    second268=second();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, second271.getTree());
+                    adaptor.addChild(root_0, second268.getTree());
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:405:4: timeFormat
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:410:4: timeFormat
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_timeFormat_in_durationValue2221);
-                    timeFormat272=timeFormat();
+                    pushFollow(FOLLOW_timeFormat_in_durationValue2225);
+                    timeFormat269=timeFormat();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, timeFormat272.getTree());
+                    adaptor.addChild(root_0, timeFormat269.getTree());
 
                     }
                     break;
@@ -8902,22 +8932,22 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "direction"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:410:1: direction : ( fixedDirection -> ^( DIRECTION FIXED fixedDirection ) | relativeDirection -> ^( DIRECTION RELATIVE relativeDirection ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:415:1: direction : ( fixedDirection -> ^( DIRECTION FIXED fixedDirection ) | relativeDirection -> ^( DIRECTION RELATIVE relativeDirection ) );
     public final flipsParser.direction_return direction() throws RecognitionException {
         flipsParser.direction_return retval = new flipsParser.direction_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        flipsParser.fixedDirection_return fixedDirection273 = null;
+        flipsParser.fixedDirection_return fixedDirection270 = null;
 
-        flipsParser.relativeDirection_return relativeDirection274 = null;
+        flipsParser.relativeDirection_return relativeDirection271 = null;
 
 
         RewriteRuleSubtreeStream stream_fixedDirection=new RewriteRuleSubtreeStream(adaptor,"rule fixedDirection");
         RewriteRuleSubtreeStream stream_relativeDirection=new RewriteRuleSubtreeStream(adaptor,"rule relativeDirection");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:411:2: ( fixedDirection -> ^( DIRECTION FIXED fixedDirection ) | relativeDirection -> ^( DIRECTION RELATIVE relativeDirection ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:416:2: ( fixedDirection -> ^( DIRECTION FIXED fixedDirection ) | relativeDirection -> ^( DIRECTION RELATIVE relativeDirection ) )
             int alt93=2;
             switch ( input.LA(1) ) {
             case 200:
@@ -8960,11 +8990,11 @@ public class flipsParser extends Parser {
                 {
                 int LA93_2 = input.LA(2);
 
-                if ( ((LA93_2>=FloatingPointLiteral && LA93_2<=HexLiteral)||LA93_2==200||(LA93_2>=206 && LA93_2<=236)) ) {
-                    alt93=1;
-                }
-                else if ( ((LA93_2>=248 && LA93_2<=253)) ) {
+                if ( ((LA93_2>=248 && LA93_2<=253)) ) {
                     alt93=2;
+                }
+                else if ( ((LA93_2>=FloatingPointLiteral && LA93_2<=HexLiteral)||LA93_2==200||(LA93_2>=206 && LA93_2<=236)) ) {
+                    alt93=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -8978,11 +9008,11 @@ public class flipsParser extends Parser {
                 {
                 int LA93_3 = input.LA(2);
 
-                if ( ((LA93_3>=248 && LA93_3<=253)) ) {
-                    alt93=2;
-                }
-                else if ( ((LA93_3>=FloatingPointLiteral && LA93_3<=HexLiteral)||LA93_3==200||(LA93_3>=206 && LA93_3<=236)) ) {
+                if ( ((LA93_3>=FloatingPointLiteral && LA93_3<=HexLiteral)||LA93_3==200||(LA93_3>=206 && LA93_3<=236)) ) {
                     alt93=1;
+                }
+                else if ( ((LA93_3>=248 && LA93_3<=253)) ) {
+                    alt93=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -9001,14 +9031,14 @@ public class flipsParser extends Parser {
 
             switch (alt93) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:411:4: fixedDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:416:4: fixedDirection
                     {
-                    pushFollow(FOLLOW_fixedDirection_in_direction2234);
-                    fixedDirection273=fixedDirection();
+                    pushFollow(FOLLOW_fixedDirection_in_direction2238);
+                    fixedDirection270=fixedDirection();
 
                     state._fsp--;
 
-                    stream_fixedDirection.add(fixedDirection273.getTree());
+                    stream_fixedDirection.add(fixedDirection270.getTree());
 
 
                     // AST REWRITE
@@ -9022,9 +9052,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 412:2: -> ^( DIRECTION FIXED fixedDirection )
+                    // 417:2: -> ^( DIRECTION FIXED fixedDirection )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:412:5: ^( DIRECTION FIXED fixedDirection )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:417:5: ^( DIRECTION FIXED fixedDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DIRECTION, "DIRECTION"), root_1);
@@ -9041,14 +9071,14 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:413:4: relativeDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:418:4: relativeDirection
                     {
-                    pushFollow(FOLLOW_relativeDirection_in_direction2250);
-                    relativeDirection274=relativeDirection();
+                    pushFollow(FOLLOW_relativeDirection_in_direction2254);
+                    relativeDirection271=relativeDirection();
 
                     state._fsp--;
 
-                    stream_relativeDirection.add(relativeDirection274.getTree());
+                    stream_relativeDirection.add(relativeDirection271.getTree());
 
 
                     // AST REWRITE
@@ -9062,9 +9092,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 414:2: -> ^( DIRECTION RELATIVE relativeDirection )
+                    // 419:2: -> ^( DIRECTION RELATIVE relativeDirection )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:414:5: ^( DIRECTION RELATIVE relativeDirection )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:419:5: ^( DIRECTION RELATIVE relativeDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DIRECTION, "DIRECTION"), root_1);
@@ -9106,32 +9136,32 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "fixedDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:417:1: fixedDirection : ( cardinalDirection -> cardinalDirection | ordinalDirection -> ordinalDirection | subOrdinalDirection -> subOrdinalDirection | ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue ) -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )? );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:422:1: fixedDirection : ( cardinalDirection -> cardinalDirection | ordinalDirection -> ordinalDirection | subOrdinalDirection -> subOrdinalDirection | ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue ) -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )? );
     public final flipsParser.fixedDirection_return fixedDirection() throws RecognitionException {
         flipsParser.fixedDirection_return retval = new flipsParser.fixedDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token Turning278=null;
-        Token Heading279=null;
-        flipsParser.cardinalDirection_return cardinalDirection275 = null;
+        Token Turning275=null;
+        Token Heading276=null;
+        flipsParser.cardinalDirection_return cardinalDirection272 = null;
 
-        flipsParser.ordinalDirection_return ordinalDirection276 = null;
+        flipsParser.ordinalDirection_return ordinalDirection273 = null;
 
-        flipsParser.subOrdinalDirection_return subOrdinalDirection277 = null;
+        flipsParser.subOrdinalDirection_return subOrdinalDirection274 = null;
 
-        flipsParser.cardinalDirection_return cardinalDirection280 = null;
+        flipsParser.cardinalDirection_return cardinalDirection277 = null;
 
-        flipsParser.ordinalDirection_return ordinalDirection281 = null;
+        flipsParser.ordinalDirection_return ordinalDirection278 = null;
 
-        flipsParser.subOrdinalDirection_return subOrdinalDirection282 = null;
+        flipsParser.subOrdinalDirection_return subOrdinalDirection279 = null;
 
-        flipsParser.angularValue_return angularValue283 = null;
+        flipsParser.angularValue_return angularValue280 = null;
 
 
-        CommonTree Turning278_tree=null;
-        CommonTree Heading279_tree=null;
+        CommonTree Turning275_tree=null;
+        CommonTree Heading276_tree=null;
         RewriteRuleTokenStream stream_Turning=new RewriteRuleTokenStream(adaptor,"token Turning");
         RewriteRuleTokenStream stream_Heading=new RewriteRuleTokenStream(adaptor,"token Heading");
         RewriteRuleSubtreeStream stream_angularValue=new RewriteRuleSubtreeStream(adaptor,"rule angularValue");
@@ -9139,7 +9169,7 @@ public class flipsParser extends Parser {
         RewriteRuleSubtreeStream stream_subOrdinalDirection=new RewriteRuleSubtreeStream(adaptor,"rule subOrdinalDirection");
         RewriteRuleSubtreeStream stream_cardinalDirection=new RewriteRuleSubtreeStream(adaptor,"rule cardinalDirection");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:418:2: ( cardinalDirection -> cardinalDirection | ordinalDirection -> ordinalDirection | subOrdinalDirection -> subOrdinalDirection | ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue ) -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )? )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:423:2: ( cardinalDirection -> cardinalDirection | ordinalDirection -> ordinalDirection | subOrdinalDirection -> subOrdinalDirection | ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue ) -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )? )
             int alt96=4;
             switch ( input.LA(1) ) {
             case 200:
@@ -9201,14 +9231,14 @@ public class flipsParser extends Parser {
 
             switch (alt96) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:418:4: cardinalDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:423:4: cardinalDirection
                     {
-                    pushFollow(FOLLOW_cardinalDirection_in_fixedDirection2272);
-                    cardinalDirection275=cardinalDirection();
+                    pushFollow(FOLLOW_cardinalDirection_in_fixedDirection2276);
+                    cardinalDirection272=cardinalDirection();
 
                     state._fsp--;
 
-                    stream_cardinalDirection.add(cardinalDirection275.getTree());
+                    stream_cardinalDirection.add(cardinalDirection272.getTree());
 
 
                     // AST REWRITE
@@ -9222,7 +9252,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 419:2: -> cardinalDirection
+                    // 424:2: -> cardinalDirection
                     {
                         adaptor.addChild(root_0, stream_cardinalDirection.nextTree());
 
@@ -9232,14 +9262,14 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:420:4: ordinalDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:4: ordinalDirection
                     {
-                    pushFollow(FOLLOW_ordinalDirection_in_fixedDirection2282);
-                    ordinalDirection276=ordinalDirection();
+                    pushFollow(FOLLOW_ordinalDirection_in_fixedDirection2286);
+                    ordinalDirection273=ordinalDirection();
 
                     state._fsp--;
 
-                    stream_ordinalDirection.add(ordinalDirection276.getTree());
+                    stream_ordinalDirection.add(ordinalDirection273.getTree());
 
 
                     // AST REWRITE
@@ -9253,7 +9283,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 421:2: -> ordinalDirection
+                    // 426:2: -> ordinalDirection
                     {
                         adaptor.addChild(root_0, stream_ordinalDirection.nextTree());
 
@@ -9263,14 +9293,14 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:422:4: subOrdinalDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:427:4: subOrdinalDirection
                     {
-                    pushFollow(FOLLOW_subOrdinalDirection_in_fixedDirection2292);
-                    subOrdinalDirection277=subOrdinalDirection();
+                    pushFollow(FOLLOW_subOrdinalDirection_in_fixedDirection2296);
+                    subOrdinalDirection274=subOrdinalDirection();
 
                     state._fsp--;
 
-                    stream_subOrdinalDirection.add(subOrdinalDirection277.getTree());
+                    stream_subOrdinalDirection.add(subOrdinalDirection274.getTree());
 
 
                     // AST REWRITE
@@ -9284,7 +9314,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 423:2: -> subOrdinalDirection
+                    // 428:2: -> subOrdinalDirection
                     {
                         adaptor.addChild(root_0, stream_subOrdinalDirection.nextTree());
 
@@ -9294,9 +9324,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:4: ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:4: ( Turning | Heading ) ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:4: ( Turning | Heading )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:4: ( Turning | Heading )
                     int alt94=2;
                     int LA94_0 = input.LA(1);
 
@@ -9314,19 +9344,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt94) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:5: Turning
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:5: Turning
                             {
-                            Turning278=(Token)match(input,Turning,FOLLOW_Turning_in_fixedDirection2303);  
-                            stream_Turning.add(Turning278);
+                            Turning275=(Token)match(input,Turning,FOLLOW_Turning_in_fixedDirection2307);  
+                            stream_Turning.add(Turning275);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:13: Heading
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:13: Heading
                             {
-                            Heading279=(Token)match(input,Heading,FOLLOW_Heading_in_fixedDirection2305);  
-                            stream_Heading.add(Heading279);
+                            Heading276=(Token)match(input,Heading,FOLLOW_Heading_in_fixedDirection2309);  
+                            stream_Heading.add(Heading276);
 
 
                             }
@@ -9334,7 +9364,7 @@ public class flipsParser extends Parser {
 
                     }
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:22: ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:22: ( cardinalDirection | ordinalDirection | subOrdinalDirection | angularValue )
                     int alt95=4;
                     switch ( input.LA(1) ) {
                     case 200:
@@ -9399,50 +9429,50 @@ public class flipsParser extends Parser {
 
                     switch (alt95) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:23: cardinalDirection
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:23: cardinalDirection
                             {
-                            pushFollow(FOLLOW_cardinalDirection_in_fixedDirection2309);
-                            cardinalDirection280=cardinalDirection();
+                            pushFollow(FOLLOW_cardinalDirection_in_fixedDirection2313);
+                            cardinalDirection277=cardinalDirection();
 
                             state._fsp--;
 
-                            stream_cardinalDirection.add(cardinalDirection280.getTree());
+                            stream_cardinalDirection.add(cardinalDirection277.getTree());
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:41: ordinalDirection
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:41: ordinalDirection
                             {
-                            pushFollow(FOLLOW_ordinalDirection_in_fixedDirection2311);
-                            ordinalDirection281=ordinalDirection();
+                            pushFollow(FOLLOW_ordinalDirection_in_fixedDirection2315);
+                            ordinalDirection278=ordinalDirection();
 
                             state._fsp--;
 
-                            stream_ordinalDirection.add(ordinalDirection281.getTree());
+                            stream_ordinalDirection.add(ordinalDirection278.getTree());
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:58: subOrdinalDirection
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:58: subOrdinalDirection
                             {
-                            pushFollow(FOLLOW_subOrdinalDirection_in_fixedDirection2313);
-                            subOrdinalDirection282=subOrdinalDirection();
+                            pushFollow(FOLLOW_subOrdinalDirection_in_fixedDirection2317);
+                            subOrdinalDirection279=subOrdinalDirection();
 
                             state._fsp--;
 
-                            stream_subOrdinalDirection.add(subOrdinalDirection282.getTree());
+                            stream_subOrdinalDirection.add(subOrdinalDirection279.getTree());
 
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:424:78: angularValue
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:78: angularValue
                             {
-                            pushFollow(FOLLOW_angularValue_in_fixedDirection2315);
-                            angularValue283=angularValue();
+                            pushFollow(FOLLOW_angularValue_in_fixedDirection2319);
+                            angularValue280=angularValue();
 
                             state._fsp--;
 
-                            stream_angularValue.add(angularValue283.getTree());
+                            stream_angularValue.add(angularValue280.getTree());
 
                             }
                             break;
@@ -9452,7 +9482,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: ordinalDirection, cardinalDirection, subOrdinalDirection, angularValue
+                    // elements: subOrdinalDirection, cardinalDirection, ordinalDirection, angularValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -9462,27 +9492,27 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 425:2: -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )?
+                    // 430:2: -> ( cardinalDirection )? ( ordinalDirection )? ( subOrdinalDirection )? ( angularValue )?
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:5: ( cardinalDirection )?
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:430:5: ( cardinalDirection )?
                         if ( stream_cardinalDirection.hasNext() ) {
                             adaptor.addChild(root_0, stream_cardinalDirection.nextTree());
 
                         }
                         stream_cardinalDirection.reset();
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:24: ( ordinalDirection )?
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:430:24: ( ordinalDirection )?
                         if ( stream_ordinalDirection.hasNext() ) {
                             adaptor.addChild(root_0, stream_ordinalDirection.nextTree());
 
                         }
                         stream_ordinalDirection.reset();
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:42: ( subOrdinalDirection )?
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:430:42: ( subOrdinalDirection )?
                         if ( stream_subOrdinalDirection.hasNext() ) {
                             adaptor.addChild(root_0, stream_subOrdinalDirection.nextTree());
 
                         }
                         stream_subOrdinalDirection.reset();
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:425:63: ( angularValue )?
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:430:63: ( angularValue )?
                         if ( stream_angularValue.hasNext() ) {
                             adaptor.addChild(root_0, stream_angularValue.nextTree());
 
@@ -9520,31 +9550,31 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "relativeDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:428:1: relativeDirection : ( Turning | Heading ) leftRightDirection angularValue -> leftRightDirection angularValue ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:433:1: relativeDirection : ( Turning | Heading ) leftRightDirection angularValue -> leftRightDirection angularValue ;
     public final flipsParser.relativeDirection_return relativeDirection() throws RecognitionException {
         flipsParser.relativeDirection_return retval = new flipsParser.relativeDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token Turning284=null;
-        Token Heading285=null;
-        flipsParser.leftRightDirection_return leftRightDirection286 = null;
+        Token Turning281=null;
+        Token Heading282=null;
+        flipsParser.leftRightDirection_return leftRightDirection283 = null;
 
-        flipsParser.angularValue_return angularValue287 = null;
+        flipsParser.angularValue_return angularValue284 = null;
 
 
-        CommonTree Turning284_tree=null;
-        CommonTree Heading285_tree=null;
+        CommonTree Turning281_tree=null;
+        CommonTree Heading282_tree=null;
         RewriteRuleTokenStream stream_Turning=new RewriteRuleTokenStream(adaptor,"token Turning");
         RewriteRuleTokenStream stream_Heading=new RewriteRuleTokenStream(adaptor,"token Heading");
         RewriteRuleSubtreeStream stream_angularValue=new RewriteRuleSubtreeStream(adaptor,"rule angularValue");
         RewriteRuleSubtreeStream stream_leftRightDirection=new RewriteRuleSubtreeStream(adaptor,"rule leftRightDirection");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:2: ( ( Turning | Heading ) leftRightDirection angularValue -> leftRightDirection angularValue )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:4: ( Turning | Heading ) leftRightDirection angularValue
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:2: ( ( Turning | Heading ) leftRightDirection angularValue -> leftRightDirection angularValue )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:4: ( Turning | Heading ) leftRightDirection angularValue
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:4: ( Turning | Heading )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:4: ( Turning | Heading )
             int alt97=2;
             int LA97_0 = input.LA(1);
 
@@ -9562,19 +9592,19 @@ public class flipsParser extends Parser {
             }
             switch (alt97) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:5: Turning
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:5: Turning
                     {
-                    Turning284=(Token)match(input,Turning,FOLLOW_Turning_in_relativeDirection2343);  
-                    stream_Turning.add(Turning284);
+                    Turning281=(Token)match(input,Turning,FOLLOW_Turning_in_relativeDirection2347);  
+                    stream_Turning.add(Turning281);
 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:429:13: Heading
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:13: Heading
                     {
-                    Heading285=(Token)match(input,Heading,FOLLOW_Heading_in_relativeDirection2345);  
-                    stream_Heading.add(Heading285);
+                    Heading282=(Token)match(input,Heading,FOLLOW_Heading_in_relativeDirection2349);  
+                    stream_Heading.add(Heading282);
 
 
                     }
@@ -9582,18 +9612,18 @@ public class flipsParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_leftRightDirection_in_relativeDirection2348);
-            leftRightDirection286=leftRightDirection();
+            pushFollow(FOLLOW_leftRightDirection_in_relativeDirection2352);
+            leftRightDirection283=leftRightDirection();
 
             state._fsp--;
 
-            stream_leftRightDirection.add(leftRightDirection286.getTree());
-            pushFollow(FOLLOW_angularValue_in_relativeDirection2350);
-            angularValue287=angularValue();
+            stream_leftRightDirection.add(leftRightDirection283.getTree());
+            pushFollow(FOLLOW_angularValue_in_relativeDirection2354);
+            angularValue284=angularValue();
 
             state._fsp--;
 
-            stream_angularValue.add(angularValue287.getTree());
+            stream_angularValue.add(angularValue284.getTree());
 
 
             // AST REWRITE
@@ -9607,7 +9637,7 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 430:2: -> leftRightDirection angularValue
+            // 435:2: -> leftRightDirection angularValue
             {
                 adaptor.addChild(root_0, stream_leftRightDirection.nextTree());
                 adaptor.addChild(root_0, stream_angularValue.nextTree());
@@ -9641,21 +9671,21 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "cardinalDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:433:1: cardinalDirection : ( northSouthDirection | eastWestDirection );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:438:1: cardinalDirection : ( northSouthDirection | eastWestDirection );
     public final flipsParser.cardinalDirection_return cardinalDirection() throws RecognitionException {
         flipsParser.cardinalDirection_return retval = new flipsParser.cardinalDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        flipsParser.northSouthDirection_return northSouthDirection288 = null;
+        flipsParser.northSouthDirection_return northSouthDirection285 = null;
 
-        flipsParser.eastWestDirection_return eastWestDirection289 = null;
+        flipsParser.eastWestDirection_return eastWestDirection286 = null;
 
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:2: ( northSouthDirection | eastWestDirection )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:2: ( northSouthDirection | eastWestDirection )
             int alt98=2;
             int LA98_0 = input.LA(1);
 
@@ -9673,30 +9703,30 @@ public class flipsParser extends Parser {
             }
             switch (alt98) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:434:4: northSouthDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:4: northSouthDirection
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_northSouthDirection_in_cardinalDirection2368);
-                    northSouthDirection288=northSouthDirection();
+                    pushFollow(FOLLOW_northSouthDirection_in_cardinalDirection2372);
+                    northSouthDirection285=northSouthDirection();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, northSouthDirection288.getTree());
+                    adaptor.addChild(root_0, northSouthDirection285.getTree());
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:435:4: eastWestDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:440:4: eastWestDirection
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_eastWestDirection_in_cardinalDirection2373);
-                    eastWestDirection289=eastWestDirection();
+                    pushFollow(FOLLOW_eastWestDirection_in_cardinalDirection2377);
+                    eastWestDirection286=eastWestDirection();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, eastWestDirection289.getTree());
+                    adaptor.addChild(root_0, eastWestDirection286.getTree());
 
                     }
                     break;
@@ -9726,29 +9756,29 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "northSouthDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:438:1: northSouthDirection : ( ( 'n' | 'north' ) -> NORTH | ( 's' | 'south' ) -> SOUTH );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:443:1: northSouthDirection : ( ( 'n' | 'north' ) -> NORTH | ( 's' | 'south' ) -> SOUTH );
     public final flipsParser.northSouthDirection_return northSouthDirection() throws RecognitionException {
         flipsParser.northSouthDirection_return retval = new flipsParser.northSouthDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal290=null;
-        Token string_literal291=null;
-        Token char_literal292=null;
-        Token string_literal293=null;
+        Token char_literal287=null;
+        Token string_literal288=null;
+        Token char_literal289=null;
+        Token string_literal290=null;
 
-        CommonTree char_literal290_tree=null;
-        CommonTree string_literal291_tree=null;
-        CommonTree char_literal292_tree=null;
-        CommonTree string_literal293_tree=null;
+        CommonTree char_literal287_tree=null;
+        CommonTree string_literal288_tree=null;
+        CommonTree char_literal289_tree=null;
+        CommonTree string_literal290_tree=null;
         RewriteRuleTokenStream stream_200=new RewriteRuleTokenStream(adaptor,"token 200");
         RewriteRuleTokenStream stream_206=new RewriteRuleTokenStream(adaptor,"token 206");
         RewriteRuleTokenStream stream_207=new RewriteRuleTokenStream(adaptor,"token 207");
         RewriteRuleTokenStream stream_208=new RewriteRuleTokenStream(adaptor,"token 208");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:2: ( ( 'n' | 'north' ) -> NORTH | ( 's' | 'south' ) -> SOUTH )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:444:2: ( ( 'n' | 'north' ) -> NORTH | ( 's' | 'south' ) -> SOUTH )
             int alt101=2;
             int LA101_0 = input.LA(1);
 
@@ -9766,9 +9796,9 @@ public class flipsParser extends Parser {
             }
             switch (alt101) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:4: ( 'n' | 'north' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:444:4: ( 'n' | 'north' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:4: ( 'n' | 'north' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:444:4: ( 'n' | 'north' )
                     int alt99=2;
                     int LA99_0 = input.LA(1);
 
@@ -9786,19 +9816,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt99) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:5: 'n'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:444:5: 'n'
                             {
-                            char_literal290=(Token)match(input,206,FOLLOW_206_in_northSouthDirection2385);  
-                            stream_206.add(char_literal290);
+                            char_literal287=(Token)match(input,206,FOLLOW_206_in_northSouthDirection2389);  
+                            stream_206.add(char_literal287);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:439:9: 'north'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:444:9: 'north'
                             {
-                            string_literal291=(Token)match(input,207,FOLLOW_207_in_northSouthDirection2387);  
-                            stream_207.add(string_literal291);
+                            string_literal288=(Token)match(input,207,FOLLOW_207_in_northSouthDirection2391);  
+                            stream_207.add(string_literal288);
 
 
                             }
@@ -9819,7 +9849,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 440:2: -> NORTH
+                    // 445:2: -> NORTH
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
 
@@ -9829,9 +9859,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:4: ( 's' | 'south' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:4: ( 's' | 'south' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:4: ( 's' | 'south' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:4: ( 's' | 'south' )
                     int alt100=2;
                     int LA100_0 = input.LA(1);
 
@@ -9849,19 +9879,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt100) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:5: 's'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:5: 's'
                             {
-                            char_literal292=(Token)match(input,200,FOLLOW_200_in_northSouthDirection2399);  
-                            stream_200.add(char_literal292);
+                            char_literal289=(Token)match(input,200,FOLLOW_200_in_northSouthDirection2403);  
+                            stream_200.add(char_literal289);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:441:9: 'south'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:9: 'south'
                             {
-                            string_literal293=(Token)match(input,208,FOLLOW_208_in_northSouthDirection2401);  
-                            stream_208.add(string_literal293);
+                            string_literal290=(Token)match(input,208,FOLLOW_208_in_northSouthDirection2405);  
+                            stream_208.add(string_literal290);
 
 
                             }
@@ -9882,7 +9912,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 442:2: -> SOUTH
+                    // 447:2: -> SOUTH
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
 
@@ -9917,29 +9947,29 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "eastWestDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:445:1: eastWestDirection : ( ( 'e' | 'east' ) -> EAST | ( 'w' | 'west' ) -> WEST );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:450:1: eastWestDirection : ( ( 'e' | 'east' ) -> EAST | ( 'w' | 'west' ) -> WEST );
     public final flipsParser.eastWestDirection_return eastWestDirection() throws RecognitionException {
         flipsParser.eastWestDirection_return retval = new flipsParser.eastWestDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal294=null;
-        Token string_literal295=null;
-        Token char_literal296=null;
-        Token string_literal297=null;
+        Token char_literal291=null;
+        Token string_literal292=null;
+        Token char_literal293=null;
+        Token string_literal294=null;
 
-        CommonTree char_literal294_tree=null;
-        CommonTree string_literal295_tree=null;
-        CommonTree char_literal296_tree=null;
-        CommonTree string_literal297_tree=null;
+        CommonTree char_literal291_tree=null;
+        CommonTree string_literal292_tree=null;
+        CommonTree char_literal293_tree=null;
+        CommonTree string_literal294_tree=null;
         RewriteRuleTokenStream stream_211=new RewriteRuleTokenStream(adaptor,"token 211");
         RewriteRuleTokenStream stream_212=new RewriteRuleTokenStream(adaptor,"token 212");
         RewriteRuleTokenStream stream_210=new RewriteRuleTokenStream(adaptor,"token 210");
         RewriteRuleTokenStream stream_209=new RewriteRuleTokenStream(adaptor,"token 209");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:2: ( ( 'e' | 'east' ) -> EAST | ( 'w' | 'west' ) -> WEST )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:451:2: ( ( 'e' | 'east' ) -> EAST | ( 'w' | 'west' ) -> WEST )
             int alt104=2;
             int LA104_0 = input.LA(1);
 
@@ -9957,9 +9987,9 @@ public class flipsParser extends Parser {
             }
             switch (alt104) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:4: ( 'e' | 'east' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:451:4: ( 'e' | 'east' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:4: ( 'e' | 'east' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:451:4: ( 'e' | 'east' )
                     int alt102=2;
                     int LA102_0 = input.LA(1);
 
@@ -9977,19 +10007,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt102) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:5: 'e'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:451:5: 'e'
                             {
-                            char_literal294=(Token)match(input,209,FOLLOW_209_in_eastWestDirection2419);  
-                            stream_209.add(char_literal294);
+                            char_literal291=(Token)match(input,209,FOLLOW_209_in_eastWestDirection2423);  
+                            stream_209.add(char_literal291);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:446:9: 'east'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:451:9: 'east'
                             {
-                            string_literal295=(Token)match(input,210,FOLLOW_210_in_eastWestDirection2421);  
-                            stream_210.add(string_literal295);
+                            string_literal292=(Token)match(input,210,FOLLOW_210_in_eastWestDirection2425);  
+                            stream_210.add(string_literal292);
 
 
                             }
@@ -10010,7 +10040,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 447:2: -> EAST
+                    // 452:2: -> EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
 
@@ -10020,9 +10050,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:4: ( 'w' | 'west' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:4: ( 'w' | 'west' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:4: ( 'w' | 'west' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:4: ( 'w' | 'west' )
                     int alt103=2;
                     int LA103_0 = input.LA(1);
 
@@ -10040,19 +10070,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt103) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:5: 'w'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:5: 'w'
                             {
-                            char_literal296=(Token)match(input,211,FOLLOW_211_in_eastWestDirection2433);  
-                            stream_211.add(char_literal296);
+                            char_literal293=(Token)match(input,211,FOLLOW_211_in_eastWestDirection2437);  
+                            stream_211.add(char_literal293);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:448:9: 'west'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:9: 'west'
                             {
-                            string_literal297=(Token)match(input,212,FOLLOW_212_in_eastWestDirection2435);  
-                            stream_212.add(string_literal297);
+                            string_literal294=(Token)match(input,212,FOLLOW_212_in_eastWestDirection2439);  
+                            stream_212.add(string_literal294);
 
 
                             }
@@ -10073,7 +10103,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 449:2: -> WEST
+                    // 454:2: -> WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
 
@@ -10108,30 +10138,30 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "ordinalDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:452:1: ordinalDirection : ( ( 'ne' | 'northeast' ) -> NORTH EAST | ( 'se' | 'southeast' ) -> SOUTH EAST | ( 'sw' | 'southwest' ) -> SOUTH WEST | ( 'nw' | 'northwest' ) -> NORTH WEST );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:1: ordinalDirection : ( ( 'ne' | 'northeast' ) -> NORTH EAST | ( 'se' | 'southeast' ) -> SOUTH EAST | ( 'sw' | 'southwest' ) -> SOUTH WEST | ( 'nw' | 'northwest' ) -> NORTH WEST );
     public final flipsParser.ordinalDirection_return ordinalDirection() throws RecognitionException {
         flipsParser.ordinalDirection_return retval = new flipsParser.ordinalDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
+        Token string_literal295=null;
+        Token string_literal296=null;
+        Token string_literal297=null;
         Token string_literal298=null;
         Token string_literal299=null;
         Token string_literal300=null;
         Token string_literal301=null;
         Token string_literal302=null;
-        Token string_literal303=null;
-        Token string_literal304=null;
-        Token string_literal305=null;
 
+        CommonTree string_literal295_tree=null;
+        CommonTree string_literal296_tree=null;
+        CommonTree string_literal297_tree=null;
         CommonTree string_literal298_tree=null;
         CommonTree string_literal299_tree=null;
         CommonTree string_literal300_tree=null;
         CommonTree string_literal301_tree=null;
         CommonTree string_literal302_tree=null;
-        CommonTree string_literal303_tree=null;
-        CommonTree string_literal304_tree=null;
-        CommonTree string_literal305_tree=null;
         RewriteRuleTokenStream stream_220=new RewriteRuleTokenStream(adaptor,"token 220");
         RewriteRuleTokenStream stream_215=new RewriteRuleTokenStream(adaptor,"token 215");
         RewriteRuleTokenStream stream_216=new RewriteRuleTokenStream(adaptor,"token 216");
@@ -10142,7 +10172,7 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_218=new RewriteRuleTokenStream(adaptor,"token 218");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:2: ( ( 'ne' | 'northeast' ) -> NORTH EAST | ( 'se' | 'southeast' ) -> SOUTH EAST | ( 'sw' | 'southwest' ) -> SOUTH WEST | ( 'nw' | 'northwest' ) -> NORTH WEST )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:458:2: ( ( 'ne' | 'northeast' ) -> NORTH EAST | ( 'se' | 'southeast' ) -> SOUTH EAST | ( 'sw' | 'southwest' ) -> SOUTH WEST | ( 'nw' | 'northwest' ) -> NORTH WEST )
             int alt109=4;
             switch ( input.LA(1) ) {
             case 213:
@@ -10178,9 +10208,9 @@ public class flipsParser extends Parser {
 
             switch (alt109) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:4: ( 'ne' | 'northeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:458:4: ( 'ne' | 'northeast' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:4: ( 'ne' | 'northeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:458:4: ( 'ne' | 'northeast' )
                     int alt105=2;
                     int LA105_0 = input.LA(1);
 
@@ -10198,19 +10228,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt105) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:5: 'ne'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:458:5: 'ne'
                             {
-                            string_literal298=(Token)match(input,213,FOLLOW_213_in_ordinalDirection2453);  
-                            stream_213.add(string_literal298);
+                            string_literal295=(Token)match(input,213,FOLLOW_213_in_ordinalDirection2457);  
+                            stream_213.add(string_literal295);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:453:10: 'northeast'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:458:10: 'northeast'
                             {
-                            string_literal299=(Token)match(input,214,FOLLOW_214_in_ordinalDirection2455);  
-                            stream_214.add(string_literal299);
+                            string_literal296=(Token)match(input,214,FOLLOW_214_in_ordinalDirection2459);  
+                            stream_214.add(string_literal296);
 
 
                             }
@@ -10231,7 +10261,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 454:2: -> NORTH EAST
+                    // 459:2: -> NORTH EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
@@ -10242,9 +10272,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:4: ( 'se' | 'southeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:460:4: ( 'se' | 'southeast' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:4: ( 'se' | 'southeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:460:4: ( 'se' | 'southeast' )
                     int alt106=2;
                     int LA106_0 = input.LA(1);
 
@@ -10262,19 +10292,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt106) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:5: 'se'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:460:5: 'se'
                             {
-                            string_literal300=(Token)match(input,215,FOLLOW_215_in_ordinalDirection2469);  
-                            stream_215.add(string_literal300);
+                            string_literal297=(Token)match(input,215,FOLLOW_215_in_ordinalDirection2473);  
+                            stream_215.add(string_literal297);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:455:10: 'southeast'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:460:10: 'southeast'
                             {
-                            string_literal301=(Token)match(input,216,FOLLOW_216_in_ordinalDirection2471);  
-                            stream_216.add(string_literal301);
+                            string_literal298=(Token)match(input,216,FOLLOW_216_in_ordinalDirection2475);  
+                            stream_216.add(string_literal298);
 
 
                             }
@@ -10295,7 +10325,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 456:2: -> SOUTH EAST
+                    // 461:2: -> SOUTH EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
@@ -10306,9 +10336,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:4: ( 'sw' | 'southwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:462:4: ( 'sw' | 'southwest' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:4: ( 'sw' | 'southwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:462:4: ( 'sw' | 'southwest' )
                     int alt107=2;
                     int LA107_0 = input.LA(1);
 
@@ -10326,19 +10356,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt107) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:5: 'sw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:462:5: 'sw'
                             {
-                            string_literal302=(Token)match(input,217,FOLLOW_217_in_ordinalDirection2485);  
-                            stream_217.add(string_literal302);
+                            string_literal299=(Token)match(input,217,FOLLOW_217_in_ordinalDirection2489);  
+                            stream_217.add(string_literal299);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:457:10: 'southwest'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:462:10: 'southwest'
                             {
-                            string_literal303=(Token)match(input,218,FOLLOW_218_in_ordinalDirection2487);  
-                            stream_218.add(string_literal303);
+                            string_literal300=(Token)match(input,218,FOLLOW_218_in_ordinalDirection2491);  
+                            stream_218.add(string_literal300);
 
 
                             }
@@ -10359,7 +10389,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 458:2: -> SOUTH WEST
+                    // 463:2: -> SOUTH WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
@@ -10370,9 +10400,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:4: ( 'nw' | 'northwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:4: ( 'nw' | 'northwest' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:4: ( 'nw' | 'northwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:4: ( 'nw' | 'northwest' )
                     int alt108=2;
                     int LA108_0 = input.LA(1);
 
@@ -10390,19 +10420,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt108) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:5: 'nw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:5: 'nw'
                             {
-                            string_literal304=(Token)match(input,219,FOLLOW_219_in_ordinalDirection2501);  
-                            stream_219.add(string_literal304);
+                            string_literal301=(Token)match(input,219,FOLLOW_219_in_ordinalDirection2505);  
+                            stream_219.add(string_literal301);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:459:10: 'northwest'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:10: 'northwest'
                             {
-                            string_literal305=(Token)match(input,220,FOLLOW_220_in_ordinalDirection2503);  
-                            stream_220.add(string_literal305);
+                            string_literal302=(Token)match(input,220,FOLLOW_220_in_ordinalDirection2507);  
+                            stream_220.add(string_literal302);
 
 
                             }
@@ -10423,7 +10453,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 460:2: -> NORTH WEST
+                    // 465:2: -> NORTH WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
@@ -10459,13 +10489,16 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "subOrdinalDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:463:1: subOrdinalDirection : ( ( 'nne' | 'north-northeast' ) -> NORTH NORTH EAST | ( 'ene' | 'east-northeast' ) -> EAST NORTH EAST | ( 'ese' | 'east-southeast' ) -> EAST SOUTH EAST | ( 'sse' | 'south-southeast' ) -> SOUTH SOUTH EAST | ( 'ssw' | 'south-southwest' ) -> SOUTH SOUTH WEST | ( 'wsw' | 'west-southwest' ) -> WEST SOUTH WEST | ( 'wnw' | 'west-northwest' ) -> WEST NORTH WEST | ( 'nnw' | 'north-northwest' ) -> NORTH NORTH WEST );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:1: subOrdinalDirection : ( ( 'nne' | 'north-northeast' ) -> NORTH NORTH EAST | ( 'ene' | 'east-northeast' ) -> EAST NORTH EAST | ( 'ese' | 'east-southeast' ) -> EAST SOUTH EAST | ( 'sse' | 'south-southeast' ) -> SOUTH SOUTH EAST | ( 'ssw' | 'south-southwest' ) -> SOUTH SOUTH WEST | ( 'wsw' | 'west-southwest' ) -> WEST SOUTH WEST | ( 'wnw' | 'west-northwest' ) -> WEST NORTH WEST | ( 'nnw' | 'north-northwest' ) -> NORTH NORTH WEST );
     public final flipsParser.subOrdinalDirection_return subOrdinalDirection() throws RecognitionException {
         flipsParser.subOrdinalDirection_return retval = new flipsParser.subOrdinalDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
+        Token string_literal303=null;
+        Token string_literal304=null;
+        Token string_literal305=null;
         Token string_literal306=null;
         Token string_literal307=null;
         Token string_literal308=null;
@@ -10479,10 +10512,10 @@ public class flipsParser extends Parser {
         Token string_literal316=null;
         Token string_literal317=null;
         Token string_literal318=null;
-        Token string_literal319=null;
-        Token string_literal320=null;
-        Token string_literal321=null;
 
+        CommonTree string_literal303_tree=null;
+        CommonTree string_literal304_tree=null;
+        CommonTree string_literal305_tree=null;
         CommonTree string_literal306_tree=null;
         CommonTree string_literal307_tree=null;
         CommonTree string_literal308_tree=null;
@@ -10496,9 +10529,6 @@ public class flipsParser extends Parser {
         CommonTree string_literal316_tree=null;
         CommonTree string_literal317_tree=null;
         CommonTree string_literal318_tree=null;
-        CommonTree string_literal319_tree=null;
-        CommonTree string_literal320_tree=null;
-        CommonTree string_literal321_tree=null;
         RewriteRuleTokenStream stream_221=new RewriteRuleTokenStream(adaptor,"token 221");
         RewriteRuleTokenStream stream_222=new RewriteRuleTokenStream(adaptor,"token 222");
         RewriteRuleTokenStream stream_223=new RewriteRuleTokenStream(adaptor,"token 223");
@@ -10517,7 +10547,7 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_235=new RewriteRuleTokenStream(adaptor,"token 235");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:2: ( ( 'nne' | 'north-northeast' ) -> NORTH NORTH EAST | ( 'ene' | 'east-northeast' ) -> EAST NORTH EAST | ( 'ese' | 'east-southeast' ) -> EAST SOUTH EAST | ( 'sse' | 'south-southeast' ) -> SOUTH SOUTH EAST | ( 'ssw' | 'south-southwest' ) -> SOUTH SOUTH WEST | ( 'wsw' | 'west-southwest' ) -> WEST SOUTH WEST | ( 'wnw' | 'west-northwest' ) -> WEST NORTH WEST | ( 'nnw' | 'north-northwest' ) -> NORTH NORTH WEST )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:469:2: ( ( 'nne' | 'north-northeast' ) -> NORTH NORTH EAST | ( 'ene' | 'east-northeast' ) -> EAST NORTH EAST | ( 'ese' | 'east-southeast' ) -> EAST SOUTH EAST | ( 'sse' | 'south-southeast' ) -> SOUTH SOUTH EAST | ( 'ssw' | 'south-southwest' ) -> SOUTH SOUTH WEST | ( 'wsw' | 'west-southwest' ) -> WEST SOUTH WEST | ( 'wnw' | 'west-northwest' ) -> WEST NORTH WEST | ( 'nnw' | 'north-northwest' ) -> NORTH NORTH WEST )
             int alt118=8;
             switch ( input.LA(1) ) {
             case 221:
@@ -10577,9 +10607,9 @@ public class flipsParser extends Parser {
 
             switch (alt118) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:4: ( 'nne' | 'north-northeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:469:4: ( 'nne' | 'north-northeast' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:4: ( 'nne' | 'north-northeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:469:4: ( 'nne' | 'north-northeast' )
                     int alt110=2;
                     int LA110_0 = input.LA(1);
 
@@ -10597,19 +10627,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt110) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:5: 'nne'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:469:5: 'nne'
                             {
-                            string_literal306=(Token)match(input,221,FOLLOW_221_in_subOrdinalDirection2523);  
-                            stream_221.add(string_literal306);
+                            string_literal303=(Token)match(input,221,FOLLOW_221_in_subOrdinalDirection2527);  
+                            stream_221.add(string_literal303);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:464:11: 'north-northeast'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:469:11: 'north-northeast'
                             {
-                            string_literal307=(Token)match(input,222,FOLLOW_222_in_subOrdinalDirection2525);  
-                            stream_222.add(string_literal307);
+                            string_literal304=(Token)match(input,222,FOLLOW_222_in_subOrdinalDirection2529);  
+                            stream_222.add(string_literal304);
 
 
                             }
@@ -10630,7 +10660,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 465:2: -> NORTH NORTH EAST
+                    // 470:2: -> NORTH NORTH EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
@@ -10642,9 +10672,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:4: ( 'ene' | 'east-northeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:471:4: ( 'ene' | 'east-northeast' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:4: ( 'ene' | 'east-northeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:471:4: ( 'ene' | 'east-northeast' )
                     int alt111=2;
                     int LA111_0 = input.LA(1);
 
@@ -10662,19 +10692,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt111) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:5: 'ene'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:471:5: 'ene'
                             {
-                            string_literal308=(Token)match(input,223,FOLLOW_223_in_subOrdinalDirection2541);  
-                            stream_223.add(string_literal308);
+                            string_literal305=(Token)match(input,223,FOLLOW_223_in_subOrdinalDirection2545);  
+                            stream_223.add(string_literal305);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:466:11: 'east-northeast'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:471:11: 'east-northeast'
                             {
-                            string_literal309=(Token)match(input,224,FOLLOW_224_in_subOrdinalDirection2543);  
-                            stream_224.add(string_literal309);
+                            string_literal306=(Token)match(input,224,FOLLOW_224_in_subOrdinalDirection2547);  
+                            stream_224.add(string_literal306);
 
 
                             }
@@ -10695,7 +10725,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 467:2: -> EAST NORTH EAST
+                    // 472:2: -> EAST NORTH EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
@@ -10707,9 +10737,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:4: ( 'ese' | 'east-southeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:473:4: ( 'ese' | 'east-southeast' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:4: ( 'ese' | 'east-southeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:473:4: ( 'ese' | 'east-southeast' )
                     int alt112=2;
                     int LA112_0 = input.LA(1);
 
@@ -10727,19 +10757,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt112) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:5: 'ese'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:473:5: 'ese'
                             {
-                            string_literal310=(Token)match(input,225,FOLLOW_225_in_subOrdinalDirection2559);  
-                            stream_225.add(string_literal310);
+                            string_literal307=(Token)match(input,225,FOLLOW_225_in_subOrdinalDirection2563);  
+                            stream_225.add(string_literal307);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:468:11: 'east-southeast'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:473:11: 'east-southeast'
                             {
-                            string_literal311=(Token)match(input,226,FOLLOW_226_in_subOrdinalDirection2561);  
-                            stream_226.add(string_literal311);
+                            string_literal308=(Token)match(input,226,FOLLOW_226_in_subOrdinalDirection2565);  
+                            stream_226.add(string_literal308);
 
 
                             }
@@ -10760,7 +10790,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 469:2: -> EAST SOUTH EAST
+                    // 474:2: -> EAST SOUTH EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(EAST, "EAST"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
@@ -10772,9 +10802,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:4: ( 'sse' | 'south-southeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:475:4: ( 'sse' | 'south-southeast' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:4: ( 'sse' | 'south-southeast' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:475:4: ( 'sse' | 'south-southeast' )
                     int alt113=2;
                     int LA113_0 = input.LA(1);
 
@@ -10792,19 +10822,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt113) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:5: 'sse'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:475:5: 'sse'
                             {
-                            string_literal312=(Token)match(input,227,FOLLOW_227_in_subOrdinalDirection2577);  
-                            stream_227.add(string_literal312);
+                            string_literal309=(Token)match(input,227,FOLLOW_227_in_subOrdinalDirection2581);  
+                            stream_227.add(string_literal309);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:470:11: 'south-southeast'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:475:11: 'south-southeast'
                             {
-                            string_literal313=(Token)match(input,228,FOLLOW_228_in_subOrdinalDirection2579);  
-                            stream_228.add(string_literal313);
+                            string_literal310=(Token)match(input,228,FOLLOW_228_in_subOrdinalDirection2583);  
+                            stream_228.add(string_literal310);
 
 
                             }
@@ -10825,7 +10855,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 471:2: -> SOUTH SOUTH EAST
+                    // 476:2: -> SOUTH SOUTH EAST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
@@ -10837,9 +10867,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:4: ( 'ssw' | 'south-southwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:477:4: ( 'ssw' | 'south-southwest' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:4: ( 'ssw' | 'south-southwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:477:4: ( 'ssw' | 'south-southwest' )
                     int alt114=2;
                     int LA114_0 = input.LA(1);
 
@@ -10857,19 +10887,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt114) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:5: 'ssw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:477:5: 'ssw'
                             {
-                            string_literal314=(Token)match(input,229,FOLLOW_229_in_subOrdinalDirection2595);  
-                            stream_229.add(string_literal314);
+                            string_literal311=(Token)match(input,229,FOLLOW_229_in_subOrdinalDirection2599);  
+                            stream_229.add(string_literal311);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:472:11: 'south-southwest'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:477:11: 'south-southwest'
                             {
-                            string_literal315=(Token)match(input,230,FOLLOW_230_in_subOrdinalDirection2597);  
-                            stream_230.add(string_literal315);
+                            string_literal312=(Token)match(input,230,FOLLOW_230_in_subOrdinalDirection2601);  
+                            stream_230.add(string_literal312);
 
 
                             }
@@ -10890,7 +10920,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 473:2: -> SOUTH SOUTH WEST
+                    // 478:2: -> SOUTH SOUTH WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
@@ -10902,9 +10932,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:4: ( 'wsw' | 'west-southwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:479:4: ( 'wsw' | 'west-southwest' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:4: ( 'wsw' | 'west-southwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:479:4: ( 'wsw' | 'west-southwest' )
                     int alt115=2;
                     int LA115_0 = input.LA(1);
 
@@ -10922,19 +10952,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt115) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:5: 'wsw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:479:5: 'wsw'
                             {
-                            string_literal316=(Token)match(input,231,FOLLOW_231_in_subOrdinalDirection2613);  
-                            stream_231.add(string_literal316);
+                            string_literal313=(Token)match(input,231,FOLLOW_231_in_subOrdinalDirection2617);  
+                            stream_231.add(string_literal313);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:474:11: 'west-southwest'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:479:11: 'west-southwest'
                             {
-                            string_literal317=(Token)match(input,232,FOLLOW_232_in_subOrdinalDirection2615);  
-                            stream_232.add(string_literal317);
+                            string_literal314=(Token)match(input,232,FOLLOW_232_in_subOrdinalDirection2619);  
+                            stream_232.add(string_literal314);
 
 
                             }
@@ -10955,7 +10985,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 475:2: -> WEST SOUTH WEST
+                    // 480:2: -> WEST SOUTH WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
@@ -10967,9 +10997,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:4: ( 'wnw' | 'west-northwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:481:4: ( 'wnw' | 'west-northwest' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:4: ( 'wnw' | 'west-northwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:481:4: ( 'wnw' | 'west-northwest' )
                     int alt116=2;
                     int LA116_0 = input.LA(1);
 
@@ -10987,19 +11017,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt116) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:5: 'wnw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:481:5: 'wnw'
                             {
-                            string_literal318=(Token)match(input,233,FOLLOW_233_in_subOrdinalDirection2631);  
-                            stream_233.add(string_literal318);
+                            string_literal315=(Token)match(input,233,FOLLOW_233_in_subOrdinalDirection2635);  
+                            stream_233.add(string_literal315);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:476:11: 'west-northwest'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:481:11: 'west-northwest'
                             {
-                            string_literal319=(Token)match(input,234,FOLLOW_234_in_subOrdinalDirection2633);  
-                            stream_234.add(string_literal319);
+                            string_literal316=(Token)match(input,234,FOLLOW_234_in_subOrdinalDirection2637);  
+                            stream_234.add(string_literal316);
 
 
                             }
@@ -11020,7 +11050,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 477:2: -> WEST NORTH WEST
+                    // 482:2: -> WEST NORTH WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(WEST, "WEST"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
@@ -11032,9 +11062,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:4: ( 'nnw' | 'north-northwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: ( 'nnw' | 'north-northwest' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:4: ( 'nnw' | 'north-northwest' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: ( 'nnw' | 'north-northwest' )
                     int alt117=2;
                     int LA117_0 = input.LA(1);
 
@@ -11052,19 +11082,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt117) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:5: 'nnw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:5: 'nnw'
                             {
-                            string_literal320=(Token)match(input,235,FOLLOW_235_in_subOrdinalDirection2649);  
-                            stream_235.add(string_literal320);
+                            string_literal317=(Token)match(input,235,FOLLOW_235_in_subOrdinalDirection2653);  
+                            stream_235.add(string_literal317);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:478:11: 'north-northwest'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:11: 'north-northwest'
                             {
-                            string_literal321=(Token)match(input,236,FOLLOW_236_in_subOrdinalDirection2651);  
-                            stream_236.add(string_literal321);
+                            string_literal318=(Token)match(input,236,FOLLOW_236_in_subOrdinalDirection2655);  
+                            stream_236.add(string_literal318);
 
 
                             }
@@ -11085,7 +11115,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 479:2: -> NORTH NORTH WEST
+                    // 484:2: -> NORTH NORTH WEST
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(NORTH, "NORTH"));
@@ -11122,25 +11152,25 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "loiterDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:482:1: loiterDirection : ( Turning )? clockDirection -> ^( DIRECTION TURN clockDirection ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:487:1: loiterDirection : ( Turning )? clockDirection -> ^( DIRECTION TURN clockDirection ) ;
     public final flipsParser.loiterDirection_return loiterDirection() throws RecognitionException {
         flipsParser.loiterDirection_return retval = new flipsParser.loiterDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token Turning322=null;
-        flipsParser.clockDirection_return clockDirection323 = null;
+        Token Turning319=null;
+        flipsParser.clockDirection_return clockDirection320 = null;
 
 
-        CommonTree Turning322_tree=null;
+        CommonTree Turning319_tree=null;
         RewriteRuleTokenStream stream_Turning=new RewriteRuleTokenStream(adaptor,"token Turning");
         RewriteRuleSubtreeStream stream_clockDirection=new RewriteRuleSubtreeStream(adaptor,"rule clockDirection");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:2: ( ( Turning )? clockDirection -> ^( DIRECTION TURN clockDirection ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: ( Turning )? clockDirection
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:2: ( ( Turning )? clockDirection -> ^( DIRECTION TURN clockDirection ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: ( Turning )? clockDirection
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: ( Turning )?
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: ( Turning )?
             int alt119=2;
             int LA119_0 = input.LA(1);
 
@@ -11149,10 +11179,10 @@ public class flipsParser extends Parser {
             }
             switch (alt119) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:483:4: Turning
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: Turning
                     {
-                    Turning322=(Token)match(input,Turning,FOLLOW_Turning_in_loiterDirection2672);  
-                    stream_Turning.add(Turning322);
+                    Turning319=(Token)match(input,Turning,FOLLOW_Turning_in_loiterDirection2676);  
+                    stream_Turning.add(Turning319);
 
 
                     }
@@ -11160,12 +11190,12 @@ public class flipsParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_clockDirection_in_loiterDirection2675);
-            clockDirection323=clockDirection();
+            pushFollow(FOLLOW_clockDirection_in_loiterDirection2679);
+            clockDirection320=clockDirection();
 
             state._fsp--;
 
-            stream_clockDirection.add(clockDirection323.getTree());
+            stream_clockDirection.add(clockDirection320.getTree());
 
 
             // AST REWRITE
@@ -11179,9 +11209,9 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 484:2: -> ^( DIRECTION TURN clockDirection )
+            // 489:2: -> ^( DIRECTION TURN clockDirection )
             {
-                // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:484:5: ^( DIRECTION TURN clockDirection )
+                // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:489:5: ^( DIRECTION TURN clockDirection )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DIRECTION, "DIRECTION"), root_1);
@@ -11221,36 +11251,36 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "upDownDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:487:1: upDownDirection : ( ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' ) -> CLIMB | ( 'd' | 'down' | 'descend' | 'descending' ) -> DESCEND );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:492:1: upDownDirection : ( ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' ) -> CLIMB | ( 'd' | 'down' | 'descend' | 'descending' ) -> DESCEND );
     public final flipsParser.upDownDirection_return upDownDirection() throws RecognitionException {
         flipsParser.upDownDirection_return retval = new flipsParser.upDownDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal324=null;
+        Token char_literal321=null;
+        Token string_literal322=null;
+        Token char_literal323=null;
+        Token string_literal324=null;
         Token string_literal325=null;
-        Token char_literal326=null;
+        Token string_literal326=null;
         Token string_literal327=null;
-        Token string_literal328=null;
+        Token char_literal328=null;
         Token string_literal329=null;
         Token string_literal330=null;
-        Token char_literal331=null;
-        Token string_literal332=null;
-        Token string_literal333=null;
-        Token string_literal334=null;
+        Token string_literal331=null;
 
-        CommonTree char_literal324_tree=null;
+        CommonTree char_literal321_tree=null;
+        CommonTree string_literal322_tree=null;
+        CommonTree char_literal323_tree=null;
+        CommonTree string_literal324_tree=null;
         CommonTree string_literal325_tree=null;
-        CommonTree char_literal326_tree=null;
+        CommonTree string_literal326_tree=null;
         CommonTree string_literal327_tree=null;
-        CommonTree string_literal328_tree=null;
+        CommonTree char_literal328_tree=null;
         CommonTree string_literal329_tree=null;
         CommonTree string_literal330_tree=null;
-        CommonTree char_literal331_tree=null;
-        CommonTree string_literal332_tree=null;
-        CommonTree string_literal333_tree=null;
-        CommonTree string_literal334_tree=null;
+        CommonTree string_literal331_tree=null;
         RewriteRuleTokenStream stream_239=new RewriteRuleTokenStream(adaptor,"token 239");
         RewriteRuleTokenStream stream_240=new RewriteRuleTokenStream(adaptor,"token 240");
         RewriteRuleTokenStream stream_241=new RewriteRuleTokenStream(adaptor,"token 241");
@@ -11264,7 +11294,7 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_237=new RewriteRuleTokenStream(adaptor,"token 237");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:2: ( ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' ) -> CLIMB | ( 'd' | 'down' | 'descend' | 'descending' ) -> DESCEND )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:2: ( ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' ) -> CLIMB | ( 'd' | 'down' | 'descend' | 'descending' ) -> DESCEND )
             int alt122=2;
             int LA122_0 = input.LA(1);
 
@@ -11282,9 +11312,9 @@ public class flipsParser extends Parser {
             }
             switch (alt122) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:4: ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:4: ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:4: ( 'u' | 'up' | 'c' | 'climb' | 'climbing' | 'ascend' | 'ascending' )
                     int alt120=7;
                     switch ( input.LA(1) ) {
                     case 237:
@@ -11331,64 +11361,64 @@ public class flipsParser extends Parser {
 
                     switch (alt120) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:5: 'u'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:5: 'u'
                             {
-                            char_literal324=(Token)match(input,237,FOLLOW_237_in_upDownDirection2698);  
-                            stream_237.add(char_literal324);
+                            char_literal321=(Token)match(input,237,FOLLOW_237_in_upDownDirection2702);  
+                            stream_237.add(char_literal321);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:9: 'up'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:9: 'up'
                             {
-                            string_literal325=(Token)match(input,238,FOLLOW_238_in_upDownDirection2700);  
-                            stream_238.add(string_literal325);
+                            string_literal322=(Token)match(input,238,FOLLOW_238_in_upDownDirection2704);  
+                            stream_238.add(string_literal322);
 
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:14: 'c'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:14: 'c'
                             {
-                            char_literal326=(Token)match(input,239,FOLLOW_239_in_upDownDirection2702);  
-                            stream_239.add(char_literal326);
+                            char_literal323=(Token)match(input,239,FOLLOW_239_in_upDownDirection2706);  
+                            stream_239.add(char_literal323);
 
 
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:18: 'climb'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:18: 'climb'
                             {
-                            string_literal327=(Token)match(input,240,FOLLOW_240_in_upDownDirection2704);  
-                            stream_240.add(string_literal327);
+                            string_literal324=(Token)match(input,240,FOLLOW_240_in_upDownDirection2708);  
+                            stream_240.add(string_literal324);
 
 
                             }
                             break;
                         case 5 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:26: 'climbing'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:26: 'climbing'
                             {
-                            string_literal328=(Token)match(input,241,FOLLOW_241_in_upDownDirection2706);  
-                            stream_241.add(string_literal328);
+                            string_literal325=(Token)match(input,241,FOLLOW_241_in_upDownDirection2710);  
+                            stream_241.add(string_literal325);
 
 
                             }
                             break;
                         case 6 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:37: 'ascend'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:37: 'ascend'
                             {
-                            string_literal329=(Token)match(input,242,FOLLOW_242_in_upDownDirection2708);  
-                            stream_242.add(string_literal329);
+                            string_literal326=(Token)match(input,242,FOLLOW_242_in_upDownDirection2712);  
+                            stream_242.add(string_literal326);
 
 
                             }
                             break;
                         case 7 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:488:46: 'ascending'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:493:46: 'ascending'
                             {
-                            string_literal330=(Token)match(input,243,FOLLOW_243_in_upDownDirection2710);  
-                            stream_243.add(string_literal330);
+                            string_literal327=(Token)match(input,243,FOLLOW_243_in_upDownDirection2714);  
+                            stream_243.add(string_literal327);
 
 
                             }
@@ -11409,7 +11439,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 489:2: -> CLIMB
+                    // 494:2: -> CLIMB
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(CLIMB, "CLIMB"));
 
@@ -11419,9 +11449,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:4: ( 'd' | 'down' | 'descend' | 'descending' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:4: ( 'd' | 'down' | 'descend' | 'descending' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:4: ( 'd' | 'down' | 'descend' | 'descending' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:4: ( 'd' | 'down' | 'descend' | 'descending' )
                     int alt121=4;
                     switch ( input.LA(1) ) {
                     case 244:
@@ -11453,37 +11483,37 @@ public class flipsParser extends Parser {
 
                     switch (alt121) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:5: 'd'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:5: 'd'
                             {
-                            char_literal331=(Token)match(input,244,FOLLOW_244_in_upDownDirection2722);  
-                            stream_244.add(char_literal331);
+                            char_literal328=(Token)match(input,244,FOLLOW_244_in_upDownDirection2726);  
+                            stream_244.add(char_literal328);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:9: 'down'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:9: 'down'
                             {
-                            string_literal332=(Token)match(input,245,FOLLOW_245_in_upDownDirection2724);  
-                            stream_245.add(string_literal332);
+                            string_literal329=(Token)match(input,245,FOLLOW_245_in_upDownDirection2728);  
+                            stream_245.add(string_literal329);
 
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:16: 'descend'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:16: 'descend'
                             {
-                            string_literal333=(Token)match(input,246,FOLLOW_246_in_upDownDirection2726);  
-                            stream_246.add(string_literal333);
+                            string_literal330=(Token)match(input,246,FOLLOW_246_in_upDownDirection2730);  
+                            stream_246.add(string_literal330);
 
 
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:490:26: 'descending'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:26: 'descending'
                             {
-                            string_literal334=(Token)match(input,247,FOLLOW_247_in_upDownDirection2728);  
-                            stream_247.add(string_literal334);
+                            string_literal331=(Token)match(input,247,FOLLOW_247_in_upDownDirection2732);  
+                            stream_247.add(string_literal331);
 
 
                             }
@@ -11504,7 +11534,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 491:2: -> DESCEND
+                    // 496:2: -> DESCEND
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DESCEND, "DESCEND"));
 
@@ -11539,26 +11569,26 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "leftRightDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:494:1: leftRightDirection : ( ( 'l' | 'left' | 'port' ) -> LEFT | ( 'r' | 'right' | 'starboard' ) -> RIGHT );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:499:1: leftRightDirection : ( ( 'l' | 'left' | 'port' ) -> LEFT | ( 'r' | 'right' | 'starboard' ) -> RIGHT );
     public final flipsParser.leftRightDirection_return leftRightDirection() throws RecognitionException {
         flipsParser.leftRightDirection_return retval = new flipsParser.leftRightDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
+        Token char_literal332=null;
+        Token string_literal333=null;
+        Token string_literal334=null;
         Token char_literal335=null;
         Token string_literal336=null;
         Token string_literal337=null;
-        Token char_literal338=null;
-        Token string_literal339=null;
-        Token string_literal340=null;
 
+        CommonTree char_literal332_tree=null;
+        CommonTree string_literal333_tree=null;
+        CommonTree string_literal334_tree=null;
         CommonTree char_literal335_tree=null;
         CommonTree string_literal336_tree=null;
         CommonTree string_literal337_tree=null;
-        CommonTree char_literal338_tree=null;
-        CommonTree string_literal339_tree=null;
-        CommonTree string_literal340_tree=null;
         RewriteRuleTokenStream stream_250=new RewriteRuleTokenStream(adaptor,"token 250");
         RewriteRuleTokenStream stream_251=new RewriteRuleTokenStream(adaptor,"token 251");
         RewriteRuleTokenStream stream_252=new RewriteRuleTokenStream(adaptor,"token 252");
@@ -11567,7 +11597,7 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_248=new RewriteRuleTokenStream(adaptor,"token 248");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:2: ( ( 'l' | 'left' | 'port' ) -> LEFT | ( 'r' | 'right' | 'starboard' ) -> RIGHT )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:500:2: ( ( 'l' | 'left' | 'port' ) -> LEFT | ( 'r' | 'right' | 'starboard' ) -> RIGHT )
             int alt125=2;
             int LA125_0 = input.LA(1);
 
@@ -11585,9 +11615,9 @@ public class flipsParser extends Parser {
             }
             switch (alt125) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:4: ( 'l' | 'left' | 'port' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:500:4: ( 'l' | 'left' | 'port' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:4: ( 'l' | 'left' | 'port' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:500:4: ( 'l' | 'left' | 'port' )
                     int alt123=3;
                     switch ( input.LA(1) ) {
                     case 248:
@@ -11614,28 +11644,28 @@ public class flipsParser extends Parser {
 
                     switch (alt123) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:5: 'l'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:500:5: 'l'
                             {
-                            char_literal335=(Token)match(input,248,FOLLOW_248_in_leftRightDirection2746);  
-                            stream_248.add(char_literal335);
+                            char_literal332=(Token)match(input,248,FOLLOW_248_in_leftRightDirection2750);  
+                            stream_248.add(char_literal332);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:9: 'left'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:500:9: 'left'
                             {
-                            string_literal336=(Token)match(input,249,FOLLOW_249_in_leftRightDirection2748);  
-                            stream_249.add(string_literal336);
+                            string_literal333=(Token)match(input,249,FOLLOW_249_in_leftRightDirection2752);  
+                            stream_249.add(string_literal333);
 
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:495:16: 'port'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:500:16: 'port'
                             {
-                            string_literal337=(Token)match(input,250,FOLLOW_250_in_leftRightDirection2750);  
-                            stream_250.add(string_literal337);
+                            string_literal334=(Token)match(input,250,FOLLOW_250_in_leftRightDirection2754);  
+                            stream_250.add(string_literal334);
 
 
                             }
@@ -11656,7 +11686,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 496:2: -> LEFT
+                    // 501:2: -> LEFT
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(LEFT, "LEFT"));
 
@@ -11666,9 +11696,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:4: ( 'r' | 'right' | 'starboard' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:4: ( 'r' | 'right' | 'starboard' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:4: ( 'r' | 'right' | 'starboard' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:4: ( 'r' | 'right' | 'starboard' )
                     int alt124=3;
                     switch ( input.LA(1) ) {
                     case 251:
@@ -11695,28 +11725,28 @@ public class flipsParser extends Parser {
 
                     switch (alt124) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:5: 'r'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:5: 'r'
                             {
-                            char_literal338=(Token)match(input,251,FOLLOW_251_in_leftRightDirection2762);  
-                            stream_251.add(char_literal338);
+                            char_literal335=(Token)match(input,251,FOLLOW_251_in_leftRightDirection2766);  
+                            stream_251.add(char_literal335);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:9: 'right'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:9: 'right'
                             {
-                            string_literal339=(Token)match(input,252,FOLLOW_252_in_leftRightDirection2764);  
-                            stream_252.add(string_literal339);
+                            string_literal336=(Token)match(input,252,FOLLOW_252_in_leftRightDirection2768);  
+                            stream_252.add(string_literal336);
 
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:497:17: 'starboard'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:17: 'starboard'
                             {
-                            string_literal340=(Token)match(input,253,FOLLOW_253_in_leftRightDirection2766);  
-                            stream_253.add(string_literal340);
+                            string_literal337=(Token)match(input,253,FOLLOW_253_in_leftRightDirection2770);  
+                            stream_253.add(string_literal337);
 
 
                             }
@@ -11737,7 +11767,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 498:2: -> RIGHT
+                    // 503:2: -> RIGHT
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(RIGHT, "RIGHT"));
 
@@ -11772,29 +11802,29 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "clockDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:501:1: clockDirection : ( ( 'cw' | 'clockwise' ) -> CLOCKWISE | ( 'ccw' | 'counterclockwise' ) -> COUNTERCLOCKWISE );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:506:1: clockDirection : ( ( 'cw' | 'clockwise' ) -> CLOCKWISE | ( 'ccw' | 'counterclockwise' ) -> COUNTERCLOCKWISE );
     public final flipsParser.clockDirection_return clockDirection() throws RecognitionException {
         flipsParser.clockDirection_return retval = new flipsParser.clockDirection_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
+        Token string_literal338=null;
+        Token string_literal339=null;
+        Token string_literal340=null;
         Token string_literal341=null;
-        Token string_literal342=null;
-        Token string_literal343=null;
-        Token string_literal344=null;
 
+        CommonTree string_literal338_tree=null;
+        CommonTree string_literal339_tree=null;
+        CommonTree string_literal340_tree=null;
         CommonTree string_literal341_tree=null;
-        CommonTree string_literal342_tree=null;
-        CommonTree string_literal343_tree=null;
-        CommonTree string_literal344_tree=null;
         RewriteRuleTokenStream stream_257=new RewriteRuleTokenStream(adaptor,"token 257");
         RewriteRuleTokenStream stream_254=new RewriteRuleTokenStream(adaptor,"token 254");
         RewriteRuleTokenStream stream_256=new RewriteRuleTokenStream(adaptor,"token 256");
         RewriteRuleTokenStream stream_255=new RewriteRuleTokenStream(adaptor,"token 255");
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:2: ( ( 'cw' | 'clockwise' ) -> CLOCKWISE | ( 'ccw' | 'counterclockwise' ) -> COUNTERCLOCKWISE )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:507:2: ( ( 'cw' | 'clockwise' ) -> CLOCKWISE | ( 'ccw' | 'counterclockwise' ) -> COUNTERCLOCKWISE )
             int alt128=2;
             int LA128_0 = input.LA(1);
 
@@ -11812,9 +11842,9 @@ public class flipsParser extends Parser {
             }
             switch (alt128) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:4: ( 'cw' | 'clockwise' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:507:4: ( 'cw' | 'clockwise' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:4: ( 'cw' | 'clockwise' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:507:4: ( 'cw' | 'clockwise' )
                     int alt126=2;
                     int LA126_0 = input.LA(1);
 
@@ -11832,19 +11862,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt126) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:5: 'cw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:507:5: 'cw'
                             {
-                            string_literal341=(Token)match(input,254,FOLLOW_254_in_clockDirection2784);  
-                            stream_254.add(string_literal341);
+                            string_literal338=(Token)match(input,254,FOLLOW_254_in_clockDirection2788);  
+                            stream_254.add(string_literal338);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:502:10: 'clockwise'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:507:10: 'clockwise'
                             {
-                            string_literal342=(Token)match(input,255,FOLLOW_255_in_clockDirection2786);  
-                            stream_255.add(string_literal342);
+                            string_literal339=(Token)match(input,255,FOLLOW_255_in_clockDirection2790);  
+                            stream_255.add(string_literal339);
 
 
                             }
@@ -11865,7 +11895,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 503:2: -> CLOCKWISE
+                    // 508:2: -> CLOCKWISE
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(CLOCKWISE, "CLOCKWISE"));
 
@@ -11875,9 +11905,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:4: ( 'ccw' | 'counterclockwise' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:4: ( 'ccw' | 'counterclockwise' )
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:4: ( 'ccw' | 'counterclockwise' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:4: ( 'ccw' | 'counterclockwise' )
                     int alt127=2;
                     int LA127_0 = input.LA(1);
 
@@ -11895,19 +11925,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt127) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:5: 'ccw'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:5: 'ccw'
                             {
-                            string_literal343=(Token)match(input,256,FOLLOW_256_in_clockDirection2798);  
-                            stream_256.add(string_literal343);
+                            string_literal340=(Token)match(input,256,FOLLOW_256_in_clockDirection2802);  
+                            stream_256.add(string_literal340);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:504:11: 'counterclockwise'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:11: 'counterclockwise'
                             {
-                            string_literal344=(Token)match(input,257,FOLLOW_257_in_clockDirection2800);  
-                            stream_257.add(string_literal344);
+                            string_literal341=(Token)match(input,257,FOLLOW_257_in_clockDirection2804);  
+                            stream_257.add(string_literal341);
 
 
                             }
@@ -11928,7 +11958,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 505:2: -> COUNTERCLOCKWISE
+                    // 510:2: -> COUNTERCLOCKWISE
                     {
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(COUNTERCLOCKWISE, "COUNTERCLOCKWISE"));
 
@@ -11963,46 +11993,46 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "angularValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:508:1: angularValue : ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:1: angularValue : ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN );
     public final flipsParser.angularValue_return angularValue() throws RecognitionException {
         flipsParser.angularValue_return retval = new flipsParser.angularValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal346=null;
+        Token char_literal343=null;
+        Token string_literal344=null;
+        Token string_literal345=null;
+        Token string_literal346=null;
         Token string_literal347=null;
-        Token string_literal348=null;
-        Token string_literal349=null;
-        Token string_literal350=null;
+        Token char_literal349=null;
+        Token char_literal350=null;
         Token char_literal352=null;
-        Token char_literal353=null;
-        Token char_literal355=null;
+        Token string_literal354=null;
+        Token string_literal355=null;
+        Token string_literal356=null;
         Token string_literal357=null;
-        Token string_literal358=null;
-        Token string_literal359=null;
-        Token string_literal360=null;
-        flipsParser.numericValue_return numericValue345 = null;
+        flipsParser.numericValue_return numericValue342 = null;
 
-        flipsParser.integerValue_return integerValue351 = null;
+        flipsParser.integerValue_return integerValue348 = null;
 
-        flipsParser.numericValue_return numericValue354 = null;
+        flipsParser.numericValue_return numericValue351 = null;
 
-        flipsParser.numericValue_return numericValue356 = null;
+        flipsParser.numericValue_return numericValue353 = null;
 
 
-        CommonTree char_literal346_tree=null;
+        CommonTree char_literal343_tree=null;
+        CommonTree string_literal344_tree=null;
+        CommonTree string_literal345_tree=null;
+        CommonTree string_literal346_tree=null;
         CommonTree string_literal347_tree=null;
-        CommonTree string_literal348_tree=null;
-        CommonTree string_literal349_tree=null;
-        CommonTree string_literal350_tree=null;
+        CommonTree char_literal349_tree=null;
+        CommonTree char_literal350_tree=null;
         CommonTree char_literal352_tree=null;
-        CommonTree char_literal353_tree=null;
-        CommonTree char_literal355_tree=null;
+        CommonTree string_literal354_tree=null;
+        CommonTree string_literal355_tree=null;
+        CommonTree string_literal356_tree=null;
         CommonTree string_literal357_tree=null;
-        CommonTree string_literal358_tree=null;
-        CommonTree string_literal359_tree=null;
-        CommonTree string_literal360_tree=null;
         RewriteRuleTokenStream stream_262=new RewriteRuleTokenStream(adaptor,"token 262");
         RewriteRuleTokenStream stream_263=new RewriteRuleTokenStream(adaptor,"token 263");
         RewriteRuleTokenStream stream_260=new RewriteRuleTokenStream(adaptor,"token 260");
@@ -12017,12 +12047,20 @@ public class flipsParser extends Parser {
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:2: ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:2: ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
             int alt132=3;
             int LA132_0 = input.LA(1);
 
             if ( ((LA132_0>=BinaryLiteral && LA132_0<=HexLiteral)) ) {
                 switch ( input.LA(2) ) {
+                case 264:
+                case 265:
+                case 266:
+                case 267:
+                    {
+                    alt132=3;
+                    }
+                    break;
                 case 258:
                     {
                     switch ( input.LA(3) ) {
@@ -12153,27 +12191,11 @@ public class flipsParser extends Parser {
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("", 132, 3, input);
+                            new NoViableAltException("", 132, 4, input);
 
                         throw nvae;
                     }
 
-                    }
-                    break;
-                case 259:
-                case 260:
-                case 261:
-                case 262:
-                    {
-                    alt132=1;
-                    }
-                    break;
-                case 264:
-                case 265:
-                case 266:
-                case 267:
-                    {
-                    alt132=3;
                     }
                     break;
                 case FloatingPointLiteral:
@@ -12184,6 +12206,14 @@ public class flipsParser extends Parser {
                 case 244:
                     {
                     alt132=2;
+                    }
+                    break;
+                case 259:
+                case 260:
+                case 261:
+                case 262:
+                    {
+                    alt132=1;
                     }
                     break;
                 default:
@@ -12218,15 +12248,15 @@ public class flipsParser extends Parser {
             }
             switch (alt132) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:4: numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:4: numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
                     {
-                    pushFollow(FOLLOW_numericValue_in_angularValue2817);
-                    numericValue345=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_angularValue2821);
+                    numericValue342=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue345.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:17: ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
+                    stream_numericValue.add(numericValue342.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:17: ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
                     int alt129=5;
                     switch ( input.LA(1) ) {
                     case 258:
@@ -12263,46 +12293,46 @@ public class flipsParser extends Parser {
 
                     switch (alt129) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:18: '¡'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:18: '¡'
                             {
-                            char_literal346=(Token)match(input,258,FOLLOW_258_in_angularValue2820);  
-                            stream_258.add(char_literal346);
+                            char_literal343=(Token)match(input,258,FOLLOW_258_in_angularValue2824);  
+                            stream_258.add(char_literal343);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:22: 'deg'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:22: 'deg'
                             {
-                            string_literal347=(Token)match(input,259,FOLLOW_259_in_angularValue2822);  
-                            stream_259.add(string_literal347);
+                            string_literal344=(Token)match(input,259,FOLLOW_259_in_angularValue2826);  
+                            stream_259.add(string_literal344);
 
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:28: 'degs'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:28: 'degs'
                             {
-                            string_literal348=(Token)match(input,260,FOLLOW_260_in_angularValue2824);  
-                            stream_260.add(string_literal348);
+                            string_literal345=(Token)match(input,260,FOLLOW_260_in_angularValue2828);  
+                            stream_260.add(string_literal345);
 
 
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:35: 'degree'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:35: 'degree'
                             {
-                            string_literal349=(Token)match(input,261,FOLLOW_261_in_angularValue2826);  
-                            stream_261.add(string_literal349);
+                            string_literal346=(Token)match(input,261,FOLLOW_261_in_angularValue2830);  
+                            stream_261.add(string_literal346);
 
 
                             }
                             break;
                         case 5 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:509:44: 'degrees'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:44: 'degrees'
                             {
-                            string_literal350=(Token)match(input,262,FOLLOW_262_in_angularValue2828);  
-                            stream_262.add(string_literal350);
+                            string_literal347=(Token)match(input,262,FOLLOW_262_in_angularValue2832);  
+                            stream_262.add(string_literal347);
 
 
                             }
@@ -12323,7 +12353,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 510:2: -> numericValue DEGREE
+                    // 515:2: -> numericValue DEGREE
                     {
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DEGREE, "DEGREE"));
@@ -12334,15 +12364,15 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:4: integerValue ( '¡' | 'd' )? numericValue '\\''
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:4: integerValue ( '¡' | 'd' )? numericValue '\\''
                     {
-                    pushFollow(FOLLOW_integerValue_in_angularValue2841);
-                    integerValue351=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_angularValue2845);
+                    integerValue348=integerValue();
 
                     state._fsp--;
 
-                    stream_integerValue.add(integerValue351.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:17: ( '¡' | 'd' )?
+                    stream_integerValue.add(integerValue348.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:17: ( '¡' | 'd' )?
                     int alt130=3;
                     int LA130_0 = input.LA(1);
 
@@ -12354,19 +12384,19 @@ public class flipsParser extends Parser {
                     }
                     switch (alt130) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:18: '¡'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:18: '¡'
                             {
-                            char_literal352=(Token)match(input,258,FOLLOW_258_in_angularValue2844);  
-                            stream_258.add(char_literal352);
+                            char_literal349=(Token)match(input,258,FOLLOW_258_in_angularValue2848);  
+                            stream_258.add(char_literal349);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:511:22: 'd'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:22: 'd'
                             {
-                            char_literal353=(Token)match(input,244,FOLLOW_244_in_angularValue2846);  
-                            stream_244.add(char_literal353);
+                            char_literal350=(Token)match(input,244,FOLLOW_244_in_angularValue2850);  
+                            stream_244.add(char_literal350);
 
 
                             }
@@ -12374,19 +12404,19 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_numericValue_in_angularValue2850);
-                    numericValue354=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_angularValue2854);
+                    numericValue351=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue354.getTree());
-                    char_literal355=(Token)match(input,263,FOLLOW_263_in_angularValue2852);  
-                    stream_263.add(char_literal355);
+                    stream_numericValue.add(numericValue351.getTree());
+                    char_literal352=(Token)match(input,263,FOLLOW_263_in_angularValue2856);  
+                    stream_263.add(char_literal352);
 
 
 
                     // AST REWRITE
-                    // elements: numericValue, integerValue
+                    // elements: integerValue, numericValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12396,7 +12426,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 512:2: -> integerValue DEGREE numericValue MINUTE
+                    // 517:2: -> integerValue DEGREE numericValue MINUTE
                     {
                         adaptor.addChild(root_0, stream_integerValue.nextTree());
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DEGREE, "DEGREE"));
@@ -12409,15 +12439,15 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:4: numericValue ( 'rad' | 'rads' | 'radian' | 'radians' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:518:4: numericValue ( 'rad' | 'rads' | 'radian' | 'radians' )
                     {
-                    pushFollow(FOLLOW_numericValue_in_angularValue2868);
-                    numericValue356=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_angularValue2872);
+                    numericValue353=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue356.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:17: ( 'rad' | 'rads' | 'radian' | 'radians' )
+                    stream_numericValue.add(numericValue353.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:518:17: ( 'rad' | 'rads' | 'radian' | 'radians' )
                     int alt131=4;
                     switch ( input.LA(1) ) {
                     case 264:
@@ -12449,37 +12479,37 @@ public class flipsParser extends Parser {
 
                     switch (alt131) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:18: 'rad'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:518:18: 'rad'
                             {
-                            string_literal357=(Token)match(input,264,FOLLOW_264_in_angularValue2871);  
-                            stream_264.add(string_literal357);
+                            string_literal354=(Token)match(input,264,FOLLOW_264_in_angularValue2875);  
+                            stream_264.add(string_literal354);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:24: 'rads'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:518:24: 'rads'
                             {
-                            string_literal358=(Token)match(input,265,FOLLOW_265_in_angularValue2873);  
-                            stream_265.add(string_literal358);
+                            string_literal355=(Token)match(input,265,FOLLOW_265_in_angularValue2877);  
+                            stream_265.add(string_literal355);
 
 
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:31: 'radian'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:518:31: 'radian'
                             {
-                            string_literal359=(Token)match(input,266,FOLLOW_266_in_angularValue2875);  
-                            stream_266.add(string_literal359);
+                            string_literal356=(Token)match(input,266,FOLLOW_266_in_angularValue2879);  
+                            stream_266.add(string_literal356);
 
 
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:40: 'radians'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:518:40: 'radians'
                             {
-                            string_literal360=(Token)match(input,267,FOLLOW_267_in_angularValue2877);  
-                            stream_267.add(string_literal360);
+                            string_literal357=(Token)match(input,267,FOLLOW_267_in_angularValue2881);  
+                            stream_267.add(string_literal357);
 
 
                             }
@@ -12500,7 +12530,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 514:2: -> numericValue RADIAN
+                    // 519:2: -> numericValue RADIAN
                     {
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(RADIAN, "RADIAN"));
@@ -12536,22 +12566,22 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "waypoint"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:519:1: waypoint : ( geoCoordinate -> geoCoordinate | Identifier -> ^( WAYPOINT Identifier ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:524:1: waypoint : ( geoCoordinate -> geoCoordinate | Identifier -> ^( WAYPOINT Identifier ) );
     public final flipsParser.waypoint_return waypoint() throws RecognitionException {
         flipsParser.waypoint_return retval = new flipsParser.waypoint_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token Identifier362=null;
-        flipsParser.geoCoordinate_return geoCoordinate361 = null;
+        Token Identifier359=null;
+        flipsParser.geoCoordinate_return geoCoordinate358 = null;
 
 
-        CommonTree Identifier362_tree=null;
+        CommonTree Identifier359_tree=null;
         RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
         RewriteRuleSubtreeStream stream_geoCoordinate=new RewriteRuleSubtreeStream(adaptor,"rule geoCoordinate");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:520:2: ( geoCoordinate -> geoCoordinate | Identifier -> ^( WAYPOINT Identifier ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:525:2: ( geoCoordinate -> geoCoordinate | Identifier -> ^( WAYPOINT Identifier ) )
             int alt133=2;
             int LA133_0 = input.LA(1);
 
@@ -12569,14 +12599,14 @@ public class flipsParser extends Parser {
             }
             switch (alt133) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:520:4: geoCoordinate
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:525:4: geoCoordinate
                     {
-                    pushFollow(FOLLOW_geoCoordinate_in_waypoint2898);
-                    geoCoordinate361=geoCoordinate();
+                    pushFollow(FOLLOW_geoCoordinate_in_waypoint2902);
+                    geoCoordinate358=geoCoordinate();
 
                     state._fsp--;
 
-                    stream_geoCoordinate.add(geoCoordinate361.getTree());
+                    stream_geoCoordinate.add(geoCoordinate358.getTree());
 
 
                     // AST REWRITE
@@ -12590,7 +12620,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 521:2: -> geoCoordinate
+                    // 526:2: -> geoCoordinate
                     {
                         adaptor.addChild(root_0, stream_geoCoordinate.nextTree());
 
@@ -12600,10 +12630,10 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:522:4: Identifier
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:527:4: Identifier
                     {
-                    Identifier362=(Token)match(input,Identifier,FOLLOW_Identifier_in_waypoint2908);  
-                    stream_Identifier.add(Identifier362);
+                    Identifier359=(Token)match(input,Identifier,FOLLOW_Identifier_in_waypoint2912);  
+                    stream_Identifier.add(Identifier359);
 
 
 
@@ -12618,9 +12648,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 523:2: -> ^( WAYPOINT Identifier )
+                    // 528:2: -> ^( WAYPOINT Identifier )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:523:5: ^( WAYPOINT Identifier )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:5: ^( WAYPOINT Identifier )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(WAYPOINT, "WAYPOINT"), root_1);
@@ -12661,27 +12691,27 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "geoCoordinate"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:1: geoCoordinate : latitudeLongitude -> ^( GEOCOORDINATE latitudeLongitude ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:531:1: geoCoordinate : latitudeLongitude -> ^( GEOCOORDINATE latitudeLongitude ) ;
     public final flipsParser.geoCoordinate_return geoCoordinate() throws RecognitionException {
         flipsParser.geoCoordinate_return retval = new flipsParser.geoCoordinate_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        flipsParser.latitudeLongitude_return latitudeLongitude363 = null;
+        flipsParser.latitudeLongitude_return latitudeLongitude360 = null;
 
 
         RewriteRuleSubtreeStream stream_latitudeLongitude=new RewriteRuleSubtreeStream(adaptor,"rule latitudeLongitude");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:527:2: ( latitudeLongitude -> ^( GEOCOORDINATE latitudeLongitude ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:527:4: latitudeLongitude
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:2: ( latitudeLongitude -> ^( GEOCOORDINATE latitudeLongitude ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:4: latitudeLongitude
             {
-            pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate2928);
-            latitudeLongitude363=latitudeLongitude();
+            pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate2932);
+            latitudeLongitude360=latitudeLongitude();
 
             state._fsp--;
 
-            stream_latitudeLongitude.add(latitudeLongitude363.getTree());
+            stream_latitudeLongitude.add(latitudeLongitude360.getTree());
 
 
             // AST REWRITE
@@ -12695,9 +12725,9 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 528:2: -> ^( GEOCOORDINATE latitudeLongitude )
+            // 533:2: -> ^( GEOCOORDINATE latitudeLongitude )
             {
-                // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:5: ^( GEOCOORDINATE latitudeLongitude )
+                // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:533:5: ^( GEOCOORDINATE latitudeLongitude )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GEOCOORDINATE, "GEOCOORDINATE"), root_1);
@@ -12736,14 +12766,17 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "latitudeLongitude"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:531:1: latitudeLongitude : (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:1: latitudeLongitude : (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) );
     public final flipsParser.latitudeLongitude_return latitudeLongitude() throws RecognitionException {
         flipsParser.latitudeLongitude_return retval = new flipsParser.latitudeLongitude_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
+        Token char_literal362=null;
+        Token char_literal364=null;
         Token char_literal365=null;
+        Token char_literal366=null;
         Token char_literal367=null;
         Token char_literal368=null;
         Token char_literal369=null;
@@ -12753,19 +12786,19 @@ public class flipsParser extends Parser {
         Token char_literal373=null;
         Token char_literal374=null;
         Token char_literal375=null;
-        Token char_literal376=null;
-        Token char_literal377=null;
-        Token char_literal378=null;
         flipsParser.latitudeLongitudeValue_return x = null;
 
         flipsParser.latitudeLongitudeValue_return y = null;
 
-        flipsParser.northSouthDirection_return northSouthDirection364 = null;
+        flipsParser.northSouthDirection_return northSouthDirection361 = null;
 
-        flipsParser.eastWestDirection_return eastWestDirection366 = null;
+        flipsParser.eastWestDirection_return eastWestDirection363 = null;
 
 
+        CommonTree char_literal362_tree=null;
+        CommonTree char_literal364_tree=null;
         CommonTree char_literal365_tree=null;
+        CommonTree char_literal366_tree=null;
         CommonTree char_literal367_tree=null;
         CommonTree char_literal368_tree=null;
         CommonTree char_literal369_tree=null;
@@ -12775,9 +12808,6 @@ public class flipsParser extends Parser {
         CommonTree char_literal373_tree=null;
         CommonTree char_literal374_tree=null;
         CommonTree char_literal375_tree=null;
-        CommonTree char_literal376_tree=null;
-        CommonTree char_literal377_tree=null;
-        CommonTree char_literal378_tree=null;
         RewriteRuleTokenStream stream_269=new RewriteRuleTokenStream(adaptor,"token 269");
         RewriteRuleTokenStream stream_268=new RewriteRuleTokenStream(adaptor,"token 268");
         RewriteRuleTokenStream stream_101=new RewriteRuleTokenStream(adaptor,"token 101");
@@ -12785,26 +12815,26 @@ public class flipsParser extends Parser {
         RewriteRuleSubtreeStream stream_eastWestDirection=new RewriteRuleSubtreeStream(adaptor,"rule eastWestDirection");
         RewriteRuleSubtreeStream stream_northSouthDirection=new RewriteRuleSubtreeStream(adaptor,"rule northSouthDirection");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:2: (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:2: (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) )
             int alt143=5;
             alt143 = dfa143.predict(input);
             switch (alt143) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:4: x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:4: x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection
                     {
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2950);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2954);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    pushFollow(FOLLOW_northSouthDirection_in_latitudeLongitude2952);
-                    northSouthDirection364=northSouthDirection();
+                    pushFollow(FOLLOW_northSouthDirection_in_latitudeLongitude2956);
+                    northSouthDirection361=northSouthDirection();
 
                     state._fsp--;
 
-                    stream_northSouthDirection.add(northSouthDirection364.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:49: ( ',' )?
+                    stream_northSouthDirection.add(northSouthDirection361.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:49: ( ',' )?
                     int alt134=2;
                     int LA134_0 = input.LA(1);
 
@@ -12813,10 +12843,10 @@ public class flipsParser extends Parser {
                     }
                     switch (alt134) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:532:49: ','
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:49: ','
                             {
-                            char_literal365=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude2954);  
-                            stream_101.add(char_literal365);
+                            char_literal362=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude2958);  
+                            stream_101.add(char_literal362);
 
 
                             }
@@ -12824,22 +12854,22 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2959);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2963);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(y.getTree());
-                    pushFollow(FOLLOW_eastWestDirection_in_latitudeLongitude2961);
-                    eastWestDirection366=eastWestDirection();
+                    pushFollow(FOLLOW_eastWestDirection_in_latitudeLongitude2965);
+                    eastWestDirection363=eastWestDirection();
 
                     state._fsp--;
 
-                    stream_eastWestDirection.add(eastWestDirection366.getTree());
+                    stream_eastWestDirection.add(eastWestDirection363.getTree());
 
 
                     // AST REWRITE
-                    // elements: eastWestDirection, x, y, northSouthDirection
+                    // elements: x, northSouthDirection, eastWestDirection, y
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -12851,9 +12881,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 533:2: -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection )
+                    // 538:2: -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:533:5: ^( LATITUDE $x northSouthDirection )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:5: ^( LATITUDE $x northSouthDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
@@ -12863,7 +12893,7 @@ public class flipsParser extends Parser {
 
                         adaptor.addChild(root_0, root_1);
                         }
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:533:40: ^( LONGITUDE $y eastWestDirection )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:40: ^( LONGITUDE $y eastWestDirection )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
@@ -12880,9 +12910,9 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:4: ( '+' )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:4: ( '+' )?
                     int alt135=2;
                     int LA135_0 = input.LA(1);
 
@@ -12891,10 +12921,10 @@ public class flipsParser extends Parser {
                     }
                     switch (alt135) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:4: '+'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:4: '+'
                             {
-                            char_literal367=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude2987);  
-                            stream_268.add(char_literal367);
+                            char_literal364=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude2991);  
+                            stream_268.add(char_literal364);
 
 
                             }
@@ -12902,13 +12932,13 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2992);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2996);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:34: ( ',' )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:34: ( ',' )?
                     int alt136=2;
                     int LA136_0 = input.LA(1);
 
@@ -12917,10 +12947,10 @@ public class flipsParser extends Parser {
                     }
                     switch (alt136) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:34: ','
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:34: ','
                             {
-                            char_literal368=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude2994);  
-                            stream_101.add(char_literal368);
+                            char_literal365=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude2998);  
+                            stream_101.add(char_literal365);
 
 
                             }
@@ -12928,7 +12958,7 @@ public class flipsParser extends Parser {
 
                     }
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:39: ( '+' )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:39: ( '+' )?
                     int alt137=2;
                     int LA137_0 = input.LA(1);
 
@@ -12937,10 +12967,10 @@ public class flipsParser extends Parser {
                     }
                     switch (alt137) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:534:39: '+'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:39: '+'
                             {
-                            char_literal369=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude2997);  
-                            stream_268.add(char_literal369);
+                            char_literal366=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3001);  
+                            stream_268.add(char_literal366);
 
 
                             }
@@ -12948,209 +12978,7 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3002);
-                    y=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(y.getTree());
-
-
-                    // AST REWRITE
-                    // elements: x, y
-                    // token labels: 
-                    // rule labels: retval, y, x
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
-                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
-
-                    root_0 = (CommonTree)adaptor.nil();
-                    // 535:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST )
-                    {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:535:5: ^( LATITUDE $x NORTH )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
-
-                        adaptor.addChild(root_1, stream_x.nextTree());
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(NORTH, "NORTH"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:535:26: ^( LONGITUDE $y EAST )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
-
-                        adaptor.addChild(root_1, stream_y.nextTree());
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;
-                    }
-                    break;
-                case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:4: '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
-                    {
-                    char_literal370=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3028);  
-                    stream_269.add(char_literal370);
-
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3032);
-                    x=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(x.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:33: ( ',' )?
-                    int alt138=2;
-                    int LA138_0 = input.LA(1);
-
-                    if ( (LA138_0==101) ) {
-                        alt138=1;
-                    }
-                    switch (alt138) {
-                        case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:33: ','
-                            {
-                            char_literal371=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3034);  
-                            stream_101.add(char_literal371);
-
-
-                            }
-                            break;
-
-                    }
-
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:38: ( '+' )?
-                    int alt139=2;
-                    int LA139_0 = input.LA(1);
-
-                    if ( (LA139_0==268) ) {
-                        alt139=1;
-                    }
-                    switch (alt139) {
-                        case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:536:38: '+'
-                            {
-                            char_literal372=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3037);  
-                            stream_268.add(char_literal372);
-
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3042);
-                    y=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(y.getTree());
-
-
-                    // AST REWRITE
-                    // elements: x, y
-                    // token labels: 
-                    // rule labels: retval, y, x
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
-                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
-
-                    root_0 = (CommonTree)adaptor.nil();
-                    // 537:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST )
-                    {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:5: ^( LATITUDE $x SOUTH )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
-
-                        adaptor.addChild(root_1, stream_x.nextTree());
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:26: ^( LONGITUDE $y EAST )
-                        {
-                        CommonTree root_1 = (CommonTree)adaptor.nil();
-                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
-
-                        adaptor.addChild(root_1, stream_y.nextTree());
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;
-                    }
-                    break;
-                case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
-                    {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: ( '+' )?
-                    int alt140=2;
-                    int LA140_0 = input.LA(1);
-
-                    if ( (LA140_0==268) ) {
-                        alt140=1;
-                    }
-                    switch (alt140) {
-                        case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:4: '+'
-                            {
-                            char_literal373=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3068);  
-                            stream_268.add(char_literal373);
-
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3073);
-                    x=latitudeLongitudeValue();
-
-                    state._fsp--;
-
-                    stream_latitudeLongitudeValue.add(x.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:34: ( ',' )?
-                    int alt141=2;
-                    int LA141_0 = input.LA(1);
-
-                    if ( (LA141_0==101) ) {
-                        alt141=1;
-                    }
-                    switch (alt141) {
-                        case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:538:34: ','
-                            {
-                            char_literal374=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3075);  
-                            stream_101.add(char_literal374);
-
-
-                            }
-                            break;
-
-                    }
-
-                    char_literal375=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3078);  
-                    stream_269.add(char_literal375);
-
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3082);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3006);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -13171,9 +12999,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 539:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST )
+                    // 540:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:5: ^( LATITUDE $x NORTH )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:5: ^( LATITUDE $x NORTH )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
@@ -13183,13 +13011,13 @@ public class flipsParser extends Parser {
 
                         adaptor.addChild(root_0, root_1);
                         }
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:26: ^( LONGITUDE $y WEST )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:26: ^( LONGITUDE $y EAST )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
 
                         adaptor.addChild(root_1, stream_y.nextTree());
-                        adaptor.addChild(root_1, (CommonTree)adaptor.create(WEST, "WEST"));
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
 
                         adaptor.addChild(root_0, root_1);
                         }
@@ -13199,31 +13027,31 @@ public class flipsParser extends Parser {
                     retval.tree = root_0;
                     }
                     break;
-                case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:4: '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
+                case 3 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:4: '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
                     {
-                    char_literal376=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3108);  
-                    stream_269.add(char_literal376);
+                    char_literal367=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3032);  
+                    stream_269.add(char_literal367);
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3112);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3036);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:33: ( ',' )?
-                    int alt142=2;
-                    int LA142_0 = input.LA(1);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:33: ( ',' )?
+                    int alt138=2;
+                    int LA138_0 = input.LA(1);
 
-                    if ( (LA142_0==101) ) {
-                        alt142=1;
+                    if ( (LA138_0==101) ) {
+                        alt138=1;
                     }
-                    switch (alt142) {
+                    switch (alt138) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:540:33: ','
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:33: ','
                             {
-                            char_literal377=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3114);  
-                            stream_101.add(char_literal377);
+                            char_literal368=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3038);  
+                            stream_101.add(char_literal368);
 
 
                             }
@@ -13231,10 +13059,27 @@ public class flipsParser extends Parser {
 
                     }
 
-                    char_literal378=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3117);  
-                    stream_269.add(char_literal378);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:38: ( '+' )?
+                    int alt139=2;
+                    int LA139_0 = input.LA(1);
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3121);
+                    if ( (LA139_0==268) ) {
+                        alt139=1;
+                    }
+                    switch (alt139) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:38: '+'
+                            {
+                            char_literal369=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3041);  
+                            stream_268.add(char_literal369);
+
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3046);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -13255,9 +13100,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 541:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST )
+                    // 542:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST )
                     {
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:5: ^( LATITUDE $x SOUTH )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:542:5: ^( LATITUDE $x SOUTH )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
@@ -13267,7 +13112,192 @@ public class flipsParser extends Parser {
 
                         adaptor.addChild(root_0, root_1);
                         }
-                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:541:26: ^( LONGITUDE $y WEST )
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:542:26: ^( LONGITUDE $y EAST )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_y.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(EAST, "EAST"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;
+                    }
+                    break;
+                case 4 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:543:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
+                    {
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:543:4: ( '+' )?
+                    int alt140=2;
+                    int LA140_0 = input.LA(1);
+
+                    if ( (LA140_0==268) ) {
+                        alt140=1;
+                    }
+                    switch (alt140) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:543:4: '+'
+                            {
+                            char_literal370=(Token)match(input,268,FOLLOW_268_in_latitudeLongitude3072);  
+                            stream_268.add(char_literal370);
+
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3077);
+                    x=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(x.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:543:34: ( ',' )?
+                    int alt141=2;
+                    int LA141_0 = input.LA(1);
+
+                    if ( (LA141_0==101) ) {
+                        alt141=1;
+                    }
+                    switch (alt141) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:543:34: ','
+                            {
+                            char_literal371=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3079);  
+                            stream_101.add(char_literal371);
+
+
+                            }
+                            break;
+
+                    }
+
+                    char_literal372=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3082);  
+                    stream_269.add(char_literal372);
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3086);
+                    y=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(y.getTree());
+
+
+                    // AST REWRITE
+                    // elements: y, x
+                    // token labels: 
+                    // rule labels: retval, y, x
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
+                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
+
+                    root_0 = (CommonTree)adaptor.nil();
+                    // 544:2: -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST )
+                    {
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:544:5: ^( LATITUDE $x NORTH )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_x.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(NORTH, "NORTH"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:544:26: ^( LONGITUDE $y WEST )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_y.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(WEST, "WEST"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;
+                    }
+                    break;
+                case 5 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:4: '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
+                    {
+                    char_literal373=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3112);  
+                    stream_269.add(char_literal373);
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3116);
+                    x=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(x.getTree());
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:33: ( ',' )?
+                    int alt142=2;
+                    int LA142_0 = input.LA(1);
+
+                    if ( (LA142_0==101) ) {
+                        alt142=1;
+                    }
+                    switch (alt142) {
+                        case 1 :
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:33: ','
+                            {
+                            char_literal374=(Token)match(input,101,FOLLOW_101_in_latitudeLongitude3118);  
+                            stream_101.add(char_literal374);
+
+
+                            }
+                            break;
+
+                    }
+
+                    char_literal375=(Token)match(input,269,FOLLOW_269_in_latitudeLongitude3121);  
+                    stream_269.add(char_literal375);
+
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3125);
+                    y=latitudeLongitudeValue();
+
+                    state._fsp--;
+
+                    stream_latitudeLongitudeValue.add(y.getTree());
+
+
+                    // AST REWRITE
+                    // elements: y, x
+                    // token labels: 
+                    // rule labels: retval, y, x
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+                    RewriteRuleSubtreeStream stream_y=new RewriteRuleSubtreeStream(adaptor,"rule y",y!=null?y.tree:null);
+                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
+
+                    root_0 = (CommonTree)adaptor.nil();
+                    // 546:2: -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST )
+                    {
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:546:5: ^( LATITUDE $x SOUTH )
+                        {
+                        CommonTree root_1 = (CommonTree)adaptor.nil();
+                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LATITUDE, "LATITUDE"), root_1);
+
+                        adaptor.addChild(root_1, stream_x.nextTree());
+                        adaptor.addChild(root_1, (CommonTree)adaptor.create(SOUTH, "SOUTH"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+                        // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:546:26: ^( LONGITUDE $y WEST )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LONGITUDE, "LONGITUDE"), root_1);
@@ -13309,33 +13339,33 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "latitudeLongitudeValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:544:1: latitudeLongitudeValue : ( numericValue -> numericValue DEGREE | angularValue );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:549:1: latitudeLongitudeValue : ( numericValue -> numericValue DEGREE | angularValue );
     public final flipsParser.latitudeLongitudeValue_return latitudeLongitudeValue() throws RecognitionException {
         flipsParser.latitudeLongitudeValue_return retval = new flipsParser.latitudeLongitudeValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        flipsParser.numericValue_return numericValue379 = null;
+        flipsParser.numericValue_return numericValue376 = null;
 
-        flipsParser.angularValue_return angularValue380 = null;
+        flipsParser.angularValue_return angularValue377 = null;
 
 
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:2: ( numericValue -> numericValue DEGREE | angularValue )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:550:2: ( numericValue -> numericValue DEGREE | angularValue )
             int alt144=2;
             alt144 = dfa144.predict(input);
             switch (alt144) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:545:4: numericValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:550:4: numericValue
                     {
-                    pushFollow(FOLLOW_numericValue_in_latitudeLongitudeValue3153);
-                    numericValue379=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_latitudeLongitudeValue3157);
+                    numericValue376=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue379.getTree());
+                    stream_numericValue.add(numericValue376.getTree());
 
 
                     // AST REWRITE
@@ -13349,7 +13379,7 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 546:2: -> numericValue DEGREE
+                    // 551:2: -> numericValue DEGREE
                     {
                         adaptor.addChild(root_0, stream_numericValue.nextTree());
                         adaptor.addChild(root_0, (CommonTree)adaptor.create(DEGREE, "DEGREE"));
@@ -13360,16 +13390,16 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:547:4: angularValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:552:4: angularValue
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_angularValue_in_latitudeLongitudeValue3165);
-                    angularValue380=angularValue();
+                    pushFollow(FOLLOW_angularValue_in_latitudeLongitudeValue3169);
+                    angularValue377=angularValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, angularValue380.getTree());
+                    adaptor.addChild(root_0, angularValue377.getTree());
 
                     }
                     break;
@@ -13399,21 +13429,21 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "numericValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:552:1: numericValue : ( integerValue | FloatingPointLiteral );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:557:1: numericValue : ( integerValue | FloatingPointLiteral );
     public final flipsParser.numericValue_return numericValue() throws RecognitionException {
         flipsParser.numericValue_return retval = new flipsParser.numericValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token FloatingPointLiteral382=null;
-        flipsParser.integerValue_return integerValue381 = null;
+        Token FloatingPointLiteral379=null;
+        flipsParser.integerValue_return integerValue378 = null;
 
 
-        CommonTree FloatingPointLiteral382_tree=null;
+        CommonTree FloatingPointLiteral379_tree=null;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:2: ( integerValue | FloatingPointLiteral )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:558:2: ( integerValue | FloatingPointLiteral )
             int alt145=2;
             int LA145_0 = input.LA(1);
 
@@ -13431,27 +13461,27 @@ public class flipsParser extends Parser {
             }
             switch (alt145) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:4: integerValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:558:4: integerValue
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_integerValue_in_numericValue3178);
-                    integerValue381=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_numericValue3182);
+                    integerValue378=integerValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, integerValue381.getTree());
+                    adaptor.addChild(root_0, integerValue378.getTree());
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:554:4: FloatingPointLiteral
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:559:4: FloatingPointLiteral
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    FloatingPointLiteral382=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue3183); 
-                    FloatingPointLiteral382_tree = (CommonTree)adaptor.create(FloatingPointLiteral382);
-                    adaptor.addChild(root_0, FloatingPointLiteral382_tree);
+                    FloatingPointLiteral379=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue3187); 
+                    FloatingPointLiteral379_tree = (CommonTree)adaptor.create(FloatingPointLiteral379);
+                    adaptor.addChild(root_0, FloatingPointLiteral379_tree);
 
 
                     }
@@ -13482,27 +13512,27 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "integerValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:557:1: integerValue : ( BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:562:1: integerValue : ( BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral );
     public final flipsParser.integerValue_return integerValue() throws RecognitionException {
         flipsParser.integerValue_return retval = new flipsParser.integerValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token set383=null;
+        Token set380=null;
 
-        CommonTree set383_tree=null;
+        CommonTree set380_tree=null;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:558:2: ( BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:563:2: ( BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral )
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            set383=(Token)input.LT(1);
+            set380=(Token)input.LT(1);
             if ( (input.LA(1)>=BinaryLiteral && input.LA(1)<=HexLiteral) ) {
                 input.consume();
-                adaptor.addChild(root_0, (CommonTree)adaptor.create(set383));
+                adaptor.addChild(root_0, (CommonTree)adaptor.create(set380));
                 state.errorRecovery=false;
             }
             else {
@@ -13537,34 +13567,34 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "percentValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:564:1: percentValue : numericValue ( '%' | 'percent' ) -> numericValue PERCENT ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:569:1: percentValue : numericValue ( '%' | 'percent' ) -> numericValue PERCENT ;
     public final flipsParser.percentValue_return percentValue() throws RecognitionException {
         flipsParser.percentValue_return retval = new flipsParser.percentValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal385=null;
-        Token string_literal386=null;
-        flipsParser.numericValue_return numericValue384 = null;
+        Token char_literal382=null;
+        Token string_literal383=null;
+        flipsParser.numericValue_return numericValue381 = null;
 
 
-        CommonTree char_literal385_tree=null;
-        CommonTree string_literal386_tree=null;
+        CommonTree char_literal382_tree=null;
+        CommonTree string_literal383_tree=null;
         RewriteRuleTokenStream stream_270=new RewriteRuleTokenStream(adaptor,"token 270");
         RewriteRuleTokenStream stream_271=new RewriteRuleTokenStream(adaptor,"token 271");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:2: ( numericValue ( '%' | 'percent' ) -> numericValue PERCENT )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:4: numericValue ( '%' | 'percent' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:2: ( numericValue ( '%' | 'percent' ) -> numericValue PERCENT )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:4: numericValue ( '%' | 'percent' )
             {
-            pushFollow(FOLLOW_numericValue_in_percentValue3220);
-            numericValue384=numericValue();
+            pushFollow(FOLLOW_numericValue_in_percentValue3224);
+            numericValue381=numericValue();
 
             state._fsp--;
 
-            stream_numericValue.add(numericValue384.getTree());
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:17: ( '%' | 'percent' )
+            stream_numericValue.add(numericValue381.getTree());
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:17: ( '%' | 'percent' )
             int alt146=2;
             int LA146_0 = input.LA(1);
 
@@ -13582,19 +13612,19 @@ public class flipsParser extends Parser {
             }
             switch (alt146) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:18: '%'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:18: '%'
                     {
-                    char_literal385=(Token)match(input,270,FOLLOW_270_in_percentValue3223);  
-                    stream_270.add(char_literal385);
+                    char_literal382=(Token)match(input,270,FOLLOW_270_in_percentValue3227);  
+                    stream_270.add(char_literal382);
 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:565:22: 'percent'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:22: 'percent'
                     {
-                    string_literal386=(Token)match(input,271,FOLLOW_271_in_percentValue3225);  
-                    stream_271.add(string_literal386);
+                    string_literal383=(Token)match(input,271,FOLLOW_271_in_percentValue3229);  
+                    stream_271.add(string_literal383);
 
 
                     }
@@ -13615,7 +13645,7 @@ public class flipsParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 566:2: -> numericValue PERCENT
+            // 571:2: -> numericValue PERCENT
             {
                 adaptor.addChild(root_0, stream_numericValue.nextTree());
                 adaptor.addChild(root_0, (CommonTree)adaptor.create(PERCENT, "PERCENT"));
@@ -13660,28 +13690,28 @@ public class flipsParser extends Parser {
         "\17\uffff\7\5\2\uffff\11\5\4\uffff\7\13\2\uffff\11\13\1\uffff\3"+
         "\5\3\13";
     static final String DFA24_minS =
-        "\1\112\1\115\1\uffff\2\u0092\2\uffff\1\115\2\uffff\1\111\1\uffff"+
-        "\1\176\1\uffff\1\176\7\111\2\u009a\11\111\1\164\2\120\1\uffff\7"+
-        "\111\2\u009a\11\111\1\uffff\6\111";
+        "\1\112\1\115\1\uffff\2\u0092\2\uffff\1\115\2\uffff\1\111\2\uffff"+
+        "\2\176\7\111\2\u009a\11\111\1\164\2\120\1\uffff\7\111\2\u009a\11"+
+        "\111\1\uffff\6\111";
     static final String DFA24_maxS =
-        "\1\u00fd\1\u00b6\1\uffff\2\u010f\2\uffff\1\175\2\uffff\1\u010d\1"+
-        "\uffff\1\u010f\1\uffff\1\u010f\7\u00fd\2\u009c\11\u00fd\1\172\2"+
-        "\u010d\1\uffff\7\u00fd\2\u009c\11\u00fd\1\uffff\6\u00fd";
+        "\1\u00fd\1\u00b6\1\uffff\2\u010f\2\uffff\1\175\2\uffff\1\u010d\2"+
+        "\uffff\2\u010f\7\u00fd\2\u009c\11\u00fd\1\172\2\u010d\1\uffff\7"+
+        "\u00fd\2\u009c\11\u00fd\1\uffff\6\u00fd";
     static final String DFA24_acceptS =
-        "\2\uffff\1\2\2\uffff\1\4\1\5\1\uffff\1\6\1\7\1\uffff\1\11\1\uffff"+
-        "\1\3\26\uffff\1\10\22\uffff\1\1\6\uffff";
+        "\2\uffff\1\2\2\uffff\1\4\1\5\1\uffff\1\6\1\7\1\uffff\1\11\1\3\27"+
+        "\uffff\1\10\22\uffff\1\1\6\uffff";
     static final String DFA24_specialS =
         "\76\uffff}>";
     static final String[] DFA24_transitionS = {
             "\1\12\1\1\1\7\1\uffff\2\2\1\4\4\3\34\uffff\2\6\1\uffff\2\6\1"+
             "\uffff\2\10\117\uffff\1\2\4\uffff\1\11\37\2\13\13\6\5",
-            "\1\13\2\uffff\1\16\4\14\36\uffff\1\13\5\uffff\5\13\63\uffff"+
-            "\6\15",
+            "\1\13\2\uffff\1\16\4\15\36\uffff\1\13\5\uffff\5\13\63\uffff"+
+            "\6\14",
             "",
             "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\30\1\31\1\32\1\27"+
-            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\15\141\uffff\2\15",
+            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\14\141\uffff\2\14",
             "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\30\1\31\1\32\1\27"+
-            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\15\141\uffff\2\15",
+            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\14\141\uffff\2\14",
             "",
             "",
             "\1\13\2\uffff\5\13\36\uffff\1\41\5\uffff\5\13",
@@ -13690,47 +13720,47 @@ public class flipsParser extends Parser {
             "\1\44\3\uffff\1\13\2\uffff\1\43\4\42\36\uffff\1\13\5\uffff"+
             "\5\13\u008e\uffff\2\44",
             "",
-            "\22\13\2\uffff\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\56"+
-            "\1\57\1\60\1\55\1\61\1\62\1\63\1\64\1\65\1\66\2\uffff\7\15\16"+
-            "\uffff\5\67\116\uffff\2\15",
             "",
             "\22\13\2\uffff\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\56"+
-            "\1\57\1\60\1\55\1\61\1\62\1\63\1\64\1\65\1\66\2\uffff\7\15\141"+
-            "\uffff\2\15",
+            "\1\57\1\60\1\55\1\61\1\62\1\63\1\64\1\65\1\66\2\uffff\7\14\16"+
+            "\uffff\5\67\116\uffff\2\14",
+            "\22\13\2\uffff\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\56"+
+            "\1\57\1\60\1\55\1\61\1\62\1\63\1\64\1\65\1\66\2\uffff\7\14\141"+
+            "\uffff\2\14",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\1\70\1\71\1\72",
             "\1\30\1\31\1\32",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\2\6\3\uffff\2\13",
             "\5\44\20\uffff\1\44\30\uffff\22\13\2\uffff\22\13\44\uffff\1"+
             "\44\5\uffff\3\44\43\uffff\1\44\15\uffff\5\44\1\uffff\6\44",
@@ -13738,52 +13768,52 @@ public class flipsParser extends Parser {
             "\44\5\uffff\3\44\61\uffff\5\44\1\uffff\6\44",
             "",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\1\73\1\74\1\75",
             "\1\56\1\57\1\60",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\26\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
-            "\2\15\31\uffff\1\5\4\uffff\61\5",
+            "\2\14\31\uffff\1\5\4\uffff\61\5",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13",
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\26\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
-            "\64\uffff\2\15\31\uffff\1\13\4\uffff\61\13"
+            "\64\uffff\2\14\31\uffff\1\13\4\uffff\61\13"
     };
 
     static final short[] DFA24_eot = DFA.unpackEncodedString(DFA24_eotS);
@@ -13834,53 +13864,53 @@ public class flipsParser extends Parser {
         "\11\u0101\3\u00ae\7\u0101\2\u009c\20\u0101\2\u010f\7\u0101\2\u009c"+
         "\15\u0101";
     static final String DFA29_acceptS =
-        "\4\uffff\1\3\1\4\1\uffff\1\5\1\7\2\uffff\1\2\1\6\25\uffff\1\1\106"+
+        "\4\uffff\1\3\1\4\1\uffff\1\5\1\7\2\uffff\1\6\1\2\25\uffff\1\1\106"+
         "\uffff";
     static final String DFA29_specialS =
         "\151\uffff}>";
     static final String[] DFA29_transitionS = {
             "\1\10\1\1\1\6\1\uffff\1\4\1\uffff\1\3\4\2\46\uffff\1\5\24\uffff"+
             "\2\5\73\uffff\1\7\37\uffff\13\10\6\uffff\4\4",
-            "\1\14\3\uffff\1\10\2\uffff\1\12\4\11\36\uffff\1\10\5\uffff"+
-            "\5\10\63\uffff\6\13\125\uffff\2\14",
+            "\1\13\3\uffff\1\10\2\uffff\1\12\4\11\36\uffff\1\10\5\uffff"+
+            "\5\10\63\uffff\6\14\125\uffff\2\13",
             "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\26\1\27\1\30\1\25"+
-            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\13\141\uffff\2\13",
+            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\14\141\uffff\2\14",
             "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\26\1\27\1\30\1\25"+
-            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\13\141\uffff\2\13",
+            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\14\141\uffff\2\14",
             "",
             "",
             "\1\10\2\uffff\1\41\4\40\36\uffff\1\10\5\uffff\2\10\1\37\2\10"+
             "\23\uffff\1\5",
             "",
             "",
-            "\5\14\20\uffff\1\14\30\uffff\22\10\2\uffff\1\43\1\44\1\45\1"+
+            "\5\13\20\uffff\1\13\30\uffff\22\10\2\uffff\1\43\1\44\1\45\1"+
             "\46\1\47\1\50\1\51\1\52\1\54\1\55\1\56\1\53\1\57\1\60\1\61\1"+
-            "\62\1\63\1\64\2\uffff\7\13\16\uffff\5\42\10\uffff\1\14\5\uffff"+
-            "\3\14\43\uffff\1\14\15\uffff\5\14\1\uffff\6\14\2\13",
-            "\5\14\20\uffff\1\14\30\uffff\22\10\2\uffff\1\43\1\44\1\45\1"+
+            "\62\1\63\1\64\2\uffff\7\14\16\uffff\5\42\10\uffff\1\13\5\uffff"+
+            "\3\13\43\uffff\1\13\15\uffff\5\13\1\uffff\6\13\2\14",
+            "\5\13\20\uffff\1\13\30\uffff\22\10\2\uffff\1\43\1\44\1\45\1"+
             "\46\1\47\1\50\1\51\1\52\1\54\1\55\1\56\1\53\1\57\1\60\1\61\1"+
-            "\62\1\63\1\64\2\uffff\7\13\33\uffff\1\14\5\uffff\3\14\61\uffff"+
-            "\5\14\1\uffff\6\14\2\13",
+            "\62\1\63\1\64\2\uffff\7\14\33\uffff\1\13\5\uffff\3\13\61\uffff"+
+            "\5\13\1\uffff\6\13\2\14",
             "",
             "",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
             "\1\65\1\66\1\67",
             "\1\26\1\27\1\30",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
             "\5\5\47\uffff\2\10\23\uffff\1\5",
             "\22\10\2\uffff\1\70\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\101"+
             "\1\102\1\103\1\100\1\104\1\105\1\106\1\107\1\110\1\111",
@@ -13888,58 +13918,58 @@ public class flipsParser extends Parser {
             "\1\102\1\103\1\100\1\104\1\105\1\106\1\107\1\110\1\111",
             "",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\1\112\1\113\1\114",
             "\1\54\1\55\1\56",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
-            "\1\5\33\uffff\2\13",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
+            "\1\5\33\uffff\2\14",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
             "\24\uffff\1\10\1\115\73\uffff\1\10\37\uffff\13\10\6\uffff\4"+
             "\10",
@@ -13991,13 +14021,13 @@ public class flipsParser extends Parser {
             "\24\uffff\1\10\1\115\73\uffff\1\10\37\uffff\13\10\6\uffff\4"+
             "\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\10\1\uffff\1\10\1\uffff\5\10\26\uffff\6\10\12\uffff\1\10"+
-            "\24\uffff\2\10\33\uffff\2\13\36\uffff\1\10\37\uffff\13\10\6"+
+            "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\4\5\1\uffff\1\5\1\uffff\1\122\4\121\26\uffff\6\5\5\uffff\1"+
             "\10\4\uffff\1\5\24\uffff\2\5\73\uffff\1\5\37\uffff\13\5\6\uffff"+
@@ -14182,28 +14212,23 @@ public class flipsParser extends Parser {
     static final String DFA71_eofS =
         "\65\uffff";
     static final String DFA71_minS =
-        "\1\120\2\u0092\7\u00a4\7\u00ad\2\u009a\11\u00ad\2\u00a4\2\uffff"+
-        "\2\u00b1\3\u00ad\2\uffff\16\u00a4";
+        "\1\120\2\u0092\11\u00a4\7\u00ad\2\u009a\11\u00ad\4\uffff\2\u00b1"+
+        "\3\u00ad\16\u00a4";
     static final String DFA71_maxS =
-        "\1\124\2\u010f\7\u00a5\7\u00ae\2\u009c\11\u00ae\2\u00a5\2\uffff"+
-        "\2\u00cc\3\u00ae\2\uffff\16\u00a5";
+        "\1\124\2\u010f\11\u00a5\7\u00ae\2\u009c\11\u00ae\4\uffff\2\u00cc"+
+        "\3\u00ae\16\u00a5";
     static final String DFA71_acceptS =
-        "\36\uffff\1\2\1\1\5\uffff\1\4\1\3\16\uffff";
+        "\36\uffff\1\4\1\3\1\1\1\2\23\uffff";
     static final String DFA71_specialS =
         "\65\uffff}>";
     static final String[] DFA71_transitionS = {
             "\1\2\4\1",
-            "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\23\1\24\1\25\1\22"+
-            "\1\26\1\27\1\30\1\31\1\32\1\33\2\uffff\1\3\1\4\1\5\1\6\1\7\1"+
-            "\10\1\11\141\uffff\1\34\1\35",
-            "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\23\1\24\1\25\1\22"+
-            "\1\26\1\27\1\30\1\31\1\32\1\33\2\uffff\1\3\1\4\1\5\1\6\1\7\1"+
-            "\10\1\11\141\uffff\1\34\1\35",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
+            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\25\1\26\1\27\1\24"+
+            "\1\30\1\31\1\32\1\33\1\34\1\35\2\uffff\1\5\1\6\1\7\1\10\1\11"+
+            "\1\12\1\13\141\uffff\1\3\1\4",
+            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\25\1\26\1\27\1\24"+
+            "\1\30\1\31\1\32\1\33\1\34\1\35\2\uffff\1\5\1\6\1\7\1\10\1\11"+
+            "\1\12\1\13\141\uffff\1\3\1\4",
             "\1\37\1\36",
             "\1\37\1\36",
             "\1\40\1\41",
@@ -14213,44 +14238,49 @@ public class flipsParser extends Parser {
             "\1\40\1\41",
             "\1\40\1\41",
             "\1\40\1\41",
-            "\1\42\1\43\1\44",
-            "\1\23\1\24\1\25",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\46\1\45",
-            "\1\46\1\45",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\44\1\45\1\46",
+            "\1\25\1\26\1\27",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "",
+            "",
             "",
             "",
             "\1\54\16\uffff\1\47\1\50\1\51\1\52\1\53\1\55\1\56\1\57\1\60"+
             "\1\61\1\62\1\63\1\64",
             "\1\54\16\uffff\1\47\1\50\1\51\1\52\1\53\1\55\1\56\1\57\1\60"+
             "\1\61\1\62\1\63\1\64",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
             "\1\40\1\41",
             "\1\40\1\41",
             "\1\40\1\41",
-            "",
-            "",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36"
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41",
+            "\1\40\1\41"
     };
 
     static final short[] DFA71_eot = DFA.unpackEncodedString(DFA71_eotS);
@@ -14287,39 +14317,36 @@ public class flipsParser extends Parser {
         }
     }
     static final String DFA85_eotS =
-        "\15\uffff";
+        "\14\uffff";
     static final String DFA85_eofS =
-        "\6\uffff\1\10\4\uffff\2\10";
+        "\5\uffff\1\11\4\uffff\2\11";
     static final String DFA85_minS =
-        "\1\113\1\121\1\u00bb\1\121\2\uffff\1\111\2\uffff\1\120\1\uffff\2"+
-        "\111";
+        "\1\121\1\u00bb\1\121\2\uffff\1\111\2\uffff\1\120\1\uffff\2\111";
     static final String DFA85_maxS =
-        "\1\113\1\124\1\u00bf\1\124\2\uffff\1\u0101\2\uffff\1\124\1\uffff"+
-        "\2\u0101";
+        "\1\124\1\u00bf\1\124\2\uffff\1\u0101\2\uffff\1\124\1\uffff\2\u0101";
     static final String DFA85_acceptS =
-        "\4\uffff\1\2\1\4\1\uffff\1\1\1\5\1\uffff\1\3\2\uffff";
+        "\3\uffff\1\4\1\2\1\uffff\1\1\1\3\1\uffff\1\5\2\uffff";
     static final String DFA85_specialS =
-        "\15\uffff}>";
+        "\14\uffff}>";
     static final String[] DFA85_transitionS = {
-            "\1\1",
-            "\4\2",
-            "\2\4\2\5\1\3",
-            "\4\6",
+            "\4\1",
+            "\2\4\2\3\1\2",
+            "\4\5",
             "",
             "",
-            "\4\10\1\uffff\7\10\26\uffff\10\10\1\uffff\2\10\1\uffff\2\10"+
-            "\2\uffff\1\10\24\uffff\2\10\51\uffff\2\7\2\12\1\11\10\uffff"+
-            "\1\10\4\uffff\65\10",
+            "\4\11\1\uffff\7\11\26\uffff\10\11\1\uffff\2\11\1\uffff\2\11"+
+            "\2\uffff\1\11\24\uffff\2\11\51\uffff\2\6\2\7\1\10\10\uffff\1"+
+            "\11\4\uffff\65\11",
             "",
             "",
-            "\1\14\4\13",
+            "\1\13\4\12",
             "",
-            "\4\10\1\uffff\7\10\26\uffff\10\10\1\uffff\2\10\1\uffff\2\10"+
-            "\2\uffff\1\10\24\uffff\2\10\51\uffff\2\7\2\12\11\uffff\1\10"+
-            "\4\uffff\65\10",
-            "\4\10\1\uffff\7\10\26\uffff\10\10\1\uffff\2\10\1\uffff\2\10"+
-            "\2\uffff\1\10\24\uffff\2\10\51\uffff\2\7\2\12\11\uffff\1\10"+
-            "\4\uffff\65\10"
+            "\4\11\1\uffff\7\11\26\uffff\10\11\1\uffff\2\11\1\uffff\2\11"+
+            "\2\uffff\1\11\24\uffff\2\11\51\uffff\2\6\2\7\11\uffff\1\11\4"+
+            "\uffff\65\11",
+            "\4\11\1\uffff\7\11\26\uffff\10\11\1\uffff\2\11\1\uffff\2\11"+
+            "\2\uffff\1\11\24\uffff\2\11\51\uffff\2\6\2\7\11\uffff\1\11\4"+
+            "\uffff\65\11"
     };
 
     static final short[] DFA85_eot = DFA.unpackEncodedString(DFA85_eotS);
@@ -14352,26 +14379,26 @@ public class flipsParser extends Parser {
             this.transition = DFA85_transition;
         }
         public String getDescription() {
-            return "356:1: time : ( At timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | At integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | At timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | At integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | At timeFormat -> ^( TIME timeFormat HOUR24 ) );";
+            return "360:1: timeValue : ( timeFormat ( 'am' | 'a.m.' ) -> ^( TIME timeFormat AM ) | integerValue ( 'am' | 'a.m.' ) -> ^( TIME integerValue HOUR AM ) | timeFormat ( 'pm' | 'p.m.' ) -> ^( TIME timeFormat PM ) | integerValue ( 'pm' | 'p.m.' ) -> ^( TIME integerValue HOUR PM ) | timeFormat -> ^( TIME timeFormat HOUR24 ) );";
         }
     }
     static final String DFA92_eotS =
         "\32\uffff";
     static final String DFA92_eofS =
-        "\3\uffff\5\2\1\uffff\4\2\4\uffff\4\25\5\uffff";
+        "\4\uffff\11\2\4\uffff\4\25\5\uffff";
     static final String DFA92_minS =
-        "\1\120\1\u00b1\1\uffff\5\111\1\uffff\4\111\4\u0092\4\111\2\uffff"+
-        "\2\u0092\1\uffff";
+        "\1\120\1\u00b1\2\uffff\11\111\4\u0092\4\111\2\uffff\2\u0092\1\uffff";
     static final String DFA92_maxS =
-        "\1\124\1\u00cc\1\uffff\5\u0101\1\uffff\4\u0101\4\u010f\4\u0101\2"+
-        "\uffff\2\u010f\1\uffff";
+        "\1\124\1\u00cc\2\uffff\11\u0101\4\u010f\4\u0101\2\uffff\2\u010f"+
+        "\1\uffff";
     static final String DFA92_acceptS =
-        "\2\uffff\1\1\5\uffff\1\5\14\uffff\1\2\1\4\2\uffff\1\3";
+        "\2\uffff\1\1\1\5\21\uffff\1\2\1\4\2\uffff\1\3";
     static final String DFA92_specialS =
         "\32\uffff}>";
     static final String[] DFA92_transitionS = {
             "\1\2\4\1",
-            "\1\11\15\uffff\1\10\1\3\1\4\1\5\1\6\1\7\1\12\1\13\1\14\5\2",
+            "\1\11\15\uffff\1\3\1\4\1\5\1\6\1\7\1\10\1\12\1\13\1\14\5\2",
+            "",
             "",
             "\4\2\1\uffff\2\2\1\16\4\15\26\uffff\10\2\1\uffff\2\2\1\uffff"+
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
@@ -14383,7 +14410,6 @@ public class flipsParser extends Parser {
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
             "\4\2\1\uffff\2\2\1\16\4\15\26\uffff\10\2\1\uffff\2\2\1\uffff"+
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "",
             "\4\2\1\uffff\2\2\1\20\4\17\26\uffff\10\2\1\uffff\2\2\1\uffff"+
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
             "\4\2\1\uffff\2\2\1\20\4\17\26\uffff\10\2\1\uffff\2\2\1\uffff"+
@@ -14446,119 +14472,122 @@ public class flipsParser extends Parser {
             this.transition = DFA92_transition;
         }
         public String getDescription() {
-            return "400:1: durationValue : ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat );";
+            return "405:1: durationValue : ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat );";
         }
     }
     static final String DFA143_eotS =
         "\100\uffff";
     static final String DFA143_eofS =
-        "\17\uffff\2\22\22\uffff\2\22\7\uffff\2\63\22\uffff";
+        "\10\uffff\2\17\25\uffff\2\17\13\uffff\2\70\22\uffff";
     static final String DFA143_minS =
-        "\17\120\2\111\1\120\3\uffff\5\120\2\u0107\7\120\2\111\7\120\2\111"+
-        "\5\120\1\uffff\4\120\1\uffff\1\120\2\u0107\1\120\2\u0107\1\120";
+        "\5\120\1\uffff\2\120\2\111\5\120\1\uffff\4\120\1\uffff\5\120\2\u0107"+
+        "\3\120\2\111\13\120\2\111\5\120\1\uffff\4\120\1\uffff\1\120\2\u0107"+
+        "\1\120\2\u0107\1\120";
     static final String DFA143_maxS =
-        "\3\u010d\2\124\11\u010d\1\124\2\u010b\1\u010d\3\uffff\5\u010d\2"+
-        "\u0107\6\u010d\1\124\2\u010b\6\u010d\1\124\2\u010b\5\u010d\1\uffff"+
-        "\4\u010d\1\uffff\1\u010d\2\u0107\1\u010d\2\u0107\1\u010d";
+        "\3\u010d\2\124\1\uffff\1\u010d\1\124\2\u010b\5\u010d\1\uffff\4\u010d"+
+        "\1\uffff\5\u010d\2\u0107\2\u010d\1\124\2\u010b\12\u010d\1\124\2"+
+        "\u010b\5\u010d\1\uffff\4\u010d\1\uffff\1\u010d\2\u0107\1\u010d\2"+
+        "\u0107\1\u010d";
     static final String DFA143_acceptS =
-        "\22\uffff\1\2\1\4\1\1\36\uffff\1\3\4\uffff\1\5\7\uffff";
+        "\5\uffff\1\1\11\uffff\1\2\4\uffff\1\4\36\uffff\1\5\4\uffff\1\3\7"+
+        "\uffff";
     static final String DFA143_specialS =
         "\100\uffff}>";
     static final String[] DFA143_transitionS = {
             "\1\2\4\1\u00b7\uffff\1\3\1\4",
-            "\1\20\4\17\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\43\uffff"+
-            "\1\16\15\uffff\1\11\1\12\1\13\1\14\1\15\1\uffff\1\5\1\6\1\7"+
-            "\1\10\1\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\61\uffff\1"+
-            "\25\1\12\1\13\1\14\1\15\1\uffff\1\5\1\6\1\7\1\10\1\22\1\23",
+            "\1\11\4\10\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\43\uffff"+
+            "\1\7\15\uffff\1\6\1\12\1\13\1\14\1\15\1\uffff\1\20\1\21\1\22"+
+            "\1\23\1\17\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\61\uffff\1\25"+
+            "\1\12\1\13\1\14\1\15\1\uffff\1\20\1\21\1\22\1\23\1\17\1\24",
             "\1\27\4\26",
             "\1\31\4\30",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\1\20\4\17\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff"+
-            "\1\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
+            "",
+            "\1\11\4\10\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff"+
+            "\1\17\1\24",
             "\1\33\4\32",
-            "\4\22\1\uffff\7\22\11\uffff\2\22\4\uffff\2\22\5\uffff\10\22"+
-            "\1\uffff\2\22\1\uffff\2\22\2\uffff\1\22\24\uffff\2\22\66\uffff"+
-            "\1\22\4\uffff\72\22\1\34\4\22",
-            "\4\22\1\uffff\7\22\11\uffff\2\22\4\uffff\2\22\5\uffff\10\22"+
-            "\1\uffff\2\22\1\uffff\2\22\2\uffff\1\22\24\uffff\2\22\66\uffff"+
-            "\1\22\4\uffff\72\22\1\34\4\22",
-            "\5\22\u00b7\uffff\1\22\1\23",
+            "\4\17\1\uffff\7\17\11\uffff\2\17\4\uffff\2\17\5\uffff\10\17"+
+            "\1\uffff\2\17\1\uffff\2\17\2\uffff\1\17\24\uffff\2\17\66\uffff"+
+            "\1\17\4\uffff\72\17\1\34\4\17",
+            "\4\17\1\uffff\7\17\11\uffff\2\17\4\uffff\2\17\5\uffff\10\17"+
+            "\1\uffff\2\17\1\uffff\2\17\2\uffff\1\17\24\uffff\2\17\66\uffff"+
+            "\1\17\4\uffff\72\17\1\34\4\17",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\u00b7\uffff\1\17\1\24",
             "",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
             "",
-            "",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\1\44\4\43\20\uffff\1\21\u008e\uffff\1\42\15\uffff\1\35\1\36"+
-            "\1\37\1\40\1\41\1\uffff\1\45\1\46\1\47\1\50\1\22\1\23",
-            "\5\22\20\uffff\1\21\u009c\uffff\1\51\1\36\1\37\1\40\1\41\1"+
-            "\uffff\1\45\1\46\1\47\1\50\1\22\1\23",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\1\40\4\37\20\uffff\1\16\u008e\uffff\1\36\15\uffff\1\35\1\41"+
+            "\1\42\1\43\1\44\1\uffff\1\45\1\46\1\47\1\50\1\17\1\24",
+            "\5\17\20\uffff\1\16\u009c\uffff\1\51\1\41\1\42\1\43\1\44\1"+
+            "\uffff\1\45\1\46\1\47\1\50\1\17\1\24",
             "\1\55\4\54\20\uffff\1\62\u008e\uffff\1\53\15\uffff\1\52\1\64"+
-            "\1\65\1\66\1\67\1\uffff\1\56\1\57\1\60\1\61\1\63\1\70",
-            "\5\63\20\uffff\1\62\u009c\uffff\1\71\1\64\1\65\1\66\1\67\1"+
-            "\uffff\1\56\1\57\1\60\1\61\1\63\1\70",
+            "\1\65\1\66\1\67\1\uffff\1\56\1\57\1\60\1\61\1\70\1\63",
+            "\5\70\20\uffff\1\62\u009c\uffff\1\71\1\64\1\65\1\66\1\67\1"+
+            "\uffff\1\56\1\57\1\60\1\61\1\70\1\63",
             "\1\34",
             "\1\34",
-            "\5\22\20\uffff\1\21\142\uffff\1\24\5\uffff\3\24\73\uffff\1"+
-            "\22\1\23",
-            "\1\44\4\43\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
+            "\5\17\20\uffff\1\16\142\uffff\1\5\5\uffff\3\5\73\uffff\1\17"+
+            "\1\24",
+            "\1\40\4\37\20\uffff\1\16\u00a6\uffff\1\17\1\24",
             "\1\73\4\72",
-            "\4\22\1\uffff\7\22\11\uffff\2\22\4\uffff\2\22\5\uffff\10\22"+
-            "\1\uffff\2\22\1\uffff\2\22\2\uffff\1\22\24\uffff\2\22\66\uffff"+
-            "\1\22\4\uffff\72\22\1\74\4\22",
-            "\4\22\1\uffff\7\22\11\uffff\2\22\4\uffff\2\22\5\uffff\10\22"+
-            "\1\uffff\2\22\1\uffff\2\22\2\uffff\1\22\24\uffff\2\22\66\uffff"+
-            "\1\22\4\uffff\72\22\1\74\4\22",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
-            "\1\55\4\54\20\uffff\1\62\u00a6\uffff\1\63\1\70",
+            "\4\17\1\uffff\7\17\11\uffff\2\17\4\uffff\2\17\5\uffff\10\17"+
+            "\1\uffff\2\17\1\uffff\2\17\2\uffff\1\17\24\uffff\2\17\66\uffff"+
+            "\1\17\4\uffff\72\17\1\74\4\17",
+            "\4\17\1\uffff\7\17\11\uffff\2\17\4\uffff\2\17\5\uffff\10\17"+
+            "\1\uffff\2\17\1\uffff\2\17\2\uffff\1\17\24\uffff\2\17\66\uffff"+
+            "\1\17\4\uffff\72\17\1\74\4\17",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
+            "\1\55\4\54\20\uffff\1\62\u00a6\uffff\1\70\1\63",
             "\1\76\4\75",
-            "\4\63\1\uffff\7\63\11\uffff\2\63\4\uffff\2\63\5\uffff\10\63"+
-            "\1\uffff\2\63\1\uffff\2\63\2\uffff\1\63\24\uffff\2\63\66\uffff"+
-            "\1\63\4\uffff\72\63\1\77\4\63",
-            "\4\63\1\uffff\7\63\11\uffff\2\63\4\uffff\2\63\5\uffff\10\63"+
-            "\1\uffff\2\63\1\uffff\2\63\2\uffff\1\63\24\uffff\2\63\66\uffff"+
-            "\1\63\4\uffff\72\63\1\77\4\63",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\u00b7\uffff\1\63\1\70",
+            "\4\70\1\uffff\7\70\11\uffff\2\70\4\uffff\2\70\5\uffff\10\70"+
+            "\1\uffff\2\70\1\uffff\2\70\2\uffff\1\70\24\uffff\2\70\66\uffff"+
+            "\1\70\4\uffff\72\70\1\77\4\70",
+            "\4\70\1\uffff\7\70\11\uffff\2\70\4\uffff\2\70\5\uffff\10\70"+
+            "\1\uffff\2\70\1\uffff\2\70\2\uffff\1\70\24\uffff\2\70\66\uffff"+
+            "\1\70\4\uffff\72\70\1\77\4\70",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\u00b7\uffff\1\70\1\63",
             "",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
             "",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70",
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63",
             "\1\74",
             "\1\74",
-            "\5\22\20\uffff\1\21\u00a6\uffff\1\22\1\23",
+            "\5\17\20\uffff\1\16\u00a6\uffff\1\17\1\24",
             "\1\77",
             "\1\77",
-            "\5\63\20\uffff\1\62\u00a6\uffff\1\63\1\70"
+            "\5\70\20\uffff\1\62\u00a6\uffff\1\70\1\63"
     };
 
     static final short[] DFA143_eot = DFA.unpackEncodedString(DFA143_eotS);
@@ -14591,40 +14620,40 @@ public class flipsParser extends Parser {
             this.transition = DFA143_transition;
         }
         public String getDescription() {
-            return "531:1: latitudeLongitude : (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) );";
+            return "536:1: latitudeLongitude : (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) );";
         }
     }
     static final String DFA144_eotS =
         "\12\uffff";
     static final String DFA144_eofS =
-        "\1\uffff\2\7\2\uffff\2\7\3\uffff";
+        "\1\uffff\2\3\1\uffff\2\3\4\uffff";
     static final String DFA144_minS =
-        "\1\120\2\111\1\uffff\1\112\2\111\1\uffff\2\176";
+        "\1\120\2\111\1\uffff\2\111\1\112\1\uffff\2\176";
     static final String DFA144_maxS =
-        "\1\124\2\u010d\1\uffff\1\124\2\u010f\1\uffff\2\u0107";
+        "\1\124\2\u010d\1\uffff\2\u010f\1\124\1\uffff\2\u0107";
     static final String DFA144_acceptS =
-        "\3\uffff\1\2\3\uffff\1\1\2\uffff";
+        "\3\uffff\1\1\3\uffff\1\2\2\uffff";
     static final String DFA144_specialS =
         "\12\uffff}>";
     static final String[] DFA144_transitionS = {
             "\1\2\4\1",
-            "\4\7\1\uffff\2\7\1\6\4\5\11\uffff\2\7\4\uffff\2\7\5\uffff\10"+
-            "\7\1\uffff\2\7\1\uffff\2\7\2\uffff\1\7\24\uffff\2\7\66\uffff"+
-            "\1\7\4\uffff\47\7\1\4\15\7\5\3\1\uffff\4\3\2\7",
-            "\4\7\1\uffff\7\7\11\uffff\2\7\4\uffff\2\7\5\uffff\10\7\1\uffff"+
-            "\2\7\1\uffff\2\7\2\uffff\1\7\24\uffff\2\7\66\uffff\1\7\4\uffff"+
-            "\65\7\5\3\1\uffff\4\3\2\7",
+            "\4\3\1\uffff\2\3\1\5\4\4\11\uffff\2\3\4\uffff\2\3\5\uffff\10"+
+            "\3\1\uffff\2\3\1\uffff\2\3\2\uffff\1\3\24\uffff\2\3\66\uffff"+
+            "\1\3\4\uffff\47\3\1\6\15\3\5\7\1\uffff\4\7\2\3",
+            "\4\3\1\uffff\7\3\11\uffff\2\3\4\uffff\2\3\5\uffff\10\3\1\uffff"+
+            "\2\3\1\uffff\2\3\2\uffff\1\3\24\uffff\2\3\66\uffff\1\3\4\uffff"+
+            "\65\3\5\7\1\uffff\4\7\2\3",
             "",
-            "\1\7\2\uffff\1\7\2\uffff\1\11\4\10",
-            "\4\7\1\uffff\7\7\11\uffff\2\7\4\uffff\2\7\5\uffff\10\7\1\uffff"+
-            "\2\7\1\uffff\2\7\2\uffff\1\7\24\uffff\24\7\2\uffff\7\7\33\uffff"+
-            "\1\7\4\uffff\72\7\1\3\4\7\2\uffff\2\7",
-            "\4\7\1\uffff\7\7\11\uffff\2\7\4\uffff\2\7\5\uffff\10\7\1\uffff"+
-            "\2\7\1\uffff\2\7\2\uffff\1\7\24\uffff\24\7\2\uffff\7\7\33\uffff"+
-            "\1\7\4\uffff\72\7\1\3\4\7\2\uffff\2\7",
+            "\4\3\1\uffff\7\3\11\uffff\2\3\4\uffff\2\3\5\uffff\10\3\1\uffff"+
+            "\2\3\1\uffff\2\3\2\uffff\1\3\24\uffff\24\3\2\uffff\7\3\33\uffff"+
+            "\1\3\4\uffff\72\3\1\7\4\3\2\uffff\2\3",
+            "\4\3\1\uffff\7\3\11\uffff\2\3\4\uffff\2\3\5\uffff\10\3\1\uffff"+
+            "\2\3\1\uffff\2\3\2\uffff\1\3\24\uffff\24\3\2\uffff\7\3\33\uffff"+
+            "\1\3\4\uffff\72\3\1\7\4\3\2\uffff\2\3",
+            "\1\3\2\uffff\1\3\2\uffff\1\11\4\10",
             "",
-            "\22\7\2\uffff\22\7\143\uffff\1\3",
-            "\22\7\2\uffff\22\7\143\uffff\1\3"
+            "\22\3\2\uffff\22\3\143\uffff\1\7",
+            "\22\3\2\uffff\22\3\143\uffff\1\7"
     };
 
     static final short[] DFA144_eot = DFA.unpackEncodedString(DFA144_eotS);
@@ -14657,7 +14686,7 @@ public class flipsParser extends Parser {
             this.transition = DFA144_transition;
         }
         public String getDescription() {
-            return "544:1: latitudeLongitudeValue : ( numericValue -> numericValue DEGREE | angularValue );";
+            return "549:1: latitudeLongitudeValue : ( numericValue -> numericValue DEGREE | angularValue );";
         }
     }
  
@@ -14882,192 +14911,189 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_185_in_throttleSpeed1825 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_186_in_throttleSpeed1827 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_percentValue_in_throttleValue1850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_At_in_time1862 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_timeFormat_in_time1864 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_187_in_time1867 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_188_in_time1869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_At_in_time1886 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_integerValue_in_time1888 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x1800000000000000L});
-    public static final BitSet FOLLOW_187_in_time1891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_188_in_time1893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_At_in_time1912 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_timeFormat_in_time1914 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x6000000000000000L});
-    public static final BitSet FOLLOW_189_in_time1917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_190_in_time1919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_At_in_time1936 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_integerValue_in_time1938 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x6000000000000000L});
-    public static final BitSet FOLLOW_189_in_time1941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_190_in_time1943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_At_in_time1962 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_timeFormat_in_time1964 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_timeFormat1988 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
-    public static final BitSet FOLLOW_191_in_timeFormat1990 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_integerValue_in_timeFormat1994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_timeFormat2014 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
-    public static final BitSet FOLLOW_191_in_timeFormat2016 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_integerValue_in_timeFormat2020 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
-    public static final BitSet FOLLOW_191_in_timeFormat2022 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_numericValue_in_timeFormat2026 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_hour_in_timeUnit2054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_minute_in_timeUnit2059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_second_in_timeUnit2064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_192_in_hour2076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_193_in_hour2078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_194_in_hour2080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_195_in_hour2082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_196_in_hour2084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_177_in_minute2102 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_197_in_minute2104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_198_in_minute2106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_199_in_minute2108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_200_in_second2126 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_201_in_second2128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_202_in_second2130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_203_in_second2132 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_204_in_second2134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_205_in_duration2151 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_durationValue_in_duration2153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_durationValue2173 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
-    public static final BitSet FOLLOW_timeUnit_in_durationValue2175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_durationValue2180 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000001FL});
-    public static final BitSet FOLLOW_hour_in_durationValue2182 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_numericValue_in_durationValue2184 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
-    public static final BitSet FOLLOW_minute_in_durationValue2187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_second_in_durationValue2189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_durationValue2195 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000001FL});
-    public static final BitSet FOLLOW_hour_in_durationValue2197 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
-    public static final BitSet FOLLOW_integerValue_in_durationValue2199 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x00000000000000E0L});
-    public static final BitSet FOLLOW_minute_in_durationValue2201 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_numericValue_in_durationValue2203 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
-    public static final BitSet FOLLOW_second_in_durationValue2205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_durationValue2210 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x00000000000000E0L});
-    public static final BitSet FOLLOW_minute_in_durationValue2212 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_numericValue_in_durationValue2214 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
-    public static final BitSet FOLLOW_second_in_durationValue2216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_timeFormat_in_durationValue2221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_fixedDirection_in_direction2234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_relativeDirection_in_direction2250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_cardinalDirection_in_fixedDirection2272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ordinalDirection_in_fixedDirection2282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_subOrdinalDirection_in_fixedDirection2292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Turning_in_fixedDirection2303 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x00001FFFFFFFC100L});
-    public static final BitSet FOLLOW_Heading_in_fixedDirection2305 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x00001FFFFFFFC100L});
-    public static final BitSet FOLLOW_cardinalDirection_in_fixedDirection2309 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ordinalDirection_in_fixedDirection2311 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_subOrdinalDirection_in_fixedDirection2313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_angularValue_in_fixedDirection2315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Turning_in_relativeDirection2343 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x3F00000000000000L});
-    public static final BitSet FOLLOW_Heading_in_relativeDirection2345 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x3F00000000000000L});
-    public static final BitSet FOLLOW_leftRightDirection_in_relativeDirection2348 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_angularValue_in_relativeDirection2350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_northSouthDirection_in_cardinalDirection2368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_eastWestDirection_in_cardinalDirection2373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_206_in_northSouthDirection2385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_207_in_northSouthDirection2387 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_200_in_northSouthDirection2399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_208_in_northSouthDirection2401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_209_in_eastWestDirection2419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_210_in_eastWestDirection2421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_211_in_eastWestDirection2433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_212_in_eastWestDirection2435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_213_in_ordinalDirection2453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_214_in_ordinalDirection2455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_215_in_ordinalDirection2469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_216_in_ordinalDirection2471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_217_in_ordinalDirection2485 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_218_in_ordinalDirection2487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_219_in_ordinalDirection2501 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_220_in_ordinalDirection2503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_221_in_subOrdinalDirection2523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_222_in_subOrdinalDirection2525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_223_in_subOrdinalDirection2541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_224_in_subOrdinalDirection2543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_225_in_subOrdinalDirection2559 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_226_in_subOrdinalDirection2561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_227_in_subOrdinalDirection2577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_228_in_subOrdinalDirection2579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_229_in_subOrdinalDirection2595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_230_in_subOrdinalDirection2597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_231_in_subOrdinalDirection2613 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_232_in_subOrdinalDirection2615 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_233_in_subOrdinalDirection2631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_234_in_subOrdinalDirection2633 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_235_in_subOrdinalDirection2649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_236_in_subOrdinalDirection2651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Turning_in_loiterDirection2672 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L,0x0000000000000000L,0xC000000000000000L,0x0000000000000003L});
-    public static final BitSet FOLLOW_clockDirection_in_loiterDirection2675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_237_in_upDownDirection2698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_238_in_upDownDirection2700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_239_in_upDownDirection2702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_240_in_upDownDirection2704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_241_in_upDownDirection2706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_242_in_upDownDirection2708 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_243_in_upDownDirection2710 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_244_in_upDownDirection2722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_245_in_upDownDirection2724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_246_in_upDownDirection2726 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_247_in_upDownDirection2728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_248_in_leftRightDirection2746 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_249_in_leftRightDirection2748 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_250_in_leftRightDirection2750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_251_in_leftRightDirection2762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_252_in_leftRightDirection2764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_253_in_leftRightDirection2766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_254_in_clockDirection2784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_255_in_clockDirection2786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_256_in_clockDirection2798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_257_in_clockDirection2800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue2817 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000007CL});
-    public static final BitSet FOLLOW_258_in_angularValue2820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_259_in_angularValue2822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_260_in_angularValue2824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_261_in_angularValue2826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_262_in_angularValue2828 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_angularValue2841 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x0010000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_258_in_angularValue2844 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_244_in_angularValue2846 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue2850 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_263_in_angularValue2852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue2868 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000F00L});
-    public static final BitSet FOLLOW_264_in_angularValue2871 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_265_in_angularValue2873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_266_in_angularValue2875 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_267_in_angularValue2877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_geoCoordinate_in_waypoint2898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Identifier_in_waypoint2908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate2928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2950 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000001C100L});
-    public static final BitSet FOLLOW_northSouthDirection_in_latitudeLongitude2952 = new BitSet(new long[]{0x0000000000000000L,0x00000020001F0000L});
-    public static final BitSet FOLLOW_101_in_latitudeLongitude2954 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2959 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000001FC100L});
-    public static final BitSet FOLLOW_eastWestDirection_in_latitudeLongitude2961 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_268_in_latitudeLongitude2987 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2992 = new BitSet(new long[]{0x0000000000000000L,0x00000020001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_101_in_latitudeLongitude2994 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_268_in_latitudeLongitude2997 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_269_in_latitudeLongitude3028 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3032 = new BitSet(new long[]{0x0000000000000000L,0x00000020001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_101_in_latitudeLongitude3034 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_268_in_latitudeLongitude3037 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_268_in_latitudeLongitude3068 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3073 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_101_in_latitudeLongitude3075 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_269_in_latitudeLongitude3078 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_269_in_latitudeLongitude3108 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3112 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_101_in_latitudeLongitude3114 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_269_in_latitudeLongitude3117 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_latitudeLongitudeValue3153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_angularValue_in_latitudeLongitudeValue3165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_numericValue3178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue3183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_At_in_time1863 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
+    public static final BitSet FOLLOW_timeValue_in_time1865 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_timeFormat_in_timeValue1876 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_187_in_timeValue1879 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_188_in_timeValue1881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_timeValue1898 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x1800000000000000L});
+    public static final BitSet FOLLOW_187_in_timeValue1901 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_188_in_timeValue1903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_timeFormat_in_timeValue1922 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x6000000000000000L});
+    public static final BitSet FOLLOW_189_in_timeValue1925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_190_in_timeValue1927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_timeValue1944 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x6000000000000000L});
+    public static final BitSet FOLLOW_189_in_timeValue1947 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_190_in_timeValue1949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_timeFormat_in_timeValue1968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_timeFormat1992 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+    public static final BitSet FOLLOW_191_in_timeFormat1994 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
+    public static final BitSet FOLLOW_integerValue_in_timeFormat1998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_timeFormat2018 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+    public static final BitSet FOLLOW_191_in_timeFormat2020 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
+    public static final BitSet FOLLOW_integerValue_in_timeFormat2024 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+    public static final BitSet FOLLOW_191_in_timeFormat2026 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_numericValue_in_timeFormat2030 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_hour_in_timeUnit2058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_minute_in_timeUnit2063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_second_in_timeUnit2068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_192_in_hour2080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_193_in_hour2082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_194_in_hour2084 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_195_in_hour2086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_196_in_hour2088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_177_in_minute2106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_197_in_minute2108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_198_in_minute2110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_199_in_minute2112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_200_in_second2130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_201_in_second2132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_202_in_second2134 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_203_in_second2136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_204_in_second2138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_205_in_duration2155 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_durationValue_in_duration2157 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_durationValue2177 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
+    public static final BitSet FOLLOW_timeUnit_in_durationValue2179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_durationValue2184 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000001FL});
+    public static final BitSet FOLLOW_hour_in_durationValue2186 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_numericValue_in_durationValue2188 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
+    public static final BitSet FOLLOW_minute_in_durationValue2191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_second_in_durationValue2193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_durationValue2199 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000001FL});
+    public static final BitSet FOLLOW_hour_in_durationValue2201 = new BitSet(new long[]{0x0000000000000000L,0x00000000001E0000L});
+    public static final BitSet FOLLOW_integerValue_in_durationValue2203 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x00000000000000E0L});
+    public static final BitSet FOLLOW_minute_in_durationValue2205 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_numericValue_in_durationValue2207 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
+    public static final BitSet FOLLOW_second_in_durationValue2209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_durationValue2214 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x00000000000000E0L});
+    public static final BitSet FOLLOW_minute_in_durationValue2216 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_numericValue_in_durationValue2218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L,0x0000000000001FFFL});
+    public static final BitSet FOLLOW_second_in_durationValue2220 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_timeFormat_in_durationValue2225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_fixedDirection_in_direction2238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_relativeDirection_in_direction2254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_cardinalDirection_in_fixedDirection2276 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ordinalDirection_in_fixedDirection2286 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_subOrdinalDirection_in_fixedDirection2296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Turning_in_fixedDirection2307 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x00001FFFFFFFC100L});
+    public static final BitSet FOLLOW_Heading_in_fixedDirection2309 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x00001FFFFFFFC100L});
+    public static final BitSet FOLLOW_cardinalDirection_in_fixedDirection2313 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ordinalDirection_in_fixedDirection2315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_subOrdinalDirection_in_fixedDirection2317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularValue_in_fixedDirection2319 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Turning_in_relativeDirection2347 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x3F00000000000000L});
+    public static final BitSet FOLLOW_Heading_in_relativeDirection2349 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x3F00000000000000L});
+    public static final BitSet FOLLOW_leftRightDirection_in_relativeDirection2352 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_angularValue_in_relativeDirection2354 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_northSouthDirection_in_cardinalDirection2372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_eastWestDirection_in_cardinalDirection2377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_206_in_northSouthDirection2389 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_207_in_northSouthDirection2391 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_200_in_northSouthDirection2403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_208_in_northSouthDirection2405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_209_in_eastWestDirection2423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_210_in_eastWestDirection2425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_211_in_eastWestDirection2437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_212_in_eastWestDirection2439 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_213_in_ordinalDirection2457 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_214_in_ordinalDirection2459 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_215_in_ordinalDirection2473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_216_in_ordinalDirection2475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_217_in_ordinalDirection2489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_218_in_ordinalDirection2491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_219_in_ordinalDirection2505 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_220_in_ordinalDirection2507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_221_in_subOrdinalDirection2527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_222_in_subOrdinalDirection2529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_223_in_subOrdinalDirection2545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_224_in_subOrdinalDirection2547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_225_in_subOrdinalDirection2563 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_226_in_subOrdinalDirection2565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_227_in_subOrdinalDirection2581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_228_in_subOrdinalDirection2583 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_229_in_subOrdinalDirection2599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_230_in_subOrdinalDirection2601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_231_in_subOrdinalDirection2617 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_232_in_subOrdinalDirection2619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_233_in_subOrdinalDirection2635 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_234_in_subOrdinalDirection2637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_235_in_subOrdinalDirection2653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_236_in_subOrdinalDirection2655 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Turning_in_loiterDirection2676 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L,0x0000000000000000L,0xC000000000000000L,0x0000000000000003L});
+    public static final BitSet FOLLOW_clockDirection_in_loiterDirection2679 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_237_in_upDownDirection2702 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_238_in_upDownDirection2704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_239_in_upDownDirection2706 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_240_in_upDownDirection2708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_241_in_upDownDirection2710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_242_in_upDownDirection2712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_243_in_upDownDirection2714 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_244_in_upDownDirection2726 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_245_in_upDownDirection2728 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_246_in_upDownDirection2730 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_247_in_upDownDirection2732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_248_in_leftRightDirection2750 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_249_in_leftRightDirection2752 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_250_in_leftRightDirection2754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_251_in_leftRightDirection2766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_252_in_leftRightDirection2768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_253_in_leftRightDirection2770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_254_in_clockDirection2788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_255_in_clockDirection2790 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_256_in_clockDirection2802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_257_in_clockDirection2804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue2821 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_258_in_angularValue2824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_259_in_angularValue2826 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_260_in_angularValue2828 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_261_in_angularValue2830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_262_in_angularValue2832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_angularValue2845 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x0010000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_258_in_angularValue2848 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_244_in_angularValue2850 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue2854 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_263_in_angularValue2856 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue2872 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000F00L});
+    public static final BitSet FOLLOW_264_in_angularValue2875 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_265_in_angularValue2877 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_266_in_angularValue2879 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_267_in_angularValue2881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_geoCoordinate_in_waypoint2902 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Identifier_in_waypoint2912 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate2932 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000001C100L});
+    public static final BitSet FOLLOW_northSouthDirection_in_latitudeLongitude2956 = new BitSet(new long[]{0x0000000000000000L,0x00000020001F0000L});
+    public static final BitSet FOLLOW_101_in_latitudeLongitude2958 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2963 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000001FC100L});
+    public static final BitSet FOLLOW_eastWestDirection_in_latitudeLongitude2965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_268_in_latitudeLongitude2991 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude2996 = new BitSet(new long[]{0x0000000000000000L,0x00000020001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_101_in_latitudeLongitude2998 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_268_in_latitudeLongitude3001 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_269_in_latitudeLongitude3032 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3036 = new BitSet(new long[]{0x0000000000000000L,0x00000020001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_101_in_latitudeLongitude3038 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_268_in_latitudeLongitude3041 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_268_in_latitudeLongitude3072 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3077 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_101_in_latitudeLongitude3079 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_269_in_latitudeLongitude3082 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_269_in_latitudeLongitude3112 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3116 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_101_in_latitudeLongitude3118 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_269_in_latitudeLongitude3121 = new BitSet(new long[]{0x0000000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_latitudeLongitudeValue3157 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularValue_in_latitudeLongitudeValue3169 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_numericValue3182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue3187 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_integerValue0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_percentValue3220 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000C000L});
-    public static final BitSet FOLLOW_270_in_percentValue3223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_271_in_percentValue3225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_percentValue3224 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000C000L});
+    public static final BitSet FOLLOW_270_in_percentValue3227 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_271_in_percentValue3229 = new BitSet(new long[]{0x0000000000000002L});
 
 }

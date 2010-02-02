@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-01-31 07:59:22
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-01 21:27:37
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -4009,8 +4009,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = To;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:596:4: ( 'to' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:596:6: 'to'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:601:4: ( 'to' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:601:6: 'to'
             {
             match("to"); 
 
@@ -4030,7 +4030,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = At;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:598:4: ( '@' | 'at' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:603:4: ( '@' | 'at' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -4048,14 +4048,14 @@ public class flipsLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:598:6: '@'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:603:6: '@'
                     {
                     match('@'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:598:10: 'at'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:603:10: 'at'
                     {
                     match("at"); 
 
@@ -4077,7 +4077,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = With;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:600:6: ( 'w/' | 'with' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:605:6: ( 'w/' | 'with' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -4105,7 +4105,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:600:8: 'w/'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:605:8: 'w/'
                     {
                     match("w/"); 
 
@@ -4113,7 +4113,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:600:13: 'with'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:605:13: 'with'
                     {
                     match("with"); 
 
@@ -4135,7 +4135,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Turning;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:602:9: ( 'trn' | 'turning' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:9: ( 'trn' | 'turning' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -4163,7 +4163,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:602:11: 'trn'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:11: 'trn'
                     {
                     match("trn"); 
 
@@ -4171,7 +4171,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:602:17: 'turning'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:17: 'turning'
                     {
                     match("turning"); 
 
@@ -4193,7 +4193,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Heading;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:604:9: ( 'hdg' | 'heading' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:609:9: ( 'hdg' | 'heading' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -4221,7 +4221,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:604:11: 'hdg'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:609:11: 'hdg'
                     {
                     match("hdg"); 
 
@@ -4229,7 +4229,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:604:17: 'heading'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:609:17: 'heading'
                     {
                     match("heading"); 
 
@@ -4251,10 +4251,10 @@ public class flipsLexer extends Lexer {
         try {
             int _type = FlightLevel;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:2: ( ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )? )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:4: ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )?
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:2: ( ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )? )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:4: ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )?
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:4: ( 'fl' | 'flight level' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:4: ( 'fl' | 'flight level' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -4292,7 +4292,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:5: 'fl'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:5: 'fl'
                     {
                     match("fl"); 
 
@@ -4300,7 +4300,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:10: 'flight level'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:10: 'flight level'
                     {
                     match("flight level"); 
 
@@ -4310,7 +4310,7 @@ public class flipsLexer extends Lexer {
 
             }
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:26: ( ' ' )?
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:26: ( ' ' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -4319,7 +4319,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:26: ' '
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:26: ' '
                     {
                     match(' '); 
 
@@ -4329,7 +4329,7 @@ public class flipsLexer extends Lexer {
             }
 
             mDigit(); 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:37: ( Digit | Digit Digit )?
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:37: ( Digit | Digit Digit )?
             int alt7=3;
             int LA7_0 = input.LA(1);
 
@@ -4342,14 +4342,14 @@ public class flipsLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:38: Digit
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:38: Digit
                     {
                     mDigit(); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:607:44: Digit Digit
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:44: Digit Digit
                     {
                     mDigit(); 
                     mDigit(); 
@@ -4375,8 +4375,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:617:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:617:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -4387,7 +4387,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:612:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:617:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop8:
             do {
                 int alt8=2;
@@ -4436,11 +4436,11 @@ public class flipsLexer extends Lexer {
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:615:2: ( '\"' (~ ( '\"' ) )* '\"' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:615:4: '\"' (~ ( '\"' ) )* '\"'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:620:2: ( '\"' (~ ( '\"' ) )* '\"' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:620:4: '\"' (~ ( '\"' ) )* '\"'
             {
             match('\"'); 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:615:8: (~ ( '\"' ) )*
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:620:8: (~ ( '\"' ) )*
             loop9:
             do {
                 int alt9=2;
@@ -4453,7 +4453,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:615:9: ~ ( '\"' )
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:620:9: ~ ( '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -4488,8 +4488,8 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "Digit"
     public final void mDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:620:7: ( '0' .. '9' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:620:9: '0' .. '9'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:625:7: ( '0' .. '9' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:625:9: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -4504,8 +4504,8 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "NonZeroDigit"
     public final void mNonZeroDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:624:2: ( '1' .. '9' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:624:4: '1' .. '9'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:629:2: ( '1' .. '9' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:629:4: '1' .. '9'
             {
             matchRange('1','9'); 
 
@@ -4520,7 +4520,7 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "BinaryDigit"
     public final void mBinaryDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:628:2: ( '0' | '1' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:633:2: ( '0' | '1' )
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='1') ) {
@@ -4544,7 +4544,7 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:631:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:636:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
@@ -4570,8 +4570,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = BinaryLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:634:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:634:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:639:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:639:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -4583,7 +4583,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:634:18: ( BinaryDigit )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:639:18: ( BinaryDigit )+
             int cnt10=0;
             loop10:
             do {
@@ -4597,7 +4597,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:634:18: BinaryDigit
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:639:18: BinaryDigit
             	    {
             	    mBinaryDigit(); 
 
@@ -4629,11 +4629,11 @@ public class flipsLexer extends Lexer {
         try {
             int _type = OctalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:637:2: ( '0' ( '0' .. '7' )+ )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:637:4: '0' ( '0' .. '7' )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:642:2: ( '0' ( '0' .. '7' )+ )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:642:4: '0' ( '0' .. '7' )+
             {
             match('0'); 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:637:8: ( '0' .. '7' )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:642:8: ( '0' .. '7' )+
             int cnt11=0;
             loop11:
             do {
@@ -4647,7 +4647,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:637:9: '0' .. '7'
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:642:9: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -4679,7 +4679,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = DecimalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:640:2: ( '0' | NonZeroDigit ( Digit )* )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:645:2: ( '0' | NonZeroDigit ( Digit )* )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -4697,17 +4697,17 @@ public class flipsLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:640:4: '0'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:645:4: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:640:8: NonZeroDigit ( Digit )*
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:645:8: NonZeroDigit ( Digit )*
                     {
                     mNonZeroDigit(); 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:640:21: ( Digit )*
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:645:21: ( Digit )*
                     loop12:
                     do {
                         int alt12=2;
@@ -4720,7 +4720,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:640:21: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:645:21: Digit
                     	    {
                     	    mDigit(); 
 
@@ -4750,8 +4750,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = HexLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:643:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:643:4: '0' ( 'x' | 'X' ) ( HexDigit )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:4: '0' ( 'x' | 'X' ) ( HexDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -4763,7 +4763,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:643:18: ( HexDigit )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:18: ( HexDigit )+
             int cnt14=0;
             loop14:
             do {
@@ -4777,7 +4777,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:643:18: HexDigit
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:18: HexDigit
             	    {
             	    mHexDigit(); 
 
@@ -4809,14 +4809,14 @@ public class flipsLexer extends Lexer {
         try {
             int _type = FloatingPointLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
             int alt21=3;
             alt21 = dfa21.predict(input);
             switch (alt21) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:4: ( Digit )+
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:4: ( Digit )+
                     int cnt15=0;
                     loop15:
                     do {
@@ -4830,7 +4830,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:4: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:4: Digit
                     	    {
                     	    mDigit(); 
 
@@ -4847,7 +4847,7 @@ public class flipsLexer extends Lexer {
                     } while (true);
 
                     match('.'); 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:15: ( Digit )*
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:15: ( Digit )*
                     loop16:
                     do {
                         int alt16=2;
@@ -4860,7 +4860,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:15: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:15: Digit
                     	    {
                     	    mDigit(); 
 
@@ -4872,7 +4872,7 @@ public class flipsLexer extends Lexer {
                         }
                     } while (true);
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:22: ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:22: ( Exponent )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -4881,7 +4881,7 @@ public class flipsLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:646:22: Exponent
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:651:22: Exponent
                             {
                             mExponent(); 
 
@@ -4894,10 +4894,10 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:647:4: '.' ( Digit )+ ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:4: '.' ( Digit )+ ( Exponent )?
                     {
                     match('.'); 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:647:8: ( Digit )+
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:8: ( Digit )+
                     int cnt18=0;
                     loop18:
                     do {
@@ -4911,7 +4911,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:647:8: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:8: Digit
                     	    {
                     	    mDigit(); 
 
@@ -4927,7 +4927,7 @@ public class flipsLexer extends Lexer {
                         cnt18++;
                     } while (true);
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:647:15: ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:15: ( Exponent )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -4936,7 +4936,7 @@ public class flipsLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:647:15: Exponent
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:15: Exponent
                             {
                             mExponent(); 
 
@@ -4949,9 +4949,9 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:4: ( Digit )+ Exponent
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:653:4: ( Digit )+ Exponent
                     {
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:4: ( Digit )+
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:653:4: ( Digit )+
                     int cnt20=0;
                     loop20:
                     do {
@@ -4965,7 +4965,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:648:4: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:653:4: Digit
                     	    {
                     	    mDigit(); 
 
@@ -4998,8 +4998,8 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "Exponent"
     public final void mExponent() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:657:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:657:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -5010,7 +5010,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:21: ( '+' | '-' )?
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:657:21: ( '+' | '-' )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -5036,7 +5036,7 @@ public class flipsLexer extends Lexer {
 
             }
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:32: ( Digit )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:657:32: ( Digit )+
             int cnt23=0;
             loop23:
             do {
@@ -5050,7 +5050,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt23) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:652:32: Digit
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:657:32: Digit
             	    {
             	    mDigit(); 
 
@@ -5080,10 +5080,10 @@ public class flipsLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:656:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:656:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:661:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:661:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:656:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:661:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             int cnt24=0;
             loop24:
             do {
@@ -5138,12 +5138,12 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Comment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:660:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:660:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:665:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:665:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
             {
             match("/*"); 
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:660:16: ( options {greedy=FALSE; } : . )*
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:665:16: ( options {greedy=FALSE; } : . )*
             loop25:
             do {
                 int alt25=2;
@@ -5174,7 +5174,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:660:46: .
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:665:46: .
             	    {
             	    matchAny(); 
 
@@ -5205,12 +5205,12 @@ public class flipsLexer extends Lexer {
         try {
             int _type = LineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:663:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:663:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:668:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:668:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:663:9: (~ ( '\\n' | '\\r' ) )*
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:668:9: (~ ( '\\n' | '\\r' ) )*
             loop26:
             do {
                 int alt26=2;
@@ -5223,7 +5223,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt26) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:663:9: ~ ( '\\n' | '\\r' )
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:668:9: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -5243,7 +5243,7 @@ public class flipsLexer extends Lexer {
                 }
             } while (true);
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:663:23: ( '\\r' )?
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:668:23: ( '\\r' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -5252,7 +5252,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:663:23: '\\r'
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:668:23: '\\r'
                     {
                     match('\r'); 
 
@@ -6695,7 +6695,7 @@ public class flipsLexer extends Lexer {
             this.transition = DFA21_transition;
         }
         public String getDescription() {
-            return "645:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
+            return "650:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
         }
     }
     static final String DFA28_eotS =
