@@ -353,15 +353,20 @@ throttleValue
 
 // TIME EXPRESSIONS
 
-time	:	At timeFormat ('am'|'a.m.')
+time
+	:	At timeValue
+	;
+
+timeValue
+	:	timeFormat ('am'|'a.m.')
 	->	^(TIME timeFormat AM)
-	|	At integerValue ('am'|'a.m.')
+	|	integerValue ('am'|'a.m.')
 	->	^(TIME integerValue HOUR AM)
-	|	At timeFormat ('pm'|'p.m.')
+	|	timeFormat ('pm'|'p.m.')
 	->	^(TIME timeFormat PM)
-	|	At integerValue ('pm'|'p.m.')
+	|	integerValue ('pm'|'p.m.')
 	->	^(TIME integerValue HOUR PM)
-	|	At timeFormat
+	|	timeFormat
 	->	^(TIME timeFormat HOUR24)
 	;
 
