@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-01 21:27:36
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-03 20:44:00
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -10,7 +10,7 @@ import org.antlr.runtime.tree.*;
 
 public class flipsParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "COMMAND", "PARAMETER", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "ROLL", "PITCH", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "OPTIMAL", "THROTTLE", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "HOUR", "MINUTE", "SECOND", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "NAUTICAL", "MILE", "YARD", "FOOT", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "MINIMUM", "MAXIMUM", "CRUISE", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "Identifier", "To", "At", "With", "FlightLevel", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "StringLiteral", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'def'", "'define'", "'cmd'", "'command'", "'commands'", "'='", "'and'", "','", "'('", "')'", "'wpt'", "'waypoint'", "'waypoints'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'/'", "'per'", "'spd'", "'speed'", "'min'", "'minimum'", "'cru'", "'cruise'", "'max'", "'maximum'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'for'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'d'", "'down'", "'descend'", "'descending'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'¡'", "'deg'", "'degs'", "'degree'", "'degrees'", "'\\''", "'rad'", "'rads'", "'radian'", "'radians'", "'+'", "'-'", "'%'", "'percent'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "COMMAND", "PARAMETER", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "ROLL", "PITCH", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "OPTIMAL", "THROTTLE", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "HOUR", "MINUTE", "SECOND", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "NAUTICAL", "MILE", "YARD", "FOOT", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "MINIMUM", "MAXIMUM", "CRUISE", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "Identifier", "To", "At", "With", "FlightLevel", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "StringLiteral", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'def'", "'define'", "'cmd'", "'command'", "'commands'", "'='", "'and'", "','", "'('", "')'", "'wpt'", "'waypoint'", "'waypoints'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'/'", "'per'", "'spd'", "'speed'", "'min'", "'minimum'", "'cru'", "'cruise'", "'max'", "'maximum'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'for'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'d'", "'down'", "'descend'", "'descending'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'\\u00B0'", "'deg'", "'degs'", "'degree'", "'degrees'", "'\\''", "'rad'", "'rads'", "'radian'", "'radians'", "'+'", "'-'", "'%'", "'percent'"
     };
     public static final int DIRECTION=11;
     public static final int T__159=159;
@@ -394,7 +394,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: define, command
+            // elements: command, define
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1145,7 +1145,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: par, Identifier, cmd
+                    // elements: Identifier, par, cmd
                     // token labels: 
                     // rule labels: par, retval, cmd
                     // token list labels: 
@@ -1159,10 +1159,10 @@ public class flipsParser extends Parser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 129:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) ) )+
                     {
-                        if ( !(stream_par.hasNext()||stream_Identifier.hasNext()||stream_cmd.hasNext()) ) {
+                        if ( !(stream_Identifier.hasNext()||stream_par.hasNext()||stream_cmd.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
-                        while ( stream_par.hasNext()||stream_Identifier.hasNext()||stream_cmd.hasNext() ) {
+                        while ( stream_Identifier.hasNext()||stream_par.hasNext()||stream_cmd.hasNext() ) {
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:129:5: ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1185,8 +1185,8 @@ public class flipsParser extends Parser {
                             }
 
                         }
-                        stream_par.reset();
                         stream_Identifier.reset();
+                        stream_par.reset();
                         stream_cmd.reset();
 
                     }
@@ -3815,7 +3815,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: altitudeValue, upDownDirection
+            // elements: upDownDirection, altitudeValue
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -5003,7 +5003,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: leftRightDirection, distanceValue
+            // elements: distanceValue, leftRightDirection
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -6679,7 +6679,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: timeUnit, distanceUnit
+                    // elements: distanceUnit, timeUnit
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7910,15 +7910,15 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: hr, min
+                    // elements: min, hr
                     // token labels: 
-                    // rule labels: min, hr, retval
+                    // rule labels: hr, min, retval
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
+                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
@@ -7964,7 +7964,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: min, hr, s
+                    // elements: min, s, hr
                     // token labels: 
                     // rule labels: hr, min, retval, s
                     // token list labels: 
@@ -9482,7 +9482,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: subOrdinalDirection, cardinalDirection, ordinalDirection, angularValue
+                    // elements: cardinalDirection, angularValue, ordinalDirection, subOrdinalDirection
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -9627,7 +9627,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: leftRightDirection, angularValue
+            // elements: angularValue, leftRightDirection
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -11993,7 +11993,7 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "angularValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:1: angularValue : ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:513:1: angularValue : ( numericValue ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '\\u00B0' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN );
     public final flipsParser.angularValue_return angularValue() throws RecognitionException {
         flipsParser.angularValue_return retval = new flipsParser.angularValue_return();
         retval.start = input.LT(1);
@@ -12047,7 +12047,7 @@ public class flipsParser extends Parser {
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:2: ( numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '¡' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:2: ( numericValue ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '\\u00B0' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
             int alt132=3;
             int LA132_0 = input.LA(1);
 
@@ -12248,7 +12248,7 @@ public class flipsParser extends Parser {
             }
             switch (alt132) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:4: numericValue ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:4: numericValue ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' )
                     {
                     pushFollow(FOLLOW_numericValue_in_angularValue2821);
                     numericValue342=numericValue();
@@ -12256,7 +12256,7 @@ public class flipsParser extends Parser {
                     state._fsp--;
 
                     stream_numericValue.add(numericValue342.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:17: ( '¡' | 'deg' | 'degs' | 'degree' | 'degrees' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:17: ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' )
                     int alt129=5;
                     switch ( input.LA(1) ) {
                     case 258:
@@ -12293,7 +12293,7 @@ public class flipsParser extends Parser {
 
                     switch (alt129) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:18: '¡'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:18: '\\u00B0'
                             {
                             char_literal343=(Token)match(input,258,FOLLOW_258_in_angularValue2824);  
                             stream_258.add(char_literal343);
@@ -12302,7 +12302,7 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:22: 'deg'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:27: 'deg'
                             {
                             string_literal344=(Token)match(input,259,FOLLOW_259_in_angularValue2826);  
                             stream_259.add(string_literal344);
@@ -12311,7 +12311,7 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:28: 'degs'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:33: 'degs'
                             {
                             string_literal345=(Token)match(input,260,FOLLOW_260_in_angularValue2828);  
                             stream_260.add(string_literal345);
@@ -12320,7 +12320,7 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:35: 'degree'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:40: 'degree'
                             {
                             string_literal346=(Token)match(input,261,FOLLOW_261_in_angularValue2830);  
                             stream_261.add(string_literal346);
@@ -12329,7 +12329,7 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 5 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:44: 'degrees'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:514:49: 'degrees'
                             {
                             string_literal347=(Token)match(input,262,FOLLOW_262_in_angularValue2832);  
                             stream_262.add(string_literal347);
@@ -12364,7 +12364,7 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:4: integerValue ( '¡' | 'd' )? numericValue '\\''
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:4: integerValue ( '\\u00B0' | 'd' )? numericValue '\\''
                     {
                     pushFollow(FOLLOW_integerValue_in_angularValue2845);
                     integerValue348=integerValue();
@@ -12372,7 +12372,7 @@ public class flipsParser extends Parser {
                     state._fsp--;
 
                     stream_integerValue.add(integerValue348.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:17: ( '¡' | 'd' )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:17: ( '\\u00B0' | 'd' )?
                     int alt130=3;
                     int LA130_0 = input.LA(1);
 
@@ -12384,7 +12384,7 @@ public class flipsParser extends Parser {
                     }
                     switch (alt130) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:18: '¡'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:18: '\\u00B0'
                             {
                             char_literal349=(Token)match(input,258,FOLLOW_258_in_angularValue2848);  
                             stream_258.add(char_literal349);
@@ -12393,7 +12393,7 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:22: 'd'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:516:27: 'd'
                             {
                             char_literal350=(Token)match(input,244,FOLLOW_244_in_angularValue2850);  
                             stream_244.add(char_literal350);
@@ -12416,7 +12416,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: integerValue, numericValue
+                    // elements: numericValue, integerValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12869,7 +12869,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x, northSouthDirection, eastWestDirection, y
+                    // elements: northSouthDirection, eastWestDirection, y, x
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -13088,7 +13088,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x, y
+                    // elements: y, x
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -13189,7 +13189,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: y, x
+                    // elements: x, y
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 

@@ -511,9 +511,9 @@ clockDirection
 	;
 
 angularValue
-	:	numericValue ('°'|'deg'|'degs'|'degree'|'degrees')
+	:	numericValue ('\u00B0'|'deg'|'degs'|'degree'|'degrees')
 	->	numericValue DEGREE
-	|	integerValue ('°'|'d')? numericValue '\''
+	|	integerValue ('\u00B0'|'d')? numericValue '\''
 	->	integerValue DEGREE numericValue MINUTE
 	|	numericValue ('rad'|'rads'|'radian'|'radians')
 	->	numericValue RADIAN
