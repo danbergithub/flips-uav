@@ -120,7 +120,7 @@ define
 	;
 
 defineCommand
-	:	('def'|'define') ('cmd'|'command'|'commands') defineCommandValue
+	:	('cmd'|'command'|'commands') defineCommandValue
 	->	defineCommandValue
 	;
 
@@ -132,7 +132,7 @@ defineCommandValue
 	;
 
 defineSensor
-	:	('def'|'define') ('sen'|'sensor'|'sensors') defineSensorValue
+	:	('sen'|'sensor'|'sensors') defineSensorValue
 	->	defineSensorValue
 	;
 
@@ -142,7 +142,7 @@ defineSensorValue
 	;
 
 defineWaypoint
-	:	('def'|'define') ('wpt'|'waypoint'|'waypoints') defineWaypointValue
+	:	('wpt'|'waypoint'|'waypoints') defineWaypointValue
 	->	defineWaypointValue
 	;
 

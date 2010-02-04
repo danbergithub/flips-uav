@@ -1,5 +1,5 @@
 // A collection of waypoints on the UGA campus
-define waypoints
+waypoints
 
 // Fields
 DWBrooksMall = 33.945002 -83.374758

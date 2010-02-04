@@ -1,10 +1,10 @@
-define command EnableCamera = 1 // More verbose syntax
-def cmd DisableCamera = 2 // Less verbose syntax
-def cmd TakeAPicture = 3
-def cmd PanCamera = 4(1) // Command takes 1 parameter
-def cmd SendPictureConfirmation = 5
+command EnableCamera = 1 // More verbose syntax
+cmd DisableCamera = 2 // Less verbose syntax
+cmd TakeAPicture = 3
+cmd PanCamera = 4(1) // Command takes 1 parameter
+cmd SendPictureConfirmation = 5
+wpt Atlanta = 33.884245 -84.376091
 
-def wpt Atlanta = 33.884245 -84.376091
 EnableCamera
 fly to Atlanta
 TakeAPicture
