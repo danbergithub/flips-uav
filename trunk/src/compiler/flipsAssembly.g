@@ -39,6 +39,7 @@ options {
 
 @members {
   HashMap<String,Integer> commands = new HashMap<String,Integer>();
+  HashMap<String,Integer> sensors = new HashMap<String,Integer>();
   HashMap<String,Double[]> waypoints = new HashMap<String,Double[]>();
   public StringBuilder output = new StringBuilder();
 
@@ -49,6 +50,17 @@ options {
   public Integer getCommand(String name) {
     if (commands.containsKey(name)) {
       return commands.get(name);
+    }
+    return null;
+  }
+  
+  public void addSensor(String name, Integer value) {
+    sensors.put(name, value);
+  }
+  
+  public Integer getSensor(String name) {
+    if (sensors.containsKey(name)) {
+      return sensors.get(name);
     }
     return null;
   }
@@ -107,6 +119,7 @@ flightPlan
 
 define
 	:	defineCommand
+	|	defineSensor
 	|	defineWaypoint
 	;
 
@@ -115,6 +128,11 @@ defineCommand
 		{addCommand(name.getText(),cmd);}
 	|	^(DEFINE name=Identifier ^(COMMAND cmd=integerValue PARAMETER par=integerValue))
 		{addCommand(name.getText(),cmd);}
+	;
+
+defineSensor
+	:	^(DEFINE name=Identifier ^(SENSOR sen=integerValue))
+		{addSensor(name.getText(),sen);}
 	;
 
 defineWaypoint
