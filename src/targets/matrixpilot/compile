@@ -1,0 +1,6 @@
+echo "Cleaning up..."
+rm -f java/classes/*
+echo "Compiling..."
+javac -classpath java/lib/antlr-3.2.jar java/flipsLexer.java java/flipsParser.java java/flipsAssembly.java java/flipsMatrixPilotLexer.java java/flipsMatrixPilotParser.java java/flipsCompiler.java -d java/classes -verbose
+echo "Finished."
+
