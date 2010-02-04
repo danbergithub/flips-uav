@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g 2010-02-03 22:52:37
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g 2010-02-03 23:07:38
 
   import java.util.HashMap;
 
@@ -1292,7 +1292,7 @@ public class flipsAssembly extends TreeParser {
               emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
             }
             else {
-              emit("$INCLUDE " + x.getText() + ".uav", "Include The File '" + x.getText() + ".uav'");
+              emit("$INCLUDE " + x.getText() + ".uav", "Include Source File '" + x.getText() + ".uav'");
             }
             	
 

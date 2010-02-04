@@ -1,4 +1,4 @@
-$INCLUDE takeoff.uav     // Include The File 'takeoff.uav'
+$INCLUDE takeoff.uav     // Include Source File 'takeoff.uav'
 POS   X FIX -32.463      // 32.463 W Longitude
 POS   Y FIX 78.754       // 78.754 N Latitude
 TIM REL 3612.0           // 3612.0 s (1:00:12) Duration
@@ -41,4 +41,4 @@ FLY                      // Execute
 ACT THR FIX 0.0          // 0.0% Throttle
 FLY                      // Execute
 CMD 2                    // DEPLOYTHEPARACHUTE / Command #2
-$INCLUDE land.uav        // Include The File 'land.uav'
+$INCLUDE land.uav        // Include Source File 'land.uav'

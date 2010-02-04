@@ -1,4 +1,4 @@
-$INCLUDE takeoff.uav     // Include The File 'takeoff.uav'
+$INCLUDE takeoff.uav     // Include Source File 'takeoff.uav'
 POS   Z FIX -60.96       // 60.96 m (200.0 ft) Altitude
 SPD AIR OPT MAX          // Maximum Air Speed
 FLY                      // Execute
@@ -52,4 +52,4 @@ POS   Z FIX -35.052      // 35.052 m (115.0 ft) Altitude
 LTR                      // Execute Loiter
 SPD AIR OPT MIN          // Minimum Air Speed
 FLY                      // Execute
-$INCLUDE land.uav        // Include The File 'land.uav'
+$INCLUDE land.uav        // Include Source File 'land.uav'
