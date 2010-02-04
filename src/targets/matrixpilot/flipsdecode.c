@@ -67,6 +67,42 @@ static void FLIPSDecode() {
       
       // Command Decode
       switch (command) {
+        case 0:
+          printf("FP_NORMAL\n");
+          break;
+        
+        case 1:
+          printf("FP_TAKEOFF\n");
+          break;
+        
+        case 2:
+          printf("FP_INVERTED\n");
+          break;
+        
+        case 4:
+          printf("FP_HOVER\n");
+          break;
+        
+        case 8:
+          printf("FP_ROLL_LEFT\n");
+          break;
+        
+        case 16:
+          printf("FP_ROLL_RIGHT\n");
+          break;
+
+        case 32:
+          printf("FP_TRIGGER\n");
+          break;
+
+        case 64:
+          printf("FP_LOITER\n");
+          break;
+
+        case 128:
+          printf("FP_LAND\n");
+          break;
+
         default:
           printf("FLIPS: UNKNOWN COMMAND\n");
           FLIPS.Status = 1; // Continue

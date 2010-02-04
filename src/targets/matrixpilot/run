@@ -1,1 +1,6 @@
+echo "Displaying mission..."
+cat example1.uav
 java -cp java/classes/:java/lib/antlr-3.2.jar flipsCompiler example1.uav
+echo "Running mission..."
+./flips
+
