@@ -25,12 +25,12 @@ POS   Y FIX 84.324       // SANFORDSTADIUM / 84.324 N Latitude
 SPD AIR OPT MAX          // Maximum Air Speed
 POS   Z FIX -7620.0      // 7620.0 m (25000.0 ft) Altitude
 FLY                      // Execute
-CMD 2                    // TAKEAPICTURE / Command #2
+CMD 1                    // TAKEAPICTURE / Command #1
 POS   X FIX -98.843      // BOYD / 98.843 W Longitude
 POS   Y FIX 84.234       // BOYD / 84.234 N Latitude
 ACT THR FIX 75.3         // 75.3% Throttle
 FLY                      // Execute
-CMD 2                    // TAKEAPICTURE / Command #2
+CMD 1                    // TAKEAPICTURE / Command #1
 DIR CW                   // Clockwise Loiter Direction
 SPD AIR FIX 6.7056       // 6.7056 m/s (15.0 mph) Air Speed
 TIM REL 37.0             // 37.0 s (0:00:37) Duration

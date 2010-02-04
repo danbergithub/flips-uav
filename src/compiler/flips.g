@@ -125,8 +125,8 @@ defineCommand
 	;
 
 defineCommandValue
-	:	Identifier '=' cmd=integerValue (('and'|',' 'and'?)? Identifier '=' cmd=integerValue)*
-	->	^(DEFINE Identifier ^(COMMAND $cmd))+
+	:	Identifier '=' integerValue (('and'|',' 'and'?)? Identifier '=' integerValue)*
+	->	^(DEFINE Identifier ^(COMMAND integerValue))+
 	|	Identifier '=' cmd=integerValue '(' par=integerValue ')' (('and'|',' 'and'?)? Identifier '=' cmd=integerValue '(' par=integerValue ')')*
 	->	^(DEFINE Identifier ^(COMMAND $cmd PARAMETER $par))+
 	;
