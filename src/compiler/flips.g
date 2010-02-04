@@ -38,6 +38,7 @@ tokens {
   DEFINE;
   COMMAND;
   PARAMETER;
+  SENSOR;
   FLY;
   LOITER;
   EXECUTE;
@@ -114,6 +115,7 @@ flightPlan
 
 define
 	:	defineCommand
+	|	defineSensor
 	|	defineWaypoint
 	;
 
@@ -127,6 +129,16 @@ defineCommandValue
 	->	^(DEFINE Identifier ^(COMMAND $cmd))+
 	|	Identifier '=' cmd=integerValue '(' par=integerValue ')' (('and'|',' 'and'?)? Identifier '=' cmd=integerValue '(' par=integerValue ')')*
 	->	^(DEFINE Identifier ^(COMMAND $cmd PARAMETER $par))+
+	;
+
+defineSensor
+	:	('def'|'define') ('sen'|'sensor'|'sensors') defineSensorValue
+	->	defineSensorValue
+	;
+
+defineSensorValue
+	:	Identifier '=' sen=integerValue (('and'|',' 'and'?)? Identifier '=' sen=integerValue)*
+	->	^(DEFINE Identifier ^(SENSOR $sen))+
 	;
 
 defineWaypoint
