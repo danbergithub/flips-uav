@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-03 21:04:39
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-03 22:52:29
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -10,7 +10,7 @@ import org.antlr.runtime.tree.*;
 
 public class flipsParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "ROLL", "PITCH", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "OPTIMAL", "THROTTLE", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "HOUR", "MINUTE", "SECOND", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "NAUTICAL", "MILE", "YARD", "FOOT", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "MINIMUM", "MAXIMUM", "CRUISE", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "Identifier", "To", "At", "With", "FlightLevel", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "StringLiteral", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'def'", "'define'", "'cmd'", "'command'", "'commands'", "'='", "'and'", "','", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'/'", "'per'", "'spd'", "'speed'", "'min'", "'minimum'", "'cru'", "'cruise'", "'max'", "'maximum'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'for'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'d'", "'down'", "'descend'", "'descending'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'\\u00B0'", "'deg'", "'degs'", "'degree'", "'degrees'", "'\\''", "'rad'", "'rads'", "'radian'", "'radians'", "'+'", "'-'", "'%'", "'percent'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "ROLL", "PITCH", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "OPTIMAL", "THROTTLE", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "HOUR", "MINUTE", "SECOND", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "NAUTICAL", "MILE", "YARD", "FOOT", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "MINIMUM", "MAXIMUM", "CRUISE", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "Identifier", "To", "At", "With", "FlightLevel", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "StringLiteral", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'def'", "'define'", "'cmd'", "'command'", "'commands'", "'='", "'and'", "','", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'/'", "'per'", "'spd'", "'speed'", "'min'", "'minimum'", "'cru'", "'cruise'", "'max'", "'maximum'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'for'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'d'", "'down'", "'descend'", "'descending'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'deg'", "'degs'", "'degree'", "'degrees'", "'\\''", "'rad'", "'rads'", "'radian'", "'radians'", "'+'", "'-'", "'%'", "'percent'"
     };
     public static final int DIRECTION=12;
     public static final int T__159=159;
@@ -104,7 +104,6 @@ public class flipsParser extends Parser {
     public static final int T__269=269;
     public static final int FloatingPointLiteral=81;
     public static final int T__268=268;
-    public static final int T__275=275;
     public static final int GT=71;
     public static final int T__271=271;
     public static final int METER=41;
@@ -398,7 +397,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: command, define
+            // elements: define, command
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -862,11 +861,11 @@ public class flipsParser extends Parser {
                     if ( ((LA12_2>=BinaryLiteral && LA12_2<=HexLiteral)) ) {
                         int LA12_3 = input.LA(4);
 
-                        if ( (LA12_3==103) ) {
-                            alt12=2;
-                        }
-                        else if ( (LA12_3==EOF||LA12_3==Identifier||(LA12_3>=95 && LA12_3<=96)||(LA12_3>=101 && LA12_3<=102)||(LA12_3>=111 && LA12_3<=116)) ) {
+                        if ( (LA12_3==EOF||LA12_3==Identifier||(LA12_3>=95 && LA12_3<=96)||(LA12_3>=101 && LA12_3<=102)||(LA12_3>=111 && LA12_3<=116)) ) {
                             alt12=1;
+                        }
+                        else if ( (LA12_3==103) ) {
+                            alt12=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -1011,7 +1010,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: Identifier, cmd
+                    // elements: cmd, Identifier
                     // token labels: 
                     // rule labels: retval, cmd
                     // token list labels: 
@@ -1024,10 +1023,10 @@ public class flipsParser extends Parser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 129:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd) ) )+
                     {
-                        if ( !(stream_Identifier.hasNext()||stream_cmd.hasNext()) ) {
+                        if ( !(stream_cmd.hasNext()||stream_Identifier.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
-                        while ( stream_Identifier.hasNext()||stream_cmd.hasNext() ) {
+                        while ( stream_cmd.hasNext()||stream_Identifier.hasNext() ) {
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:129:5: ^( DEFINE Identifier ^( COMMAND $cmd) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1048,8 +1047,8 @@ public class flipsParser extends Parser {
                             }
 
                         }
-                        stream_Identifier.reset();
                         stream_cmd.reset();
+                        stream_Identifier.reset();
 
                     }
 
@@ -1591,7 +1590,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: Identifier, sen
+            // elements: sen, Identifier
             // token labels: 
             // rule labels: retval, sen
             // token list labels: 
@@ -1604,10 +1603,10 @@ public class flipsParser extends Parser {
             root_0 = (CommonTree)adaptor.nil();
             // 141:2: -> ( ^( DEFINE Identifier ^( SENSOR $sen) ) )+
             {
-                if ( !(stream_Identifier.hasNext()||stream_sen.hasNext()) ) {
+                if ( !(stream_sen.hasNext()||stream_Identifier.hasNext()) ) {
                     throw new RewriteEarlyExitException();
                 }
-                while ( stream_Identifier.hasNext()||stream_sen.hasNext() ) {
+                while ( stream_sen.hasNext()||stream_Identifier.hasNext() ) {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:141:5: ^( DEFINE Identifier ^( SENSOR $sen) )
                     {
                     CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1628,8 +1627,8 @@ public class flipsParser extends Parser {
                     }
 
                 }
-                stream_Identifier.reset();
                 stream_sen.reset();
+                stream_Identifier.reset();
 
             }
 
@@ -1983,7 +1982,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: geoCoordinate, Identifier
+            // elements: Identifier, geoCoordinate
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1995,10 +1994,10 @@ public class flipsParser extends Parser {
             root_0 = (CommonTree)adaptor.nil();
             // 151:2: -> ( ^( DEFINE Identifier geoCoordinate ) )+
             {
-                if ( !(stream_geoCoordinate.hasNext()||stream_Identifier.hasNext()) ) {
+                if ( !(stream_Identifier.hasNext()||stream_geoCoordinate.hasNext()) ) {
                     throw new RewriteEarlyExitException();
                 }
-                while ( stream_geoCoordinate.hasNext()||stream_Identifier.hasNext() ) {
+                while ( stream_Identifier.hasNext()||stream_geoCoordinate.hasNext() ) {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:151:5: ^( DEFINE Identifier geoCoordinate )
                     {
                     CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -2011,8 +2010,8 @@ public class flipsParser extends Parser {
                     }
 
                 }
-                stream_geoCoordinate.reset();
                 stream_Identifier.reset();
+                stream_geoCoordinate.reset();
 
             }
 
@@ -4354,11 +4353,11 @@ public class flipsParser extends Parser {
                 {
                 int LA53_2 = input.LA(2);
 
-                if ( ((LA53_2>=150 && LA53_2<=167)) ) {
-                    alt53=1;
-                }
-                else if ( ((LA53_2>=130 && LA53_2<=147)) ) {
+                if ( ((LA53_2>=130 && LA53_2<=147)) ) {
                     alt53=2;
+                }
+                else if ( ((LA53_2>=150 && LA53_2<=167)) ) {
+                    alt53=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -6286,7 +6285,7 @@ public class flipsParser extends Parser {
                     if ( ((LA75_3>=150 && LA75_3<=167)||(LA75_3>=170 && LA75_3<=176)) ) {
                         alt75=1;
                     }
-                    else if ( ((LA75_3>=274 && LA75_3<=275)) ) {
+                    else if ( ((LA75_3>=273 && LA75_3<=274)) ) {
                         alt75=4;
                     }
                     else {
@@ -6301,11 +6300,11 @@ public class flipsParser extends Parser {
                     {
                     int LA75_4 = input.LA(3);
 
-                    if ( ((LA75_4>=274 && LA75_4<=275)) ) {
-                        alt75=4;
-                    }
-                    else if ( ((LA75_4>=150 && LA75_4<=167)||(LA75_4>=170 && LA75_4<=176)) ) {
+                    if ( ((LA75_4>=150 && LA75_4<=167)||(LA75_4>=170 && LA75_4<=176)) ) {
                         alt75=1;
+                    }
+                    else if ( ((LA75_4>=273 && LA75_4<=274)) ) {
+                        alt75=4;
                     }
                     else {
                         NoViableAltException nvae =
@@ -7119,7 +7118,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: distanceUnit, timeUnit
+                    // elements: timeUnit, distanceUnit
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -8295,11 +8294,11 @@ public class flipsParser extends Parser {
                     if ( ((LA91_2>=BinaryLiteral && LA91_2<=HexLiteral)) ) {
                         int LA91_3 = input.LA(4);
 
-                        if ( (LA91_3==EOF||(LA91_3>=Identifier && LA91_3<=With)||(LA91_3>=Turning && LA91_3<=HexLiteral)||(LA91_3>=111 && LA91_3<=118)||(LA91_3>=120 && LA91_3<=121)||(LA91_3>=123 && LA91_3<=124)||LA91_3==127||(LA91_3>=148 && LA91_3<=149)||(LA91_3>=191 && LA91_3<=194)||LA91_3==204||(LA91_3>=209 && LA91_3<=261)) ) {
-                            alt91=1;
-                        }
-                        else if ( (LA91_3==195) ) {
+                        if ( (LA91_3==195) ) {
                             alt91=2;
+                        }
+                        else if ( (LA91_3==EOF||(LA91_3>=Identifier && LA91_3<=With)||(LA91_3>=Turning && LA91_3<=HexLiteral)||(LA91_3>=111 && LA91_3<=118)||(LA91_3>=120 && LA91_3<=121)||(LA91_3>=123 && LA91_3<=124)||LA91_3==127||(LA91_3>=148 && LA91_3<=149)||(LA91_3>=191 && LA91_3<=194)||LA91_3==204||(LA91_3>=209 && LA91_3<=261)) ) {
+                            alt91=1;
                         }
                         else {
                             NoViableAltException nvae =
@@ -8404,15 +8403,15 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: hr, min, s
+                    // elements: min, hr, s
                     // token labels: 
-                    // rule labels: min, hr, retval, s
+                    // rule labels: hr, min, retval, s
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
+                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
                     RewriteRuleSubtreeStream stream_s=new RewriteRuleSubtreeStream(adaptor,"rule s",s!=null?s.tree:null);
 
@@ -9922,7 +9921,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: ordinalDirection, cardinalDirection, angularValue, subOrdinalDirection
+                    // elements: angularValue, ordinalDirection, cardinalDirection, subOrdinalDirection
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -12433,262 +12432,115 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "angularValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:525:1: angularValue : ( numericValue ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '\\u00B0' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:525:1: angularValue : ( numericValue ( 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue 'd' numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN );
     public final flipsParser.angularValue_return angularValue() throws RecognitionException {
         flipsParser.angularValue_return retval = new flipsParser.angularValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal357=null;
+        Token string_literal357=null;
         Token string_literal358=null;
         Token string_literal359=null;
         Token string_literal360=null;
-        Token string_literal361=null;
-        Token char_literal363=null;
+        Token char_literal362=null;
         Token char_literal364=null;
-        Token char_literal366=null;
+        Token string_literal366=null;
+        Token string_literal367=null;
         Token string_literal368=null;
         Token string_literal369=null;
-        Token string_literal370=null;
-        Token string_literal371=null;
         flipsParser.numericValue_return numericValue356 = null;
 
-        flipsParser.integerValue_return integerValue362 = null;
+        flipsParser.integerValue_return integerValue361 = null;
+
+        flipsParser.numericValue_return numericValue363 = null;
 
         flipsParser.numericValue_return numericValue365 = null;
 
-        flipsParser.numericValue_return numericValue367 = null;
 
-
-        CommonTree char_literal357_tree=null;
+        CommonTree string_literal357_tree=null;
         CommonTree string_literal358_tree=null;
         CommonTree string_literal359_tree=null;
         CommonTree string_literal360_tree=null;
-        CommonTree string_literal361_tree=null;
-        CommonTree char_literal363_tree=null;
+        CommonTree char_literal362_tree=null;
         CommonTree char_literal364_tree=null;
-        CommonTree char_literal366_tree=null;
+        CommonTree string_literal366_tree=null;
+        CommonTree string_literal367_tree=null;
         CommonTree string_literal368_tree=null;
         CommonTree string_literal369_tree=null;
-        CommonTree string_literal370_tree=null;
-        CommonTree string_literal371_tree=null;
         RewriteRuleTokenStream stream_262=new RewriteRuleTokenStream(adaptor,"token 262");
         RewriteRuleTokenStream stream_263=new RewriteRuleTokenStream(adaptor,"token 263");
         RewriteRuleTokenStream stream_269=new RewriteRuleTokenStream(adaptor,"token 269");
         RewriteRuleTokenStream stream_270=new RewriteRuleTokenStream(adaptor,"token 270");
         RewriteRuleTokenStream stream_268=new RewriteRuleTokenStream(adaptor,"token 268");
         RewriteRuleTokenStream stream_267=new RewriteRuleTokenStream(adaptor,"token 267");
-        RewriteRuleTokenStream stream_271=new RewriteRuleTokenStream(adaptor,"token 271");
-        RewriteRuleTokenStream stream_248=new RewriteRuleTokenStream(adaptor,"token 248");
         RewriteRuleTokenStream stream_266=new RewriteRuleTokenStream(adaptor,"token 266");
+        RewriteRuleTokenStream stream_248=new RewriteRuleTokenStream(adaptor,"token 248");
         RewriteRuleTokenStream stream_265=new RewriteRuleTokenStream(adaptor,"token 265");
         RewriteRuleTokenStream stream_264=new RewriteRuleTokenStream(adaptor,"token 264");
         RewriteRuleSubtreeStream stream_integerValue=new RewriteRuleSubtreeStream(adaptor,"rule integerValue");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:2: ( numericValue ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue ( '\\u00B0' | 'd' )? numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
-            int alt137=3;
-            int LA137_0 = input.LA(1);
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:2: ( numericValue ( 'deg' | 'degs' | 'degree' | 'degrees' ) -> numericValue DEGREE | integerValue 'd' numericValue '\\'' -> integerValue DEGREE numericValue MINUTE | numericValue ( 'rad' | 'rads' | 'radian' | 'radians' ) -> numericValue RADIAN )
+            int alt136=3;
+            int LA136_0 = input.LA(1);
 
-            if ( ((LA137_0>=BinaryLiteral && LA137_0<=HexLiteral)) ) {
+            if ( ((LA136_0>=BinaryLiteral && LA136_0<=HexLiteral)) ) {
                 switch ( input.LA(2) ) {
-                case 268:
-                case 269:
-                case 270:
-                case 271:
-                    {
-                    alt137=3;
-                    }
-                    break;
                 case 262:
-                    {
-                    switch ( input.LA(3) ) {
-                    case BinaryLiteral:
-                    case OctalLiteral:
-                    case DecimalLiteral:
-                    case HexLiteral:
-                        {
-                        int LA137_7 = input.LA(4);
-
-                        if ( (LA137_7==EOF||(LA137_7>=Identifier && LA137_7<=With)||(LA137_7>=Turning && LA137_7<=HexLiteral)||(LA137_7>=95 && LA137_7<=96)||(LA137_7>=101 && LA137_7<=102)||(LA137_7>=111 && LA137_7<=118)||(LA137_7>=120 && LA137_7<=121)||(LA137_7>=123 && LA137_7<=124)||LA137_7==127||(LA137_7>=148 && LA137_7<=167)||(LA137_7>=170 && LA137_7<=176)||LA137_7==204||(LA137_7>=209 && LA137_7<=266)||(LA137_7>=268 && LA137_7<=271)||(LA137_7>=274 && LA137_7<=275)) ) {
-                            alt137=1;
-                        }
-                        else if ( (LA137_7==267) ) {
-                            alt137=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 137, 7, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case FloatingPointLiteral:
-                        {
-                        int LA137_8 = input.LA(4);
-
-                        if ( (LA137_8==EOF||(LA137_8>=Identifier && LA137_8<=With)||(LA137_8>=Turning && LA137_8<=HexLiteral)||(LA137_8>=95 && LA137_8<=96)||(LA137_8>=101 && LA137_8<=102)||(LA137_8>=111 && LA137_8<=118)||(LA137_8>=120 && LA137_8<=121)||(LA137_8>=123 && LA137_8<=124)||LA137_8==127||(LA137_8>=148 && LA137_8<=167)||(LA137_8>=170 && LA137_8<=176)||LA137_8==204||(LA137_8>=209 && LA137_8<=266)||(LA137_8>=268 && LA137_8<=271)||(LA137_8>=274 && LA137_8<=275)) ) {
-                            alt137=1;
-                        }
-                        else if ( (LA137_8==267) ) {
-                            alt137=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 137, 8, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case EOF:
-                    case Identifier:
-                    case To:
-                    case At:
-                    case With:
-                    case Turning:
-                    case Heading:
-                    case 95:
-                    case 96:
-                    case 101:
-                    case 102:
-                    case 111:
-                    case 112:
-                    case 113:
-                    case 114:
-                    case 115:
-                    case 116:
-                    case 117:
-                    case 118:
-                    case 120:
-                    case 121:
-                    case 123:
-                    case 124:
-                    case 127:
-                    case 148:
-                    case 149:
-                    case 204:
-                    case 209:
-                    case 210:
-                    case 211:
-                    case 212:
-                    case 213:
-                    case 214:
-                    case 215:
-                    case 216:
-                    case 217:
-                    case 218:
-                    case 219:
-                    case 220:
-                    case 221:
-                    case 222:
-                    case 223:
-                    case 224:
-                    case 225:
-                    case 226:
-                    case 227:
-                    case 228:
-                    case 229:
-                    case 230:
-                    case 231:
-                    case 232:
-                    case 233:
-                    case 234:
-                    case 235:
-                    case 236:
-                    case 237:
-                    case 238:
-                    case 239:
-                    case 240:
-                    case 241:
-                    case 242:
-                    case 243:
-                    case 244:
-                    case 245:
-                    case 246:
-                    case 247:
-                    case 248:
-                    case 249:
-                    case 250:
-                    case 251:
-                    case 252:
-                    case 253:
-                    case 254:
-                    case 255:
-                    case 256:
-                    case 257:
-                    case 258:
-                    case 259:
-                    case 260:
-                    case 261:
-                    case 272:
-                    case 273:
-                        {
-                        alt137=1;
-                        }
-                        break;
-                    default:
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 137, 4, input);
-
-                        throw nvae;
-                    }
-
-                    }
-                    break;
                 case 263:
                 case 264:
                 case 265:
-                case 266:
                     {
-                    alt137=1;
+                    alt136=1;
                     }
                     break;
-                case FloatingPointLiteral:
-                case BinaryLiteral:
-                case OctalLiteral:
-                case DecimalLiteral:
-                case HexLiteral:
                 case 248:
                     {
-                    alt137=2;
+                    alt136=2;
+                    }
+                    break;
+                case 267:
+                case 268:
+                case 269:
+                case 270:
+                    {
+                    alt136=3;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 137, 1, input);
+                        new NoViableAltException("", 136, 1, input);
 
                     throw nvae;
                 }
 
             }
-            else if ( (LA137_0==FloatingPointLiteral) ) {
-                int LA137_2 = input.LA(2);
+            else if ( (LA136_0==FloatingPointLiteral) ) {
+                int LA136_2 = input.LA(2);
 
-                if ( ((LA137_2>=262 && LA137_2<=266)) ) {
-                    alt137=1;
+                if ( ((LA136_2>=267 && LA136_2<=270)) ) {
+                    alt136=3;
                 }
-                else if ( ((LA137_2>=268 && LA137_2<=271)) ) {
-                    alt137=3;
+                else if ( ((LA136_2>=262 && LA136_2<=265)) ) {
+                    alt136=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 137, 2, input);
+                        new NoViableAltException("", 136, 2, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 137, 0, input);
+                    new NoViableAltException("", 136, 0, input);
 
                 throw nvae;
             }
-            switch (alt137) {
+            switch (alt136) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:4: numericValue ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:4: numericValue ( 'deg' | 'degs' | 'degree' | 'degrees' )
                     {
                     pushFollow(FOLLOW_numericValue_in_angularValue2916);
                     numericValue356=numericValue();
@@ -12696,8 +12548,8 @@ public class flipsParser extends Parser {
                     state._fsp--;
 
                     stream_numericValue.add(numericValue356.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:17: ( '\\u00B0' | 'deg' | 'degs' | 'degree' | 'degrees' )
-                    int alt134=5;
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:17: ( 'deg' | 'degs' | 'degree' | 'degrees' )
+                    int alt134=4;
                     switch ( input.LA(1) ) {
                     case 262:
                         {
@@ -12719,11 +12571,6 @@ public class flipsParser extends Parser {
                         alt134=4;
                         }
                         break;
-                    case 266:
-                        {
-                        alt134=5;
-                        }
-                        break;
                     default:
                         NoViableAltException nvae =
                             new NoViableAltException("", 134, 0, input);
@@ -12733,16 +12580,16 @@ public class flipsParser extends Parser {
 
                     switch (alt134) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:18: '\\u00B0'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:18: 'deg'
                             {
-                            char_literal357=(Token)match(input,262,FOLLOW_262_in_angularValue2919);  
-                            stream_262.add(char_literal357);
+                            string_literal357=(Token)match(input,262,FOLLOW_262_in_angularValue2919);  
+                            stream_262.add(string_literal357);
 
 
                             }
                             break;
                         case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:27: 'deg'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:24: 'degs'
                             {
                             string_literal358=(Token)match(input,263,FOLLOW_263_in_angularValue2921);  
                             stream_263.add(string_literal358);
@@ -12751,7 +12598,7 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:33: 'degs'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:31: 'degree'
                             {
                             string_literal359=(Token)match(input,264,FOLLOW_264_in_angularValue2923);  
                             stream_264.add(string_literal359);
@@ -12760,19 +12607,10 @@ public class flipsParser extends Parser {
                             }
                             break;
                         case 4 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:40: 'degree'
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:40: 'degrees'
                             {
                             string_literal360=(Token)match(input,265,FOLLOW_265_in_angularValue2925);  
                             stream_265.add(string_literal360);
-
-
-                            }
-                            break;
-                        case 5 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:526:49: 'degrees'
-                            {
-                            string_literal361=(Token)match(input,266,FOLLOW_266_in_angularValue2927);  
-                            stream_266.add(string_literal361);
 
 
                             }
@@ -12804,54 +12642,25 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:4: integerValue ( '\\u00B0' | 'd' )? numericValue '\\''
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:4: integerValue 'd' numericValue '\\''
                     {
-                    pushFollow(FOLLOW_integerValue_in_angularValue2940);
-                    integerValue362=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_angularValue2938);
+                    integerValue361=integerValue();
 
                     state._fsp--;
 
-                    stream_integerValue.add(integerValue362.getTree());
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:17: ( '\\u00B0' | 'd' )?
-                    int alt135=3;
-                    int LA135_0 = input.LA(1);
+                    stream_integerValue.add(integerValue361.getTree());
+                    char_literal362=(Token)match(input,248,FOLLOW_248_in_angularValue2940);  
+                    stream_248.add(char_literal362);
 
-                    if ( (LA135_0==262) ) {
-                        alt135=1;
-                    }
-                    else if ( (LA135_0==248) ) {
-                        alt135=2;
-                    }
-                    switch (alt135) {
-                        case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:18: '\\u00B0'
-                            {
-                            char_literal363=(Token)match(input,262,FOLLOW_262_in_angularValue2943);  
-                            stream_262.add(char_literal363);
-
-
-                            }
-                            break;
-                        case 2 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:528:27: 'd'
-                            {
-                            char_literal364=(Token)match(input,248,FOLLOW_248_in_angularValue2945);  
-                            stream_248.add(char_literal364);
-
-
-                            }
-                            break;
-
-                    }
-
-                    pushFollow(FOLLOW_numericValue_in_angularValue2949);
-                    numericValue365=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_angularValue2942);
+                    numericValue363=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue365.getTree());
-                    char_literal366=(Token)match(input,267,FOLLOW_267_in_angularValue2951);  
-                    stream_267.add(char_literal366);
+                    stream_numericValue.add(numericValue363.getTree());
+                    char_literal364=(Token)match(input,266,FOLLOW_266_in_angularValue2944);  
+                    stream_266.add(char_literal364);
 
 
 
@@ -12881,48 +12690,48 @@ public class flipsParser extends Parser {
                 case 3 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:530:4: numericValue ( 'rad' | 'rads' | 'radian' | 'radians' )
                     {
-                    pushFollow(FOLLOW_numericValue_in_angularValue2967);
-                    numericValue367=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_angularValue2960);
+                    numericValue365=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue367.getTree());
+                    stream_numericValue.add(numericValue365.getTree());
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:530:17: ( 'rad' | 'rads' | 'radian' | 'radians' )
-                    int alt136=4;
+                    int alt135=4;
                     switch ( input.LA(1) ) {
+                    case 267:
+                        {
+                        alt135=1;
+                        }
+                        break;
                     case 268:
                         {
-                        alt136=1;
+                        alt135=2;
                         }
                         break;
                     case 269:
                         {
-                        alt136=2;
+                        alt135=3;
                         }
                         break;
                     case 270:
                         {
-                        alt136=3;
-                        }
-                        break;
-                    case 271:
-                        {
-                        alt136=4;
+                        alt135=4;
                         }
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("", 136, 0, input);
+                            new NoViableAltException("", 135, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt136) {
+                    switch (alt135) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:530:18: 'rad'
                             {
-                            string_literal368=(Token)match(input,268,FOLLOW_268_in_angularValue2970);  
-                            stream_268.add(string_literal368);
+                            string_literal366=(Token)match(input,267,FOLLOW_267_in_angularValue2963);  
+                            stream_267.add(string_literal366);
 
 
                             }
@@ -12930,8 +12739,8 @@ public class flipsParser extends Parser {
                         case 2 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:530:24: 'rads'
                             {
-                            string_literal369=(Token)match(input,269,FOLLOW_269_in_angularValue2972);  
-                            stream_269.add(string_literal369);
+                            string_literal367=(Token)match(input,268,FOLLOW_268_in_angularValue2965);  
+                            stream_268.add(string_literal367);
 
 
                             }
@@ -12939,8 +12748,8 @@ public class flipsParser extends Parser {
                         case 3 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:530:31: 'radian'
                             {
-                            string_literal370=(Token)match(input,270,FOLLOW_270_in_angularValue2974);  
-                            stream_270.add(string_literal370);
+                            string_literal368=(Token)match(input,269,FOLLOW_269_in_angularValue2967);  
+                            stream_269.add(string_literal368);
 
 
                             }
@@ -12948,8 +12757,8 @@ public class flipsParser extends Parser {
                         case 4 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:530:40: 'radians'
                             {
-                            string_literal371=(Token)match(input,271,FOLLOW_271_in_angularValue2976);  
-                            stream_271.add(string_literal371);
+                            string_literal369=(Token)match(input,270,FOLLOW_270_in_angularValue2969);  
+                            stream_270.add(string_literal369);
 
 
                             }
@@ -13013,40 +12822,40 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
-        Token Identifier373=null;
-        flipsParser.geoCoordinate_return geoCoordinate372 = null;
+        Token Identifier371=null;
+        flipsParser.geoCoordinate_return geoCoordinate370 = null;
 
 
-        CommonTree Identifier373_tree=null;
+        CommonTree Identifier371_tree=null;
         RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
         RewriteRuleSubtreeStream stream_geoCoordinate=new RewriteRuleSubtreeStream(adaptor,"rule geoCoordinate");
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:2: ( geoCoordinate -> geoCoordinate | Identifier -> ^( WAYPOINT Identifier ) )
-            int alt138=2;
-            int LA138_0 = input.LA(1);
+            int alt137=2;
+            int LA137_0 = input.LA(1);
 
-            if ( ((LA138_0>=FloatingPointLiteral && LA138_0<=HexLiteral)||(LA138_0>=272 && LA138_0<=273)) ) {
-                alt138=1;
+            if ( ((LA137_0>=FloatingPointLiteral && LA137_0<=HexLiteral)||(LA137_0>=271 && LA137_0<=272)) ) {
+                alt137=1;
             }
-            else if ( (LA138_0==Identifier) ) {
-                alt138=2;
+            else if ( (LA137_0==Identifier) ) {
+                alt137=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 138, 0, input);
+                    new NoViableAltException("", 137, 0, input);
 
                 throw nvae;
             }
-            switch (alt138) {
+            switch (alt137) {
                 case 1 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:537:4: geoCoordinate
                     {
-                    pushFollow(FOLLOW_geoCoordinate_in_waypoint2997);
-                    geoCoordinate372=geoCoordinate();
+                    pushFollow(FOLLOW_geoCoordinate_in_waypoint2990);
+                    geoCoordinate370=geoCoordinate();
 
                     state._fsp--;
 
-                    stream_geoCoordinate.add(geoCoordinate372.getTree());
+                    stream_geoCoordinate.add(geoCoordinate370.getTree());
 
 
                     // AST REWRITE
@@ -13072,8 +12881,8 @@ public class flipsParser extends Parser {
                 case 2 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:539:4: Identifier
                     {
-                    Identifier373=(Token)match(input,Identifier,FOLLOW_Identifier_in_waypoint3007);  
-                    stream_Identifier.add(Identifier373);
+                    Identifier371=(Token)match(input,Identifier,FOLLOW_Identifier_in_waypoint3000);  
+                    stream_Identifier.add(Identifier371);
 
 
 
@@ -13138,7 +12947,7 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
-        flipsParser.latitudeLongitude_return latitudeLongitude374 = null;
+        flipsParser.latitudeLongitude_return latitudeLongitude372 = null;
 
 
         RewriteRuleSubtreeStream stream_latitudeLongitude=new RewriteRuleSubtreeStream(adaptor,"rule latitudeLongitude");
@@ -13146,12 +12955,12 @@ public class flipsParser extends Parser {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:544:2: ( latitudeLongitude -> ^( GEOCOORDINATE latitudeLongitude ) )
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:544:4: latitudeLongitude
             {
-            pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate3027);
-            latitudeLongitude374=latitudeLongitude();
+            pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate3020);
+            latitudeLongitude372=latitudeLongitude();
 
             state._fsp--;
 
-            stream_latitudeLongitude.add(latitudeLongitude374.getTree());
+            stream_latitudeLongitude.add(latitudeLongitude372.getTree());
 
 
             // AST REWRITE
@@ -13213,7 +13022,9 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
+        Token char_literal374=null;
         Token char_literal376=null;
+        Token char_literal377=null;
         Token char_literal378=null;
         Token char_literal379=null;
         Token char_literal380=null;
@@ -13224,18 +13035,18 @@ public class flipsParser extends Parser {
         Token char_literal385=null;
         Token char_literal386=null;
         Token char_literal387=null;
-        Token char_literal388=null;
-        Token char_literal389=null;
         flipsParser.latitudeLongitudeValue_return x = null;
 
         flipsParser.latitudeLongitudeValue_return y = null;
 
-        flipsParser.northSouthDirection_return northSouthDirection375 = null;
+        flipsParser.northSouthDirection_return northSouthDirection373 = null;
 
-        flipsParser.eastWestDirection_return eastWestDirection377 = null;
+        flipsParser.eastWestDirection_return eastWestDirection375 = null;
 
 
+        CommonTree char_literal374_tree=null;
         CommonTree char_literal376_tree=null;
+        CommonTree char_literal377_tree=null;
         CommonTree char_literal378_tree=null;
         CommonTree char_literal379_tree=null;
         CommonTree char_literal380_tree=null;
@@ -13246,47 +13057,45 @@ public class flipsParser extends Parser {
         CommonTree char_literal385_tree=null;
         CommonTree char_literal386_tree=null;
         CommonTree char_literal387_tree=null;
-        CommonTree char_literal388_tree=null;
-        CommonTree char_literal389_tree=null;
         RewriteRuleTokenStream stream_272=new RewriteRuleTokenStream(adaptor,"token 272");
         RewriteRuleTokenStream stream_102=new RewriteRuleTokenStream(adaptor,"token 102");
-        RewriteRuleTokenStream stream_273=new RewriteRuleTokenStream(adaptor,"token 273");
+        RewriteRuleTokenStream stream_271=new RewriteRuleTokenStream(adaptor,"token 271");
         RewriteRuleSubtreeStream stream_latitudeLongitudeValue=new RewriteRuleSubtreeStream(adaptor,"rule latitudeLongitudeValue");
         RewriteRuleSubtreeStream stream_eastWestDirection=new RewriteRuleSubtreeStream(adaptor,"rule eastWestDirection");
         RewriteRuleSubtreeStream stream_northSouthDirection=new RewriteRuleSubtreeStream(adaptor,"rule northSouthDirection");
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:549:2: (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) )
-            int alt148=5;
-            alt148 = dfa148.predict(input);
-            switch (alt148) {
+            int alt147=5;
+            alt147 = dfa147.predict(input);
+            switch (alt147) {
                 case 1 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:549:4: x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection
                     {
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3049);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3042);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
-                    pushFollow(FOLLOW_northSouthDirection_in_latitudeLongitude3051);
-                    northSouthDirection375=northSouthDirection();
+                    pushFollow(FOLLOW_northSouthDirection_in_latitudeLongitude3044);
+                    northSouthDirection373=northSouthDirection();
 
                     state._fsp--;
 
-                    stream_northSouthDirection.add(northSouthDirection375.getTree());
+                    stream_northSouthDirection.add(northSouthDirection373.getTree());
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:549:49: ( ',' )?
-                    int alt139=2;
-                    int LA139_0 = input.LA(1);
+                    int alt138=2;
+                    int LA138_0 = input.LA(1);
 
-                    if ( (LA139_0==102) ) {
-                        alt139=1;
+                    if ( (LA138_0==102) ) {
+                        alt138=1;
                     }
-                    switch (alt139) {
+                    switch (alt138) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:549:49: ','
                             {
-                            char_literal376=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3053);  
-                            stream_102.add(char_literal376);
+                            char_literal374=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3046);  
+                            stream_102.add(char_literal374);
 
 
                             }
@@ -13294,22 +13103,22 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3058);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3051);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(y.getTree());
-                    pushFollow(FOLLOW_eastWestDirection_in_latitudeLongitude3060);
-                    eastWestDirection377=eastWestDirection();
+                    pushFollow(FOLLOW_eastWestDirection_in_latitudeLongitude3053);
+                    eastWestDirection375=eastWestDirection();
 
                     state._fsp--;
 
-                    stream_eastWestDirection.add(eastWestDirection377.getTree());
+                    stream_eastWestDirection.add(eastWestDirection375.getTree());
 
 
                     // AST REWRITE
-                    // elements: x, eastWestDirection, y, northSouthDirection
+                    // elements: northSouthDirection, y, eastWestDirection, x
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -13353,18 +13162,18 @@ public class flipsParser extends Parser {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
                     {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:4: ( '+' )?
-                    int alt140=2;
-                    int LA140_0 = input.LA(1);
+                    int alt139=2;
+                    int LA139_0 = input.LA(1);
 
-                    if ( (LA140_0==272) ) {
-                        alt140=1;
+                    if ( (LA139_0==271) ) {
+                        alt139=1;
                     }
-                    switch (alt140) {
+                    switch (alt139) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:4: '+'
                             {
-                            char_literal378=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3086);  
-                            stream_272.add(char_literal378);
+                            char_literal376=(Token)match(input,271,FOLLOW_271_in_latitudeLongitude3079);  
+                            stream_271.add(char_literal376);
 
 
                             }
@@ -13372,25 +13181,25 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3091);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3084);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:34: ( ',' )?
-                    int alt141=2;
-                    int LA141_0 = input.LA(1);
+                    int alt140=2;
+                    int LA140_0 = input.LA(1);
 
-                    if ( (LA141_0==102) ) {
-                        alt141=1;
+                    if ( (LA140_0==102) ) {
+                        alt140=1;
                     }
-                    switch (alt141) {
+                    switch (alt140) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:34: ','
                             {
-                            char_literal379=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3093);  
-                            stream_102.add(char_literal379);
+                            char_literal377=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3086);  
+                            stream_102.add(char_literal377);
 
 
                             }
@@ -13399,18 +13208,18 @@ public class flipsParser extends Parser {
                     }
 
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:39: ( '+' )?
-                    int alt142=2;
-                    int LA142_0 = input.LA(1);
+                    int alt141=2;
+                    int LA141_0 = input.LA(1);
 
-                    if ( (LA142_0==272) ) {
-                        alt142=1;
+                    if ( (LA141_0==271) ) {
+                        alt141=1;
                     }
-                    switch (alt142) {
+                    switch (alt141) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:551:39: '+'
                             {
-                            char_literal380=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3096);  
-                            stream_272.add(char_literal380);
+                            char_literal378=(Token)match(input,271,FOLLOW_271_in_latitudeLongitude3089);  
+                            stream_271.add(char_literal378);
 
 
                             }
@@ -13418,7 +13227,7 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3101);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3094);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -13470,28 +13279,28 @@ public class flipsParser extends Parser {
                 case 3 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:4: '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue
                     {
-                    char_literal381=(Token)match(input,273,FOLLOW_273_in_latitudeLongitude3127);  
-                    stream_273.add(char_literal381);
+                    char_literal379=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3120);  
+                    stream_272.add(char_literal379);
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3131);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3124);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:33: ( ',' )?
-                    int alt143=2;
-                    int LA143_0 = input.LA(1);
+                    int alt142=2;
+                    int LA142_0 = input.LA(1);
 
-                    if ( (LA143_0==102) ) {
-                        alt143=1;
+                    if ( (LA142_0==102) ) {
+                        alt142=1;
                     }
-                    switch (alt143) {
+                    switch (alt142) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:33: ','
                             {
-                            char_literal382=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3133);  
-                            stream_102.add(char_literal382);
+                            char_literal380=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3126);  
+                            stream_102.add(char_literal380);
 
 
                             }
@@ -13500,18 +13309,18 @@ public class flipsParser extends Parser {
                     }
 
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:38: ( '+' )?
-                    int alt144=2;
-                    int LA144_0 = input.LA(1);
+                    int alt143=2;
+                    int LA143_0 = input.LA(1);
 
-                    if ( (LA144_0==272) ) {
-                        alt144=1;
+                    if ( (LA143_0==271) ) {
+                        alt143=1;
                     }
-                    switch (alt144) {
+                    switch (alt143) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:553:38: '+'
                             {
-                            char_literal383=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3136);  
-                            stream_272.add(char_literal383);
+                            char_literal381=(Token)match(input,271,FOLLOW_271_in_latitudeLongitude3129);  
+                            stream_271.add(char_literal381);
 
 
                             }
@@ -13519,7 +13328,7 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3141);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3134);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -13572,18 +13381,18 @@ public class flipsParser extends Parser {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:555:4: ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
                     {
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:555:4: ( '+' )?
-                    int alt145=2;
-                    int LA145_0 = input.LA(1);
+                    int alt144=2;
+                    int LA144_0 = input.LA(1);
 
-                    if ( (LA145_0==272) ) {
-                        alt145=1;
+                    if ( (LA144_0==271) ) {
+                        alt144=1;
                     }
-                    switch (alt145) {
+                    switch (alt144) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:555:4: '+'
                             {
-                            char_literal384=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3167);  
-                            stream_272.add(char_literal384);
+                            char_literal382=(Token)match(input,271,FOLLOW_271_in_latitudeLongitude3160);  
+                            stream_271.add(char_literal382);
 
 
                             }
@@ -13591,25 +13400,25 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3172);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3165);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:555:34: ( ',' )?
-                    int alt146=2;
-                    int LA146_0 = input.LA(1);
+                    int alt145=2;
+                    int LA145_0 = input.LA(1);
 
-                    if ( (LA146_0==102) ) {
-                        alt146=1;
+                    if ( (LA145_0==102) ) {
+                        alt145=1;
                     }
-                    switch (alt146) {
+                    switch (alt145) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:555:34: ','
                             {
-                            char_literal385=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3174);  
-                            stream_102.add(char_literal385);
+                            char_literal383=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3167);  
+                            stream_102.add(char_literal383);
 
 
                             }
@@ -13617,10 +13426,10 @@ public class flipsParser extends Parser {
 
                     }
 
-                    char_literal386=(Token)match(input,273,FOLLOW_273_in_latitudeLongitude3177);  
-                    stream_273.add(char_literal386);
+                    char_literal384=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3170);  
+                    stream_272.add(char_literal384);
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3181);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3174);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -13629,7 +13438,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: y, x
+                    // elements: x, y
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -13672,28 +13481,28 @@ public class flipsParser extends Parser {
                 case 5 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:557:4: '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue
                     {
-                    char_literal387=(Token)match(input,273,FOLLOW_273_in_latitudeLongitude3207);  
-                    stream_273.add(char_literal387);
+                    char_literal385=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3200);  
+                    stream_272.add(char_literal385);
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3211);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3204);
                     x=latitudeLongitudeValue();
 
                     state._fsp--;
 
                     stream_latitudeLongitudeValue.add(x.getTree());
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:557:33: ( ',' )?
-                    int alt147=2;
-                    int LA147_0 = input.LA(1);
+                    int alt146=2;
+                    int LA146_0 = input.LA(1);
 
-                    if ( (LA147_0==102) ) {
-                        alt147=1;
+                    if ( (LA146_0==102) ) {
+                        alt146=1;
                     }
-                    switch (alt147) {
+                    switch (alt146) {
                         case 1 :
                             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:557:33: ','
                             {
-                            char_literal388=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3213);  
-                            stream_102.add(char_literal388);
+                            char_literal386=(Token)match(input,102,FOLLOW_102_in_latitudeLongitude3206);  
+                            stream_102.add(char_literal386);
 
 
                             }
@@ -13701,10 +13510,10 @@ public class flipsParser extends Parser {
 
                     }
 
-                    char_literal389=(Token)match(input,273,FOLLOW_273_in_latitudeLongitude3216);  
-                    stream_273.add(char_literal389);
+                    char_literal387=(Token)match(input,272,FOLLOW_272_in_latitudeLongitude3209);  
+                    stream_272.add(char_literal387);
 
-                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3220);
+                    pushFollow(FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3213);
                     y=latitudeLongitudeValue();
 
                     state._fsp--;
@@ -13713,7 +13522,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: y, x
+                    // elements: x, y
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -13786,26 +13595,218 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
-        flipsParser.numericValue_return numericValue390 = null;
+        flipsParser.numericValue_return numericValue388 = null;
 
-        flipsParser.angularValue_return angularValue391 = null;
+        flipsParser.angularValue_return angularValue389 = null;
 
 
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:562:2: ( numericValue -> numericValue DEGREE | angularValue )
-            int alt149=2;
-            alt149 = dfa149.predict(input);
-            switch (alt149) {
+            int alt148=2;
+            int LA148_0 = input.LA(1);
+
+            if ( ((LA148_0>=BinaryLiteral && LA148_0<=HexLiteral)) ) {
+                switch ( input.LA(2) ) {
+                case 262:
+                case 263:
+                case 264:
+                case 265:
+                case 267:
+                case 268:
+                case 269:
+                case 270:
+                    {
+                    alt148=2;
+                    }
+                    break;
+                case EOF:
+                case Identifier:
+                case To:
+                case At:
+                case With:
+                case Turning:
+                case Heading:
+                case FloatingPointLiteral:
+                case BinaryLiteral:
+                case OctalLiteral:
+                case DecimalLiteral:
+                case HexLiteral:
+                case 95:
+                case 96:
+                case 101:
+                case 102:
+                case 111:
+                case 112:
+                case 113:
+                case 114:
+                case 115:
+                case 116:
+                case 117:
+                case 118:
+                case 120:
+                case 121:
+                case 123:
+                case 124:
+                case 127:
+                case 148:
+                case 149:
+                case 204:
+                case 209:
+                case 210:
+                case 211:
+                case 212:
+                case 213:
+                case 214:
+                case 215:
+                case 216:
+                case 217:
+                case 218:
+                case 219:
+                case 220:
+                case 221:
+                case 222:
+                case 223:
+                case 224:
+                case 225:
+                case 226:
+                case 227:
+                case 228:
+                case 229:
+                case 230:
+                case 231:
+                case 232:
+                case 233:
+                case 234:
+                case 235:
+                case 236:
+                case 237:
+                case 238:
+                case 239:
+                case 240:
+                case 241:
+                case 242:
+                case 243:
+                case 244:
+                case 245:
+                case 246:
+                case 247:
+                case 249:
+                case 250:
+                case 251:
+                case 252:
+                case 253:
+                case 254:
+                case 255:
+                case 256:
+                case 257:
+                case 258:
+                case 259:
+                case 260:
+                case 261:
+                case 271:
+                case 272:
+                    {
+                    alt148=1;
+                    }
+                    break;
+                case 248:
+                    {
+                    switch ( input.LA(3) ) {
+                    case BinaryLiteral:
+                    case OctalLiteral:
+                    case DecimalLiteral:
+                    case HexLiteral:
+                        {
+                        int LA148_6 = input.LA(4);
+
+                        if ( ((LA148_6>=130 && LA148_6<=147)||(LA148_6>=150 && LA148_6<=167)) ) {
+                            alt148=1;
+                        }
+                        else if ( (LA148_6==266) ) {
+                            alt148=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 148, 6, input);
+
+                            throw nvae;
+                        }
+                        }
+                        break;
+                    case FloatingPointLiteral:
+                        {
+                        int LA148_7 = input.LA(4);
+
+                        if ( ((LA148_7>=130 && LA148_7<=147)||(LA148_7>=150 && LA148_7<=167)) ) {
+                            alt148=1;
+                        }
+                        else if ( (LA148_7==266) ) {
+                            alt148=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 148, 7, input);
+
+                            throw nvae;
+                        }
+                        }
+                        break;
+                    case To:
+                    case FlightLevel:
+                        {
+                        alt148=1;
+                        }
+                        break;
+                    default:
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 148, 5, input);
+
+                        throw nvae;
+                    }
+
+                    }
+                    break;
+                default:
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 148, 1, input);
+
+                    throw nvae;
+                }
+
+            }
+            else if ( (LA148_0==FloatingPointLiteral) ) {
+                int LA148_2 = input.LA(2);
+
+                if ( ((LA148_2>=262 && LA148_2<=265)||(LA148_2>=267 && LA148_2<=270)) ) {
+                    alt148=2;
+                }
+                else if ( (LA148_2==EOF||(LA148_2>=Identifier && LA148_2<=With)||(LA148_2>=Turning && LA148_2<=HexLiteral)||(LA148_2>=95 && LA148_2<=96)||(LA148_2>=101 && LA148_2<=102)||(LA148_2>=111 && LA148_2<=118)||(LA148_2>=120 && LA148_2<=121)||(LA148_2>=123 && LA148_2<=124)||LA148_2==127||(LA148_2>=148 && LA148_2<=149)||LA148_2==204||(LA148_2>=209 && LA148_2<=261)||(LA148_2>=271 && LA148_2<=272)) ) {
+                    alt148=1;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 148, 2, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 148, 0, input);
+
+                throw nvae;
+            }
+            switch (alt148) {
                 case 1 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:562:4: numericValue
                     {
-                    pushFollow(FOLLOW_numericValue_in_latitudeLongitudeValue3252);
-                    numericValue390=numericValue();
+                    pushFollow(FOLLOW_numericValue_in_latitudeLongitudeValue3245);
+                    numericValue388=numericValue();
 
                     state._fsp--;
 
-                    stream_numericValue.add(numericValue390.getTree());
+                    stream_numericValue.add(numericValue388.getTree());
 
 
                     // AST REWRITE
@@ -13834,12 +13835,12 @@ public class flipsParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_angularValue_in_latitudeLongitudeValue3264);
-                    angularValue391=angularValue();
+                    pushFollow(FOLLOW_angularValue_in_latitudeLongitudeValue3257);
+                    angularValue389=angularValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, angularValue391.getTree());
+                    adaptor.addChild(root_0, angularValue389.getTree());
 
                     }
                     break;
@@ -13876,41 +13877,41 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
-        Token FloatingPointLiteral393=null;
-        flipsParser.integerValue_return integerValue392 = null;
+        Token FloatingPointLiteral391=null;
+        flipsParser.integerValue_return integerValue390 = null;
 
 
-        CommonTree FloatingPointLiteral393_tree=null;
+        CommonTree FloatingPointLiteral391_tree=null;
 
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:2: ( integerValue | FloatingPointLiteral )
-            int alt150=2;
-            int LA150_0 = input.LA(1);
+            int alt149=2;
+            int LA149_0 = input.LA(1);
 
-            if ( ((LA150_0>=BinaryLiteral && LA150_0<=HexLiteral)) ) {
-                alt150=1;
+            if ( ((LA149_0>=BinaryLiteral && LA149_0<=HexLiteral)) ) {
+                alt149=1;
             }
-            else if ( (LA150_0==FloatingPointLiteral) ) {
-                alt150=2;
+            else if ( (LA149_0==FloatingPointLiteral) ) {
+                alt149=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 150, 0, input);
+                    new NoViableAltException("", 149, 0, input);
 
                 throw nvae;
             }
-            switch (alt150) {
+            switch (alt149) {
                 case 1 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:570:4: integerValue
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_integerValue_in_numericValue3277);
-                    integerValue392=integerValue();
+                    pushFollow(FOLLOW_integerValue_in_numericValue3270);
+                    integerValue390=integerValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, integerValue392.getTree());
+                    adaptor.addChild(root_0, integerValue390.getTree());
 
                     }
                     break;
@@ -13919,9 +13920,9 @@ public class flipsParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    FloatingPointLiteral393=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue3282); 
-                    FloatingPointLiteral393_tree = (CommonTree)adaptor.create(FloatingPointLiteral393);
-                    adaptor.addChild(root_0, FloatingPointLiteral393_tree);
+                    FloatingPointLiteral391=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue3275); 
+                    FloatingPointLiteral391_tree = (CommonTree)adaptor.create(FloatingPointLiteral391);
+                    adaptor.addChild(root_0, FloatingPointLiteral391_tree);
 
 
                     }
@@ -13959,9 +13960,9 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
-        Token set394=null;
+        Token set392=null;
 
-        CommonTree set394_tree=null;
+        CommonTree set392_tree=null;
 
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:575:2: ( BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral )
@@ -13969,10 +13970,10 @@ public class flipsParser extends Parser {
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            set394=(Token)input.LT(1);
+            set392=(Token)input.LT(1);
             if ( (input.LA(1)>=BinaryLiteral && input.LA(1)<=HexLiteral) ) {
                 input.consume();
-                adaptor.addChild(root_0, (CommonTree)adaptor.create(set394));
+                adaptor.addChild(root_0, (CommonTree)adaptor.create(set392));
                 state.errorRecovery=false;
             }
             else {
@@ -14014,48 +14015,48 @@ public class flipsParser extends Parser {
 
         CommonTree root_0 = null;
 
-        Token char_literal396=null;
-        Token string_literal397=null;
-        flipsParser.numericValue_return numericValue395 = null;
+        Token char_literal394=null;
+        Token string_literal395=null;
+        flipsParser.numericValue_return numericValue393 = null;
 
 
-        CommonTree char_literal396_tree=null;
-        CommonTree string_literal397_tree=null;
-        RewriteRuleTokenStream stream_275=new RewriteRuleTokenStream(adaptor,"token 275");
+        CommonTree char_literal394_tree=null;
+        CommonTree string_literal395_tree=null;
         RewriteRuleTokenStream stream_274=new RewriteRuleTokenStream(adaptor,"token 274");
+        RewriteRuleTokenStream stream_273=new RewriteRuleTokenStream(adaptor,"token 273");
         RewriteRuleSubtreeStream stream_numericValue=new RewriteRuleSubtreeStream(adaptor,"rule numericValue");
         try {
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:582:2: ( numericValue ( '%' | 'percent' ) -> numericValue PERCENT )
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:582:4: numericValue ( '%' | 'percent' )
             {
-            pushFollow(FOLLOW_numericValue_in_percentValue3319);
-            numericValue395=numericValue();
+            pushFollow(FOLLOW_numericValue_in_percentValue3312);
+            numericValue393=numericValue();
 
             state._fsp--;
 
-            stream_numericValue.add(numericValue395.getTree());
+            stream_numericValue.add(numericValue393.getTree());
             // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:582:17: ( '%' | 'percent' )
-            int alt151=2;
-            int LA151_0 = input.LA(1);
+            int alt150=2;
+            int LA150_0 = input.LA(1);
 
-            if ( (LA151_0==274) ) {
-                alt151=1;
+            if ( (LA150_0==273) ) {
+                alt150=1;
             }
-            else if ( (LA151_0==275) ) {
-                alt151=2;
+            else if ( (LA150_0==274) ) {
+                alt150=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 151, 0, input);
+                    new NoViableAltException("", 150, 0, input);
 
                 throw nvae;
             }
-            switch (alt151) {
+            switch (alt150) {
                 case 1 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:582:18: '%'
                     {
-                    char_literal396=(Token)match(input,274,FOLLOW_274_in_percentValue3322);  
-                    stream_274.add(char_literal396);
+                    char_literal394=(Token)match(input,273,FOLLOW_273_in_percentValue3315);  
+                    stream_273.add(char_literal394);
 
 
                     }
@@ -14063,8 +14064,8 @@ public class flipsParser extends Parser {
                 case 2 :
                     // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:582:22: 'percent'
                     {
-                    string_literal397=(Token)match(input,275,FOLLOW_275_in_percentValue3324);  
-                    stream_275.add(string_literal397);
+                    string_literal395=(Token)match(input,274,FOLLOW_274_in_percentValue3317);  
+                    stream_274.add(string_literal395);
 
 
                     }
@@ -14122,24 +14123,22 @@ public class flipsParser extends Parser {
     protected DFA76 dfa76 = new DFA76(this);
     protected DFA90 dfa90 = new DFA90(this);
     protected DFA97 dfa97 = new DFA97(this);
-    protected DFA148 dfa148 = new DFA148(this);
-    protected DFA149 dfa149 = new DFA149(this);
+    protected DFA147 dfa147 = new DFA147(this);
     static final String DFA29_eotS =
         "\76\uffff";
     static final String DFA29_eofS =
-        "\17\uffff\7\5\2\uffff\11\5\4\uffff\7\13\2\uffff\11\13\1\uffff\3"+
-        "\5\3\13";
+        "\17\uffff\7\5\2\uffff\11\5\5\uffff\7\13\2\uffff\11\13\3\5\3\13";
     static final String DFA29_minS =
         "\1\113\1\116\1\uffff\2\u0096\2\uffff\1\116\2\uffff\1\112\1\uffff"+
-        "\2\u0082\1\uffff\7\112\2\u009e\11\112\1\170\2\121\1\uffff\7\112"+
-        "\2\u009e\11\112\1\uffff\6\112";
+        "\2\u0082\1\uffff\7\112\2\u009e\11\112\1\170\2\121\2\uffff\7\112"+
+        "\2\u009e\17\112";
     static final String DFA29_maxS =
-        "\1\u0101\1\u00ba\1\uffff\2\u0113\2\uffff\1\u0081\2\uffff\1\u0111"+
-        "\1\uffff\2\u0113\1\uffff\7\u0101\2\u00a0\11\u0101\1\176\2\u0111"+
-        "\1\uffff\7\u0101\2\u00a0\11\u0101\1\uffff\6\u0101";
+        "\1\u0101\1\u00ba\1\uffff\2\u0112\2\uffff\1\u0081\2\uffff\1\u0110"+
+        "\1\uffff\2\u0112\1\uffff\7\u0101\2\u00a0\11\u0101\1\176\2\u0110"+
+        "\2\uffff\7\u0101\2\u00a0\17\u0101";
     static final String DFA29_acceptS =
         "\2\uffff\1\2\2\uffff\1\4\1\5\1\uffff\1\6\1\7\1\uffff\1\11\2\uffff"+
-        "\1\3\25\uffff\1\10\22\uffff\1\1\6\uffff";
+        "\1\3\25\uffff\1\10\1\1\30\uffff";
     static final String DFA29_specialS =
         "\76\uffff}>";
     static final String[] DFA29_transitionS = {
@@ -14149,22 +14148,22 @@ public class flipsParser extends Parser {
             "\6\16",
             "",
             "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\30\1\31\1\32\1\27"+
-            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\16\141\uffff\2\16",
+            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\16\140\uffff\2\16",
             "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\30\1\31\1\32\1\27"+
-            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\16\141\uffff\2\16",
+            "\1\33\1\34\1\35\1\36\1\37\1\40\2\uffff\7\16\140\uffff\2\16",
             "",
             "",
             "\1\13\2\uffff\5\13\41\uffff\1\41\5\uffff\5\13",
             "",
             "",
             "\1\44\3\uffff\1\13\2\uffff\1\43\4\42\41\uffff\1\13\5\uffff"+
-            "\5\13\u008e\uffff\2\44",
+            "\5\13\u008d\uffff\2\44",
             "",
-            "\22\13\2\uffff\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\56"+
-            "\1\57\1\60\1\55\1\61\1\62\1\63\1\64\1\65\1\66\2\uffff\7\16\16"+
-            "\uffff\5\67\116\uffff\2\16",
-            "\22\13\2\uffff\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\56"+
-            "\1\57\1\60\1\55\1\61\1\62\1\63\1\64\1\65\1\66\2\uffff\7\16\141"+
+            "\22\13\2\uffff\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\57"+
+            "\1\60\1\61\1\56\1\62\1\63\1\64\1\65\1\66\1\67\2\uffff\7\16\16"+
+            "\uffff\5\45\115\uffff\2\16",
+            "\22\13\2\uffff\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\57"+
+            "\1\60\1\61\1\56\1\62\1\63\1\64\1\65\1\66\1\67\2\uffff\7\16\140"+
             "\uffff\2\16",
             "",
             "\4\5\1\uffff\7\5\31\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
@@ -14203,9 +14202,10 @@ public class flipsParser extends Parser {
             "\2\16\31\uffff\1\5\4\uffff\61\5",
             "\2\6\3\uffff\2\13",
             "\5\44\20\uffff\1\44\33\uffff\22\13\2\uffff\22\13\44\uffff\1"+
-            "\44\5\uffff\3\44\43\uffff\1\44\15\uffff\5\44\1\uffff\6\44",
+            "\44\5\uffff\3\44\43\uffff\1\44\15\uffff\4\44\1\uffff\6\44",
             "\5\44\20\uffff\1\44\33\uffff\22\13\2\uffff\22\13\44\uffff\1"+
-            "\44\5\uffff\3\44\61\uffff\5\44\1\uffff\6\44",
+            "\44\5\uffff\3\44\61\uffff\4\44\1\uffff\6\44",
+            "",
             "",
             "\4\13\1\uffff\7\13\31\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
             "\64\uffff\2\16\31\uffff\1\13\4\uffff\61\13",
@@ -14222,7 +14222,7 @@ public class flipsParser extends Parser {
             "\4\13\1\uffff\7\13\31\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
             "\64\uffff\2\16\31\uffff\1\13\4\uffff\61\13",
             "\1\73\1\74\1\75",
-            "\1\56\1\57\1\60",
+            "\1\57\1\60\1\61",
             "\4\13\1\uffff\7\13\31\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
             "\64\uffff\2\16\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\31\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
@@ -14241,7 +14241,6 @@ public class flipsParser extends Parser {
             "\64\uffff\2\16\31\uffff\1\13\4\uffff\61\13",
             "\4\13\1\uffff\7\13\31\uffff\10\13\1\uffff\2\13\1\uffff\2\13"+
             "\64\uffff\2\16\31\uffff\1\13\4\uffff\61\13",
-            "",
             "\4\5\1\uffff\7\5\31\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
             "\2\16\31\uffff\1\5\4\uffff\61\5",
             "\4\5\1\uffff\7\5\31\uffff\10\5\1\uffff\2\5\1\uffff\2\5\64\uffff"+
@@ -14292,19 +14291,19 @@ public class flipsParser extends Parser {
     static final String DFA34_eotS =
         "\151\uffff";
     static final String DFA34_eofS =
-        "\43\uffff\7\10\2\uffff\11\10\3\uffff\7\10\2\uffff\14\10\1\5\3\10"+
+        "\42\uffff\7\10\2\uffff\11\10\4\uffff\7\10\2\uffff\14\10\1\5\3\10"+
         "\2\uffff\7\10\2\uffff\11\10\1\5\3\10";
     static final String DFA34_minS =
         "\1\113\1\112\2\u0096\2\uffff\1\116\2\uffff\2\121\2\uffff\7\u0095"+
-        "\2\u009e\11\u0095\1\121\2\u0082\1\uffff\7\112\2\u009e\11\112\3\u0095"+
+        "\2\u009e\11\u0095\1\121\2\u0082\7\112\2\u009e\11\112\1\uffff\3\u0095"+
         "\7\112\2\u009e\20\112\2\u0096\7\112\2\u009e\15\112";
     static final String DFA34_maxS =
-        "\1\u0105\1\u0111\2\u0113\2\uffff\1\u0095\2\uffff\2\u0113\2\uffff"+
-        "\7\u00b2\2\u00a0\11\u00b2\1\u0095\2\u00a7\1\uffff\7\u0105\2\u00a0"+
-        "\11\u0105\3\u00b2\7\u0105\2\u00a0\20\u0105\2\u0113\7\u0105\2\u00a0"+
+        "\1\u0105\1\u0110\2\u0112\2\uffff\1\u0095\2\uffff\2\u0112\2\uffff"+
+        "\7\u00b2\2\u00a0\11\u00b2\1\u0095\2\u00a7\7\u0105\2\u00a0\11\u0105"+
+        "\1\uffff\3\u00b2\7\u0105\2\u00a0\20\u0105\2\u0112\7\u0105\2\u00a0"+
         "\15\u0105";
     static final String DFA34_acceptS =
-        "\4\uffff\1\3\1\4\1\uffff\1\5\1\7\2\uffff\1\6\1\2\25\uffff\1\1\106"+
+        "\4\uffff\1\3\1\4\1\uffff\1\5\1\7\2\uffff\1\6\1\2\47\uffff\1\1\64"+
         "\uffff";
     static final String DFA34_specialS =
         "\151\uffff}>";
@@ -14312,25 +14311,25 @@ public class flipsParser extends Parser {
             "\1\10\1\1\1\6\1\uffff\1\4\1\uffff\1\3\4\2\51\uffff\1\5\24\uffff"+
             "\2\5\73\uffff\1\7\37\uffff\13\10\6\uffff\4\4",
             "\1\13\3\uffff\1\10\2\uffff\1\12\4\11\41\uffff\1\10\5\uffff"+
-            "\5\10\63\uffff\6\14\125\uffff\2\13",
+            "\5\10\63\uffff\6\14\124\uffff\2\13",
             "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\26\1\27\1\30\1\25"+
-            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\14\141\uffff\2\14",
+            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\14\140\uffff\2\14",
             "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\26\1\27\1\30\1\25"+
-            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\14\141\uffff\2\14",
+            "\1\31\1\32\1\33\1\34\1\35\1\36\2\uffff\7\14\140\uffff\2\14",
             "",
             "",
             "\1\10\2\uffff\1\41\4\40\41\uffff\1\10\5\uffff\2\10\1\37\2\10"+
             "\23\uffff\1\5",
             "",
             "",
-            "\5\13\20\uffff\1\13\33\uffff\22\10\2\uffff\1\43\1\44\1\45\1"+
-            "\46\1\47\1\50\1\51\1\52\1\54\1\55\1\56\1\53\1\57\1\60\1\61\1"+
-            "\62\1\63\1\64\2\uffff\7\14\16\uffff\5\42\10\uffff\1\13\5\uffff"+
-            "\3\13\43\uffff\1\13\15\uffff\5\13\1\uffff\6\13\2\14",
-            "\5\13\20\uffff\1\13\33\uffff\22\10\2\uffff\1\43\1\44\1\45\1"+
-            "\46\1\47\1\50\1\51\1\52\1\54\1\55\1\56\1\53\1\57\1\60\1\61\1"+
-            "\62\1\63\1\64\2\uffff\7\14\33\uffff\1\13\5\uffff\3\13\61\uffff"+
-            "\5\13\1\uffff\6\13\2\14",
+            "\5\13\20\uffff\1\13\33\uffff\22\10\2\uffff\1\42\1\43\1\44\1"+
+            "\45\1\46\1\47\1\50\1\51\1\53\1\54\1\55\1\52\1\56\1\57\1\60\1"+
+            "\61\1\62\1\63\2\uffff\7\14\16\uffff\5\64\10\uffff\1\13\5\uffff"+
+            "\3\13\43\uffff\1\13\15\uffff\4\13\1\uffff\6\13\2\14",
+            "\5\13\20\uffff\1\13\33\uffff\22\10\2\uffff\1\42\1\43\1\44\1"+
+            "\45\1\46\1\47\1\50\1\51\1\53\1\54\1\55\1\52\1\56\1\57\1\60\1"+
+            "\61\1\62\1\63\2\uffff\7\14\33\uffff\1\13\5\uffff\3\13\61\uffff"+
+            "\4\13\1\uffff\6\13\2\14",
             "",
             "",
             "\1\5\33\uffff\2\14",
@@ -14356,7 +14355,6 @@ public class flipsParser extends Parser {
             "\1\102\1\103\1\100\1\104\1\105\1\106\1\107\1\110\1\111",
             "\22\10\2\uffff\1\70\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\101"+
             "\1\102\1\103\1\100\1\104\1\105\1\106\1\107\1\110\1\111",
-            "",
             "\4\10\1\uffff\1\10\1\uffff\5\10\31\uffff\6\10\12\uffff\1\10"+
             "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
@@ -14379,7 +14377,7 @@ public class flipsParser extends Parser {
             "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
             "\1\112\1\113\1\114",
-            "\1\54\1\55\1\56",
+            "\1\53\1\54\1\55",
             "\4\10\1\uffff\1\10\1\uffff\5\10\31\uffff\6\10\12\uffff\1\10"+
             "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
@@ -14407,6 +14405,7 @@ public class flipsParser extends Parser {
             "\4\10\1\uffff\1\10\1\uffff\5\10\31\uffff\6\10\12\uffff\1\10"+
             "\24\uffff\2\10\33\uffff\2\14\36\uffff\1\10\37\uffff\13\10\6"+
             "\uffff\4\10",
+            "",
             "\1\5\33\uffff\2\14",
             "\1\5\33\uffff\2\14",
             "\1\5\33\uffff\2\14",
@@ -14483,10 +14482,10 @@ public class flipsParser extends Parser {
             "\10",
             "\1\123\1\124\1\125\1\126\1\127\1\130\1\131\1\132\1\134\1\135"+
             "\1\136\1\133\1\137\1\140\1\141\1\142\1\143\1\144\2\uffff\7\5"+
-            "\141\uffff\2\5",
+            "\140\uffff\2\5",
             "\1\123\1\124\1\125\1\126\1\127\1\130\1\131\1\132\1\134\1\135"+
             "\1\136\1\133\1\137\1\140\1\141\1\142\1\143\1\144\2\uffff\7\5"+
-            "\141\uffff\2\5",
+            "\140\uffff\2\5",
             "\4\10\1\uffff\1\10\1\uffff\5\10\31\uffff\6\10\12\uffff\1\10"+
             "\24\uffff\1\10\1\145\33\uffff\2\5\36\uffff\1\10\37\uffff\13"+
             "\10\6\uffff\4\10",
@@ -14652,75 +14651,75 @@ public class flipsParser extends Parser {
     static final String DFA76_eofS =
         "\65\uffff";
     static final String DFA76_minS =
-        "\1\121\2\u0096\7\u00a8\7\u00b1\2\u009e\11\u00b1\2\u00a8\2\uffff"+
-        "\2\u00b5\3\u00b1\2\uffff\16\u00a8";
+        "\1\121\2\u0096\11\u00a8\7\u00b1\2\u009e\11\u00b1\4\uffff\2\u00b5"+
+        "\3\u00b1\16\u00a8";
     static final String DFA76_maxS =
-        "\1\125\2\u0113\7\u00a9\7\u00b2\2\u00a0\11\u00b2\2\u00a9\2\uffff"+
-        "\2\u00d0\3\u00b2\2\uffff\16\u00a9";
+        "\1\125\2\u0112\11\u00a9\7\u00b2\2\u00a0\11\u00b2\4\uffff\2\u00d0"+
+        "\3\u00b2\16\u00a9";
     static final String DFA76_acceptS =
-        "\36\uffff\1\2\1\1\5\uffff\1\4\1\3\16\uffff";
+        "\36\uffff\1\4\1\3\1\2\1\1\23\uffff";
     static final String DFA76_specialS =
         "\65\uffff}>";
     static final String[] DFA76_transitionS = {
             "\1\2\4\1",
-            "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\23\1\24\1\25\1\22"+
-            "\1\26\1\27\1\30\1\31\1\32\1\33\2\uffff\1\3\1\4\1\5\1\6\1\7\1"+
-            "\10\1\11\141\uffff\1\34\1\35",
-            "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\23\1\24\1\25\1\22"+
-            "\1\26\1\27\1\30\1\31\1\32\1\33\2\uffff\1\3\1\4\1\5\1\6\1\7\1"+
-            "\10\1\11\141\uffff\1\34\1\35",
+            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\25\1\26\1\27\1\24"+
+            "\1\30\1\31\1\32\1\33\1\34\1\35\2\uffff\1\5\1\6\1\7\1\10\1\11"+
+            "\1\12\1\13\140\uffff\1\3\1\4",
+            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\25\1\26\1\27\1\24"+
+            "\1\30\1\31\1\32\1\33\1\34\1\35\2\uffff\1\5\1\6\1\7\1\10\1\11"+
+            "\1\12\1\13\140\uffff\1\3\1\4",
             "\1\37\1\36",
             "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\42\1\43\1\44",
-            "\1\23\1\24\1\25",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\46\1\45",
-            "\1\46\1\45",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\44\1\45\1\46",
+            "\1\25\1\26\1\27",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "",
+            "",
             "",
             "",
             "\1\54\16\uffff\1\47\1\50\1\51\1\52\1\53\1\55\1\56\1\57\1\60"+
             "\1\61\1\62\1\63\1\64",
             "\1\54\16\uffff\1\47\1\50\1\51\1\52\1\53\1\55\1\56\1\57\1\60"+
             "\1\61\1\62\1\63\1\64",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "\1\40\1\41",
-            "",
-            "",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36",
-            "\1\37\1\36"
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\42\1\43",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40",
+            "\1\41\1\40"
     };
 
     static final short[] DFA76_eot = DFA.unpackEncodedString(DFA76_eotS);
@@ -14759,34 +14758,34 @@ public class flipsParser extends Parser {
     static final String DFA90_eotS =
         "\14\uffff";
     static final String DFA90_eofS =
-        "\5\uffff\1\7\4\uffff\2\7";
+        "\5\uffff\1\11\4\uffff\2\11";
     static final String DFA90_minS =
         "\1\122\1\u00bf\1\122\2\uffff\1\112\1\121\3\uffff\2\112";
     static final String DFA90_maxS =
         "\1\125\1\u00c3\1\125\2\uffff\1\u0105\1\125\3\uffff\2\u0105";
     static final String DFA90_acceptS =
-        "\3\uffff\1\4\1\2\2\uffff\1\5\1\1\1\3\2\uffff";
+        "\3\uffff\1\2\1\4\2\uffff\1\1\1\3\1\5\2\uffff";
     static final String DFA90_specialS =
         "\14\uffff}>";
     static final String[] DFA90_transitionS = {
             "\4\1",
-            "\2\4\2\3\1\2",
+            "\2\3\2\4\1\2",
             "\4\5",
             "",
             "",
-            "\4\7\1\uffff\7\7\31\uffff\10\7\1\uffff\2\7\1\uffff\2\7\2\uffff"+
-            "\1\7\24\uffff\2\7\51\uffff\2\10\2\11\1\6\10\uffff\1\7\4\uffff"+
-            "\65\7",
+            "\4\11\1\uffff\7\11\31\uffff\10\11\1\uffff\2\11\1\uffff\2\11"+
+            "\2\uffff\1\11\24\uffff\2\11\51\uffff\2\7\2\10\1\6\10\uffff\1"+
+            "\11\4\uffff\65\11",
             "\1\13\4\12",
             "",
             "",
             "",
-            "\4\7\1\uffff\7\7\31\uffff\10\7\1\uffff\2\7\1\uffff\2\7\2\uffff"+
-            "\1\7\24\uffff\2\7\51\uffff\2\10\2\11\11\uffff\1\7\4\uffff\65"+
-            "\7",
-            "\4\7\1\uffff\7\7\31\uffff\10\7\1\uffff\2\7\1\uffff\2\7\2\uffff"+
-            "\1\7\24\uffff\2\7\51\uffff\2\10\2\11\11\uffff\1\7\4\uffff\65"+
-            "\7"
+            "\4\11\1\uffff\7\11\31\uffff\10\11\1\uffff\2\11\1\uffff\2\11"+
+            "\2\uffff\1\11\24\uffff\2\11\51\uffff\2\7\2\10\11\uffff\1\11"+
+            "\4\uffff\65\11",
+            "\4\11\1\uffff\7\11\31\uffff\10\11\1\uffff\2\11\1\uffff\2\11"+
+            "\2\uffff\1\11\24\uffff\2\11\51\uffff\2\7\2\10\11\uffff\1\11"+
+            "\4\uffff\65\11"
     };
 
     static final short[] DFA90_eot = DFA.unpackEncodedString(DFA90_eotS);
@@ -14825,21 +14824,20 @@ public class flipsParser extends Parser {
     static final String DFA97_eotS =
         "\32\uffff";
     static final String DFA97_eofS =
-        "\4\uffff\11\2\5\uffff\4\26\4\uffff";
+        "\3\uffff\5\2\1\uffff\4\2\4\uffff\4\25\5\uffff";
     static final String DFA97_minS =
-        "\1\121\1\u00b5\2\uffff\11\112\4\u0096\1\uffff\4\112\1\uffff\2\u0096"+
-        "\1\uffff";
+        "\1\121\1\u00b5\1\uffff\5\112\1\uffff\4\112\4\u0096\4\112\2\uffff"+
+        "\2\u0096\1\uffff";
     static final String DFA97_maxS =
-        "\1\125\1\u00d0\2\uffff\11\u0105\4\u0113\1\uffff\4\u0105\1\uffff"+
-        "\2\u0113\1\uffff";
+        "\1\125\1\u00d0\1\uffff\5\u0105\1\uffff\4\u0105\4\u0112\4\u0105\2"+
+        "\uffff\2\u0112\1\uffff";
     static final String DFA97_acceptS =
-        "\2\uffff\1\1\1\5\15\uffff\1\4\4\uffff\1\2\2\uffff\1\3";
+        "\2\uffff\1\1\5\uffff\1\5\14\uffff\1\2\1\4\2\uffff\1\3";
     static final String DFA97_specialS =
         "\32\uffff}>";
     static final String[] DFA97_transitionS = {
             "\1\2\4\1",
-            "\1\4\15\uffff\1\3\1\10\1\11\1\12\1\13\1\14\1\5\1\6\1\7\5\2",
-            "",
+            "\1\11\15\uffff\1\10\1\3\1\4\1\5\1\6\1\7\1\12\1\13\1\14\5\2",
             "",
             "\4\2\1\uffff\2\2\1\16\4\15\31\uffff\10\2\1\uffff\2\2\1\uffff"+
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
@@ -14849,37 +14847,38 @@ public class flipsParser extends Parser {
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
             "\4\2\1\uffff\2\2\1\16\4\15\31\uffff\10\2\1\uffff\2\2\1\uffff"+
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
+            "\4\2\1\uffff\2\2\1\16\4\15\31\uffff\10\2\1\uffff\2\2\1\uffff"+
             "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
-            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
-            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
-            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
-            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
-            "\22\2\2\uffff\7\2\33\uffff\5\21\101\uffff\2\2",
-            "\22\2\2\uffff\7\2\33\uffff\5\21\101\uffff\2\2",
-            "\22\2\2\uffff\7\2\4\uffff\1\22\23\uffff\1\23\1\24\1\25\5\26"+
-            "\101\uffff\2\2",
-            "\22\2\2\uffff\7\2\4\uffff\1\26\23\uffff\10\26\101\uffff\2\2",
             "",
-            "\4\26\1\uffff\2\26\1\30\4\27\31\uffff\10\26\1\uffff\2\26\1"+
-            "\uffff\2\26\2\uffff\1\26\24\uffff\2\26\66\uffff\1\26\4\uffff"+
-            "\65\26",
-            "\4\26\1\uffff\2\26\1\30\4\27\31\uffff\10\26\1\uffff\2\26\1"+
-            "\uffff\2\26\2\uffff\1\26\24\uffff\2\26\66\uffff\1\26\4\uffff"+
-            "\65\26",
-            "\4\26\1\uffff\2\26\1\30\4\27\31\uffff\10\26\1\uffff\2\26\1"+
-            "\uffff\2\26\2\uffff\1\26\24\uffff\2\26\66\uffff\1\26\4\uffff"+
-            "\65\26",
-            "\4\26\1\uffff\2\26\1\30\4\27\31\uffff\10\26\1\uffff\2\26\1"+
-            "\uffff\2\26\2\uffff\1\26\24\uffff\2\26\66\uffff\1\26\4\uffff"+
-            "\65\26",
+            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
+            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
+            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
+            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
+            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
+            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
+            "\4\2\1\uffff\2\2\1\20\4\17\31\uffff\10\2\1\uffff\2\2\1\uffff"+
+            "\2\2\2\uffff\1\2\24\uffff\2\2\66\uffff\1\2\4\uffff\65\2",
+            "\22\2\2\uffff\7\2\4\uffff\1\21\23\uffff\1\22\1\23\1\24\5\25"+
+            "\100\uffff\2\2",
+            "\22\2\2\uffff\7\2\4\uffff\1\25\23\uffff\10\25\100\uffff\2\2",
+            "\22\2\2\uffff\7\2\33\uffff\5\26\100\uffff\2\2",
+            "\22\2\2\uffff\7\2\33\uffff\5\26\100\uffff\2\2",
+            "\4\25\1\uffff\2\25\1\30\4\27\31\uffff\10\25\1\uffff\2\25\1"+
+            "\uffff\2\25\2\uffff\1\25\24\uffff\2\25\66\uffff\1\25\4\uffff"+
+            "\65\25",
+            "\4\25\1\uffff\2\25\1\30\4\27\31\uffff\10\25\1\uffff\2\25\1"+
+            "\uffff\2\25\2\uffff\1\25\24\uffff\2\25\66\uffff\1\25\4\uffff"+
+            "\65\25",
+            "\4\25\1\uffff\2\25\1\30\4\27\31\uffff\10\25\1\uffff\2\25\1"+
+            "\uffff\2\25\2\uffff\1\25\24\uffff\2\25\66\uffff\1\25\4\uffff"+
+            "\65\25",
+            "\4\25\1\uffff\2\25\1\30\4\27\31\uffff\10\25\1\uffff\2\25\1"+
+            "\uffff\2\25\2\uffff\1\25\24\uffff\2\25\66\uffff\1\25\4\uffff"+
+            "\65\25",
             "",
-            "\22\26\2\uffff\7\26\33\uffff\5\31\101\uffff\2\26",
-            "\22\26\2\uffff\7\26\33\uffff\5\31\101\uffff\2\26",
+            "",
+            "\22\25\2\uffff\7\25\33\uffff\5\31\100\uffff\2\25",
+            "\22\25\2\uffff\7\25\33\uffff\5\31\100\uffff\2\25",
             ""
     };
 
@@ -14916,215 +14915,123 @@ public class flipsParser extends Parser {
             return "417:1: durationValue : ( numericValue timeUnit | integerValue hour numericValue ( minute | second ) | integerValue hour integerValue minute numericValue second | integerValue minute numericValue second | timeFormat );";
         }
     }
-    static final String DFA148_eotS =
-        "\100\uffff";
-    static final String DFA148_eofS =
-        "\7\uffff\2\6\24\uffff\2\6\15\uffff\2\53\22\uffff";
-    static final String DFA148_minS =
-        "\6\121\1\uffff\2\112\12\121\2\uffff\6\121\2\u010b\2\112\14\121\1"+
-        "\uffff\2\112\6\121\1\uffff\6\121\2\u010b\1\121\2\u010b";
-    static final String DFA148_maxS =
-        "\3\u0111\2\125\1\u0111\1\uffff\2\u010f\1\u0111\1\125\10\u0111\2"+
-        "\uffff\6\u0111\2\u010b\2\u010f\1\u0111\1\125\12\u0111\1\uffff\2"+
-        "\u010f\5\u0111\1\125\1\uffff\6\u0111\2\u010b\1\u0111\2\u010b";
-    static final String DFA148_acceptS =
-        "\6\uffff\1\2\14\uffff\1\4\1\1\26\uffff\1\3\10\uffff\1\5\13\uffff";
-    static final String DFA148_specialS =
-        "\100\uffff}>";
-    static final String[] DFA148_transitionS = {
-            "\1\2\4\1\u00ba\uffff\1\3\1\4",
-            "\1\10\4\7\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\43\uffff"+
-            "\1\12\15\uffff\1\11\1\17\1\20\1\21\1\22\1\uffff\1\13\1\14\1"+
-            "\15\1\16\1\6\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\61\uffff\1\25"+
-            "\1\17\1\20\1\21\1\22\1\uffff\1\13\1\14\1\15\1\16\1\6\1\23",
+    static final String DFA147_eotS =
+        "\64\uffff";
+    static final String DFA147_eofS =
+        "\64\uffff";
+    static final String DFA147_minS =
+        "\16\121\1\uffff\1\121\2\uffff\4\121\2\u010a\17\121\1\uffff\4\121"+
+        "\1\uffff\1\121\4\u010a\2\121";
+    static final String DFA147_maxS =
+        "\3\u0110\2\125\4\u0110\1\125\4\u0110\1\uffff\1\u0110\2\uffff\4\u0110"+
+        "\2\u010a\4\u0110\1\125\4\u0110\1\125\5\u0110\1\uffff\4\u0110\1\uffff"+
+        "\1\u0110\4\u010a\2\u0110";
+    static final String DFA147_acceptS =
+        "\16\uffff\1\1\1\uffff\1\4\1\2\25\uffff\1\3\4\uffff\1\5\7\uffff";
+    static final String DFA147_specialS =
+        "\64\uffff}>";
+    static final String[] DFA147_transitionS = {
+            "\1\2\4\1\u00b9\uffff\1\3\1\4",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\43\uffff\1"+
+            "\11\15\uffff\1\5\1\6\1\7\1\10\1\uffff\1\12\1\13\1\14\1\15\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\61\uffff\1"+
+            "\5\1\6\1\7\1\10\1\uffff\1\12\1\13\1\14\1\15\1\21\1\20",
+            "\1\23\4\22",
+            "\1\25\4\24",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
             "\1\27\4\26",
-            "\1\31\4\30",
-            "\5\6\u00ba\uffff\1\6\1\23",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
             "",
-            "\4\6\1\uffff\7\6\11\uffff\2\6\4\uffff\2\6\10\uffff\10\6\1\uffff"+
-            "\2\6\1\uffff\2\6\2\uffff\1\6\24\uffff\2\6\66\uffff\1\6\4\uffff"+
-            "\72\6\1\32\4\6",
-            "\4\6\1\uffff\7\6\11\uffff\2\6\4\uffff\2\6\10\uffff\10\6\1\uffff"+
-            "\2\6\1\uffff\2\6\2\uffff\1\6\24\uffff\2\6\66\uffff\1\6\4\uffff"+
-            "\72\6\1\32\4\6",
-            "\1\10\4\7\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff"+
-            "\1\6\1\23",
-            "\1\34\4\33",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
+            "\5\21\u00b9\uffff\1\21\1\20",
             "",
             "",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\1\36\4\35\20\uffff\1\5\u0091\uffff\1\40\15\uffff\1\37\1\45"+
-            "\1\46\1\47\1\50\1\uffff\1\41\1\42\1\43\1\44\1\6\1\23",
-            "\5\6\20\uffff\1\5\u009f\uffff\1\51\1\45\1\46\1\47\1\50\1\uffff"+
-            "\1\41\1\42\1\43\1\44\1\6\1\23",
-            "\1\55\4\54\20\uffff\1\52\u0091\uffff\1\63\15\uffff\1\62\1\65"+
-            "\1\66\1\67\1\70\1\uffff\1\56\1\57\1\60\1\61\1\53\1\64",
-            "\5\53\20\uffff\1\52\u009f\uffff\1\71\1\65\1\66\1\67\1\70\1"+
-            "\uffff\1\56\1\57\1\60\1\61\1\53\1\64",
-            "\5\6\20\uffff\1\5\145\uffff\1\24\5\uffff\3\24\73\uffff\1\6"+
-            "\1\23",
-            "\1\32",
-            "\1\32",
-            "\4\6\1\uffff\7\6\11\uffff\2\6\4\uffff\2\6\10\uffff\10\6\1\uffff"+
-            "\2\6\1\uffff\2\6\2\uffff\1\6\24\uffff\2\6\66\uffff\1\6\4\uffff"+
-            "\72\6\1\72\4\6",
-            "\4\6\1\uffff\7\6\11\uffff\2\6\4\uffff\2\6\10\uffff\10\6\1\uffff"+
-            "\2\6\1\uffff\2\6\2\uffff\1\6\24\uffff\2\6\66\uffff\1\6\4\uffff"+
-            "\72\6\1\72\4\6",
-            "\1\36\4\35\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\1\74\4\73",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\5\53\u00ba\uffff\1\53\1\64",
+            "\5\21\20\uffff\1\17\u0091\uffff\1\34\15\uffff\1\30\1\31\1\32"+
+            "\1\33\1\uffff\1\35\1\36\1\37\1\40\1\21\1\20",
+            "\5\21\20\uffff\1\17\u009f\uffff\1\30\1\31\1\32\1\33\1\uffff"+
+            "\1\35\1\36\1\37\1\40\1\21\1\20",
+            "\5\47\20\uffff\1\46\u0091\uffff\1\41\15\uffff\1\50\1\51\1\52"+
+            "\1\53\1\uffff\1\42\1\43\1\44\1\45\1\47\1\54",
+            "\5\47\20\uffff\1\46\u009f\uffff\1\50\1\51\1\52\1\53\1\uffff"+
+            "\1\42\1\43\1\44\1\45\1\47\1\54",
+            "\1\55",
+            "\1\55",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\1\57\4\56",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\1\61\4\60",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\u00b9\uffff\1\47\1\54",
             "",
-            "\4\53\1\uffff\7\53\11\uffff\2\53\4\uffff\2\53\10\uffff\10\53"+
-            "\1\uffff\2\53\1\uffff\2\53\2\uffff\1\53\24\uffff\2\53\66\uffff"+
-            "\1\53\4\uffff\72\53\1\75\4\53",
-            "\4\53\1\uffff\7\53\11\uffff\2\53\4\uffff\2\53\10\uffff\10\53"+
-            "\1\uffff\2\53\1\uffff\2\53\2\uffff\1\53\24\uffff\2\53\66\uffff"+
-            "\1\53\4\uffff\72\53\1\75\4\53",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\1\55\4\54\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\1\77\4\76",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54",
             "",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\5\6\20\uffff\1\5\u00a9\uffff\1\6\1\23",
-            "\1\72",
-            "\1\72",
-            "\5\53\20\uffff\1\52\u00a9\uffff\1\53\1\64",
-            "\1\75",
-            "\1\75"
+            "\5\21\20\uffff\1\17\145\uffff\1\16\5\uffff\3\16\72\uffff\1"+
+            "\21\1\20",
+            "\1\62",
+            "\1\62",
+            "\1\63",
+            "\1\63",
+            "\5\21\20\uffff\1\17\u00a8\uffff\1\21\1\20",
+            "\5\47\20\uffff\1\46\u00a8\uffff\1\47\1\54"
     };
 
-    static final short[] DFA148_eot = DFA.unpackEncodedString(DFA148_eotS);
-    static final short[] DFA148_eof = DFA.unpackEncodedString(DFA148_eofS);
-    static final char[] DFA148_min = DFA.unpackEncodedStringToUnsignedChars(DFA148_minS);
-    static final char[] DFA148_max = DFA.unpackEncodedStringToUnsignedChars(DFA148_maxS);
-    static final short[] DFA148_accept = DFA.unpackEncodedString(DFA148_acceptS);
-    static final short[] DFA148_special = DFA.unpackEncodedString(DFA148_specialS);
-    static final short[][] DFA148_transition;
+    static final short[] DFA147_eot = DFA.unpackEncodedString(DFA147_eotS);
+    static final short[] DFA147_eof = DFA.unpackEncodedString(DFA147_eofS);
+    static final char[] DFA147_min = DFA.unpackEncodedStringToUnsignedChars(DFA147_minS);
+    static final char[] DFA147_max = DFA.unpackEncodedStringToUnsignedChars(DFA147_maxS);
+    static final short[] DFA147_accept = DFA.unpackEncodedString(DFA147_acceptS);
+    static final short[] DFA147_special = DFA.unpackEncodedString(DFA147_specialS);
+    static final short[][] DFA147_transition;
 
     static {
-        int numStates = DFA148_transitionS.length;
-        DFA148_transition = new short[numStates][];
+        int numStates = DFA147_transitionS.length;
+        DFA147_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA148_transition[i] = DFA.unpackEncodedString(DFA148_transitionS[i]);
+            DFA147_transition[i] = DFA.unpackEncodedString(DFA147_transitionS[i]);
         }
     }
 
-    class DFA148 extends DFA {
+    class DFA147 extends DFA {
 
-        public DFA148(BaseRecognizer recognizer) {
+        public DFA147(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 148;
-            this.eot = DFA148_eot;
-            this.eof = DFA148_eof;
-            this.min = DFA148_min;
-            this.max = DFA148_max;
-            this.accept = DFA148_accept;
-            this.special = DFA148_special;
-            this.transition = DFA148_transition;
+            this.decisionNumber = 147;
+            this.eot = DFA147_eot;
+            this.eof = DFA147_eof;
+            this.min = DFA147_min;
+            this.max = DFA147_max;
+            this.accept = DFA147_accept;
+            this.special = DFA147_special;
+            this.transition = DFA147_transition;
         }
         public String getDescription() {
             return "548:1: latitudeLongitude : (x= latitudeLongitudeValue northSouthDirection ( ',' )? y= latitudeLongitudeValue eastWestDirection -> ^( LATITUDE $x northSouthDirection ) ^( LONGITUDE $y eastWestDirection ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y EAST ) | '-' x= latitudeLongitudeValue ( ',' )? ( '+' )? y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y EAST ) | ( '+' )? x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x NORTH ) ^( LONGITUDE $y WEST ) | '-' x= latitudeLongitudeValue ( ',' )? '-' y= latitudeLongitudeValue -> ^( LATITUDE $x SOUTH ) ^( LONGITUDE $y WEST ) );";
-        }
-    }
-    static final String DFA149_eotS =
-        "\12\uffff";
-    static final String DFA149_eofS =
-        "\1\uffff\2\4\2\uffff\2\4\3\uffff";
-    static final String DFA149_minS =
-        "\1\121\2\112\2\uffff\2\112\1\113\2\u0082";
-    static final String DFA149_maxS =
-        "\1\125\2\u0111\2\uffff\2\u0113\1\125\2\u010b";
-    static final String DFA149_acceptS =
-        "\3\uffff\1\2\1\1\5\uffff";
-    static final String DFA149_specialS =
-        "\12\uffff}>";
-    static final String[] DFA149_transitionS = {
-            "\1\2\4\1",
-            "\4\4\1\uffff\2\4\1\6\4\5\11\uffff\2\4\4\uffff\2\4\10\uffff"+
-            "\10\4\1\uffff\2\4\1\uffff\2\4\2\uffff\1\4\24\uffff\2\4\66\uffff"+
-            "\1\4\4\uffff\47\4\1\7\15\4\5\3\1\uffff\4\3\2\4",
-            "\4\4\1\uffff\7\4\11\uffff\2\4\4\uffff\2\4\10\uffff\10\4\1\uffff"+
-            "\2\4\1\uffff\2\4\2\uffff\1\4\24\uffff\2\4\66\uffff\1\4\4\uffff"+
-            "\65\4\5\3\1\uffff\4\3\2\4",
-            "",
-            "",
-            "\4\4\1\uffff\7\4\11\uffff\2\4\4\uffff\2\4\10\uffff\10\4\1\uffff"+
-            "\2\4\1\uffff\2\4\2\uffff\1\4\24\uffff\24\4\2\uffff\7\4\33\uffff"+
-            "\1\4\4\uffff\72\4\1\3\4\4\2\uffff\2\4",
-            "\4\4\1\uffff\7\4\11\uffff\2\4\4\uffff\2\4\10\uffff\10\4\1\uffff"+
-            "\2\4\1\uffff\2\4\2\uffff\1\4\24\uffff\24\4\2\uffff\7\4\33\uffff"+
-            "\1\4\4\uffff\72\4\1\3\4\4\2\uffff\2\4",
-            "\1\4\2\uffff\1\4\2\uffff\1\11\4\10",
-            "\22\4\2\uffff\22\4\143\uffff\1\3",
-            "\22\4\2\uffff\22\4\143\uffff\1\3"
-    };
-
-    static final short[] DFA149_eot = DFA.unpackEncodedString(DFA149_eotS);
-    static final short[] DFA149_eof = DFA.unpackEncodedString(DFA149_eofS);
-    static final char[] DFA149_min = DFA.unpackEncodedStringToUnsignedChars(DFA149_minS);
-    static final char[] DFA149_max = DFA.unpackEncodedStringToUnsignedChars(DFA149_maxS);
-    static final short[] DFA149_accept = DFA.unpackEncodedString(DFA149_acceptS);
-    static final short[] DFA149_special = DFA.unpackEncodedString(DFA149_specialS);
-    static final short[][] DFA149_transition;
-
-    static {
-        int numStates = DFA149_transitionS.length;
-        DFA149_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA149_transition[i] = DFA.unpackEncodedString(DFA149_transitionS[i]);
-        }
-    }
-
-    class DFA149 extends DFA {
-
-        public DFA149(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 149;
-            this.eot = DFA149_eot;
-            this.eof = DFA149_eof;
-            this.min = DFA149_min;
-            this.max = DFA149_max;
-            this.accept = DFA149_accept;
-            this.special = DFA149_special;
-            this.transition = DFA149_transition;
-        }
-        public String getDescription() {
-            return "561:1: latitudeLongitudeValue : ( numericValue -> numericValue DEGREE | angularValue );";
         }
     }
  
@@ -15186,13 +15093,13 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_110_in_defineWaypoint703 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_defineWaypointValue_in_defineWaypoint706 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_Identifier_in_defineWaypointValue722 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_100_in_defineWaypointValue724 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
+    public static final BitSet FOLLOW_100_in_defineWaypointValue724 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_geoCoordinate_in_defineWaypointValue726 = new BitSet(new long[]{0x0000000000000002L,0x0000006000000400L});
     public static final BitSet FOLLOW_101_in_defineWaypointValue730 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_102_in_defineWaypointValue732 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000400L});
     public static final BitSet FOLLOW_101_in_defineWaypointValue734 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_Identifier_in_defineWaypointValue739 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_100_in_defineWaypointValue741 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
+    public static final BitSet FOLLOW_100_in_defineWaypointValue741 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_geoCoordinate_in_defineWaypointValue743 = new BitSet(new long[]{0x0000000000000002L,0x0000006000000400L});
     public static final BitSet FOLLOW_flyCommand_in_command770 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_turnCommand_in_command775 = new BitSet(new long[]{0x0000000000000002L});
@@ -15208,11 +15115,11 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_pitch_in_flyCommandValue844 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_roll_in_flyCommandValue849 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_duration_in_flyCommandValue854 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_To_in_flyCommandValue859 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
+    public static final BitSet FOLLOW_To_in_flyCommandValue859 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_waypoint_in_flyCommandValue861 = new BitSet(new long[]{0x0000000000000002L,0x0000006000000000L});
-    public static final BitSet FOLLOW_101_in_flyCommandValue865 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
-    public static final BitSet FOLLOW_102_in_flyCommandValue867 = new BitSet(new long[]{0x0000000000000000L,0x00000020003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
-    public static final BitSet FOLLOW_101_in_flyCommandValue869 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
+    public static final BitSet FOLLOW_101_in_flyCommandValue865 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
+    public static final BitSet FOLLOW_102_in_flyCommandValue867 = new BitSet(new long[]{0x0000000000000000L,0x00000020003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
+    public static final BitSet FOLLOW_101_in_flyCommandValue869 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_waypoint_in_flyCommandValue873 = new BitSet(new long[]{0x0000000000000002L,0x0000006000000000L});
     public static final BitSet FOLLOW_altitude_in_flyCommandValue886 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_113_in_turnCommand898 = new BitSet(new long[]{0x0000000000000002L,0x0000000000018000L,0x0000000000000000L,0x0001FFFFFFFC1000L});
@@ -15227,7 +15134,7 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_loiterDirection_in_loiterCommandValue974 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_radius_in_loiterCommandValue979 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_duration_in_loiterCommandValue984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_At_in_loiterCommandValue989 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000030000L});
+    public static final BitSet FOLLOW_At_in_loiterCommandValue989 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0400L,0x0000000000000000L,0x0000000000000000L,0x0000000000018000L});
     public static final BitSet FOLLOW_waypoint_in_loiterCommandValue991 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_altitude_in_loiterCommandValue1001 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_Identifier_in_executeCommand1012 = new BitSet(new long[]{0x0000000000000002L});
@@ -15497,57 +15404,55 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_259_in_clockDirection2885 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_260_in_clockDirection2897 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_261_in_clockDirection2899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue2916 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000000007C0L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue2916 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000000003C0L});
     public static final BitSet FOLLOW_262_in_angularValue2919 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_263_in_angularValue2921 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_264_in_angularValue2923 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_265_in_angularValue2925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_266_in_angularValue2927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_angularValue2940 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0100000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_262_in_angularValue2943 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_248_in_angularValue2945 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue2949 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_267_in_angularValue2951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue2967 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000000F000L});
-    public static final BitSet FOLLOW_268_in_angularValue2970 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_269_in_angularValue2972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_270_in_angularValue2974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_271_in_angularValue2976 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_geoCoordinate_in_waypoint2997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Identifier_in_waypoint3007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate3027 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3049 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000001C1000L});
-    public static final BitSet FOLLOW_northSouthDirection_in_latitudeLongitude3051 = new BitSet(new long[]{0x0000000000000000L,0x00000040003E0000L});
-    public static final BitSet FOLLOW_102_in_latitudeLongitude3053 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3058 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000001FC1000L});
-    public static final BitSet FOLLOW_eastWestDirection_in_latitudeLongitude3060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_272_in_latitudeLongitude3086 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3091 = new BitSet(new long[]{0x0000000000000000L,0x00000040003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_102_in_latitudeLongitude3093 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_272_in_latitudeLongitude3096 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_273_in_latitudeLongitude3127 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3131 = new BitSet(new long[]{0x0000000000000000L,0x00000040003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_102_in_latitudeLongitude3133 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_272_in_latitudeLongitude3136 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3141 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_272_in_latitudeLongitude3167 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3172 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_102_in_latitudeLongitude3174 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_273_in_latitudeLongitude3177 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_273_in_latitudeLongitude3207 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3211 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_102_in_latitudeLongitude3213 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_273_in_latitudeLongitude3216 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3220 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_latitudeLongitudeValue3252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_angularValue_in_latitudeLongitudeValue3264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_numericValue3277 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue3282 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_angularValue2938 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
+    public static final BitSet FOLLOW_248_in_angularValue2940 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue2942 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+    public static final BitSet FOLLOW_266_in_angularValue2944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue2960 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000007800L});
+    public static final BitSet FOLLOW_267_in_angularValue2963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_268_in_angularValue2965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_269_in_angularValue2967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_270_in_angularValue2969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_geoCoordinate_in_waypoint2990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Identifier_in_waypoint3000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate3020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3042 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000001C1000L});
+    public static final BitSet FOLLOW_northSouthDirection_in_latitudeLongitude3044 = new BitSet(new long[]{0x0000000000000000L,0x00000040003E0000L});
+    public static final BitSet FOLLOW_102_in_latitudeLongitude3046 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3051 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000001FC1000L});
+    public static final BitSet FOLLOW_eastWestDirection_in_latitudeLongitude3053 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_271_in_latitudeLongitude3079 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3084 = new BitSet(new long[]{0x0000000000000000L,0x00000040003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_102_in_latitudeLongitude3086 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_271_in_latitudeLongitude3089 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3094 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_272_in_latitudeLongitude3120 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3124 = new BitSet(new long[]{0x0000000000000000L,0x00000040003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_102_in_latitudeLongitude3126 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_271_in_latitudeLongitude3129 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3134 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_271_in_latitudeLongitude3160 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3165 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_102_in_latitudeLongitude3167 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_272_in_latitudeLongitude3170 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_272_in_latitudeLongitude3200 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3204 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_102_in_latitudeLongitude3206 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_272_in_latitudeLongitude3209 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_latitudeLongitudeValue_in_latitudeLongitude3213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_latitudeLongitudeValue3245 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularValue_in_latitudeLongitudeValue3257 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_numericValue3270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue3275 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_integerValue0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_percentValue3319 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000000C0000L});
-    public static final BitSet FOLLOW_274_in_percentValue3322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_275_in_percentValue3324 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_percentValue3312 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000060000L});
+    public static final BitSet FOLLOW_273_in_percentValue3315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_274_in_percentValue3317 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -433,8 +433,10 @@ convertThrottle returns [double r]
 convertAngle returns [double r]
 	:	x=numericValue DEGREE
 		{r = x;}
-	|	deg=integerValue DEGREE min=numericValue MINUTE
-		{r = deg + min/60d;}
+	|	deg=integerValue DEGREE minNum=numericValue MINUTE
+		{r = deg + minNum/60d;}
+	|	deg=integerValue DEGREE minInt=integerValue MINUTE sec=numericValue SECOND
+		{r = deg + minInt/60d + sec/3600d;}
 	|	x=numericValue RADIAN
 		{r = x * 180d / Math.PI;}
 	;

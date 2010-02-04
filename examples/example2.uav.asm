@@ -7,6 +7,8 @@ POS   X FIX -32.463      // 32.463 W Longitude
 POS   Y FIX 78.754       // 78.754 N Latitude
 TIM REL 3612.0           // 3612.0 s (1:00:12) Duration
 FLY                      // Execute
+POS   X FIX -32.45       // 32.45 W Longitude
+POS   Y FIX 78.75        // 78.75 N Latitude
 TIM REL 3612.0           // 3612.0 s (1:00:12) Duration
 FLY                      // Execute
 POS YAW FIX 202.5        // 202.5 deg Heading
