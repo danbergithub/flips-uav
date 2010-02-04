@@ -1,0 +1,26 @@
+commands
+  Normal = 0
+  Takeoff = 1
+  Inverted = 2
+  Hover = 4
+  RollLeft = 8
+  RollRight = 16
+  Trigger = 32
+  Loiter = 64
+  Land = 128
+
+waypoints
+  Atlanta = 33.748995 -84.387982
+  NewYork = 40.714269 -74.005973
+  London = 51.00652 -0.126708
+
+Takeoff
+fly to Atlanta at 50 meters
+Normal
+fly to NewYork
+fly at 1000 feet
+Inverted
+fly to London
+fly to Atlanta at 250 feet
+Land
+
