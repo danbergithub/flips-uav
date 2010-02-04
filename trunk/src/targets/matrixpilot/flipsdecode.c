@@ -37,32 +37,7 @@ typedef struct {
 static volatile ControllerData PositionX;
 static volatile ControllerData PositionY;
 static volatile ControllerData PositionZ;
-static volatile ControllerData PositionRoll;
-static volatile ControllerData PositionPitch;
-static volatile ControllerData PositionYaw;
 static volatile ControllerData PositionPressure;
-
-static volatile ControllerData VelocityX;
-static volatile ControllerData VelocityY;
-static volatile ControllerData VelocityZ;
-static volatile ControllerData VelocityRoll;
-static volatile ControllerData VelocityPitch;
-static volatile ControllerData VelocityYaw;
-static volatile ControllerData VelocityPressure;
-
-static volatile ControllerData SpeedAir;
-static volatile ControllerData SpeedGround;
-
-typedef struct {
-  float Desired; // Desired Position
-  float Trim; // Actual Position
-} ActuatorData;
-
-static volatile ActuatorData Elevator;
-static volatile ActuatorData Aileron;
-static volatile ActuatorData Rudder;
-static volatile ActuatorData Flap;
-static volatile ActuatorData Throttle;
 
 static void FLIPSDecode() {
   // Instruction Decode
