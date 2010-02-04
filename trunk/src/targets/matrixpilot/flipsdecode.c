@@ -63,7 +63,6 @@ static void FLIPSDecode() {
       
     case 2: { // CMD value
       uint_fast16_t command = FLIPSLoadUInt16();
-      printf("CMD %d\n", command);
       
       // Command Decode
       switch (command) {
@@ -104,7 +103,7 @@ static void FLIPSDecode() {
           break;
 
         default:
-          printf("FLIPS: UNKNOWN COMMAND\n");
+          printf("FLIPS: UNKNOWN COMMAND %d\n", command);
           FLIPS.Status = 1; // Continue
           break;
       }
