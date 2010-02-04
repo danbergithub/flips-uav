@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-01 21:27:37
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flips.g 2010-02-03 20:44:01
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -3720,8 +3720,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = T__258;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:171:8: ( '¡' )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:171:10: '¡'
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:171:8: ( '\\u00B0' )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flips.g:171:10: '\\u00B0'
             {
             match('\u00B0'); 
 
