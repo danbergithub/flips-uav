@@ -1,4 +1,4 @@
-def wpt home = 35.8962n 84.0252w
+wpt home = 35.8962n 84.0252w
 
 takeoff
 fly to 200ft at max speed

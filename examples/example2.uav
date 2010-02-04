@@ -1,9 +1,9 @@
-define waypoints
+waypoints
    SanfordStadium = 84.324n 98.433w
    Boyd = 84.234n 98.843w
    Home = 84.523n 98.823w
 
-define commands
+commands
    TakeAPicture = 0x01       // Command 1
    DeployTheParachute = 0b10 // Command 2
 
