@@ -191,7 +191,7 @@ if (value != null) {
   emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
 }
 else {
-  emit("\$INCLUDE " + x.getText() + ".uav", "Include The File '" + x.getText() + ".uav'");
+  emit("\$INCLUDE " + x.getText() + ".uav", "Include Source File '" + x.getText() + ".uav'");
 }
 	}
 	;
