@@ -60,13 +60,6 @@ tokens {
   LEFT;
   RIGHT;
   FLIGHTLEVEL;
-  PRESSURE;
-  KILOPASCAL;
-  HECTOPASCAL;
-  PASCAL;
-  BAR;
-  MILLIBAR;
-  ATMOSPHERE;
   CLIMB;
   DESCEND;
   NORTH;
@@ -155,29 +148,8 @@ relativeAltitude
 altitudeValue
 	:	distanceValue
 	->	DISTANCE distanceValue
-	|	pressureValue
-	->	PRESSURE pressureValue
 	|	FlightLevel
 	->	FLIGHTLEVEL FlightLevel
-	;
-
-pressureValue
-	:	numericValue pressureUnit
-	;
-
-pressureUnit
-	:	('kpa'|'kilopascal'|'kilopascals')
-	->	KILOPASCAL
-	|	('hpa'|'hectopascal'|'hectopascals')
-	->	HECTOPASCAL
-	|	('pa'|'pascal'|'pascals')
-	->	PASCAL
-	|	('bar'|'bars')
-	->	BAR
-	|	('mbar'|'millibar'|'millibars')
-	->	MILLIBAR
-	|	('atm'|'atms'|'atmosphere'|'atmospheres')
-	->	ATMOSPHERE
 	;
 
 // DISTANCE EXPRESSIONS
@@ -247,7 +219,6 @@ angularValue
 
 waypoint
 	:	geoCoordinate
-	->	geoCoordinate
 	|	Identifier
 	->	^(WAYPOINT Identifier)
 	;
@@ -255,6 +226,8 @@ waypoint
 geoCoordinate
 	:	latitudeLongitude
 	->	^(GEOCOORDINATE latitudeLongitude)
+	|	distanceCoordinate
+	->	^(GEOCOORDINATE distanceCoordinate)
 	;
 
 latitudeLongitude
@@ -274,6 +247,17 @@ latitudeLongitudeValue
 	:	numericValue
 	->	numericValue DEGREE
 	|	angularValue
+	;
+
+distanceCoordinate
+	:	'(' '+'? x=distanceValue ',' '+'? y=distanceValue ')'
+	->	^(DISTANCE $y NORTH) ^(DISTANCE $x EAST)
+	|	'(' '-' x=distanceValue ',' '+'? y=distanceValue ')'
+	->	^(DISTANCE $y NORTH) ^(DISTANCE $x WEST)
+	|	'(' '+'? x=distanceValue ',' '-' y=distanceValue ')'
+	->	^(DISTANCE $y SOUTH) ^(DISTANCE $x EAST)
+	|	'(' '-' x=distanceValue ',' '-' y=distanceValue ')'
+	->	^(DISTANCE $y SOUTH) ^(DISTANCE $x WEST)
 	;
 
 // NUMERIC EXPRESSIONS
