@@ -535,7 +535,6 @@ angularValue
 
 waypoint
 	:	geoCoordinate
-	->	geoCoordinate
 	|	Identifier
 	->	^(WAYPOINT Identifier)
 	;
@@ -543,6 +542,8 @@ waypoint
 geoCoordinate
 	:	latitudeLongitude
 	->	^(GEOCOORDINATE latitudeLongitude)
+	|	distanceCoordinate
+	->	^(GEOCOORDINATE distanceCoordinate)
 	;
 
 latitudeLongitude
@@ -562,6 +563,17 @@ latitudeLongitudeValue
 	:	numericValue
 	->	numericValue DEGREE
 	|	angularValue
+	;
+
+distanceCoordinate
+	:	'(' '+'? x=distanceValue ',' '+'? y=distanceValue ')'
+	->	^(DISTANCE $y NORTH) ^(DISTANCE $x EAST)
+	|	'(' '-' x=distanceValue ',' '+'? y=distanceValue ')'
+	->	^(DISTANCE $y NORTH) ^(DISTANCE $x WEST)
+	|	'(' '+'? x=distanceValue ',' '-' y=distanceValue ')'
+	->	^(DISTANCE $y SOUTH) ^(DISTANCE $x EAST)
+	|	'(' '-' x=distanceValue ',' '-' y=distanceValue ')'
+	->	^(DISTANCE $y SOUTH) ^(DISTANCE $x WEST)
 	;
 
 // NUMERIC EXPRESSIONS

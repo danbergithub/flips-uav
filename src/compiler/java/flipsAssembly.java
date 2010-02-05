@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g 2010-02-04 15:36:06
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g 2010-02-04 22:46:48
 
   import java.util.HashMap;
 
@@ -327,10 +327,11 @@ public class flipsAssembly extends TreeParser {
         return null;
       }
       
-      public void addWaypoint(String name, Double latitude, Double longitude) {
-        Double[] coordinate = new Double[2];
-        coordinate[0] = latitude;
-        coordinate[1] = longitude;
+      public void addWaypoint(String name, Double north, Double east, Double type) {
+        Double[] coordinate = new Double[3];
+        coordinate[0] = north;
+        coordinate[1] = east;
+        coordinate[2] = type;
         waypoints.put(name, coordinate);
       }
         
@@ -374,17 +375,17 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "flightPlan"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:115:1: flightPlan : ^( FLIGHTPLAN ( define )* ( command )* ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:1: flightPlan : ^( FLIGHTPLAN ( define )* ( command )* ) ;
     public final void flightPlan() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:2: ( ^( FLIGHTPLAN ( define )* ( command )* ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:4: ^( FLIGHTPLAN ( define )* ( command )* )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:117:2: ( ^( FLIGHTPLAN ( define )* ( command )* ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:117:4: ^( FLIGHTPLAN ( define )* ( command )* )
             {
             match(input,FLIGHTPLAN,FOLLOW_FLIGHTPLAN_in_flightPlan63); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:17: ( define )*
+                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:117:17: ( define )*
                 loop1:
                 do {
                     int alt1=2;
@@ -397,7 +398,7 @@ public class flipsAssembly extends TreeParser {
 
                     switch (alt1) {
                 	case 1 :
-                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:17: define
+                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:117:17: define
                 	    {
                 	    pushFollow(FOLLOW_define_in_flightPlan65);
                 	    define();
@@ -413,7 +414,7 @@ public class flipsAssembly extends TreeParser {
                     }
                 } while (true);
 
-                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:25: ( command )*
+                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:117:25: ( command )*
                 loop2:
                 do {
                     int alt2=2;
@@ -426,7 +427,7 @@ public class flipsAssembly extends TreeParser {
 
                     switch (alt2) {
                 	case 1 :
-                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:116:25: command
+                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:117:25: command
                 	    {
                 	    pushFollow(FOLLOW_command_in_flightPlan68);
                 	    command();
@@ -461,10 +462,10 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "define"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:120:1: define : ( defineCommand | defineSensor | defineWaypoint );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:121:1: define : ( defineCommand | defineSensor | defineWaypoint );
     public final void define() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:121:2: ( defineCommand | defineSensor | defineWaypoint )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:122:2: ( defineCommand | defineSensor | defineWaypoint )
             int alt3=3;
             int LA3_0 = input.LA(1);
 
@@ -521,7 +522,7 @@ public class flipsAssembly extends TreeParser {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:121:4: defineCommand
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:122:4: defineCommand
                     {
                     pushFollow(FOLLOW_defineCommand_in_define81);
                     defineCommand();
@@ -532,7 +533,7 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:122:4: defineSensor
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:123:4: defineSensor
                     {
                     pushFollow(FOLLOW_defineSensor_in_define86);
                     defineSensor();
@@ -543,7 +544,7 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:123:4: defineWaypoint
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:124:4: defineWaypoint
                     {
                     pushFollow(FOLLOW_defineWaypoint_in_define91);
                     defineWaypoint();
@@ -568,7 +569,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "defineCommand"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:126:1: defineCommand : ( ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) ) | ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:127:1: defineCommand : ( ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) ) | ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) ) );
     public final void defineCommand() throws RecognitionException {
         CommonTree name=null;
         int cmd = 0;
@@ -577,12 +578,12 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:127:2: ( ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) ) | ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:128:2: ( ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) ) | ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) ) )
             int alt4=2;
             alt4 = dfa4.predict(input);
             switch (alt4) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:127:4: ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:128:4: ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) )
                     {
                     match(input,DEFINE,FOLLOW_DEFINE_in_defineCommand103); 
 
@@ -605,7 +606,7 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:129:4: ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:130:4: ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) )
                     {
                     match(input,DEFINE,FOLLOW_DEFINE_in_defineCommand126); 
 
@@ -648,15 +649,15 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "defineSensor"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:133:1: defineSensor : ^( DEFINE name= Identifier ^( SENSOR sen= integerValue ) ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:134:1: defineSensor : ^( DEFINE name= Identifier ^( SENSOR sen= integerValue ) ) ;
     public final void defineSensor() throws RecognitionException {
         CommonTree name=null;
         int sen = 0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:134:2: ( ^( DEFINE name= Identifier ^( SENSOR sen= integerValue ) ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:134:4: ^( DEFINE name= Identifier ^( SENSOR sen= integerValue ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:135:2: ( ^( DEFINE name= Identifier ^( SENSOR sen= integerValue ) ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:135:4: ^( DEFINE name= Identifier ^( SENSOR sen= integerValue ) )
             {
             match(input,DEFINE,FOLLOW_DEFINE_in_defineSensor161); 
 
@@ -691,31 +692,130 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "defineWaypoint"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:138:1: defineWaypoint : ^( DEFINE name= Identifier geo= geoCoordinate ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:139:1: defineWaypoint : ( ^( DEFINE name= Identifier ^( GEOCOORDINATE geo= latitudeLongitude ) ) | ^( DEFINE name= Identifier ^( GEOCOORDINATE dst= distanceCoordinate ) ) );
     public final void defineWaypoint() throws RecognitionException {
         CommonTree name=null;
-        flipsAssembly.geoCoordinate_return geo = null;
+        flipsAssembly.latitudeLongitude_return geo = null;
+
+        flipsAssembly.distanceCoordinate_return dst = null;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:139:2: ( ^( DEFINE name= Identifier geo= geoCoordinate ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:139:4: ^( DEFINE name= Identifier geo= geoCoordinate )
-            {
-            match(input,DEFINE,FOLLOW_DEFINE_in_defineWaypoint190); 
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:140:2: ( ^( DEFINE name= Identifier ^( GEOCOORDINATE geo= latitudeLongitude ) ) | ^( DEFINE name= Identifier ^( GEOCOORDINATE dst= distanceCoordinate ) ) )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            match(input, Token.DOWN, null); 
-            name=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_defineWaypoint194); 
-            pushFollow(FOLLOW_geoCoordinate_in_defineWaypoint198);
-            geo=geoCoordinate();
+            if ( (LA5_0==DEFINE) ) {
+                int LA5_1 = input.LA(2);
 
-            state._fsp--;
+                if ( (LA5_1==DOWN) ) {
+                    int LA5_2 = input.LA(3);
+
+                    if ( (LA5_2==Identifier) ) {
+                        int LA5_3 = input.LA(4);
+
+                        if ( (LA5_3==GEOCOORDINATE) ) {
+                            int LA5_4 = input.LA(5);
+
+                            if ( (LA5_4==DOWN) ) {
+                                int LA5_5 = input.LA(6);
+
+                                if ( (LA5_5==DISTANCE) ) {
+                                    alt5=2;
+                                }
+                                else if ( (LA5_5==LATITUDE) ) {
+                                    alt5=1;
+                                }
+                                else {
+                                    NoViableAltException nvae =
+                                        new NoViableAltException("", 5, 5, input);
+
+                                    throw nvae;
+                                }
+                            }
+                            else {
+                                NoViableAltException nvae =
+                                    new NoViableAltException("", 5, 4, input);
+
+                                throw nvae;
+                            }
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 5, 3, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 5, 2, input);
+
+                        throw nvae;
+                    }
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 5, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+            switch (alt5) {
+                case 1 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:140:4: ^( DEFINE name= Identifier ^( GEOCOORDINATE geo= latitudeLongitude ) )
+                    {
+                    match(input,DEFINE,FOLLOW_DEFINE_in_defineWaypoint190); 
+
+                    match(input, Token.DOWN, null); 
+                    name=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_defineWaypoint194); 
+                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_defineWaypoint197); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_latitudeLongitude_in_defineWaypoint201);
+                    geo=latitudeLongitude();
+
+                    state._fsp--;
 
 
-            match(input, Token.UP, null); 
-            addWaypoint(name.getText(),geo.latitude,geo.longitude);
+                    match(input, Token.UP, null); 
+
+                    match(input, Token.UP, null); 
+                    addWaypoint(name.getText(),geo.latitude,geo.longitude,0d);
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:142:4: ^( DEFINE name= Identifier ^( GEOCOORDINATE dst= distanceCoordinate ) )
+                    {
+                    match(input,DEFINE,FOLLOW_DEFINE_in_defineWaypoint213); 
+
+                    match(input, Token.DOWN, null); 
+                    name=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_defineWaypoint217); 
+                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_defineWaypoint220); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_distanceCoordinate_in_defineWaypoint224);
+                    dst=distanceCoordinate();
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+
+                    match(input, Token.UP, null); 
+                    addWaypoint(name.getText(),dst.north,dst.east,1d);
+
+                    }
+                    break;
 
             }
-
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -729,39 +829,39 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "command"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:145:1: command : ( flyCommand | loiterCommand | executeCommand );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:148:1: command : ( flyCommand | loiterCommand | executeCommand );
     public final void command() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:146:2: ( flyCommand | loiterCommand | executeCommand )
-            int alt5=3;
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:149:2: ( flyCommand | loiterCommand | executeCommand )
+            int alt6=3;
             switch ( input.LA(1) ) {
             case FLY:
                 {
-                alt5=1;
+                alt6=1;
                 }
                 break;
             case LOITER:
                 {
-                alt5=2;
+                alt6=2;
                 }
                 break;
             case EXECUTE:
                 {
-                alt5=3;
+                alt6=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:146:4: flyCommand
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:149:4: flyCommand
                     {
-                    pushFollow(FOLLOW_flyCommand_in_command216);
+                    pushFollow(FOLLOW_flyCommand_in_command243);
                     flyCommand();
 
                     state._fsp--;
@@ -770,9 +870,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:147:4: loiterCommand
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:150:4: loiterCommand
                     {
-                    pushFollow(FOLLOW_loiterCommand_in_command221);
+                    pushFollow(FOLLOW_loiterCommand_in_command248);
                     loiterCommand();
 
                     state._fsp--;
@@ -781,9 +881,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:148:4: executeCommand
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:151:4: executeCommand
                     {
-                    pushFollow(FOLLOW_executeCommand_in_command226);
+                    pushFollow(FOLLOW_executeCommand_in_command253);
                     executeCommand();
 
                     state._fsp--;
@@ -806,32 +906,32 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "flyCommand"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:153:1: flyCommand : ^( FLY ( flyCommandValue )* ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:156:1: flyCommand : ^( FLY ( flyCommandValue )* ) ;
     public final void flyCommand() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:154:2: ( ^( FLY ( flyCommandValue )* ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:154:4: ^( FLY ( flyCommandValue )* )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:157:2: ( ^( FLY ( flyCommandValue )* ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:157:4: ^( FLY ( flyCommandValue )* )
             {
-            match(input,FLY,FOLLOW_FLY_in_flyCommand240); 
+            match(input,FLY,FOLLOW_FLY_in_flyCommand267); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:154:10: ( flyCommandValue )*
-                loop6:
+                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:157:10: ( flyCommandValue )*
+                loop7:
                 do {
-                    int alt6=2;
-                    int LA6_0 = input.LA(1);
+                    int alt7=2;
+                    int LA7_0 = input.LA(1);
 
-                    if ( (LA6_0==DIRECTION||(LA6_0>=ROLL && LA6_0<=SPEED)||LA6_0==TIME||LA6_0==DURATION||(LA6_0>=WAYPOINT && LA6_0<=GEOCOORDINATE)||LA6_0==DISTANCE) ) {
-                        alt6=1;
+                    if ( (LA7_0==DIRECTION||(LA7_0>=ROLL && LA7_0<=SPEED)||LA7_0==TIME||LA7_0==DURATION||(LA7_0>=WAYPOINT && LA7_0<=GEOCOORDINATE)||LA7_0==DISTANCE) ) {
+                        alt7=1;
                     }
 
 
-                    switch (alt6) {
+                    switch (alt7) {
                 	case 1 :
-                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:154:10: flyCommandValue
+                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:157:10: flyCommandValue
                 	    {
-                	    pushFollow(FOLLOW_flyCommandValue_in_flyCommand242);
+                	    pushFollow(FOLLOW_flyCommandValue_in_flyCommand269);
                 	    flyCommandValue();
 
                 	    state._fsp--;
@@ -841,7 +941,7 @@ public class flipsAssembly extends TreeParser {
                 	    break;
 
                 	default :
-                	    break loop6;
+                	    break loop7;
                     }
                 } while (true);
 
@@ -865,70 +965,70 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "flyCommandValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:158:1: flyCommandValue : ( time | direction | speed | distance | pitch | roll | duration | waypoint | altitude );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:161:1: flyCommandValue : ( time | direction | speed | distance | pitch | roll | duration | waypoint | altitude );
     public final void flyCommandValue() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:159:2: ( time | direction | speed | distance | pitch | roll | duration | waypoint | altitude )
-            int alt7=9;
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:162:2: ( time | direction | speed | distance | pitch | roll | duration | waypoint | altitude )
+            int alt8=9;
             switch ( input.LA(1) ) {
             case TIME:
                 {
-                alt7=1;
+                alt8=1;
                 }
                 break;
             case DIRECTION:
                 {
-                alt7=2;
+                alt8=2;
                 }
                 break;
             case SPEED:
                 {
-                alt7=3;
+                alt8=3;
                 }
                 break;
             case DISTANCE:
                 {
-                alt7=4;
+                alt8=4;
                 }
                 break;
             case PITCH:
                 {
-                alt7=5;
+                alt8=5;
                 }
                 break;
             case ROLL:
                 {
-                alt7=6;
+                alt8=6;
                 }
                 break;
             case DURATION:
                 {
-                alt7=7;
+                alt8=7;
                 }
                 break;
             case WAYPOINT:
             case GEOCOORDINATE:
                 {
-                alt7=8;
+                alt8=8;
                 }
                 break;
             case ALTITUDE:
                 {
-                alt7=9;
+                alt8=9;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:159:4: time
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:162:4: time
                     {
-                    pushFollow(FOLLOW_time_in_flyCommandValue259);
+                    pushFollow(FOLLOW_time_in_flyCommandValue286);
                     time();
 
                     state._fsp--;
@@ -937,9 +1037,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:160:4: direction
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:163:4: direction
                     {
-                    pushFollow(FOLLOW_direction_in_flyCommandValue264);
+                    pushFollow(FOLLOW_direction_in_flyCommandValue291);
                     direction();
 
                     state._fsp--;
@@ -948,9 +1048,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:161:4: speed
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:164:4: speed
                     {
-                    pushFollow(FOLLOW_speed_in_flyCommandValue269);
+                    pushFollow(FOLLOW_speed_in_flyCommandValue296);
                     speed();
 
                     state._fsp--;
@@ -959,9 +1059,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:162:4: distance
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:165:4: distance
                     {
-                    pushFollow(FOLLOW_distance_in_flyCommandValue274);
+                    pushFollow(FOLLOW_distance_in_flyCommandValue301);
                     distance();
 
                     state._fsp--;
@@ -970,9 +1070,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:163:4: pitch
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:166:4: pitch
                     {
-                    pushFollow(FOLLOW_pitch_in_flyCommandValue279);
+                    pushFollow(FOLLOW_pitch_in_flyCommandValue306);
                     pitch();
 
                     state._fsp--;
@@ -981,9 +1081,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:164:4: roll
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:167:4: roll
                     {
-                    pushFollow(FOLLOW_roll_in_flyCommandValue284);
+                    pushFollow(FOLLOW_roll_in_flyCommandValue311);
                     roll();
 
                     state._fsp--;
@@ -992,9 +1092,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:165:4: duration
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:168:4: duration
                     {
-                    pushFollow(FOLLOW_duration_in_flyCommandValue289);
+                    pushFollow(FOLLOW_duration_in_flyCommandValue316);
                     duration();
 
                     state._fsp--;
@@ -1003,9 +1103,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:166:4: waypoint
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:169:4: waypoint
                     {
-                    pushFollow(FOLLOW_waypoint_in_flyCommandValue294);
+                    pushFollow(FOLLOW_waypoint_in_flyCommandValue321);
                     waypoint();
 
                     state._fsp--;
@@ -1014,9 +1114,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:167:4: altitude
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:170:4: altitude
                     {
-                    pushFollow(FOLLOW_altitude_in_flyCommandValue299);
+                    pushFollow(FOLLOW_altitude_in_flyCommandValue326);
                     altitude();
 
                     state._fsp--;
@@ -1039,32 +1139,32 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "loiterCommand"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:170:1: loiterCommand : ^( LOITER ( loiterCommandValue )* ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:173:1: loiterCommand : ^( LOITER ( loiterCommandValue )* ) ;
     public final void loiterCommand() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:171:2: ( ^( LOITER ( loiterCommandValue )* ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:171:4: ^( LOITER ( loiterCommandValue )* )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:174:2: ( ^( LOITER ( loiterCommandValue )* ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:174:4: ^( LOITER ( loiterCommandValue )* )
             {
-            match(input,LOITER,FOLLOW_LOITER_in_loiterCommand311); 
+            match(input,LOITER,FOLLOW_LOITER_in_loiterCommand338); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:171:13: ( loiterCommandValue )*
-                loop8:
+                // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:174:13: ( loiterCommandValue )*
+                loop9:
                 do {
-                    int alt8=2;
-                    int LA8_0 = input.LA(1);
+                    int alt9=2;
+                    int LA9_0 = input.LA(1);
 
-                    if ( (LA8_0==DIRECTION||(LA8_0>=ALTITUDE && LA8_0<=SPEED)||LA8_0==TIME||(LA8_0>=DURATION && LA8_0<=GEOCOORDINATE)) ) {
-                        alt8=1;
+                    if ( (LA9_0==DIRECTION||(LA9_0>=ALTITUDE && LA9_0<=SPEED)||LA9_0==TIME||(LA9_0>=DURATION && LA9_0<=GEOCOORDINATE)) ) {
+                        alt9=1;
                     }
 
 
-                    switch (alt8) {
+                    switch (alt9) {
                 	case 1 :
-                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:171:13: loiterCommandValue
+                	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:174:13: loiterCommandValue
                 	    {
-                	    pushFollow(FOLLOW_loiterCommandValue_in_loiterCommand313);
+                	    pushFollow(FOLLOW_loiterCommandValue_in_loiterCommand340);
                 	    loiterCommandValue();
 
                 	    state._fsp--;
@@ -1074,7 +1174,7 @@ public class flipsAssembly extends TreeParser {
                 	    break;
 
                 	default :
-                	    break loop8;
+                	    break loop9;
                     }
                 } while (true);
 
@@ -1098,60 +1198,60 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "loiterCommandValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:175:1: loiterCommandValue : ( time | speed | loiterDirection | radius | duration | waypoint | altitude );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:178:1: loiterCommandValue : ( time | speed | loiterDirection | radius | duration | waypoint | altitude );
     public final void loiterCommandValue() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:176:2: ( time | speed | loiterDirection | radius | duration | waypoint | altitude )
-            int alt9=7;
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:179:2: ( time | speed | loiterDirection | radius | duration | waypoint | altitude )
+            int alt10=7;
             switch ( input.LA(1) ) {
             case TIME:
                 {
-                alt9=1;
+                alt10=1;
                 }
                 break;
             case SPEED:
                 {
-                alt9=2;
+                alt10=2;
                 }
                 break;
             case DIRECTION:
                 {
-                alt9=3;
+                alt10=3;
                 }
                 break;
             case RADIUS:
                 {
-                alt9=4;
+                alt10=4;
                 }
                 break;
             case DURATION:
                 {
-                alt9=5;
+                alt10=5;
                 }
                 break;
             case WAYPOINT:
             case GEOCOORDINATE:
                 {
-                alt9=6;
+                alt10=6;
                 }
                 break;
             case ALTITUDE:
                 {
-                alt9=7;
+                alt10=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:176:4: time
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:179:4: time
                     {
-                    pushFollow(FOLLOW_time_in_loiterCommandValue330);
+                    pushFollow(FOLLOW_time_in_loiterCommandValue357);
                     time();
 
                     state._fsp--;
@@ -1160,9 +1260,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:177:4: speed
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:180:4: speed
                     {
-                    pushFollow(FOLLOW_speed_in_loiterCommandValue335);
+                    pushFollow(FOLLOW_speed_in_loiterCommandValue362);
                     speed();
 
                     state._fsp--;
@@ -1171,9 +1271,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:178:4: loiterDirection
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:181:4: loiterDirection
                     {
-                    pushFollow(FOLLOW_loiterDirection_in_loiterCommandValue340);
+                    pushFollow(FOLLOW_loiterDirection_in_loiterCommandValue367);
                     loiterDirection();
 
                     state._fsp--;
@@ -1182,9 +1282,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:179:4: radius
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:182:4: radius
                     {
-                    pushFollow(FOLLOW_radius_in_loiterCommandValue345);
+                    pushFollow(FOLLOW_radius_in_loiterCommandValue372);
                     radius();
 
                     state._fsp--;
@@ -1193,9 +1293,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:180:4: duration
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:183:4: duration
                     {
-                    pushFollow(FOLLOW_duration_in_loiterCommandValue350);
+                    pushFollow(FOLLOW_duration_in_loiterCommandValue377);
                     duration();
 
                     state._fsp--;
@@ -1204,9 +1304,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:181:4: waypoint
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:184:4: waypoint
                     {
-                    pushFollow(FOLLOW_waypoint_in_loiterCommandValue355);
+                    pushFollow(FOLLOW_waypoint_in_loiterCommandValue382);
                     waypoint();
 
                     state._fsp--;
@@ -1215,9 +1315,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:182:4: altitude
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:185:4: altitude
                     {
-                    pushFollow(FOLLOW_altitude_in_loiterCommandValue360);
+                    pushFollow(FOLLOW_altitude_in_loiterCommandValue387);
                     altitude();
 
                     state._fsp--;
@@ -1240,34 +1340,34 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "executeCommand"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:185:1: executeCommand : ^( EXECUTE x= Identifier ( executeCommandParameter )* ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:188:1: executeCommand : ^( EXECUTE x= Identifier ( executeCommandParameter )* ) ;
     public final void executeCommand() throws RecognitionException {
         CommonTree x=null;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:186:2: ( ^( EXECUTE x= Identifier ( executeCommandParameter )* ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:186:4: ^( EXECUTE x= Identifier ( executeCommandParameter )* )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:189:2: ( ^( EXECUTE x= Identifier ( executeCommandParameter )* ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:189:4: ^( EXECUTE x= Identifier ( executeCommandParameter )* )
             {
-            match(input,EXECUTE,FOLLOW_EXECUTE_in_executeCommand372); 
+            match(input,EXECUTE,FOLLOW_EXECUTE_in_executeCommand399); 
 
             match(input, Token.DOWN, null); 
-            x=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_executeCommand376); 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:186:27: ( executeCommandParameter )*
-            loop10:
+            x=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_executeCommand403); 
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:189:27: ( executeCommandParameter )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==PARAMETER) ) {
-                    alt10=1;
+                if ( (LA11_0==PARAMETER) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:186:27: executeCommandParameter
+            	    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:189:27: executeCommandParameter
             	    {
-            	    pushFollow(FOLLOW_executeCommandParameter_in_executeCommand378);
+            	    pushFollow(FOLLOW_executeCommandParameter_in_executeCommand405);
             	    executeCommandParameter();
 
             	    state._fsp--;
@@ -1277,7 +1377,7 @@ public class flipsAssembly extends TreeParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -1309,19 +1409,19 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "executeCommandParameter"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:199:1: executeCommandParameter : ^( PARAMETER x= numericValue ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:202:1: executeCommandParameter : ^( PARAMETER x= numericValue ) ;
     public final void executeCommandParameter() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:200:2: ( ^( PARAMETER x= numericValue ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:200:4: ^( PARAMETER x= numericValue )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:203:2: ( ^( PARAMETER x= numericValue ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:203:4: ^( PARAMETER x= numericValue )
             {
-            match(input,PARAMETER,FOLLOW_PARAMETER_in_executeCommandParameter395); 
+            match(input,PARAMETER,FOLLOW_PARAMETER_in_executeCommandParameter422); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_executeCommandParameter399);
+            pushFollow(FOLLOW_numericValue_in_executeCommandParameter426);
             x=numericValue();
 
             state._fsp--;
@@ -1345,19 +1445,19 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "pitch"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:206:1: pitch : ^( PITCH x= convertAngle ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:209:1: pitch : ^( PITCH x= convertAngle ) ;
     public final void pitch() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:207:2: ( ^( PITCH x= convertAngle ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:207:4: ^( PITCH x= convertAngle )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:210:2: ( ^( PITCH x= convertAngle ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:210:4: ^( PITCH x= convertAngle )
             {
-            match(input,PITCH,FOLLOW_PITCH_in_pitch418); 
+            match(input,PITCH,FOLLOW_PITCH_in_pitch445); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_convertAngle_in_pitch422);
+            pushFollow(FOLLOW_convertAngle_in_pitch449);
             x=convertAngle();
 
             state._fsp--;
@@ -1381,19 +1481,19 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "roll"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:211:1: roll : ^( ROLL x= convertAngle ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:214:1: roll : ^( ROLL x= convertAngle ) ;
     public final void roll() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:212:2: ( ^( ROLL x= convertAngle ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:212:4: ^( ROLL x= convertAngle )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:215:2: ( ^( ROLL x= convertAngle ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:215:4: ^( ROLL x= convertAngle )
             {
-            match(input,ROLL,FOLLOW_ROLL_in_roll439); 
+            match(input,ROLL,FOLLOW_ROLL_in_roll466); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_convertAngle_in_roll443);
+            pushFollow(FOLLOW_convertAngle_in_roll470);
             x=convertAngle();
 
             state._fsp--;
@@ -1417,7 +1517,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "altitude"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:218:1: altitude : ( ^( ALTITUDE FIXED DISTANCE x= convertDistance ) | ^( ALTITUDE FIXED PRESSURE y= convertPressure ) | ^( ALTITUDE FIXED x= convertFlightLevel ) | ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure ) | ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:221:1: altitude : ( ^( ALTITUDE FIXED DISTANCE x= convertDistance ) | ^( ALTITUDE FIXED PRESSURE y= convertPressure ) | ^( ALTITUDE FIXED x= convertFlightLevel ) | ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure ) | ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure ) );
     public final void altitude() throws RecognitionException {
         double x = 0.0;
 
@@ -1425,19 +1525,19 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:219:2: ( ^( ALTITUDE FIXED DISTANCE x= convertDistance ) | ^( ALTITUDE FIXED PRESSURE y= convertPressure ) | ^( ALTITUDE FIXED x= convertFlightLevel ) | ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure ) | ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure ) )
-            int alt11=7;
-            alt11 = dfa11.predict(input);
-            switch (alt11) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:222:2: ( ^( ALTITUDE FIXED DISTANCE x= convertDistance ) | ^( ALTITUDE FIXED PRESSURE y= convertPressure ) | ^( ALTITUDE FIXED x= convertFlightLevel ) | ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure ) | ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure ) )
+            int alt12=7;
+            alt12 = dfa12.predict(input);
+            switch (alt12) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:219:4: ^( ALTITUDE FIXED DISTANCE x= convertDistance )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:222:4: ^( ALTITUDE FIXED DISTANCE x= convertDistance )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude462); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude489); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_altitude464); 
-                    match(input,DISTANCE,FOLLOW_DISTANCE_in_altitude466); 
-                    pushFollow(FOLLOW_convertDistance_in_altitude470);
+                    match(input,FIXED,FOLLOW_FIXED_in_altitude491); 
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_altitude493); 
+                    pushFollow(FOLLOW_convertDistance_in_altitude497);
                     x=convertDistance();
 
                     state._fsp--;
@@ -1449,14 +1549,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:221:4: ^( ALTITUDE FIXED PRESSURE y= convertPressure )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:224:4: ^( ALTITUDE FIXED PRESSURE y= convertPressure )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude481); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude508); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_altitude483); 
-                    match(input,PRESSURE,FOLLOW_PRESSURE_in_altitude485); 
-                    pushFollow(FOLLOW_convertPressure_in_altitude489);
+                    match(input,FIXED,FOLLOW_FIXED_in_altitude510); 
+                    match(input,PRESSURE,FOLLOW_PRESSURE_in_altitude512); 
+                    pushFollow(FOLLOW_convertPressure_in_altitude516);
                     y=convertPressure();
 
                     state._fsp--;
@@ -1468,13 +1568,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:223:4: ^( ALTITUDE FIXED x= convertFlightLevel )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:226:4: ^( ALTITUDE FIXED x= convertFlightLevel )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude500); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude527); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_altitude502); 
-                    pushFollow(FOLLOW_convertFlightLevel_in_altitude506);
+                    match(input,FIXED,FOLLOW_FIXED_in_altitude529); 
+                    pushFollow(FOLLOW_convertFlightLevel_in_altitude533);
                     x=convertFlightLevel();
 
                     state._fsp--;
@@ -1486,15 +1586,15 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:225:4: ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:228:4: ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude517); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude544); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude519); 
-                    match(input,CLIMB,FOLLOW_CLIMB_in_altitude521); 
-                    match(input,DISTANCE,FOLLOW_DISTANCE_in_altitude523); 
-                    pushFollow(FOLLOW_convertDistance_in_altitude527);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude546); 
+                    match(input,CLIMB,FOLLOW_CLIMB_in_altitude548); 
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_altitude550); 
+                    pushFollow(FOLLOW_convertDistance_in_altitude554);
                     x=convertDistance();
 
                     state._fsp--;
@@ -1506,15 +1606,15 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:227:4: ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:230:4: ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude538); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude565); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude540); 
-                    match(input,CLIMB,FOLLOW_CLIMB_in_altitude542); 
-                    match(input,PRESSURE,FOLLOW_PRESSURE_in_altitude544); 
-                    pushFollow(FOLLOW_convertPressure_in_altitude548);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude567); 
+                    match(input,CLIMB,FOLLOW_CLIMB_in_altitude569); 
+                    match(input,PRESSURE,FOLLOW_PRESSURE_in_altitude571); 
+                    pushFollow(FOLLOW_convertPressure_in_altitude575);
                     y=convertPressure();
 
                     state._fsp--;
@@ -1526,15 +1626,15 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:229:4: ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:232:4: ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude559); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude586); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude561); 
-                    match(input,DESCEND,FOLLOW_DESCEND_in_altitude563); 
-                    match(input,DISTANCE,FOLLOW_DISTANCE_in_altitude565); 
-                    pushFollow(FOLLOW_convertDistance_in_altitude569);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude588); 
+                    match(input,DESCEND,FOLLOW_DESCEND_in_altitude590); 
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_altitude592); 
+                    pushFollow(FOLLOW_convertDistance_in_altitude596);
                     x=convertDistance();
 
                     state._fsp--;
@@ -1546,15 +1646,15 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:231:4: ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:234:4: ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure )
                     {
-                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude580); 
+                    match(input,ALTITUDE,FOLLOW_ALTITUDE_in_altitude607); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude582); 
-                    match(input,DESCEND,FOLLOW_DESCEND_in_altitude584); 
-                    match(input,PRESSURE,FOLLOW_PRESSURE_in_altitude586); 
-                    pushFollow(FOLLOW_convertPressure_in_altitude590);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_altitude609); 
+                    match(input,DESCEND,FOLLOW_DESCEND_in_altitude611); 
+                    match(input,PRESSURE,FOLLOW_PRESSURE_in_altitude613); 
+                    pushFollow(FOLLOW_convertPressure_in_altitude617);
                     y=convertPressure();
 
                     state._fsp--;
@@ -1580,29 +1680,29 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "distance"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:237:1: distance : ( ^( DISTANCE x= convertDistance ) | ^( DISTANCE LEFT x= convertDistance ) | ^( DISTANCE RIGHT x= convertDistance ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:240:1: distance : ( ^( DISTANCE x= convertDistance ) | ^( DISTANCE LEFT x= convertDistance ) | ^( DISTANCE RIGHT x= convertDistance ) );
     public final void distance() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:238:2: ( ^( DISTANCE x= convertDistance ) | ^( DISTANCE LEFT x= convertDistance ) | ^( DISTANCE RIGHT x= convertDistance ) )
-            int alt12=3;
-            int LA12_0 = input.LA(1);
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:241:2: ( ^( DISTANCE x= convertDistance ) | ^( DISTANCE LEFT x= convertDistance ) | ^( DISTANCE RIGHT x= convertDistance ) )
+            int alt13=3;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==DISTANCE) ) {
-                int LA12_1 = input.LA(2);
+            if ( (LA13_0==DISTANCE) ) {
+                int LA13_1 = input.LA(2);
 
-                if ( (LA12_1==DOWN) ) {
+                if ( (LA13_1==DOWN) ) {
                     switch ( input.LA(3) ) {
                     case LEFT:
                         {
-                        alt12=2;
+                        alt13=2;
                         }
                         break;
                     case RIGHT:
                         {
-                        alt12=3;
+                        alt13=3;
                         }
                         break;
                     case FloatingPointLiteral:
@@ -1611,12 +1711,12 @@ public class flipsAssembly extends TreeParser {
                     case DecimalLiteral:
                     case HexLiteral:
                         {
-                        alt12=1;
+                        alt13=1;
                         }
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("", 12, 2, input);
+                            new NoViableAltException("", 13, 2, input);
 
                         throw nvae;
                     }
@@ -1624,25 +1724,25 @@ public class flipsAssembly extends TreeParser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 12, 1, input);
+                        new NoViableAltException("", 13, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:238:4: ^( DISTANCE x= convertDistance )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:241:4: ^( DISTANCE x= convertDistance )
                     {
-                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distance609); 
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distance636); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertDistance_in_distance613);
+                    pushFollow(FOLLOW_convertDistance_in_distance640);
                     x=convertDistance();
 
                     state._fsp--;
@@ -1654,13 +1754,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:240:4: ^( DISTANCE LEFT x= convertDistance )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:243:4: ^( DISTANCE LEFT x= convertDistance )
                     {
-                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distance624); 
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distance651); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,LEFT,FOLLOW_LEFT_in_distance626); 
-                    pushFollow(FOLLOW_convertDistance_in_distance630);
+                    match(input,LEFT,FOLLOW_LEFT_in_distance653); 
+                    pushFollow(FOLLOW_convertDistance_in_distance657);
                     x=convertDistance();
 
                     state._fsp--;
@@ -1672,13 +1772,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:242:4: ^( DISTANCE RIGHT x= convertDistance )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:245:4: ^( DISTANCE RIGHT x= convertDistance )
                     {
-                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distance641); 
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distance668); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RIGHT,FOLLOW_RIGHT_in_distance643); 
-                    pushFollow(FOLLOW_convertDistance_in_distance647);
+                    match(input,RIGHT,FOLLOW_RIGHT_in_distance670); 
+                    pushFollow(FOLLOW_convertDistance_in_distance674);
                     x=convertDistance();
 
                     state._fsp--;
@@ -1704,19 +1804,19 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "radius"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:246:1: radius : ^( RADIUS x= convertDistance ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:249:1: radius : ^( RADIUS x= convertDistance ) ;
     public final void radius() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:247:2: ( ^( RADIUS x= convertDistance ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:247:4: ^( RADIUS x= convertDistance )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:250:2: ( ^( RADIUS x= convertDistance ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:250:4: ^( RADIUS x= convertDistance )
             {
-            match(input,RADIUS,FOLLOW_RADIUS_in_radius664); 
+            match(input,RADIUS,FOLLOW_RADIUS_in_radius691); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_convertDistance_in_radius668);
+            pushFollow(FOLLOW_convertDistance_in_radius695);
             x=convertDistance();
 
             state._fsp--;
@@ -1740,7 +1840,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "speed"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:253:1: speed : ( ^( SPEED FIXED x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= convertSpeed ) | ^( SPEED RELATIVE SLOWER x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= percentValue ) | ^( SPEED RELATIVE SLOWER x= percentValue ) | ^( SPEED OPTIMAL MINIMUM ) | ^( SPEED OPTIMAL CRUISE ) | ^( SPEED OPTIMAL MAXIMUM ) | ^( SPEED THROTTLE y= convertThrottle ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:256:1: speed : ( ^( SPEED FIXED x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= convertSpeed ) | ^( SPEED RELATIVE SLOWER x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= percentValue ) | ^( SPEED RELATIVE SLOWER x= percentValue ) | ^( SPEED OPTIMAL MINIMUM ) | ^( SPEED OPTIMAL CRUISE ) | ^( SPEED OPTIMAL MAXIMUM ) | ^( SPEED THROTTLE y= convertThrottle ) );
     public final void speed() throws RecognitionException {
         double x = 0.0;
 
@@ -1748,18 +1848,18 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:254:2: ( ^( SPEED FIXED x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= convertSpeed ) | ^( SPEED RELATIVE SLOWER x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= percentValue ) | ^( SPEED RELATIVE SLOWER x= percentValue ) | ^( SPEED OPTIMAL MINIMUM ) | ^( SPEED OPTIMAL CRUISE ) | ^( SPEED OPTIMAL MAXIMUM ) | ^( SPEED THROTTLE y= convertThrottle ) )
-            int alt13=9;
-            alt13 = dfa13.predict(input);
-            switch (alt13) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:257:2: ( ^( SPEED FIXED x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= convertSpeed ) | ^( SPEED RELATIVE SLOWER x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= percentValue ) | ^( SPEED RELATIVE SLOWER x= percentValue ) | ^( SPEED OPTIMAL MINIMUM ) | ^( SPEED OPTIMAL CRUISE ) | ^( SPEED OPTIMAL MAXIMUM ) | ^( SPEED THROTTLE y= convertThrottle ) )
+            int alt14=9;
+            alt14 = dfa14.predict(input);
+            switch (alt14) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:254:4: ^( SPEED FIXED x= convertSpeed )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:257:4: ^( SPEED FIXED x= convertSpeed )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed687); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed714); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_speed689); 
-                    pushFollow(FOLLOW_convertSpeed_in_speed693);
+                    match(input,FIXED,FOLLOW_FIXED_in_speed716); 
+                    pushFollow(FOLLOW_convertSpeed_in_speed720);
                     x=convertSpeed();
 
                     state._fsp--;
@@ -1771,14 +1871,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:256:4: ^( SPEED RELATIVE FASTER x= convertSpeed )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:259:4: ^( SPEED RELATIVE FASTER x= convertSpeed )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed704); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed731); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed706); 
-                    match(input,FASTER,FOLLOW_FASTER_in_speed708); 
-                    pushFollow(FOLLOW_convertSpeed_in_speed712);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed733); 
+                    match(input,FASTER,FOLLOW_FASTER_in_speed735); 
+                    pushFollow(FOLLOW_convertSpeed_in_speed739);
                     x=convertSpeed();
 
                     state._fsp--;
@@ -1790,14 +1890,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:258:4: ^( SPEED RELATIVE SLOWER x= convertSpeed )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:261:4: ^( SPEED RELATIVE SLOWER x= convertSpeed )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed723); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed750); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed725); 
-                    match(input,SLOWER,FOLLOW_SLOWER_in_speed727); 
-                    pushFollow(FOLLOW_convertSpeed_in_speed731);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed752); 
+                    match(input,SLOWER,FOLLOW_SLOWER_in_speed754); 
+                    pushFollow(FOLLOW_convertSpeed_in_speed758);
                     x=convertSpeed();
 
                     state._fsp--;
@@ -1809,14 +1909,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:260:4: ^( SPEED RELATIVE FASTER x= percentValue )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:263:4: ^( SPEED RELATIVE FASTER x= percentValue )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed742); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed769); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed744); 
-                    match(input,FASTER,FOLLOW_FASTER_in_speed746); 
-                    pushFollow(FOLLOW_percentValue_in_speed750);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed771); 
+                    match(input,FASTER,FOLLOW_FASTER_in_speed773); 
+                    pushFollow(FOLLOW_percentValue_in_speed777);
                     x=percentValue();
 
                     state._fsp--;
@@ -1827,14 +1927,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:261:4: ^( SPEED RELATIVE SLOWER x= percentValue )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:264:4: ^( SPEED RELATIVE SLOWER x= percentValue )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed757); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed784); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed759); 
-                    match(input,SLOWER,FOLLOW_SLOWER_in_speed761); 
-                    pushFollow(FOLLOW_percentValue_in_speed765);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_speed786); 
+                    match(input,SLOWER,FOLLOW_SLOWER_in_speed788); 
+                    pushFollow(FOLLOW_percentValue_in_speed792);
                     x=percentValue();
 
                     state._fsp--;
@@ -1845,13 +1945,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:262:4: ^( SPEED OPTIMAL MINIMUM )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:265:4: ^( SPEED OPTIMAL MINIMUM )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed772); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed799); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,OPTIMAL,FOLLOW_OPTIMAL_in_speed774); 
-                    match(input,MINIMUM,FOLLOW_MINIMUM_in_speed776); 
+                    match(input,OPTIMAL,FOLLOW_OPTIMAL_in_speed801); 
+                    match(input,MINIMUM,FOLLOW_MINIMUM_in_speed803); 
 
                     match(input, Token.UP, null); 
                     emit("SPD AIR OPT MIN", "Minimum Air Speed");
@@ -1859,13 +1959,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:264:4: ^( SPEED OPTIMAL CRUISE )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:267:4: ^( SPEED OPTIMAL CRUISE )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed787); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed814); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,OPTIMAL,FOLLOW_OPTIMAL_in_speed789); 
-                    match(input,CRUISE,FOLLOW_CRUISE_in_speed791); 
+                    match(input,OPTIMAL,FOLLOW_OPTIMAL_in_speed816); 
+                    match(input,CRUISE,FOLLOW_CRUISE_in_speed818); 
 
                     match(input, Token.UP, null); 
                     emit("SPD AIR OPT CRU", "Cruise Air Speed");
@@ -1873,13 +1973,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:266:4: ^( SPEED OPTIMAL MAXIMUM )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:269:4: ^( SPEED OPTIMAL MAXIMUM )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed802); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed829); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,OPTIMAL,FOLLOW_OPTIMAL_in_speed804); 
-                    match(input,MAXIMUM,FOLLOW_MAXIMUM_in_speed806); 
+                    match(input,OPTIMAL,FOLLOW_OPTIMAL_in_speed831); 
+                    match(input,MAXIMUM,FOLLOW_MAXIMUM_in_speed833); 
 
                     match(input, Token.UP, null); 
                     emit("SPD AIR OPT MAX", "Maximum Air Speed");
@@ -1887,13 +1987,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:268:4: ^( SPEED THROTTLE y= convertThrottle )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:271:4: ^( SPEED THROTTLE y= convertThrottle )
                     {
-                    match(input,SPEED,FOLLOW_SPEED_in_speed817); 
+                    match(input,SPEED,FOLLOW_SPEED_in_speed844); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,THROTTLE,FOLLOW_THROTTLE_in_speed819); 
-                    pushFollow(FOLLOW_convertThrottle_in_speed823);
+                    match(input,THROTTLE,FOLLOW_THROTTLE_in_speed846); 
+                    pushFollow(FOLLOW_convertThrottle_in_speed850);
                     y=convertThrottle();
 
                     state._fsp--;
@@ -1919,7 +2019,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "time"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:274:1: time : ( ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:277:1: time : ( ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 ) );
     public final void time() throws RecognitionException {
         double x = 0.0;
 
@@ -1929,49 +2029,49 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:275:2: ( ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 ) )
-            int alt20=3;
-            alt20 = dfa20.predict(input);
-            switch (alt20) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:2: ( ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 ) )
+            int alt21=3;
+            alt21 = dfa21.predict(input);
+            switch (alt21) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:275:4: ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:4: ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM )
                     {
-                    match(input,TIME,FOLLOW_TIME_in_time842); 
+                    match(input,TIME,FOLLOW_TIME_in_time869); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertTime_in_time846);
+                    pushFollow(FOLLOW_convertTime_in_time873);
                     x=convertTime();
 
                     state._fsp--;
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:275:25: (y= convertTime (z= convertTime )? )?
-                    int alt15=2;
-                    int LA15_0 = input.LA(1);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:25: (y= convertTime (z= convertTime )? )?
+                    int alt16=2;
+                    int LA16_0 = input.LA(1);
 
-                    if ( ((LA15_0>=FloatingPointLiteral && LA15_0<=HexLiteral)) ) {
-                        alt15=1;
+                    if ( ((LA16_0>=FloatingPointLiteral && LA16_0<=HexLiteral)) ) {
+                        alt16=1;
                     }
-                    switch (alt15) {
+                    switch (alt16) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:275:26: y= convertTime (z= convertTime )?
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:26: y= convertTime (z= convertTime )?
                             {
-                            pushFollow(FOLLOW_convertTime_in_time851);
+                            pushFollow(FOLLOW_convertTime_in_time878);
                             y=convertTime();
 
                             state._fsp--;
 
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:275:40: (z= convertTime )?
-                            int alt14=2;
-                            int LA14_0 = input.LA(1);
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:40: (z= convertTime )?
+                            int alt15=2;
+                            int LA15_0 = input.LA(1);
 
-                            if ( ((LA14_0>=FloatingPointLiteral && LA14_0<=HexLiteral)) ) {
-                                alt14=1;
+                            if ( ((LA15_0>=FloatingPointLiteral && LA15_0<=HexLiteral)) ) {
+                                alt15=1;
                             }
-                            switch (alt14) {
+                            switch (alt15) {
                                 case 1 :
-                                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:275:41: z= convertTime
+                                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:41: z= convertTime
                                     {
-                                    pushFollow(FOLLOW_convertTime_in_time856);
+                                    pushFollow(FOLLOW_convertTime_in_time883);
                                     z=convertTime();
 
                                     state._fsp--;
@@ -1988,7 +2088,7 @@ public class flipsAssembly extends TreeParser {
 
                     }
 
-                    match(input,AM,FOLLOW_AM_in_time862); 
+                    match(input,AM,FOLLOW_AM_in_time889); 
 
                     match(input, Token.UP, null); 
                     x = (x == 43200d) ? 0d : x;
@@ -1997,44 +2097,44 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:4: ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:4: ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM )
                     {
-                    match(input,TIME,FOLLOW_TIME_in_time877); 
+                    match(input,TIME,FOLLOW_TIME_in_time904); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertTime_in_time881);
+                    pushFollow(FOLLOW_convertTime_in_time908);
                     x=convertTime();
 
                     state._fsp--;
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:25: (y= convertTime (z= convertTime )? )?
-                    int alt17=2;
-                    int LA17_0 = input.LA(1);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:25: (y= convertTime (z= convertTime )? )?
+                    int alt18=2;
+                    int LA18_0 = input.LA(1);
 
-                    if ( ((LA17_0>=FloatingPointLiteral && LA17_0<=HexLiteral)) ) {
-                        alt17=1;
+                    if ( ((LA18_0>=FloatingPointLiteral && LA18_0<=HexLiteral)) ) {
+                        alt18=1;
                     }
-                    switch (alt17) {
+                    switch (alt18) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:26: y= convertTime (z= convertTime )?
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:26: y= convertTime (z= convertTime )?
                             {
-                            pushFollow(FOLLOW_convertTime_in_time886);
+                            pushFollow(FOLLOW_convertTime_in_time913);
                             y=convertTime();
 
                             state._fsp--;
 
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:40: (z= convertTime )?
-                            int alt16=2;
-                            int LA16_0 = input.LA(1);
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:40: (z= convertTime )?
+                            int alt17=2;
+                            int LA17_0 = input.LA(1);
 
-                            if ( ((LA16_0>=FloatingPointLiteral && LA16_0<=HexLiteral)) ) {
-                                alt16=1;
+                            if ( ((LA17_0>=FloatingPointLiteral && LA17_0<=HexLiteral)) ) {
+                                alt17=1;
                             }
-                            switch (alt16) {
+                            switch (alt17) {
                                 case 1 :
-                                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:278:41: z= convertTime
+                                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:41: z= convertTime
                                     {
-                                    pushFollow(FOLLOW_convertTime_in_time891);
+                                    pushFollow(FOLLOW_convertTime_in_time918);
                                     z=convertTime();
 
                                     state._fsp--;
@@ -2051,7 +2151,7 @@ public class flipsAssembly extends TreeParser {
 
                     }
 
-                    match(input,PM,FOLLOW_PM_in_time897); 
+                    match(input,PM,FOLLOW_PM_in_time924); 
 
                     match(input, Token.UP, null); 
                     x = (x == 43200d) ? 0d : x;
@@ -2060,44 +2160,44 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:4: ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:284:4: ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 )
                     {
-                    match(input,TIME,FOLLOW_TIME_in_time912); 
+                    match(input,TIME,FOLLOW_TIME_in_time939); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertTime_in_time916);
+                    pushFollow(FOLLOW_convertTime_in_time943);
                     x=convertTime();
 
                     state._fsp--;
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:25: (y= convertTime (z= convertTime )? )?
-                    int alt19=2;
-                    int LA19_0 = input.LA(1);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:284:25: (y= convertTime (z= convertTime )? )?
+                    int alt20=2;
+                    int LA20_0 = input.LA(1);
 
-                    if ( ((LA19_0>=FloatingPointLiteral && LA19_0<=HexLiteral)) ) {
-                        alt19=1;
+                    if ( ((LA20_0>=FloatingPointLiteral && LA20_0<=HexLiteral)) ) {
+                        alt20=1;
                     }
-                    switch (alt19) {
+                    switch (alt20) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:26: y= convertTime (z= convertTime )?
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:284:26: y= convertTime (z= convertTime )?
                             {
-                            pushFollow(FOLLOW_convertTime_in_time921);
+                            pushFollow(FOLLOW_convertTime_in_time948);
                             y=convertTime();
 
                             state._fsp--;
 
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:40: (z= convertTime )?
-                            int alt18=2;
-                            int LA18_0 = input.LA(1);
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:284:40: (z= convertTime )?
+                            int alt19=2;
+                            int LA19_0 = input.LA(1);
 
-                            if ( ((LA18_0>=FloatingPointLiteral && LA18_0<=HexLiteral)) ) {
-                                alt18=1;
+                            if ( ((LA19_0>=FloatingPointLiteral && LA19_0<=HexLiteral)) ) {
+                                alt19=1;
                             }
-                            switch (alt18) {
+                            switch (alt19) {
                                 case 1 :
-                                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:281:41: z= convertTime
+                                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:284:41: z= convertTime
                                     {
-                                    pushFollow(FOLLOW_convertTime_in_time926);
+                                    pushFollow(FOLLOW_convertTime_in_time953);
                                     z=convertTime();
 
                                     state._fsp--;
@@ -2114,7 +2214,7 @@ public class flipsAssembly extends TreeParser {
 
                     }
 
-                    match(input,HOUR24,FOLLOW_HOUR24_in_time932); 
+                    match(input,HOUR24,FOLLOW_HOUR24_in_time959); 
 
                     match(input, Token.UP, null); 
                     emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Time");
@@ -2136,7 +2236,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "duration"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:285:1: duration : ^( DURATION x= convertTime (y= convertTime (z= convertTime )? )? ) ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:288:1: duration : ^( DURATION x= convertTime (y= convertTime (z= convertTime )? )? ) ;
     public final void duration() throws RecognitionException {
         double x = 0.0;
 
@@ -2146,45 +2246,45 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:286:2: ( ^( DURATION x= convertTime (y= convertTime (z= convertTime )? )? ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:286:4: ^( DURATION x= convertTime (y= convertTime (z= convertTime )? )? )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:289:2: ( ^( DURATION x= convertTime (y= convertTime (z= convertTime )? )? ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:289:4: ^( DURATION x= convertTime (y= convertTime (z= convertTime )? )? )
             {
-            match(input,DURATION,FOLLOW_DURATION_in_duration949); 
+            match(input,DURATION,FOLLOW_DURATION_in_duration976); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_convertTime_in_duration953);
+            pushFollow(FOLLOW_convertTime_in_duration980);
             x=convertTime();
 
             state._fsp--;
 
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:286:29: (y= convertTime (z= convertTime )? )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:289:29: (y= convertTime (z= convertTime )? )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( ((LA22_0>=FloatingPointLiteral && LA22_0<=HexLiteral)) ) {
-                alt22=1;
+            if ( ((LA23_0>=FloatingPointLiteral && LA23_0<=HexLiteral)) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:286:30: y= convertTime (z= convertTime )?
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:289:30: y= convertTime (z= convertTime )?
                     {
-                    pushFollow(FOLLOW_convertTime_in_duration958);
+                    pushFollow(FOLLOW_convertTime_in_duration985);
                     y=convertTime();
 
                     state._fsp--;
 
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:286:44: (z= convertTime )?
-                    int alt21=2;
-                    int LA21_0 = input.LA(1);
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:289:44: (z= convertTime )?
+                    int alt22=2;
+                    int LA22_0 = input.LA(1);
 
-                    if ( ((LA21_0>=FloatingPointLiteral && LA21_0<=HexLiteral)) ) {
-                        alt21=1;
+                    if ( ((LA22_0>=FloatingPointLiteral && LA22_0<=HexLiteral)) ) {
+                        alt22=1;
                     }
-                    switch (alt21) {
+                    switch (alt22) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:286:45: z= convertTime
+                            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:289:45: z= convertTime
                             {
-                            pushFollow(FOLLOW_convertTime_in_duration963);
+                            pushFollow(FOLLOW_convertTime_in_duration990);
                             z=convertTime();
 
                             state._fsp--;
@@ -2220,7 +2320,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "direction"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:292:1: direction : ( ^( DIRECTION FIXED x= convertCardinalDirection ) | ^( DIRECTION FIXED x= convertOrdinalDirection ) | ^( DIRECTION FIXED x= convertSubOrdinalDirection ) | ^( DIRECTION FIXED y= convertAngle ) | ^( DIRECTION RELATIVE LEFT y= convertAngle ) | ^( DIRECTION RELATIVE RIGHT y= convertAngle ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:295:1: direction : ( ^( DIRECTION FIXED x= convertCardinalDirection ) | ^( DIRECTION FIXED x= convertOrdinalDirection ) | ^( DIRECTION FIXED x= convertSubOrdinalDirection ) | ^( DIRECTION FIXED y= convertAngle ) | ^( DIRECTION RELATIVE LEFT y= convertAngle ) | ^( DIRECTION RELATIVE RIGHT y= convertAngle ) );
     public final void direction() throws RecognitionException {
         double x = 0.0;
 
@@ -2228,18 +2328,18 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:293:2: ( ^( DIRECTION FIXED x= convertCardinalDirection ) | ^( DIRECTION FIXED x= convertOrdinalDirection ) | ^( DIRECTION FIXED x= convertSubOrdinalDirection ) | ^( DIRECTION FIXED y= convertAngle ) | ^( DIRECTION RELATIVE LEFT y= convertAngle ) | ^( DIRECTION RELATIVE RIGHT y= convertAngle ) )
-            int alt23=6;
-            alt23 = dfa23.predict(input);
-            switch (alt23) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:296:2: ( ^( DIRECTION FIXED x= convertCardinalDirection ) | ^( DIRECTION FIXED x= convertOrdinalDirection ) | ^( DIRECTION FIXED x= convertSubOrdinalDirection ) | ^( DIRECTION FIXED y= convertAngle ) | ^( DIRECTION RELATIVE LEFT y= convertAngle ) | ^( DIRECTION RELATIVE RIGHT y= convertAngle ) )
+            int alt24=6;
+            alt24 = dfa24.predict(input);
+            switch (alt24) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:293:4: ^( DIRECTION FIXED x= convertCardinalDirection )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:296:4: ^( DIRECTION FIXED x= convertCardinalDirection )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction986); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1013); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_direction988); 
-                    pushFollow(FOLLOW_convertCardinalDirection_in_direction992);
+                    match(input,FIXED,FOLLOW_FIXED_in_direction1015); 
+                    pushFollow(FOLLOW_convertCardinalDirection_in_direction1019);
                     x=convertCardinalDirection();
 
                     state._fsp--;
@@ -2251,13 +2351,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:295:4: ^( DIRECTION FIXED x= convertOrdinalDirection )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:298:4: ^( DIRECTION FIXED x= convertOrdinalDirection )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1003); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1030); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_direction1005); 
-                    pushFollow(FOLLOW_convertOrdinalDirection_in_direction1009);
+                    match(input,FIXED,FOLLOW_FIXED_in_direction1032); 
+                    pushFollow(FOLLOW_convertOrdinalDirection_in_direction1036);
                     x=convertOrdinalDirection();
 
                     state._fsp--;
@@ -2269,13 +2369,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:297:4: ^( DIRECTION FIXED x= convertSubOrdinalDirection )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:300:4: ^( DIRECTION FIXED x= convertSubOrdinalDirection )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1020); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1047); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_direction1022); 
-                    pushFollow(FOLLOW_convertSubOrdinalDirection_in_direction1026);
+                    match(input,FIXED,FOLLOW_FIXED_in_direction1049); 
+                    pushFollow(FOLLOW_convertSubOrdinalDirection_in_direction1053);
                     x=convertSubOrdinalDirection();
 
                     state._fsp--;
@@ -2287,13 +2387,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:299:4: ^( DIRECTION FIXED y= convertAngle )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:302:4: ^( DIRECTION FIXED y= convertAngle )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1037); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1064); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,FIXED,FOLLOW_FIXED_in_direction1039); 
-                    pushFollow(FOLLOW_convertAngle_in_direction1043);
+                    match(input,FIXED,FOLLOW_FIXED_in_direction1066); 
+                    pushFollow(FOLLOW_convertAngle_in_direction1070);
                     y=convertAngle();
 
                     state._fsp--;
@@ -2305,14 +2405,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:301:4: ^( DIRECTION RELATIVE LEFT y= convertAngle )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:304:4: ^( DIRECTION RELATIVE LEFT y= convertAngle )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1054); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1081); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_direction1056); 
-                    match(input,LEFT,FOLLOW_LEFT_in_direction1058); 
-                    pushFollow(FOLLOW_convertAngle_in_direction1062);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_direction1083); 
+                    match(input,LEFT,FOLLOW_LEFT_in_direction1085); 
+                    pushFollow(FOLLOW_convertAngle_in_direction1089);
                     y=convertAngle();
 
                     state._fsp--;
@@ -2324,14 +2424,14 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:303:4: ^( DIRECTION RELATIVE RIGHT y= convertAngle )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:306:4: ^( DIRECTION RELATIVE RIGHT y= convertAngle )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1073); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1100); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_direction1075); 
-                    match(input,RIGHT,FOLLOW_RIGHT_in_direction1077); 
-                    pushFollow(FOLLOW_convertAngle_in_direction1081);
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_direction1102); 
+                    match(input,RIGHT,FOLLOW_RIGHT_in_direction1104); 
+                    pushFollow(FOLLOW_convertAngle_in_direction1108);
                     y=convertAngle();
 
                     state._fsp--;
@@ -2357,103 +2457,10 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "turnDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:307:1: turnDirection : ( ^( DIRECTION TURN LEFT ) | ^( DIRECTION TURN RIGHT ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:310:1: turnDirection : ( ^( DIRECTION TURN LEFT ) | ^( DIRECTION TURN RIGHT ) );
     public final void turnDirection() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:308:2: ( ^( DIRECTION TURN LEFT ) | ^( DIRECTION TURN RIGHT ) )
-            int alt24=2;
-            int LA24_0 = input.LA(1);
-
-            if ( (LA24_0==DIRECTION) ) {
-                int LA24_1 = input.LA(2);
-
-                if ( (LA24_1==DOWN) ) {
-                    int LA24_2 = input.LA(3);
-
-                    if ( (LA24_2==TURN) ) {
-                        int LA24_3 = input.LA(4);
-
-                        if ( (LA24_3==LEFT) ) {
-                            alt24=1;
-                        }
-                        else if ( (LA24_3==RIGHT) ) {
-                            alt24=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 24, 3, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 24, 2, input);
-
-                        throw nvae;
-                    }
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 24, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 24, 0, input);
-
-                throw nvae;
-            }
-            switch (alt24) {
-                case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:308:4: ^( DIRECTION TURN LEFT )
-                    {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_turnDirection1098); 
-
-                    match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_turnDirection1100); 
-                    match(input,LEFT,FOLLOW_LEFT_in_turnDirection1102); 
-
-                    match(input, Token.UP, null); 
-                    emit("DIR L", "Left Turn Direction");
-
-                    }
-                    break;
-                case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:310:4: ^( DIRECTION TURN RIGHT )
-                    {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_turnDirection1113); 
-
-                    match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_turnDirection1115); 
-                    match(input,RIGHT,FOLLOW_RIGHT_in_turnDirection1117); 
-
-                    match(input, Token.UP, null); 
-                    emit("DIR R", "Right Turn Direction");
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "turnDirection"
-
-
-    // $ANTLR start "loiterDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:314:1: loiterDirection : ( ^( DIRECTION TURN CLOCKWISE ) | ^( DIRECTION TURN COUNTERCLOCKWISE ) );
-    public final void loiterDirection() throws RecognitionException {
-        try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:315:2: ( ^( DIRECTION TURN CLOCKWISE ) | ^( DIRECTION TURN COUNTERCLOCKWISE ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:311:2: ( ^( DIRECTION TURN LEFT ) | ^( DIRECTION TURN RIGHT ) )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -2466,10 +2473,10 @@ public class flipsAssembly extends TreeParser {
                     if ( (LA25_2==TURN) ) {
                         int LA25_3 = input.LA(4);
 
-                        if ( (LA25_3==CLOCKWISE) ) {
+                        if ( (LA25_3==LEFT) ) {
                             alt25=1;
                         }
-                        else if ( (LA25_3==COUNTERCLOCKWISE) ) {
+                        else if ( (LA25_3==RIGHT) ) {
                             alt25=2;
                         }
                         else {
@@ -2501,13 +2508,106 @@ public class flipsAssembly extends TreeParser {
             }
             switch (alt25) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:315:4: ^( DIRECTION TURN CLOCKWISE )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:311:4: ^( DIRECTION TURN LEFT )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_loiterDirection1134); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_turnDirection1125); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_loiterDirection1136); 
-                    match(input,CLOCKWISE,FOLLOW_CLOCKWISE_in_loiterDirection1138); 
+                    match(input,TURN,FOLLOW_TURN_in_turnDirection1127); 
+                    match(input,LEFT,FOLLOW_LEFT_in_turnDirection1129); 
+
+                    match(input, Token.UP, null); 
+                    emit("DIR L", "Left Turn Direction");
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:313:4: ^( DIRECTION TURN RIGHT )
+                    {
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_turnDirection1140); 
+
+                    match(input, Token.DOWN, null); 
+                    match(input,TURN,FOLLOW_TURN_in_turnDirection1142); 
+                    match(input,RIGHT,FOLLOW_RIGHT_in_turnDirection1144); 
+
+                    match(input, Token.UP, null); 
+                    emit("DIR R", "Right Turn Direction");
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "turnDirection"
+
+
+    // $ANTLR start "loiterDirection"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:317:1: loiterDirection : ( ^( DIRECTION TURN CLOCKWISE ) | ^( DIRECTION TURN COUNTERCLOCKWISE ) );
+    public final void loiterDirection() throws RecognitionException {
+        try {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:318:2: ( ^( DIRECTION TURN CLOCKWISE ) | ^( DIRECTION TURN COUNTERCLOCKWISE ) )
+            int alt26=2;
+            int LA26_0 = input.LA(1);
+
+            if ( (LA26_0==DIRECTION) ) {
+                int LA26_1 = input.LA(2);
+
+                if ( (LA26_1==DOWN) ) {
+                    int LA26_2 = input.LA(3);
+
+                    if ( (LA26_2==TURN) ) {
+                        int LA26_3 = input.LA(4);
+
+                        if ( (LA26_3==CLOCKWISE) ) {
+                            alt26=1;
+                        }
+                        else if ( (LA26_3==COUNTERCLOCKWISE) ) {
+                            alt26=2;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 26, 3, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 26, 2, input);
+
+                        throw nvae;
+                    }
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 26, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 26, 0, input);
+
+                throw nvae;
+            }
+            switch (alt26) {
+                case 1 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:318:4: ^( DIRECTION TURN CLOCKWISE )
+                    {
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_loiterDirection1161); 
+
+                    match(input, Token.DOWN, null); 
+                    match(input,TURN,FOLLOW_TURN_in_loiterDirection1163); 
+                    match(input,CLOCKWISE,FOLLOW_CLOCKWISE_in_loiterDirection1165); 
 
                     match(input, Token.UP, null); 
                     emit("DIR CW", "Clockwise Loiter Direction");
@@ -2515,13 +2615,13 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:317:4: ^( DIRECTION TURN COUNTERCLOCKWISE )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:320:4: ^( DIRECTION TURN COUNTERCLOCKWISE )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_loiterDirection1149); 
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_loiterDirection1176); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_loiterDirection1151); 
-                    match(input,COUNTERCLOCKWISE,FOLLOW_COUNTERCLOCKWISE_in_loiterDirection1153); 
+                    match(input,TURN,FOLLOW_TURN_in_loiterDirection1178); 
+                    match(input,COUNTERCLOCKWISE,FOLLOW_COUNTERCLOCKWISE_in_loiterDirection1180); 
 
                     match(input, Token.UP, null); 
                     emit("DIR CCW", "Counterclockwise Loiter Direction");
@@ -2543,52 +2643,46 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "waypoint"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:323:1: waypoint : (geo= geoCoordinate | ^( WAYPOINT x= Identifier ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:326:1: waypoint : ( geoCoordinate | ^( WAYPOINT x= Identifier ) );
     public final void waypoint() throws RecognitionException {
         CommonTree x=null;
-        flipsAssembly.geoCoordinate_return geo = null;
-
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:324:2: (geo= geoCoordinate | ^( WAYPOINT x= Identifier ) )
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:327:2: ( geoCoordinate | ^( WAYPOINT x= Identifier ) )
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA26_0==GEOCOORDINATE) ) {
-                alt26=1;
+            if ( (LA27_0==GEOCOORDINATE) ) {
+                alt27=1;
             }
-            else if ( (LA26_0==WAYPOINT) ) {
-                alt26=2;
+            else if ( (LA27_0==WAYPOINT) ) {
+                alt27=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 26, 0, input);
+                    new NoViableAltException("", 27, 0, input);
 
                 throw nvae;
             }
-            switch (alt26) {
+            switch (alt27) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:324:4: geo= geoCoordinate
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:327:4: geoCoordinate
                     {
-                    pushFollow(FOLLOW_geoCoordinate_in_waypoint1173);
-                    geo=geoCoordinate();
+                    pushFollow(FOLLOW_geoCoordinate_in_waypoint1198);
+                    geoCoordinate();
 
                     state._fsp--;
 
-                    String ns = geo.latitude >= 0 ? "N" : "S";
-                    String ew = geo.longitude >= 0 ? "E" : "W";
-                    emit("POS   X FIX " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");
-                    emit("POS   Y FIX " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:329:4: ^( WAYPOINT x= Identifier )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:328:4: ^( WAYPOINT x= Identifier )
                     {
-                    match(input,WAYPOINT,FOLLOW_WAYPOINT_in_waypoint1195); 
+                    match(input,WAYPOINT,FOLLOW_WAYPOINT_in_waypoint1204); 
 
                     match(input, Token.DOWN, null); 
-                    x=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_waypoint1199); 
+                    x=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_waypoint1208); 
 
                     match(input, Token.UP, null); 
 
@@ -2596,8 +2690,14 @@ public class flipsAssembly extends TreeParser {
                     if (coordinate != null) {
                       String ns = coordinate[0] >= 0 ? "N" : "S";
                       String ew = coordinate[1] >= 0 ? "E" : "W";
-                      emit("POS   X FIX " + coordinate[1], x.getText().toUpperCase() + " / " + Math.abs(coordinate[1]) + " " + ew + " Longitude");
-                      emit("POS   Y FIX " + coordinate[0], x.getText().toUpperCase() + " / " + Math.abs(coordinate[0]) + " " + ns + " Latitude");
+                      if (coordinate[2] == 0) {
+                        emit("POS   X GEO " + coordinate[1], x.getText().toUpperCase() + " / " + Math.abs(coordinate[1]) + " " + ew + " Longitude");
+                        emit("POS   Y GEO " + coordinate[0], x.getText().toUpperCase() + " / " + Math.abs(coordinate[0]) + " " + ns + " Latitude");
+                      }
+                      if (coordinate[2] == 1) {
+                        emit("POS   X FIX " + coordinate[1], x.getText().toUpperCase() + " / " + mToft(Math.abs(coordinate[1])) + ew + " Distance");
+                        emit("POS   Y FIX " + coordinate[0], x.getText().toUpperCase() + " / " + mToft(Math.abs(coordinate[0])) + ns + " Distance");  
+                      }
                     }
                     else {
                       emit("POS   X FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
@@ -2620,15 +2720,115 @@ public class flipsAssembly extends TreeParser {
     }
     // $ANTLR end "waypoint"
 
-    public static class geoCoordinate_return extends TreeRuleReturnScope {
+
+    // $ANTLR start "geoCoordinate"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:350:1: geoCoordinate : ( ^( GEOCOORDINATE geo= latitudeLongitude ) | ^( GEOCOORDINATE dst= distanceCoordinate ) );
+    public final void geoCoordinate() throws RecognitionException {
+        flipsAssembly.latitudeLongitude_return geo = null;
+
+        flipsAssembly.distanceCoordinate_return dst = null;
+
+
+        try {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:351:2: ( ^( GEOCOORDINATE geo= latitudeLongitude ) | ^( GEOCOORDINATE dst= distanceCoordinate ) )
+            int alt28=2;
+            int LA28_0 = input.LA(1);
+
+            if ( (LA28_0==GEOCOORDINATE) ) {
+                int LA28_1 = input.LA(2);
+
+                if ( (LA28_1==DOWN) ) {
+                    int LA28_2 = input.LA(3);
+
+                    if ( (LA28_2==LATITUDE) ) {
+                        alt28=1;
+                    }
+                    else if ( (LA28_2==DISTANCE) ) {
+                        alt28=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 28, 2, input);
+
+                        throw nvae;
+                    }
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 28, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 28, 0, input);
+
+                throw nvae;
+            }
+            switch (alt28) {
+                case 1 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:351:4: ^( GEOCOORDINATE geo= latitudeLongitude )
+                    {
+                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1224); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate1228);
+                    geo=latitudeLongitude();
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+                    String ns = geo.latitude >= 0 ? "N" : "S";
+                    String ew = geo.longitude >= 0 ? "E" : "W";
+                    emit("POS   X GEO " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");
+                    emit("POS   Y GEO " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:356:4: ^( GEOCOORDINATE dst= distanceCoordinate )
+                    {
+                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1251); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_distanceCoordinate_in_geoCoordinate1255);
+                    dst=distanceCoordinate();
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+                    String ns = dst.north >= 0 ? "N" : "S";
+                    String ew = dst.east >= 0 ? "E" : "W";
+                    emit("POS   X FIX " + dst.east, mToft(Math.abs(dst.east)) + ew + " Distance");
+                    emit("POS   Y FIX " + dst.north, mToft(Math.abs(dst.north)) + ns + " Distance");
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "geoCoordinate"
+
+    public static class latitudeLongitude_return extends TreeRuleReturnScope {
         public double latitude;
         public double longitude;
     };
 
-    // $ANTLR start "geoCoordinate"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:345:1: geoCoordinate returns [double latitude, double longitude] : ^( GEOCOORDINATE x= latitude y= longitude ) ;
-    public final flipsAssembly.geoCoordinate_return geoCoordinate() throws RecognitionException {
-        flipsAssembly.geoCoordinate_return retval = new flipsAssembly.geoCoordinate_return();
+    // $ANTLR start "latitudeLongitude"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:363:1: latitudeLongitude returns [double latitude, double longitude] : x= latitude y= longitude ;
+    public final flipsAssembly.latitudeLongitude_return latitudeLongitude() throws RecognitionException {
+        flipsAssembly.latitudeLongitude_return retval = new flipsAssembly.latitudeLongitude_return();
         retval.start = input.LT(1);
 
         double x = 0.0;
@@ -2637,24 +2837,19 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:346:2: ( ^( GEOCOORDINATE x= latitude y= longitude ) )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:346:4: ^( GEOCOORDINATE x= latitude y= longitude )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:364:2: (x= latitude y= longitude )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:364:4: x= latitude y= longitude
             {
-            match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1219); 
-
-            match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_latitude_in_geoCoordinate1223);
+            pushFollow(FOLLOW_latitude_in_latitudeLongitude1289);
             x=latitude();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_longitude_in_geoCoordinate1227);
+            pushFollow(FOLLOW_longitude_in_latitudeLongitude1293);
             y=longitude();
 
             state._fsp--;
 
-
-            match(input, Token.UP, null); 
             retval.latitude = x;
             retval.longitude = y;
 
@@ -2669,11 +2864,11 @@ public class flipsAssembly extends TreeParser {
         }
         return retval;
     }
-    // $ANTLR end "geoCoordinate"
+    // $ANTLR end "latitudeLongitude"
 
 
     // $ANTLR start "latitude"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:351:1: latitude returns [double r] : ( ^( LATITUDE x= convertAngle NORTH ) | ^( LATITUDE x= convertAngle SOUTH ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:369:1: latitude returns [double r] : ( ^( LATITUDE x= convertAngle NORTH ) | ^( LATITUDE x= convertAngle SOUTH ) );
     public final double latitude() throws RecognitionException {
         double r = 0.0;
 
@@ -2681,22 +2876,22 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:352:2: ( ^( LATITUDE x= convertAngle NORTH ) | ^( LATITUDE x= convertAngle SOUTH ) )
-            int alt27=2;
-            alt27 = dfa27.predict(input);
-            switch (alt27) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:370:2: ( ^( LATITUDE x= convertAngle NORTH ) | ^( LATITUDE x= convertAngle SOUTH ) )
+            int alt29=2;
+            alt29 = dfa29.predict(input);
+            switch (alt29) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:352:4: ^( LATITUDE x= convertAngle NORTH )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:370:4: ^( LATITUDE x= convertAngle NORTH )
                     {
-                    match(input,LATITUDE,FOLLOW_LATITUDE_in_latitude1252); 
+                    match(input,LATITUDE,FOLLOW_LATITUDE_in_latitude1317); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertAngle_in_latitude1256);
+                    pushFollow(FOLLOW_convertAngle_in_latitude1321);
                     x=convertAngle();
 
                     state._fsp--;
 
-                    match(input,NORTH,FOLLOW_NORTH_in_latitude1258); 
+                    match(input,NORTH,FOLLOW_NORTH_in_latitude1323); 
 
                     match(input, Token.UP, null); 
                     r = x;
@@ -2704,17 +2899,17 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:354:4: ^( LATITUDE x= convertAngle SOUTH )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:372:4: ^( LATITUDE x= convertAngle SOUTH )
                     {
-                    match(input,LATITUDE,FOLLOW_LATITUDE_in_latitude1269); 
+                    match(input,LATITUDE,FOLLOW_LATITUDE_in_latitude1334); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertAngle_in_latitude1273);
+                    pushFollow(FOLLOW_convertAngle_in_latitude1338);
                     x=convertAngle();
 
                     state._fsp--;
 
-                    match(input,SOUTH,FOLLOW_SOUTH_in_latitude1275); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_latitude1340); 
 
                     match(input, Token.UP, null); 
                     r = -x;
@@ -2736,7 +2931,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "longitude"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:358:1: longitude returns [double r] : ( ^( LONGITUDE x= convertAngle EAST ) | ^( LONGITUDE x= convertAngle WEST ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:376:1: longitude returns [double r] : ( ^( LONGITUDE x= convertAngle EAST ) | ^( LONGITUDE x= convertAngle WEST ) );
     public final double longitude() throws RecognitionException {
         double r = 0.0;
 
@@ -2744,22 +2939,22 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:359:2: ( ^( LONGITUDE x= convertAngle EAST ) | ^( LONGITUDE x= convertAngle WEST ) )
-            int alt28=2;
-            alt28 = dfa28.predict(input);
-            switch (alt28) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:377:2: ( ^( LONGITUDE x= convertAngle EAST ) | ^( LONGITUDE x= convertAngle WEST ) )
+            int alt30=2;
+            alt30 = dfa30.predict(input);
+            switch (alt30) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:359:4: ^( LONGITUDE x= convertAngle EAST )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:377:4: ^( LONGITUDE x= convertAngle EAST )
                     {
-                    match(input,LONGITUDE,FOLLOW_LONGITUDE_in_longitude1296); 
+                    match(input,LONGITUDE,FOLLOW_LONGITUDE_in_longitude1361); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertAngle_in_longitude1300);
+                    pushFollow(FOLLOW_convertAngle_in_longitude1365);
                     x=convertAngle();
 
                     state._fsp--;
 
-                    match(input,EAST,FOLLOW_EAST_in_longitude1302); 
+                    match(input,EAST,FOLLOW_EAST_in_longitude1367); 
 
                     match(input, Token.UP, null); 
                     r = x;
@@ -2767,17 +2962,17 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:361:4: ^( LONGITUDE x= convertAngle WEST )
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:379:4: ^( LONGITUDE x= convertAngle WEST )
                     {
-                    match(input,LONGITUDE,FOLLOW_LONGITUDE_in_longitude1313); 
+                    match(input,LONGITUDE,FOLLOW_LONGITUDE_in_longitude1378); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_convertAngle_in_longitude1317);
+                    pushFollow(FOLLOW_convertAngle_in_longitude1382);
                     x=convertAngle();
 
                     state._fsp--;
 
-                    match(input,WEST,FOLLOW_WEST_in_longitude1319); 
+                    match(input,WEST,FOLLOW_WEST_in_longitude1384); 
 
                     match(input, Token.UP, null); 
                     r = -x;
@@ -2797,9 +2992,181 @@ public class flipsAssembly extends TreeParser {
     }
     // $ANTLR end "longitude"
 
+    public static class distanceCoordinate_return extends TreeRuleReturnScope {
+        public double north;
+        public double east;
+    };
+
+    // $ANTLR start "distanceCoordinate"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:383:1: distanceCoordinate returns [double north, double east] : x= distanceNorth y= distanceEast ;
+    public final flipsAssembly.distanceCoordinate_return distanceCoordinate() throws RecognitionException {
+        flipsAssembly.distanceCoordinate_return retval = new flipsAssembly.distanceCoordinate_return();
+        retval.start = input.LT(1);
+
+        double x = 0.0;
+
+        double y = 0.0;
+
+
+        try {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:384:2: (x= distanceNorth y= distanceEast )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:384:4: x= distanceNorth y= distanceEast
+            {
+            pushFollow(FOLLOW_distanceNorth_in_distanceCoordinate1406);
+            x=distanceNorth();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_distanceEast_in_distanceCoordinate1410);
+            y=distanceEast();
+
+            state._fsp--;
+
+            retval.north = x;
+            retval.east = y;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return retval;
+    }
+    // $ANTLR end "distanceCoordinate"
+
+
+    // $ANTLR start "distanceNorth"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:389:1: distanceNorth returns [double r] : ( ^( DISTANCE x= convertDistance NORTH ) | ^( DISTANCE x= convertDistance SOUTH ) );
+    public final double distanceNorth() throws RecognitionException {
+        double r = 0.0;
+
+        double x = 0.0;
+
+
+        try {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:390:2: ( ^( DISTANCE x= convertDistance NORTH ) | ^( DISTANCE x= convertDistance SOUTH ) )
+            int alt31=2;
+            alt31 = dfa31.predict(input);
+            switch (alt31) {
+                case 1 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:390:4: ^( DISTANCE x= convertDistance NORTH )
+                    {
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distanceNorth1434); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_convertDistance_in_distanceNorth1438);
+                    x=convertDistance();
+
+                    state._fsp--;
+
+                    match(input,NORTH,FOLLOW_NORTH_in_distanceNorth1440); 
+
+                    match(input, Token.UP, null); 
+                    r = x;
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:392:4: ^( DISTANCE x= convertDistance SOUTH )
+                    {
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distanceNorth1451); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_convertDistance_in_distanceNorth1455);
+                    x=convertDistance();
+
+                    state._fsp--;
+
+                    match(input,SOUTH,FOLLOW_SOUTH_in_distanceNorth1457); 
+
+                    match(input, Token.UP, null); 
+                    r = -x;
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return r;
+    }
+    // $ANTLR end "distanceNorth"
+
+
+    // $ANTLR start "distanceEast"
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:396:1: distanceEast returns [double r] : ( ^( DISTANCE x= convertDistance EAST ) | ^( DISTANCE x= convertDistance WEST ) );
+    public final double distanceEast() throws RecognitionException {
+        double r = 0.0;
+
+        double x = 0.0;
+
+
+        try {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:397:2: ( ^( DISTANCE x= convertDistance EAST ) | ^( DISTANCE x= convertDistance WEST ) )
+            int alt32=2;
+            alt32 = dfa32.predict(input);
+            switch (alt32) {
+                case 1 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:397:4: ^( DISTANCE x= convertDistance EAST )
+                    {
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distanceEast1478); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_convertDistance_in_distanceEast1482);
+                    x=convertDistance();
+
+                    state._fsp--;
+
+                    match(input,EAST,FOLLOW_EAST_in_distanceEast1484); 
+
+                    match(input, Token.UP, null); 
+                    r = x;
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:399:4: ^( DISTANCE x= convertDistance WEST )
+                    {
+                    match(input,DISTANCE,FOLLOW_DISTANCE_in_distanceEast1495); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_convertDistance_in_distanceEast1499);
+                    x=convertDistance();
+
+                    state._fsp--;
+
+                    match(input,WEST,FOLLOW_WEST_in_distanceEast1501); 
+
+                    match(input, Token.UP, null); 
+                    r = -x;
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return r;
+    }
+    // $ANTLR end "distanceEast"
+
 
     // $ANTLR start "convertTime"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:368:1: convertTime returns [double r] : (x= numericValue HOUR | x= numericValue MINUTE | x= numericValue SECOND );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:406:1: convertTime returns [double r] : (x= numericValue HOUR | x= numericValue MINUTE | x= numericValue SECOND );
     public final double convertTime() throws RecognitionException {
         double r = 0.0;
 
@@ -2807,30 +3174,30 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:369:2: (x= numericValue HOUR | x= numericValue MINUTE | x= numericValue SECOND )
-            int alt29=3;
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:407:2: (x= numericValue HOUR | x= numericValue MINUTE | x= numericValue SECOND )
+            int alt33=3;
             switch ( input.LA(1) ) {
             case BinaryLiteral:
                 {
                 switch ( input.LA(2) ) {
-                case MINUTE:
+                case SECOND:
                     {
-                    alt29=2;
+                    alt33=3;
                     }
                     break;
                 case HOUR:
                     {
-                    alt29=1;
+                    alt33=1;
                     }
                     break;
-                case SECOND:
+                case MINUTE:
                     {
-                    alt29=3;
+                    alt33=2;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 29, 1, input);
+                        new NoViableAltException("", 33, 1, input);
 
                     throw nvae;
                 }
@@ -2840,24 +3207,24 @@ public class flipsAssembly extends TreeParser {
             case OctalLiteral:
                 {
                 switch ( input.LA(2) ) {
-                case MINUTE:
+                case SECOND:
                     {
-                    alt29=2;
+                    alt33=3;
                     }
                     break;
                 case HOUR:
                     {
-                    alt29=1;
+                    alt33=1;
                     }
                     break;
-                case SECOND:
+                case MINUTE:
                     {
-                    alt29=3;
+                    alt33=2;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 29, 2, input);
+                        new NoViableAltException("", 33, 2, input);
 
                     throw nvae;
                 }
@@ -2867,24 +3234,24 @@ public class flipsAssembly extends TreeParser {
             case DecimalLiteral:
                 {
                 switch ( input.LA(2) ) {
-                case HOUR:
+                case MINUTE:
                     {
-                    alt29=1;
+                    alt33=2;
                     }
                     break;
                 case SECOND:
                     {
-                    alt29=3;
+                    alt33=3;
                     }
                     break;
-                case MINUTE:
+                case HOUR:
                     {
-                    alt29=2;
+                    alt33=1;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 29, 3, input);
+                        new NoViableAltException("", 33, 3, input);
 
                     throw nvae;
                 }
@@ -2894,24 +3261,24 @@ public class flipsAssembly extends TreeParser {
             case HexLiteral:
                 {
                 switch ( input.LA(2) ) {
-                case HOUR:
+                case MINUTE:
                     {
-                    alt29=1;
+                    alt33=2;
                     }
                     break;
                 case SECOND:
                     {
-                    alt29=3;
+                    alt33=3;
                     }
                     break;
-                case MINUTE:
+                case HOUR:
                     {
-                    alt29=2;
+                    alt33=1;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 29, 4, input);
+                        new NoViableAltException("", 33, 4, input);
 
                     throw nvae;
                 }
@@ -2921,24 +3288,24 @@ public class flipsAssembly extends TreeParser {
             case FloatingPointLiteral:
                 {
                 switch ( input.LA(2) ) {
-                case MINUTE:
-                    {
-                    alt29=2;
-                    }
-                    break;
                 case SECOND:
                     {
-                    alt29=3;
+                    alt33=3;
                     }
                     break;
                 case HOUR:
                     {
-                    alt29=1;
+                    alt33=1;
+                    }
+                    break;
+                case MINUTE:
+                    {
+                    alt33=2;
                     }
                     break;
                 default:
                     NoViableAltException nvae =
-                        new NoViableAltException("", 29, 5, input);
+                        new NoViableAltException("", 33, 5, input);
 
                     throw nvae;
                 }
@@ -2947,47 +3314,47 @@ public class flipsAssembly extends TreeParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
+                    new NoViableAltException("", 33, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt29) {
+            switch (alt33) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:369:4: x= numericValue HOUR
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:407:4: x= numericValue HOUR
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertTime1344);
+                    pushFollow(FOLLOW_numericValue_in_convertTime1526);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,HOUR,FOLLOW_HOUR_in_convertTime1346); 
+                    match(input,HOUR,FOLLOW_HOUR_in_convertTime1528); 
                     r = x * 3600d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:371:4: x= numericValue MINUTE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:409:4: x= numericValue MINUTE
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertTime1357);
+                    pushFollow(FOLLOW_numericValue_in_convertTime1539);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,MINUTE,FOLLOW_MINUTE_in_convertTime1359); 
+                    match(input,MINUTE,FOLLOW_MINUTE_in_convertTime1541); 
                     r = x * 60d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:373:4: x= numericValue SECOND
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:411:4: x= numericValue SECOND
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertTime1370);
+                    pushFollow(FOLLOW_numericValue_in_convertTime1552);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,SECOND,FOLLOW_SECOND_in_convertTime1372); 
+                    match(input,SECOND,FOLLOW_SECOND_in_convertTime1554); 
                     r = x;
 
                     }
@@ -3007,7 +3374,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertDistance"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:378:1: convertDistance returns [double r] : (x= numericValue KILOMETER | x= numericValue METER | x= numericValue NAUTICAL MILE | x= numericValue MILE | x= numericValue YARD | x= numericValue FOOT );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:416:1: convertDistance returns [double r] : (x= numericValue KILOMETER | x= numericValue METER | x= numericValue NAUTICAL MILE | x= numericValue MILE | x= numericValue YARD | x= numericValue FOOT );
     public final double convertDistance() throws RecognitionException {
         double r = 0.0;
 
@@ -3015,85 +3382,85 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:379:2: (x= numericValue KILOMETER | x= numericValue METER | x= numericValue NAUTICAL MILE | x= numericValue MILE | x= numericValue YARD | x= numericValue FOOT )
-            int alt30=6;
-            alt30 = dfa30.predict(input);
-            switch (alt30) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:417:2: (x= numericValue KILOMETER | x= numericValue METER | x= numericValue NAUTICAL MILE | x= numericValue MILE | x= numericValue YARD | x= numericValue FOOT )
+            int alt34=6;
+            alt34 = dfa34.predict(input);
+            switch (alt34) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:379:4: x= numericValue KILOMETER
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:417:4: x= numericValue KILOMETER
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertDistance1394);
+                    pushFollow(FOLLOW_numericValue_in_convertDistance1576);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,KILOMETER,FOLLOW_KILOMETER_in_convertDistance1396); 
+                    match(input,KILOMETER,FOLLOW_KILOMETER_in_convertDistance1578); 
                     r = x * 1000d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:381:4: x= numericValue METER
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:419:4: x= numericValue METER
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertDistance1407);
+                    pushFollow(FOLLOW_numericValue_in_convertDistance1589);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,METER,FOLLOW_METER_in_convertDistance1409); 
+                    match(input,METER,FOLLOW_METER_in_convertDistance1591); 
                     r = x;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:383:4: x= numericValue NAUTICAL MILE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:421:4: x= numericValue NAUTICAL MILE
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertDistance1420);
+                    pushFollow(FOLLOW_numericValue_in_convertDistance1602);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,NAUTICAL,FOLLOW_NAUTICAL_in_convertDistance1422); 
-                    match(input,MILE,FOLLOW_MILE_in_convertDistance1424); 
+                    match(input,NAUTICAL,FOLLOW_NAUTICAL_in_convertDistance1604); 
+                    match(input,MILE,FOLLOW_MILE_in_convertDistance1606); 
                     r = x * 1852d;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:385:4: x= numericValue MILE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:423:4: x= numericValue MILE
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertDistance1435);
+                    pushFollow(FOLLOW_numericValue_in_convertDistance1617);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,MILE,FOLLOW_MILE_in_convertDistance1437); 
+                    match(input,MILE,FOLLOW_MILE_in_convertDistance1619); 
                     r = x * 1609.344d;
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:387:4: x= numericValue YARD
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:425:4: x= numericValue YARD
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertDistance1448);
+                    pushFollow(FOLLOW_numericValue_in_convertDistance1630);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,YARD,FOLLOW_YARD_in_convertDistance1450); 
+                    match(input,YARD,FOLLOW_YARD_in_convertDistance1632); 
                     r = x * 0.9144d;
 
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:389:4: x= numericValue FOOT
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:427:4: x= numericValue FOOT
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertDistance1461);
+                    pushFollow(FOLLOW_numericValue_in_convertDistance1643);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,FOOT,FOLLOW_FOOT_in_convertDistance1463); 
+                    match(input,FOOT,FOLLOW_FOOT_in_convertDistance1645); 
                     r = x * 0.3048d;
 
                     }
@@ -3113,18 +3480,18 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertFlightLevel"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:394:1: convertFlightLevel returns [double r] : FLIGHTLEVEL x= FlightLevel ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:432:1: convertFlightLevel returns [double r] : FLIGHTLEVEL x= FlightLevel ;
     public final double convertFlightLevel() throws RecognitionException {
         double r = 0.0;
 
         CommonTree x=null;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:395:2: ( FLIGHTLEVEL x= FlightLevel )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:395:4: FLIGHTLEVEL x= FlightLevel
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:433:2: ( FLIGHTLEVEL x= FlightLevel )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:433:4: FLIGHTLEVEL x= FlightLevel
             {
-            match(input,FLIGHTLEVEL,FOLLOW_FLIGHTLEVEL_in_convertFlightLevel1483); 
-            x=(CommonTree)match(input,FlightLevel,FOLLOW_FlightLevel_in_convertFlightLevel1487); 
+            match(input,FLIGHTLEVEL,FOLLOW_FLIGHTLEVEL_in_convertFlightLevel1665); 
+            x=(CommonTree)match(input,FlightLevel,FOLLOW_FlightLevel_in_convertFlightLevel1669); 
             String y = x.toString().replaceAll("fl","").replaceAll("ight level","").replaceAll(" ","");
             r = Double.parseDouble(y) * 100d * 0.3048d;
 
@@ -3143,7 +3510,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertPressure"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:401:1: convertPressure returns [double r] : (x= numericValue KILOPASCAL | x= numericValue HECTOPASCAL | x= numericValue PASCAL | x= numericValue BAR | x= numericValue MILLIBAR | x= numericValue ATMOSPHERE );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:439:1: convertPressure returns [double r] : (x= numericValue KILOPASCAL | x= numericValue HECTOPASCAL | x= numericValue PASCAL | x= numericValue BAR | x= numericValue MILLIBAR | x= numericValue ATMOSPHERE );
     public final double convertPressure() throws RecognitionException {
         double r = 0.0;
 
@@ -3151,84 +3518,84 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:402:2: (x= numericValue KILOPASCAL | x= numericValue HECTOPASCAL | x= numericValue PASCAL | x= numericValue BAR | x= numericValue MILLIBAR | x= numericValue ATMOSPHERE )
-            int alt31=6;
-            alt31 = dfa31.predict(input);
-            switch (alt31) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:440:2: (x= numericValue KILOPASCAL | x= numericValue HECTOPASCAL | x= numericValue PASCAL | x= numericValue BAR | x= numericValue MILLIBAR | x= numericValue ATMOSPHERE )
+            int alt35=6;
+            alt35 = dfa35.predict(input);
+            switch (alt35) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:402:4: x= numericValue KILOPASCAL
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:440:4: x= numericValue KILOPASCAL
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertPressure1513);
+                    pushFollow(FOLLOW_numericValue_in_convertPressure1695);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,KILOPASCAL,FOLLOW_KILOPASCAL_in_convertPressure1515); 
+                    match(input,KILOPASCAL,FOLLOW_KILOPASCAL_in_convertPressure1697); 
                     r = x * 1000d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:404:4: x= numericValue HECTOPASCAL
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:442:4: x= numericValue HECTOPASCAL
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertPressure1526);
+                    pushFollow(FOLLOW_numericValue_in_convertPressure1708);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,HECTOPASCAL,FOLLOW_HECTOPASCAL_in_convertPressure1528); 
+                    match(input,HECTOPASCAL,FOLLOW_HECTOPASCAL_in_convertPressure1710); 
                     r = x * 100d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:406:4: x= numericValue PASCAL
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:444:4: x= numericValue PASCAL
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertPressure1539);
+                    pushFollow(FOLLOW_numericValue_in_convertPressure1721);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,PASCAL,FOLLOW_PASCAL_in_convertPressure1541); 
+                    match(input,PASCAL,FOLLOW_PASCAL_in_convertPressure1723); 
                     r = x;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:408:4: x= numericValue BAR
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:446:4: x= numericValue BAR
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertPressure1552);
+                    pushFollow(FOLLOW_numericValue_in_convertPressure1734);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,BAR,FOLLOW_BAR_in_convertPressure1554); 
+                    match(input,BAR,FOLLOW_BAR_in_convertPressure1736); 
                     r = x * 100000d;
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:410:4: x= numericValue MILLIBAR
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:448:4: x= numericValue MILLIBAR
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertPressure1565);
+                    pushFollow(FOLLOW_numericValue_in_convertPressure1747);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,MILLIBAR,FOLLOW_MILLIBAR_in_convertPressure1567); 
+                    match(input,MILLIBAR,FOLLOW_MILLIBAR_in_convertPressure1749); 
                     r = x * 100d;
 
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:412:4: x= numericValue ATMOSPHERE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:450:4: x= numericValue ATMOSPHERE
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertPressure1578);
+                    pushFollow(FOLLOW_numericValue_in_convertPressure1760);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,ATMOSPHERE,FOLLOW_ATMOSPHERE_in_convertPressure1580); 
+                    match(input,ATMOSPHERE,FOLLOW_ATMOSPHERE_in_convertPressure1762); 
                     r = x * 101325d;
 
                     }
@@ -3248,7 +3615,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertSpeed"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:417:1: convertSpeed returns [double r] : (x= convertDistance HOUR | x= convertDistance MINUTE | x= convertDistance SECOND );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:455:1: convertSpeed returns [double r] : (x= convertDistance HOUR | x= convertDistance MINUTE | x= convertDistance SECOND );
     public final double convertSpeed() throws RecognitionException {
         double r = 0.0;
 
@@ -3256,45 +3623,45 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:418:2: (x= convertDistance HOUR | x= convertDistance MINUTE | x= convertDistance SECOND )
-            int alt32=3;
-            alt32 = dfa32.predict(input);
-            switch (alt32) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:456:2: (x= convertDistance HOUR | x= convertDistance MINUTE | x= convertDistance SECOND )
+            int alt36=3;
+            alt36 = dfa36.predict(input);
+            switch (alt36) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:418:4: x= convertDistance HOUR
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:456:4: x= convertDistance HOUR
                     {
-                    pushFollow(FOLLOW_convertDistance_in_convertSpeed1602);
+                    pushFollow(FOLLOW_convertDistance_in_convertSpeed1784);
                     x=convertDistance();
 
                     state._fsp--;
 
-                    match(input,HOUR,FOLLOW_HOUR_in_convertSpeed1604); 
+                    match(input,HOUR,FOLLOW_HOUR_in_convertSpeed1786); 
                     r = x / 3600d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:420:4: x= convertDistance MINUTE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:458:4: x= convertDistance MINUTE
                     {
-                    pushFollow(FOLLOW_convertDistance_in_convertSpeed1615);
+                    pushFollow(FOLLOW_convertDistance_in_convertSpeed1797);
                     x=convertDistance();
 
                     state._fsp--;
 
-                    match(input,MINUTE,FOLLOW_MINUTE_in_convertSpeed1617); 
+                    match(input,MINUTE,FOLLOW_MINUTE_in_convertSpeed1799); 
                     r = x / 60d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:422:4: x= convertDistance SECOND
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:460:4: x= convertDistance SECOND
                     {
-                    pushFollow(FOLLOW_convertDistance_in_convertSpeed1628);
+                    pushFollow(FOLLOW_convertDistance_in_convertSpeed1810);
                     x=convertDistance();
 
                     state._fsp--;
 
-                    match(input,SECOND,FOLLOW_SECOND_in_convertSpeed1630); 
+                    match(input,SECOND,FOLLOW_SECOND_in_convertSpeed1812); 
                     r = x;
 
                     }
@@ -3314,7 +3681,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertThrottle"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:427:1: convertThrottle returns [double r] : x= percentValue ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:465:1: convertThrottle returns [double r] : x= percentValue ;
     public final double convertThrottle() throws RecognitionException {
         double r = 0.0;
 
@@ -3322,10 +3689,10 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:428:2: (x= percentValue )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:428:4: x= percentValue
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:466:2: (x= percentValue )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:466:4: x= percentValue
             {
-            pushFollow(FOLLOW_percentValue_in_convertThrottle1652);
+            pushFollow(FOLLOW_percentValue_in_convertThrottle1834);
             x=percentValue();
 
             state._fsp--;
@@ -3347,7 +3714,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertAngle"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:433:1: convertAngle returns [double r] : (x= numericValue DEGREE | deg= integerValue DEGREE minNum= numericValue MINUTE | deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND | x= numericValue RADIAN );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:471:1: convertAngle returns [double r] : (x= numericValue DEGREE | deg= integerValue DEGREE minNum= numericValue MINUTE | deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND | x= numericValue RADIAN );
     public final double convertAngle() throws RecognitionException {
         double r = 0.0;
 
@@ -3363,76 +3730,76 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:434:2: (x= numericValue DEGREE | deg= integerValue DEGREE minNum= numericValue MINUTE | deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND | x= numericValue RADIAN )
-            int alt33=4;
-            alt33 = dfa33.predict(input);
-            switch (alt33) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:472:2: (x= numericValue DEGREE | deg= integerValue DEGREE minNum= numericValue MINUTE | deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND | x= numericValue RADIAN )
+            int alt37=4;
+            alt37 = dfa37.predict(input);
+            switch (alt37) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:434:4: x= numericValue DEGREE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:472:4: x= numericValue DEGREE
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertAngle1674);
+                    pushFollow(FOLLOW_numericValue_in_convertAngle1856);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,DEGREE,FOLLOW_DEGREE_in_convertAngle1676); 
+                    match(input,DEGREE,FOLLOW_DEGREE_in_convertAngle1858); 
                     r = x;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:436:4: deg= integerValue DEGREE minNum= numericValue MINUTE
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:474:4: deg= integerValue DEGREE minNum= numericValue MINUTE
                     {
-                    pushFollow(FOLLOW_integerValue_in_convertAngle1687);
+                    pushFollow(FOLLOW_integerValue_in_convertAngle1869);
                     deg=integerValue();
 
                     state._fsp--;
 
-                    match(input,DEGREE,FOLLOW_DEGREE_in_convertAngle1689); 
-                    pushFollow(FOLLOW_numericValue_in_convertAngle1693);
+                    match(input,DEGREE,FOLLOW_DEGREE_in_convertAngle1871); 
+                    pushFollow(FOLLOW_numericValue_in_convertAngle1875);
                     minNum=numericValue();
 
                     state._fsp--;
 
-                    match(input,MINUTE,FOLLOW_MINUTE_in_convertAngle1695); 
+                    match(input,MINUTE,FOLLOW_MINUTE_in_convertAngle1877); 
                     r = deg + minNum/60d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:438:4: deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:476:4: deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND
                     {
-                    pushFollow(FOLLOW_integerValue_in_convertAngle1706);
+                    pushFollow(FOLLOW_integerValue_in_convertAngle1888);
                     deg=integerValue();
 
                     state._fsp--;
 
-                    match(input,DEGREE,FOLLOW_DEGREE_in_convertAngle1708); 
-                    pushFollow(FOLLOW_integerValue_in_convertAngle1712);
+                    match(input,DEGREE,FOLLOW_DEGREE_in_convertAngle1890); 
+                    pushFollow(FOLLOW_integerValue_in_convertAngle1894);
                     minInt=integerValue();
 
                     state._fsp--;
 
-                    match(input,MINUTE,FOLLOW_MINUTE_in_convertAngle1714); 
-                    pushFollow(FOLLOW_numericValue_in_convertAngle1718);
+                    match(input,MINUTE,FOLLOW_MINUTE_in_convertAngle1896); 
+                    pushFollow(FOLLOW_numericValue_in_convertAngle1900);
                     sec=numericValue();
 
                     state._fsp--;
 
-                    match(input,SECOND,FOLLOW_SECOND_in_convertAngle1720); 
+                    match(input,SECOND,FOLLOW_SECOND_in_convertAngle1902); 
                     r = deg + minInt/60d + sec/3600d;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:440:4: x= numericValue RADIAN
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:478:4: x= numericValue RADIAN
                     {
-                    pushFollow(FOLLOW_numericValue_in_convertAngle1731);
+                    pushFollow(FOLLOW_numericValue_in_convertAngle1913);
                     x=numericValue();
 
                     state._fsp--;
 
-                    match(input,RADIAN,FOLLOW_RADIAN_in_convertAngle1733); 
+                    match(input,RADIAN,FOLLOW_RADIAN_in_convertAngle1915); 
                     r = x * 180d / Math.PI;
 
                     }
@@ -3452,70 +3819,70 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertCardinalDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:445:1: convertCardinalDirection returns [double r] : ( NORTH | EAST | SOUTH | WEST );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:483:1: convertCardinalDirection returns [double r] : ( NORTH | EAST | SOUTH | WEST );
     public final double convertCardinalDirection() throws RecognitionException {
         double r = 0.0;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:446:2: ( NORTH | EAST | SOUTH | WEST )
-            int alt34=4;
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:484:2: ( NORTH | EAST | SOUTH | WEST )
+            int alt38=4;
             switch ( input.LA(1) ) {
             case NORTH:
                 {
-                alt34=1;
+                alt38=1;
                 }
                 break;
             case EAST:
                 {
-                alt34=2;
+                alt38=2;
                 }
                 break;
             case SOUTH:
                 {
-                alt34=3;
+                alt38=3;
                 }
                 break;
             case WEST:
                 {
-                alt34=4;
+                alt38=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 34, 0, input);
+                    new NoViableAltException("", 38, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt34) {
+            switch (alt38) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:446:4: NORTH
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:484:4: NORTH
                     {
-                    match(input,NORTH,FOLLOW_NORTH_in_convertCardinalDirection1753); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertCardinalDirection1935); 
                     r = 0d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:448:4: EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:486:4: EAST
                     {
-                    match(input,EAST,FOLLOW_EAST_in_convertCardinalDirection1762); 
+                    match(input,EAST,FOLLOW_EAST_in_convertCardinalDirection1944); 
                     r = 90d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:450:4: SOUTH
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:488:4: SOUTH
                     {
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertCardinalDirection1771); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertCardinalDirection1953); 
                     r = 180d;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:452:4: WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:490:4: WEST
                     {
-                    match(input,WEST,FOLLOW_WEST_in_convertCardinalDirection1780); 
+                    match(input,WEST,FOLLOW_WEST_in_convertCardinalDirection1962); 
                     r = 270d;
 
                     }
@@ -3535,86 +3902,86 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertOrdinalDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:457:1: convertOrdinalDirection returns [double r] : ( NORTH EAST | SOUTH EAST | SOUTH WEST | NORTH WEST );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:495:1: convertOrdinalDirection returns [double r] : ( NORTH EAST | SOUTH EAST | SOUTH WEST | NORTH WEST );
     public final double convertOrdinalDirection() throws RecognitionException {
         double r = 0.0;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:458:2: ( NORTH EAST | SOUTH EAST | SOUTH WEST | NORTH WEST )
-            int alt35=4;
-            int LA35_0 = input.LA(1);
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:496:2: ( NORTH EAST | SOUTH EAST | SOUTH WEST | NORTH WEST )
+            int alt39=4;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA35_0==NORTH) ) {
-                int LA35_1 = input.LA(2);
+            if ( (LA39_0==NORTH) ) {
+                int LA39_1 = input.LA(2);
 
-                if ( (LA35_1==EAST) ) {
-                    alt35=1;
+                if ( (LA39_1==EAST) ) {
+                    alt39=1;
                 }
-                else if ( (LA35_1==WEST) ) {
-                    alt35=4;
+                else if ( (LA39_1==WEST) ) {
+                    alt39=4;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 35, 1, input);
+                        new NoViableAltException("", 39, 1, input);
 
                     throw nvae;
                 }
             }
-            else if ( (LA35_0==SOUTH) ) {
-                int LA35_2 = input.LA(2);
+            else if ( (LA39_0==SOUTH) ) {
+                int LA39_2 = input.LA(2);
 
-                if ( (LA35_2==EAST) ) {
-                    alt35=2;
+                if ( (LA39_2==EAST) ) {
+                    alt39=2;
                 }
-                else if ( (LA35_2==WEST) ) {
-                    alt35=3;
+                else if ( (LA39_2==WEST) ) {
+                    alt39=3;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 35, 2, input);
+                        new NoViableAltException("", 39, 2, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 35, 0, input);
+                    new NoViableAltException("", 39, 0, input);
 
                 throw nvae;
             }
-            switch (alt35) {
+            switch (alt39) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:458:4: NORTH EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:496:4: NORTH EAST
                     {
-                    match(input,NORTH,FOLLOW_NORTH_in_convertOrdinalDirection1800); 
-                    match(input,EAST,FOLLOW_EAST_in_convertOrdinalDirection1802); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertOrdinalDirection1982); 
+                    match(input,EAST,FOLLOW_EAST_in_convertOrdinalDirection1984); 
                     r = 45d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:460:4: SOUTH EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:498:4: SOUTH EAST
                     {
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertOrdinalDirection1811); 
-                    match(input,EAST,FOLLOW_EAST_in_convertOrdinalDirection1813); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertOrdinalDirection1993); 
+                    match(input,EAST,FOLLOW_EAST_in_convertOrdinalDirection1995); 
                     r = 135d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:462:4: SOUTH WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:500:4: SOUTH WEST
                     {
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertOrdinalDirection1822); 
-                    match(input,WEST,FOLLOW_WEST_in_convertOrdinalDirection1824); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertOrdinalDirection2004); 
+                    match(input,WEST,FOLLOW_WEST_in_convertOrdinalDirection2006); 
                     r = 225d;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:464:4: NORTH WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:502:4: NORTH WEST
                     {
-                    match(input,NORTH,FOLLOW_NORTH_in_convertOrdinalDirection1833); 
-                    match(input,WEST,FOLLOW_WEST_in_convertOrdinalDirection1835); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertOrdinalDirection2015); 
+                    match(input,WEST,FOLLOW_WEST_in_convertOrdinalDirection2017); 
                     r = 315d;
 
                     }
@@ -3634,91 +4001,91 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertSubOrdinalDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:469:1: convertSubOrdinalDirection returns [double r] : ( NORTH NORTH EAST | EAST NORTH EAST | EAST SOUTH EAST | SOUTH SOUTH EAST | SOUTH SOUTH WEST | WEST SOUTH WEST | WEST NORTH WEST | NORTH NORTH WEST );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:507:1: convertSubOrdinalDirection returns [double r] : ( NORTH NORTH EAST | EAST NORTH EAST | EAST SOUTH EAST | SOUTH SOUTH EAST | SOUTH SOUTH WEST | WEST SOUTH WEST | WEST NORTH WEST | NORTH NORTH WEST );
     public final double convertSubOrdinalDirection() throws RecognitionException {
         double r = 0.0;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:470:2: ( NORTH NORTH EAST | EAST NORTH EAST | EAST SOUTH EAST | SOUTH SOUTH EAST | SOUTH SOUTH WEST | WEST SOUTH WEST | WEST NORTH WEST | NORTH NORTH WEST )
-            int alt36=8;
-            alt36 = dfa36.predict(input);
-            switch (alt36) {
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:508:2: ( NORTH NORTH EAST | EAST NORTH EAST | EAST SOUTH EAST | SOUTH SOUTH EAST | SOUTH SOUTH WEST | WEST SOUTH WEST | WEST NORTH WEST | NORTH NORTH WEST )
+            int alt40=8;
+            alt40 = dfa40.predict(input);
+            switch (alt40) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:470:4: NORTH NORTH EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:508:4: NORTH NORTH EAST
                     {
-                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection1855); 
-                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection1857); 
-                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection1859); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection2037); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection2039); 
+                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection2041); 
                     r = 22.5d;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:472:4: EAST NORTH EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:510:4: EAST NORTH EAST
                     {
-                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection1868); 
-                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection1870); 
-                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection1872); 
+                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection2050); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection2052); 
+                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection2054); 
                     r = 67.5d;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:474:4: EAST SOUTH EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:512:4: EAST SOUTH EAST
                     {
-                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection1881); 
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection1883); 
-                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection1885); 
+                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection2063); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection2065); 
+                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection2067); 
                     r = 112.5d;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:476:4: SOUTH SOUTH EAST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:514:4: SOUTH SOUTH EAST
                     {
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection1894); 
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection1896); 
-                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection1898); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection2076); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection2078); 
+                    match(input,EAST,FOLLOW_EAST_in_convertSubOrdinalDirection2080); 
                     r = 157.5d;
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:478:4: SOUTH SOUTH WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:516:4: SOUTH SOUTH WEST
                     {
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection1907); 
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection1909); 
-                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection1911); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection2089); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection2091); 
+                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection2093); 
                     r = 202.5d;
 
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:480:4: WEST SOUTH WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:518:4: WEST SOUTH WEST
                     {
-                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection1920); 
-                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection1922); 
-                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection1924); 
+                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection2102); 
+                    match(input,SOUTH,FOLLOW_SOUTH_in_convertSubOrdinalDirection2104); 
+                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection2106); 
                     r = 247.5d;
 
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:482:4: WEST NORTH WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:520:4: WEST NORTH WEST
                     {
-                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection1933); 
-                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection1935); 
-                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection1937); 
+                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection2115); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection2117); 
+                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection2119); 
                     r = 292.5d;
 
                     }
                     break;
                 case 8 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:484:4: NORTH NORTH WEST
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:522:4: NORTH NORTH WEST
                     {
-                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection1946); 
-                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection1948); 
-                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection1950); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection2128); 
+                    match(input,NORTH,FOLLOW_NORTH_in_convertSubOrdinalDirection2130); 
+                    match(input,WEST,FOLLOW_WEST_in_convertSubOrdinalDirection2132); 
                     r = 337.5d;
 
                     }
@@ -3738,10 +4105,10 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "convertDirection"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:488:1: convertDirection[double r] : ( ( CLIMB | RIGHT | CLOCKWISE ) | ( DESCEND | LEFT | COUNTERCLOCKWISE ) );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:526:1: convertDirection[double r] : ( ( CLIMB | RIGHT | CLOCKWISE ) | ( DESCEND | LEFT | COUNTERCLOCKWISE ) );
     public final void convertDirection(double r) throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:489:2: ( ( CLIMB | RIGHT | CLOCKWISE ) | ( DESCEND | LEFT | COUNTERCLOCKWISE ) )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:527:2: ( ( CLIMB | RIGHT | CLOCKWISE ) | ( DESCEND | LEFT | COUNTERCLOCKWISE ) )
             // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:
             {
             if ( (input.LA(1)>=LEFT && input.LA(1)<=COUNTERCLOCKWISE)||(input.LA(1)>=CLIMB && input.LA(1)<=DESCEND) ) {
@@ -3769,7 +4136,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "numericValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:494:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:532:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral );
     public final double numericValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3778,27 +4145,27 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:495:2: (x= integerValue | y= FloatingPointLiteral )
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:533:2: (x= integerValue | y= FloatingPointLiteral )
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( ((LA37_0>=BinaryLiteral && LA37_0<=HexLiteral)) ) {
-                alt37=1;
+            if ( ((LA41_0>=BinaryLiteral && LA41_0<=HexLiteral)) ) {
+                alt41=1;
             }
-            else if ( (LA37_0==FloatingPointLiteral) ) {
-                alt37=2;
+            else if ( (LA41_0==FloatingPointLiteral) ) {
+                alt41=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 37, 0, input);
+                    new NoViableAltException("", 41, 0, input);
 
                 throw nvae;
             }
-            switch (alt37) {
+            switch (alt41) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:495:4: x= integerValue
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:533:4: x= integerValue
                     {
-                    pushFollow(FOLLOW_integerValue_in_numericValue2001);
+                    pushFollow(FOLLOW_integerValue_in_numericValue2183);
                     x=integerValue();
 
                     state._fsp--;
@@ -3808,9 +4175,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:497:4: y= FloatingPointLiteral
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:535:4: y= FloatingPointLiteral
                     {
-                    y=(CommonTree)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue2012); 
+                    y=(CommonTree)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue2194); 
                     r = Double.parseDouble(y.getText());
 
                     }
@@ -3830,72 +4197,72 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "integerValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:501:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral );
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:539:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral );
     public final int integerValue() throws RecognitionException {
         int r = 0;
 
         CommonTree x=null;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:502:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral )
-            int alt38=4;
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:540:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral )
+            int alt42=4;
             switch ( input.LA(1) ) {
             case BinaryLiteral:
                 {
-                alt38=1;
+                alt42=1;
                 }
                 break;
             case OctalLiteral:
                 {
-                alt38=2;
+                alt42=2;
                 }
                 break;
             case DecimalLiteral:
                 {
-                alt38=3;
+                alt42=3;
                 }
                 break;
             case HexLiteral:
                 {
-                alt38=4;
+                alt42=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 38, 0, input);
+                    new NoViableAltException("", 42, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt38) {
+            switch (alt42) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:502:4: x= BinaryLiteral
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:540:4: x= BinaryLiteral
                     {
-                    x=(CommonTree)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue2033); 
+                    x=(CommonTree)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue2215); 
                     r = Integer.parseInt(x.getText().substring(2),2);
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:504:4: x= OctalLiteral
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:542:4: x= OctalLiteral
                     {
-                    x=(CommonTree)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue2044); 
+                    x=(CommonTree)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue2226); 
                     r = Integer.parseInt(x.getText().substring(1),8);
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:506:4: x= DecimalLiteral
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:544:4: x= DecimalLiteral
                     {
-                    x=(CommonTree)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue2055); 
+                    x=(CommonTree)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue2237); 
                     r = Integer.parseInt(x.getText());
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:508:4: x= HexLiteral
+                    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:546:4: x= HexLiteral
                     {
-                    x=(CommonTree)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue2066); 
+                    x=(CommonTree)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue2248); 
                     r = Integer.parseInt(x.getText().substring(2),16);
 
                     }
@@ -3915,7 +4282,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "percentValue"
-    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:512:1: percentValue returns [double r] : x= numericValue PERCENT ;
+    // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:550:1: percentValue returns [double r] : x= numericValue PERCENT ;
     public final double percentValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3923,15 +4290,15 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:513:2: (x= numericValue PERCENT )
-            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:513:4: x= numericValue PERCENT
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:551:2: (x= numericValue PERCENT )
+            // /Users/reunice/Documents/flips-uav/src/compiler/flipsAssembly.g:551:4: x= numericValue PERCENT
             {
-            pushFollow(FOLLOW_numericValue_in_percentValue2087);
+            pushFollow(FOLLOW_numericValue_in_percentValue2269);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,PERCENT,FOLLOW_PERCENT_in_percentValue2089); 
+            match(input,PERCENT,FOLLOW_PERCENT_in_percentValue2271); 
             r = x;
 
             }
@@ -3951,17 +4318,19 @@ public class flipsAssembly extends TreeParser {
 
 
     protected DFA4 dfa4 = new DFA4(this);
-    protected DFA11 dfa11 = new DFA11(this);
-    protected DFA13 dfa13 = new DFA13(this);
-    protected DFA20 dfa20 = new DFA20(this);
-    protected DFA23 dfa23 = new DFA23(this);
-    protected DFA27 dfa27 = new DFA27(this);
-    protected DFA28 dfa28 = new DFA28(this);
+    protected DFA12 dfa12 = new DFA12(this);
+    protected DFA14 dfa14 = new DFA14(this);
+    protected DFA21 dfa21 = new DFA21(this);
+    protected DFA24 dfa24 = new DFA24(this);
+    protected DFA29 dfa29 = new DFA29(this);
     protected DFA30 dfa30 = new DFA30(this);
     protected DFA31 dfa31 = new DFA31(this);
     protected DFA32 dfa32 = new DFA32(this);
-    protected DFA33 dfa33 = new DFA33(this);
+    protected DFA34 dfa34 = new DFA34(this);
+    protected DFA35 dfa35 = new DFA35(this);
     protected DFA36 dfa36 = new DFA36(this);
+    protected DFA37 dfa37 = new DFA37(this);
+    protected DFA40 dfa40 = new DFA40(this);
     static final String DFA4_eotS =
         "\14\uffff";
     static final String DFA4_eofS =
@@ -3971,7 +4340,7 @@ public class flipsAssembly extends TreeParser {
     static final String DFA4_maxS =
         "\1\5\1\2\1\112\1\6\1\2\1\125\4\7\2\uffff";
     static final String DFA4_acceptS =
-        "\12\uffff\1\1\1\2";
+        "\12\uffff\1\2\1\1";
     static final String DFA4_specialS =
         "\14\uffff}>";
     static final String[] DFA4_transitionS = {
@@ -3981,10 +4350,10 @@ public class flipsAssembly extends TreeParser {
             "\1\4",
             "\1\5",
             "\1\6\1\7\1\10\1\11",
-            "\1\12\3\uffff\1\13",
-            "\1\12\3\uffff\1\13",
-            "\1\12\3\uffff\1\13",
-            "\1\12\3\uffff\1\13",
+            "\1\13\3\uffff\1\12",
+            "\1\13\3\uffff\1\12",
+            "\1\13\3\uffff\1\12",
+            "\1\13\3\uffff\1\12",
             "",
             ""
     };
@@ -4019,22 +4388,22 @@ public class flipsAssembly extends TreeParser {
             this.transition = DFA4_transition;
         }
         public String getDescription() {
-            return "126:1: defineCommand : ( ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) ) | ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) ) );";
+            return "127:1: defineCommand : ( ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue ) ) | ^( DEFINE name= Identifier ^( COMMAND cmd= integerValue PARAMETER par= integerValue ) ) );";
         }
     }
-    static final String DFA11_eotS =
+    static final String DFA12_eotS =
         "\16\uffff";
-    static final String DFA11_eofS =
+    static final String DFA12_eofS =
         "\16\uffff";
-    static final String DFA11_minS =
+    static final String DFA12_minS =
         "\1\22\1\2\1\16\1\47\1\76\3\uffff\2\47\4\uffff";
-    static final String DFA11_maxS =
+    static final String DFA12_maxS =
         "\1\22\1\2\1\17\1\64\1\77\3\uffff\2\64\4\uffff";
-    static final String DFA11_acceptS =
+    static final String DFA12_acceptS =
         "\5\uffff\1\1\1\2\1\3\2\uffff\1\4\1\5\1\6\1\7";
-    static final String DFA11_specialS =
+    static final String DFA12_specialS =
         "\16\uffff}>";
-    static final String[] DFA11_transitionS = {
+    static final String[] DFA12_transitionS = {
             "\1\1",
             "\1\2",
             "\1\3\1\4",
@@ -4051,53 +4420,53 @@ public class flipsAssembly extends TreeParser {
             ""
     };
 
-    static final short[] DFA11_eot = DFA.unpackEncodedString(DFA11_eotS);
-    static final short[] DFA11_eof = DFA.unpackEncodedString(DFA11_eofS);
-    static final char[] DFA11_min = DFA.unpackEncodedStringToUnsignedChars(DFA11_minS);
-    static final char[] DFA11_max = DFA.unpackEncodedStringToUnsignedChars(DFA11_maxS);
-    static final short[] DFA11_accept = DFA.unpackEncodedString(DFA11_acceptS);
-    static final short[] DFA11_special = DFA.unpackEncodedString(DFA11_specialS);
-    static final short[][] DFA11_transition;
+    static final short[] DFA12_eot = DFA.unpackEncodedString(DFA12_eotS);
+    static final short[] DFA12_eof = DFA.unpackEncodedString(DFA12_eofS);
+    static final char[] DFA12_min = DFA.unpackEncodedStringToUnsignedChars(DFA12_minS);
+    static final char[] DFA12_max = DFA.unpackEncodedStringToUnsignedChars(DFA12_maxS);
+    static final short[] DFA12_accept = DFA.unpackEncodedString(DFA12_acceptS);
+    static final short[] DFA12_special = DFA.unpackEncodedString(DFA12_specialS);
+    static final short[][] DFA12_transition;
 
     static {
-        int numStates = DFA11_transitionS.length;
-        DFA11_transition = new short[numStates][];
+        int numStates = DFA12_transitionS.length;
+        DFA12_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA11_transition[i] = DFA.unpackEncodedString(DFA11_transitionS[i]);
+            DFA12_transition[i] = DFA.unpackEncodedString(DFA12_transitionS[i]);
         }
     }
 
-    class DFA11 extends DFA {
+    class DFA12 extends DFA {
 
-        public DFA11(BaseRecognizer recognizer) {
+        public DFA12(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 11;
-            this.eot = DFA11_eot;
-            this.eof = DFA11_eof;
-            this.min = DFA11_min;
-            this.max = DFA11_max;
-            this.accept = DFA11_accept;
-            this.special = DFA11_special;
-            this.transition = DFA11_transition;
+            this.decisionNumber = 12;
+            this.eot = DFA12_eot;
+            this.eof = DFA12_eof;
+            this.min = DFA12_min;
+            this.max = DFA12_max;
+            this.accept = DFA12_accept;
+            this.special = DFA12_special;
+            this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "218:1: altitude : ( ^( ALTITUDE FIXED DISTANCE x= convertDistance ) | ^( ALTITUDE FIXED PRESSURE y= convertPressure ) | ^( ALTITUDE FIXED x= convertFlightLevel ) | ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure ) | ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure ) );";
+            return "221:1: altitude : ( ^( ALTITUDE FIXED DISTANCE x= convertDistance ) | ^( ALTITUDE FIXED PRESSURE y= convertPressure ) | ^( ALTITUDE FIXED x= convertFlightLevel ) | ^( ALTITUDE RELATIVE CLIMB DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE CLIMB PRESSURE y= convertPressure ) | ^( ALTITUDE RELATIVE DESCEND DISTANCE x= convertDistance ) | ^( ALTITUDE RELATIVE DESCEND PRESSURE y= convertPressure ) );";
         }
     }
-    static final String DFA13_eotS =
+    static final String DFA14_eotS =
         "\32\uffff";
-    static final String DFA13_eofS =
+    static final String DFA14_eofS =
         "\32\uffff";
-    static final String DFA13_minS =
+    static final String DFA14_minS =
         "\1\23\1\2\1\16\1\uffff\1\24\1\70\1\uffff\2\121\3\uffff\12\50\4\uffff";
-    static final String DFA13_maxS =
+    static final String DFA14_maxS =
         "\1\23\1\2\1\27\1\uffff\1\25\1\72\1\uffff\2\125\3\uffff\12\62\4\uffff";
-    static final String DFA13_acceptS =
+    static final String DFA14_acceptS =
         "\3\uffff\1\1\2\uffff\1\11\2\uffff\1\6\1\7\1\10\12\uffff\1\2\1\4"+
         "\1\3\1\5";
-    static final String DFA13_specialS =
+    static final String DFA14_specialS =
         "\32\uffff}>";
-    static final String[] DFA13_transitionS = {
+    static final String[] DFA14_transitionS = {
             "\1\1",
             "\1\2",
             "\1\3\1\4\6\uffff\1\5\1\6",
@@ -4126,139 +4495,139 @@ public class flipsAssembly extends TreeParser {
             ""
     };
 
-    static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
-    static final short[] DFA13_eof = DFA.unpackEncodedString(DFA13_eofS);
-    static final char[] DFA13_min = DFA.unpackEncodedStringToUnsignedChars(DFA13_minS);
-    static final char[] DFA13_max = DFA.unpackEncodedStringToUnsignedChars(DFA13_maxS);
-    static final short[] DFA13_accept = DFA.unpackEncodedString(DFA13_acceptS);
-    static final short[] DFA13_special = DFA.unpackEncodedString(DFA13_specialS);
-    static final short[][] DFA13_transition;
+    static final short[] DFA14_eot = DFA.unpackEncodedString(DFA14_eotS);
+    static final short[] DFA14_eof = DFA.unpackEncodedString(DFA14_eofS);
+    static final char[] DFA14_min = DFA.unpackEncodedStringToUnsignedChars(DFA14_minS);
+    static final char[] DFA14_max = DFA.unpackEncodedStringToUnsignedChars(DFA14_maxS);
+    static final short[] DFA14_accept = DFA.unpackEncodedString(DFA14_acceptS);
+    static final short[] DFA14_special = DFA.unpackEncodedString(DFA14_specialS);
+    static final short[][] DFA14_transition;
 
     static {
-        int numStates = DFA13_transitionS.length;
-        DFA13_transition = new short[numStates][];
+        int numStates = DFA14_transitionS.length;
+        DFA14_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA13_transition[i] = DFA.unpackEncodedString(DFA13_transitionS[i]);
+            DFA14_transition[i] = DFA.unpackEncodedString(DFA14_transitionS[i]);
         }
     }
 
-    class DFA13 extends DFA {
+    class DFA14 extends DFA {
 
-        public DFA13(BaseRecognizer recognizer) {
+        public DFA14(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 13;
-            this.eot = DFA13_eot;
-            this.eof = DFA13_eof;
-            this.min = DFA13_min;
-            this.max = DFA13_max;
-            this.accept = DFA13_accept;
-            this.special = DFA13_special;
-            this.transition = DFA13_transition;
+            this.decisionNumber = 14;
+            this.eot = DFA14_eot;
+            this.eof = DFA14_eof;
+            this.min = DFA14_min;
+            this.max = DFA14_max;
+            this.accept = DFA14_accept;
+            this.special = DFA14_special;
+            this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "253:1: speed : ( ^( SPEED FIXED x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= convertSpeed ) | ^( SPEED RELATIVE SLOWER x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= percentValue ) | ^( SPEED RELATIVE SLOWER x= percentValue ) | ^( SPEED OPTIMAL MINIMUM ) | ^( SPEED OPTIMAL CRUISE ) | ^( SPEED OPTIMAL MAXIMUM ) | ^( SPEED THROTTLE y= convertThrottle ) );";
+            return "256:1: speed : ( ^( SPEED FIXED x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= convertSpeed ) | ^( SPEED RELATIVE SLOWER x= convertSpeed ) | ^( SPEED RELATIVE FASTER x= percentValue ) | ^( SPEED RELATIVE SLOWER x= percentValue ) | ^( SPEED OPTIMAL MINIMUM ) | ^( SPEED OPTIMAL CRUISE ) | ^( SPEED OPTIMAL MAXIMUM ) | ^( SPEED THROTTLE y= convertThrottle ) );";
         }
     }
-    static final String DFA20_eotS =
+    static final String DFA21_eotS =
         "\36\uffff";
-    static final String DFA20_eofS =
+    static final String DFA21_eofS =
         "\36\uffff";
-    static final String DFA20_minS =
+    static final String DFA21_minS =
         "\1\30\1\2\1\121\5\42\3\31\5\42\3\uffff\3\31\5\42\3\31";
-    static final String DFA20_maxS =
+    static final String DFA21_maxS =
         "\1\30\1\2\1\125\5\44\3\125\5\44\3\uffff\3\125\5\44\3\33";
-    static final String DFA20_acceptS =
-        "\20\uffff\1\2\1\3\1\1\13\uffff";
-    static final String DFA20_specialS =
+    static final String DFA21_acceptS =
+        "\20\uffff\1\3\1\1\1\2\13\uffff";
+    static final String DFA21_specialS =
         "\36\uffff}>";
-    static final String[] DFA20_transitionS = {
+    static final String[] DFA21_transitionS = {
             "\1\1",
             "\1\2",
             "\1\7\1\3\1\4\1\5\1\6",
-            "\1\11\1\12\1\10",
-            "\1\11\1\12\1\10",
-            "\1\11\1\12\1\10",
-            "\1\11\1\12\1\10",
-            "\1\11\1\12\1\10",
-            "\1\22\1\20\1\21\65\uffff\1\17\1\13\1\14\1\15\1\16",
-            "\1\22\1\20\1\21\65\uffff\1\17\1\13\1\14\1\15\1\16",
-            "\1\22\1\20\1\21\65\uffff\1\17\1\13\1\14\1\15\1\16",
-            "\1\23\1\25\1\24",
-            "\1\23\1\25\1\24",
-            "\1\23\1\25\1\24",
-            "\1\23\1\25\1\24",
-            "\1\23\1\25\1\24",
+            "\1\10\1\12\1\11",
+            "\1\10\1\12\1\11",
+            "\1\10\1\12\1\11",
+            "\1\10\1\12\1\11",
+            "\1\10\1\12\1\11",
+            "\1\21\1\22\1\20\65\uffff\1\17\1\13\1\14\1\15\1\16",
+            "\1\21\1\22\1\20\65\uffff\1\17\1\13\1\14\1\15\1\16",
+            "\1\21\1\22\1\20\65\uffff\1\17\1\13\1\14\1\15\1\16",
+            "\1\24\1\23\1\25",
+            "\1\24\1\23\1\25",
+            "\1\24\1\23\1\25",
+            "\1\24\1\23\1\25",
+            "\1\24\1\23\1\25",
             "",
             "",
             "",
-            "\1\22\1\20\1\21\65\uffff\1\32\1\26\1\27\1\30\1\31",
-            "\1\22\1\20\1\21\65\uffff\1\32\1\26\1\27\1\30\1\31",
-            "\1\22\1\20\1\21\65\uffff\1\32\1\26\1\27\1\30\1\31",
-            "\1\34\1\33\1\35",
-            "\1\34\1\33\1\35",
-            "\1\34\1\33\1\35",
-            "\1\34\1\33\1\35",
-            "\1\34\1\33\1\35",
-            "\1\22\1\20\1\21",
-            "\1\22\1\20\1\21",
-            "\1\22\1\20\1\21"
+            "\1\21\1\22\1\20\65\uffff\1\32\1\26\1\27\1\30\1\31",
+            "\1\21\1\22\1\20\65\uffff\1\32\1\26\1\27\1\30\1\31",
+            "\1\21\1\22\1\20\65\uffff\1\32\1\26\1\27\1\30\1\31",
+            "\1\35\1\33\1\34",
+            "\1\35\1\33\1\34",
+            "\1\35\1\33\1\34",
+            "\1\35\1\33\1\34",
+            "\1\35\1\33\1\34",
+            "\1\21\1\22\1\20",
+            "\1\21\1\22\1\20",
+            "\1\21\1\22\1\20"
     };
 
-    static final short[] DFA20_eot = DFA.unpackEncodedString(DFA20_eotS);
-    static final short[] DFA20_eof = DFA.unpackEncodedString(DFA20_eofS);
-    static final char[] DFA20_min = DFA.unpackEncodedStringToUnsignedChars(DFA20_minS);
-    static final char[] DFA20_max = DFA.unpackEncodedStringToUnsignedChars(DFA20_maxS);
-    static final short[] DFA20_accept = DFA.unpackEncodedString(DFA20_acceptS);
-    static final short[] DFA20_special = DFA.unpackEncodedString(DFA20_specialS);
-    static final short[][] DFA20_transition;
+    static final short[] DFA21_eot = DFA.unpackEncodedString(DFA21_eotS);
+    static final short[] DFA21_eof = DFA.unpackEncodedString(DFA21_eofS);
+    static final char[] DFA21_min = DFA.unpackEncodedStringToUnsignedChars(DFA21_minS);
+    static final char[] DFA21_max = DFA.unpackEncodedStringToUnsignedChars(DFA21_maxS);
+    static final short[] DFA21_accept = DFA.unpackEncodedString(DFA21_acceptS);
+    static final short[] DFA21_special = DFA.unpackEncodedString(DFA21_specialS);
+    static final short[][] DFA21_transition;
 
     static {
-        int numStates = DFA20_transitionS.length;
-        DFA20_transition = new short[numStates][];
+        int numStates = DFA21_transitionS.length;
+        DFA21_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA20_transition[i] = DFA.unpackEncodedString(DFA20_transitionS[i]);
+            DFA21_transition[i] = DFA.unpackEncodedString(DFA21_transitionS[i]);
         }
     }
 
-    class DFA20 extends DFA {
+    class DFA21 extends DFA {
 
-        public DFA20(BaseRecognizer recognizer) {
+        public DFA21(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 20;
-            this.eot = DFA20_eot;
-            this.eof = DFA20_eof;
-            this.min = DFA20_min;
-            this.max = DFA20_max;
-            this.accept = DFA20_accept;
-            this.special = DFA20_special;
-            this.transition = DFA20_transition;
+            this.decisionNumber = 21;
+            this.eot = DFA21_eot;
+            this.eof = DFA21_eof;
+            this.min = DFA21_min;
+            this.max = DFA21_max;
+            this.accept = DFA21_accept;
+            this.special = DFA21_special;
+            this.transition = DFA21_transition;
         }
         public String getDescription() {
-            return "274:1: time : ( ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 ) );";
+            return "277:1: time : ( ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? AM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? PM ) | ^( TIME x= convertTime (y= convertTime (z= convertTime )? )? HOUR24 ) );";
         }
     }
-    static final String DFA23_eotS =
+    static final String DFA24_eotS =
         "\17\uffff";
-    static final String DFA23_eofS =
+    static final String DFA24_eofS =
         "\17\uffff";
-    static final String DFA23_minS =
+    static final String DFA24_minS =
         "\1\14\1\2\1\16\1\100\1\56\4\3\6\uffff";
-    static final String DFA23_maxS =
+    static final String DFA24_maxS =
         "\1\14\1\2\1\17\1\125\1\57\1\103\1\101\1\103\1\101\6\uffff";
-    static final String DFA23_acceptS =
-        "\11\uffff\1\4\1\5\1\6\1\3\1\2\1\1";
-    static final String DFA23_specialS =
+    static final String DFA24_acceptS =
+        "\11\uffff\1\4\1\5\1\6\1\2\1\3\1\1";
+    static final String DFA24_specialS =
         "\17\uffff}>";
-    static final String[] DFA23_transitionS = {
+    static final String[] DFA24_transitionS = {
             "\1\1",
             "\1\2",
             "\1\3\1\4",
             "\1\5\1\7\1\6\1\10\15\uffff\5\11",
             "\1\12\1\13",
-            "\1\16\74\uffff\1\14\1\uffff\2\15",
-            "\1\16\74\uffff\2\14",
-            "\1\16\75\uffff\1\14\2\15",
-            "\1\16\74\uffff\2\14",
+            "\1\16\74\uffff\1\15\1\uffff\2\14",
+            "\1\16\74\uffff\2\15",
+            "\1\16\75\uffff\1\15\2\14",
+            "\1\16\74\uffff\2\15",
             "",
             "",
             "",
@@ -4267,129 +4636,54 @@ public class flipsAssembly extends TreeParser {
             ""
     };
 
-    static final short[] DFA23_eot = DFA.unpackEncodedString(DFA23_eotS);
-    static final short[] DFA23_eof = DFA.unpackEncodedString(DFA23_eofS);
-    static final char[] DFA23_min = DFA.unpackEncodedStringToUnsignedChars(DFA23_minS);
-    static final char[] DFA23_max = DFA.unpackEncodedStringToUnsignedChars(DFA23_maxS);
-    static final short[] DFA23_accept = DFA.unpackEncodedString(DFA23_acceptS);
-    static final short[] DFA23_special = DFA.unpackEncodedString(DFA23_specialS);
-    static final short[][] DFA23_transition;
+    static final short[] DFA24_eot = DFA.unpackEncodedString(DFA24_eotS);
+    static final short[] DFA24_eof = DFA.unpackEncodedString(DFA24_eofS);
+    static final char[] DFA24_min = DFA.unpackEncodedStringToUnsignedChars(DFA24_minS);
+    static final char[] DFA24_max = DFA.unpackEncodedStringToUnsignedChars(DFA24_maxS);
+    static final short[] DFA24_accept = DFA.unpackEncodedString(DFA24_acceptS);
+    static final short[] DFA24_special = DFA.unpackEncodedString(DFA24_specialS);
+    static final short[][] DFA24_transition;
 
     static {
-        int numStates = DFA23_transitionS.length;
-        DFA23_transition = new short[numStates][];
+        int numStates = DFA24_transitionS.length;
+        DFA24_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA23_transition[i] = DFA.unpackEncodedString(DFA23_transitionS[i]);
+            DFA24_transition[i] = DFA.unpackEncodedString(DFA24_transitionS[i]);
         }
     }
 
-    class DFA23 extends DFA {
+    class DFA24 extends DFA {
 
-        public DFA23(BaseRecognizer recognizer) {
+        public DFA24(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 23;
-            this.eot = DFA23_eot;
-            this.eof = DFA23_eof;
-            this.min = DFA23_min;
-            this.max = DFA23_max;
-            this.accept = DFA23_accept;
-            this.special = DFA23_special;
-            this.transition = DFA23_transition;
+            this.decisionNumber = 24;
+            this.eot = DFA24_eot;
+            this.eof = DFA24_eof;
+            this.min = DFA24_min;
+            this.max = DFA24_max;
+            this.accept = DFA24_accept;
+            this.special = DFA24_special;
+            this.transition = DFA24_transition;
         }
         public String getDescription() {
-            return "292:1: direction : ( ^( DIRECTION FIXED x= convertCardinalDirection ) | ^( DIRECTION FIXED x= convertOrdinalDirection ) | ^( DIRECTION FIXED x= convertSubOrdinalDirection ) | ^( DIRECTION FIXED y= convertAngle ) | ^( DIRECTION RELATIVE LEFT y= convertAngle ) | ^( DIRECTION RELATIVE RIGHT y= convertAngle ) );";
+            return "295:1: direction : ( ^( DIRECTION FIXED x= convertCardinalDirection ) | ^( DIRECTION FIXED x= convertOrdinalDirection ) | ^( DIRECTION FIXED x= convertSubOrdinalDirection ) | ^( DIRECTION FIXED y= convertAngle ) | ^( DIRECTION RELATIVE LEFT y= convertAngle ) | ^( DIRECTION RELATIVE RIGHT y= convertAngle ) );";
         }
     }
-    static final String DFA27_eotS =
+    static final String DFA29_eotS =
         "\32\uffff";
-    static final String DFA27_eofS =
+    static final String DFA29_eofS =
         "\32\uffff";
-    static final String DFA27_minS =
-        "\1\40\1\2\1\121\5\45\3\100\2\uffff\5\43\2\100\5\44\1\100";
-    static final String DFA27_maxS =
-        "\1\40\1\2\1\125\5\46\1\101\1\125\1\101\2\uffff\5\43\1\125\1\101"+
-        "\5\44\1\101";
-    static final String DFA27_acceptS =
-        "\13\uffff\1\1\1\2\15\uffff";
-    static final String DFA27_specialS =
-        "\32\uffff}>";
-    static final String[] DFA27_transitionS = {
-            "\1\1",
-            "\1\2",
-            "\1\7\1\3\1\4\1\5\1\6",
-            "\1\11\1\10",
-            "\1\11\1\10",
-            "\1\11\1\10",
-            "\1\11\1\10",
-            "\1\12\1\10",
-            "\1\13\1\14",
-            "\1\13\1\14\17\uffff\1\21\1\15\1\16\1\17\1\20",
-            "\1\13\1\14",
-            "",
-            "",
-            "\1\22",
-            "\1\22",
-            "\1\22",
-            "\1\22",
-            "\1\23",
-            "\1\13\1\14\17\uffff\1\30\1\24\1\25\1\26\1\27",
-            "\1\13\1\14",
-            "\1\31",
-            "\1\31",
-            "\1\31",
-            "\1\31",
-            "\1\31",
-            "\1\13\1\14"
-    };
-
-    static final short[] DFA27_eot = DFA.unpackEncodedString(DFA27_eotS);
-    static final short[] DFA27_eof = DFA.unpackEncodedString(DFA27_eofS);
-    static final char[] DFA27_min = DFA.unpackEncodedStringToUnsignedChars(DFA27_minS);
-    static final char[] DFA27_max = DFA.unpackEncodedStringToUnsignedChars(DFA27_maxS);
-    static final short[] DFA27_accept = DFA.unpackEncodedString(DFA27_acceptS);
-    static final short[] DFA27_special = DFA.unpackEncodedString(DFA27_specialS);
-    static final short[][] DFA27_transition;
-
-    static {
-        int numStates = DFA27_transitionS.length;
-        DFA27_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA27_transition[i] = DFA.unpackEncodedString(DFA27_transitionS[i]);
-        }
-    }
-
-    class DFA27 extends DFA {
-
-        public DFA27(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 27;
-            this.eot = DFA27_eot;
-            this.eof = DFA27_eof;
-            this.min = DFA27_min;
-            this.max = DFA27_max;
-            this.accept = DFA27_accept;
-            this.special = DFA27_special;
-            this.transition = DFA27_transition;
-        }
-        public String getDescription() {
-            return "351:1: latitude returns [double r] : ( ^( LATITUDE x= convertAngle NORTH ) | ^( LATITUDE x= convertAngle SOUTH ) );";
-        }
-    }
-    static final String DFA28_eotS =
-        "\32\uffff";
-    static final String DFA28_eofS =
-        "\32\uffff";
-    static final String DFA28_minS =
-        "\1\41\1\2\1\121\5\45\3\102\1\uffff\4\43\1\uffff\1\43\2\102\5\44"+
-        "\1\102";
-    static final String DFA28_maxS =
-        "\1\41\1\2\1\125\5\46\1\125\2\103\1\uffff\4\43\1\uffff\1\43\1\125"+
-        "\1\103\5\44\1\103";
-    static final String DFA28_acceptS =
+    static final String DFA29_minS =
+        "\1\40\1\2\1\121\5\45\3\100\1\uffff\4\43\1\uffff\1\43\2\100\5\44"+
+        "\1\100";
+    static final String DFA29_maxS =
+        "\1\40\1\2\1\125\5\46\1\125\2\101\1\uffff\4\43\1\uffff\1\43\1\125"+
+        "\1\101\5\44\1\101";
+    static final String DFA29_acceptS =
         "\13\uffff\1\2\4\uffff\1\1\11\uffff";
-    static final String DFA28_specialS =
+    static final String DFA29_specialS =
         "\32\uffff}>";
-    static final String[] DFA28_transitionS = {
+    static final String[] DFA29_transitionS = {
             "\1\1",
             "\1\2",
             "\1\7\1\3\1\4\1\5\1\6",
@@ -4398,7 +4692,7 @@ public class flipsAssembly extends TreeParser {
             "\1\10\1\11",
             "\1\10\1\11",
             "\1\12\1\11",
-            "\1\20\1\13\15\uffff\1\21\1\14\1\15\1\16\1\17",
+            "\1\20\1\13\17\uffff\1\21\1\14\1\15\1\16\1\17",
             "\1\20\1\13",
             "\1\20\1\13",
             "",
@@ -4408,7 +4702,7 @@ public class flipsAssembly extends TreeParser {
             "\1\22",
             "",
             "\1\23",
-            "\1\20\1\13\15\uffff\1\30\1\24\1\25\1\26\1\27",
+            "\1\20\1\13\17\uffff\1\30\1\24\1\25\1\26\1\27",
             "\1\20\1\13",
             "\1\31",
             "\1\31",
@@ -4418,64 +4712,79 @@ public class flipsAssembly extends TreeParser {
             "\1\20\1\13"
     };
 
-    static final short[] DFA28_eot = DFA.unpackEncodedString(DFA28_eotS);
-    static final short[] DFA28_eof = DFA.unpackEncodedString(DFA28_eofS);
-    static final char[] DFA28_min = DFA.unpackEncodedStringToUnsignedChars(DFA28_minS);
-    static final char[] DFA28_max = DFA.unpackEncodedStringToUnsignedChars(DFA28_maxS);
-    static final short[] DFA28_accept = DFA.unpackEncodedString(DFA28_acceptS);
-    static final short[] DFA28_special = DFA.unpackEncodedString(DFA28_specialS);
-    static final short[][] DFA28_transition;
+    static final short[] DFA29_eot = DFA.unpackEncodedString(DFA29_eotS);
+    static final short[] DFA29_eof = DFA.unpackEncodedString(DFA29_eofS);
+    static final char[] DFA29_min = DFA.unpackEncodedStringToUnsignedChars(DFA29_minS);
+    static final char[] DFA29_max = DFA.unpackEncodedStringToUnsignedChars(DFA29_maxS);
+    static final short[] DFA29_accept = DFA.unpackEncodedString(DFA29_acceptS);
+    static final short[] DFA29_special = DFA.unpackEncodedString(DFA29_specialS);
+    static final short[][] DFA29_transition;
 
     static {
-        int numStates = DFA28_transitionS.length;
-        DFA28_transition = new short[numStates][];
+        int numStates = DFA29_transitionS.length;
+        DFA29_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA28_transition[i] = DFA.unpackEncodedString(DFA28_transitionS[i]);
+            DFA29_transition[i] = DFA.unpackEncodedString(DFA29_transitionS[i]);
         }
     }
 
-    class DFA28 extends DFA {
+    class DFA29 extends DFA {
 
-        public DFA28(BaseRecognizer recognizer) {
+        public DFA29(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 28;
-            this.eot = DFA28_eot;
-            this.eof = DFA28_eof;
-            this.min = DFA28_min;
-            this.max = DFA28_max;
-            this.accept = DFA28_accept;
-            this.special = DFA28_special;
-            this.transition = DFA28_transition;
+            this.decisionNumber = 29;
+            this.eot = DFA29_eot;
+            this.eof = DFA29_eof;
+            this.min = DFA29_min;
+            this.max = DFA29_max;
+            this.accept = DFA29_accept;
+            this.special = DFA29_special;
+            this.transition = DFA29_transition;
         }
         public String getDescription() {
-            return "358:1: longitude returns [double r] : ( ^( LONGITUDE x= convertAngle EAST ) | ^( LONGITUDE x= convertAngle WEST ) );";
+            return "369:1: latitude returns [double r] : ( ^( LATITUDE x= convertAngle NORTH ) | ^( LATITUDE x= convertAngle SOUTH ) );";
         }
     }
     static final String DFA30_eotS =
-        "\14\uffff";
+        "\32\uffff";
     static final String DFA30_eofS =
-        "\14\uffff";
+        "\32\uffff";
     static final String DFA30_minS =
-        "\1\121\5\50\6\uffff";
+        "\1\41\1\2\1\121\5\45\3\102\4\43\2\uffff\1\43\2\102\5\44\1\102";
     static final String DFA30_maxS =
-        "\1\125\5\55\6\uffff";
+        "\1\41\1\2\1\125\5\46\1\125\2\103\4\43\2\uffff\1\43\1\125\1\103\5"+
+        "\44\1\103";
     static final String DFA30_acceptS =
-        "\6\uffff\1\3\1\5\1\1\1\6\1\2\1\4";
+        "\17\uffff\1\2\1\1\11\uffff";
     static final String DFA30_specialS =
-        "\14\uffff}>";
+        "\32\uffff}>";
     static final String[] DFA30_transitionS = {
-            "\1\5\1\1\1\2\1\3\1\4",
-            "\1\10\1\12\1\6\1\13\1\7\1\11",
-            "\1\10\1\12\1\6\1\13\1\7\1\11",
-            "\1\10\1\12\1\6\1\13\1\7\1\11",
-            "\1\10\1\12\1\6\1\13\1\7\1\11",
-            "\1\10\1\12\1\6\1\13\1\7\1\11",
+            "\1\1",
+            "\1\2",
+            "\1\7\1\3\1\4\1\5\1\6",
+            "\1\10\1\11",
+            "\1\10\1\11",
+            "\1\10\1\11",
+            "\1\10\1\11",
+            "\1\12\1\11",
+            "\1\20\1\17\15\uffff\1\21\1\13\1\14\1\15\1\16",
+            "\1\20\1\17",
+            "\1\20\1\17",
+            "\1\22",
+            "\1\22",
+            "\1\22",
+            "\1\22",
             "",
             "",
-            "",
-            "",
-            "",
-            ""
+            "\1\23",
+            "\1\20\1\17\15\uffff\1\30\1\24\1\25\1\26\1\27",
+            "\1\20\1\17",
+            "\1\31",
+            "\1\31",
+            "\1\31",
+            "\1\31",
+            "\1\31",
+            "\1\20\1\17"
     };
 
     static final short[] DFA30_eot = DFA.unpackEncodedString(DFA30_eotS);
@@ -4508,32 +4817,37 @@ public class flipsAssembly extends TreeParser {
             this.transition = DFA30_transition;
         }
         public String getDescription() {
-            return "378:1: convertDistance returns [double r] : (x= numericValue KILOMETER | x= numericValue METER | x= numericValue NAUTICAL MILE | x= numericValue MILE | x= numericValue YARD | x= numericValue FOOT );";
+            return "376:1: longitude returns [double r] : ( ^( LONGITUDE x= convertAngle EAST ) | ^( LONGITUDE x= convertAngle WEST ) );";
         }
     }
     static final String DFA31_eotS =
-        "\14\uffff";
+        "\21\uffff";
     static final String DFA31_eofS =
-        "\14\uffff";
+        "\21\uffff";
     static final String DFA31_minS =
-        "\1\121\5\65\6\uffff";
+        "\1\47\1\2\1\121\5\50\1\53\6\100\2\uffff";
     static final String DFA31_maxS =
-        "\1\125\5\75\6\uffff";
+        "\1\47\1\2\1\125\5\55\1\53\6\101\2\uffff";
     static final String DFA31_acceptS =
-        "\6\uffff\1\3\1\5\1\2\1\4\1\6\1\1";
+        "\17\uffff\1\1\1\2";
     static final String DFA31_specialS =
-        "\14\uffff}>";
+        "\21\uffff}>";
     static final String[] DFA31_transitionS = {
-            "\1\5\1\1\1\2\1\3\1\4",
-            "\1\13\1\10\1\6\3\uffff\1\11\1\7\1\12",
-            "\1\13\1\10\1\6\3\uffff\1\11\1\7\1\12",
-            "\1\13\1\10\1\6\3\uffff\1\11\1\7\1\12",
-            "\1\13\1\10\1\6\3\uffff\1\11\1\7\1\12",
-            "\1\13\1\10\1\6\3\uffff\1\11\1\7\1\12",
-            "",
-            "",
-            "",
-            "",
+            "\1\1",
+            "\1\2",
+            "\1\7\1\3\1\4\1\5\1\6",
+            "\1\11\1\15\1\10\1\14\1\12\1\13",
+            "\1\11\1\15\1\10\1\14\1\12\1\13",
+            "\1\11\1\15\1\10\1\14\1\12\1\13",
+            "\1\11\1\15\1\10\1\14\1\12\1\13",
+            "\1\11\1\15\1\10\1\14\1\12\1\13",
+            "\1\16",
+            "\1\17\1\20",
+            "\1\17\1\20",
+            "\1\17\1\20",
+            "\1\17\1\20",
+            "\1\17\1\20",
+            "\1\17\1\20",
             "",
             ""
     };
@@ -4568,38 +4882,39 @@ public class flipsAssembly extends TreeParser {
             this.transition = DFA31_transition;
         }
         public String getDescription() {
-            return "401:1: convertPressure returns [double r] : (x= numericValue KILOPASCAL | x= numericValue HECTOPASCAL | x= numericValue PASCAL | x= numericValue BAR | x= numericValue MILLIBAR | x= numericValue ATMOSPHERE );";
+            return "389:1: distanceNorth returns [double r] : ( ^( DISTANCE x= convertDistance NORTH ) | ^( DISTANCE x= convertDistance SOUTH ) );";
         }
     }
     static final String DFA32_eotS =
-        "\20\uffff";
+        "\21\uffff";
     static final String DFA32_eofS =
-        "\20\uffff";
+        "\21\uffff";
     static final String DFA32_minS =
-        "\1\121\5\50\1\42\1\53\4\42\3\uffff\1\42";
+        "\1\47\1\2\1\121\5\50\4\102\1\53\1\102\2\uffff\1\102";
     static final String DFA32_maxS =
-        "\1\125\5\55\1\44\1\53\4\44\3\uffff\1\44";
+        "\1\47\1\2\1\125\5\55\4\103\1\53\1\103\2\uffff\1\103";
     static final String DFA32_acceptS =
-        "\14\uffff\1\3\1\1\1\2\1\uffff";
+        "\16\uffff\1\2\1\1\1\uffff";
     static final String DFA32_specialS =
-        "\20\uffff}>";
+        "\21\uffff}>";
     static final String[] DFA32_transitionS = {
-            "\1\5\1\1\1\2\1\3\1\4",
-            "\1\10\1\13\1\7\1\6\1\11\1\12",
-            "\1\10\1\13\1\7\1\6\1\11\1\12",
-            "\1\10\1\13\1\7\1\6\1\11\1\12",
-            "\1\10\1\13\1\7\1\6\1\11\1\12",
-            "\1\10\1\13\1\7\1\6\1\11\1\12",
-            "\1\15\1\16\1\14",
-            "\1\17",
-            "\1\15\1\16\1\14",
-            "\1\15\1\16\1\14",
-            "\1\15\1\16\1\14",
-            "\1\15\1\16\1\14",
+            "\1\1",
+            "\1\2",
+            "\1\7\1\3\1\4\1\5\1\6",
+            "\1\15\1\11\1\14\1\12\1\13\1\10",
+            "\1\15\1\11\1\14\1\12\1\13\1\10",
+            "\1\15\1\11\1\14\1\12\1\13\1\10",
+            "\1\15\1\11\1\14\1\12\1\13\1\10",
+            "\1\15\1\11\1\14\1\12\1\13\1\10",
+            "\1\17\1\16",
+            "\1\17\1\16",
+            "\1\17\1\16",
+            "\1\17\1\16",
+            "\1\20",
+            "\1\17\1\16",
             "",
             "",
-            "",
-            "\1\15\1\16\1\14"
+            "\1\17\1\16"
     };
 
     static final short[] DFA32_eot = DFA.unpackEncodedString(DFA32_eotS);
@@ -4632,98 +4947,155 @@ public class flipsAssembly extends TreeParser {
             this.transition = DFA32_transition;
         }
         public String getDescription() {
-            return "417:1: convertSpeed returns [double r] : (x= convertDistance HOUR | x= convertDistance MINUTE | x= convertDistance SECOND );";
+            return "396:1: distanceEast returns [double r] : ( ^( DISTANCE x= convertDistance EAST ) | ^( DISTANCE x= convertDistance WEST ) );";
         }
     }
-    static final String DFA33_eotS =
-        "\20\uffff";
-    static final String DFA33_eofS =
-        "\20\uffff";
-    static final String DFA33_minS =
-        "\1\121\5\45\1\3\2\uffff\4\43\1\uffff\1\3\1\uffff";
-    static final String DFA33_maxS =
-        "\1\125\5\46\1\125\2\uffff\4\43\1\uffff\1\125\1\uffff";
-    static final String DFA33_acceptS =
-        "\7\uffff\1\4\1\1\4\uffff\1\2\1\uffff\1\3";
-    static final String DFA33_specialS =
-        "\20\uffff}>";
-    static final String[] DFA33_transitionS = {
+    static final String DFA34_eotS =
+        "\14\uffff";
+    static final String DFA34_eofS =
+        "\14\uffff";
+    static final String DFA34_minS =
+        "\1\121\5\50\6\uffff";
+    static final String DFA34_maxS =
+        "\1\125\5\55\6\uffff";
+    static final String DFA34_acceptS =
+        "\6\uffff\1\6\1\2\1\4\1\3\1\5\1\1";
+    static final String DFA34_specialS =
+        "\14\uffff}>";
+    static final String[] DFA34_transitionS = {
             "\1\5\1\1\1\2\1\3\1\4",
-            "\1\6\1\7",
-            "\1\6\1\7",
-            "\1\6\1\7",
-            "\1\6\1\7",
-            "\1\10\1\7",
-            "\1\10\74\uffff\4\10\15\uffff\1\15\1\11\1\12\1\13\1\14",
+            "\1\13\1\7\1\11\1\10\1\12\1\6",
+            "\1\13\1\7\1\11\1\10\1\12\1\6",
+            "\1\13\1\7\1\11\1\10\1\12\1\6",
+            "\1\13\1\7\1\11\1\10\1\12\1\6",
+            "\1\13\1\7\1\11\1\10\1\12\1\6",
             "",
             "",
-            "\1\16",
-            "\1\16",
-            "\1\16",
-            "\1\16",
             "",
-            "\1\15\74\uffff\4\15\15\uffff\5\17",
+            "",
+            "",
             ""
     };
 
-    static final short[] DFA33_eot = DFA.unpackEncodedString(DFA33_eotS);
-    static final short[] DFA33_eof = DFA.unpackEncodedString(DFA33_eofS);
-    static final char[] DFA33_min = DFA.unpackEncodedStringToUnsignedChars(DFA33_minS);
-    static final char[] DFA33_max = DFA.unpackEncodedStringToUnsignedChars(DFA33_maxS);
-    static final short[] DFA33_accept = DFA.unpackEncodedString(DFA33_acceptS);
-    static final short[] DFA33_special = DFA.unpackEncodedString(DFA33_specialS);
-    static final short[][] DFA33_transition;
+    static final short[] DFA34_eot = DFA.unpackEncodedString(DFA34_eotS);
+    static final short[] DFA34_eof = DFA.unpackEncodedString(DFA34_eofS);
+    static final char[] DFA34_min = DFA.unpackEncodedStringToUnsignedChars(DFA34_minS);
+    static final char[] DFA34_max = DFA.unpackEncodedStringToUnsignedChars(DFA34_maxS);
+    static final short[] DFA34_accept = DFA.unpackEncodedString(DFA34_acceptS);
+    static final short[] DFA34_special = DFA.unpackEncodedString(DFA34_specialS);
+    static final short[][] DFA34_transition;
 
     static {
-        int numStates = DFA33_transitionS.length;
-        DFA33_transition = new short[numStates][];
+        int numStates = DFA34_transitionS.length;
+        DFA34_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA33_transition[i] = DFA.unpackEncodedString(DFA33_transitionS[i]);
+            DFA34_transition[i] = DFA.unpackEncodedString(DFA34_transitionS[i]);
         }
     }
 
-    class DFA33 extends DFA {
+    class DFA34 extends DFA {
 
-        public DFA33(BaseRecognizer recognizer) {
+        public DFA34(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 33;
-            this.eot = DFA33_eot;
-            this.eof = DFA33_eof;
-            this.min = DFA33_min;
-            this.max = DFA33_max;
-            this.accept = DFA33_accept;
-            this.special = DFA33_special;
-            this.transition = DFA33_transition;
+            this.decisionNumber = 34;
+            this.eot = DFA34_eot;
+            this.eof = DFA34_eof;
+            this.min = DFA34_min;
+            this.max = DFA34_max;
+            this.accept = DFA34_accept;
+            this.special = DFA34_special;
+            this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "433:1: convertAngle returns [double r] : (x= numericValue DEGREE | deg= integerValue DEGREE minNum= numericValue MINUTE | deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND | x= numericValue RADIAN );";
+            return "416:1: convertDistance returns [double r] : (x= numericValue KILOMETER | x= numericValue METER | x= numericValue NAUTICAL MILE | x= numericValue MILE | x= numericValue YARD | x= numericValue FOOT );";
+        }
+    }
+    static final String DFA35_eotS =
+        "\14\uffff";
+    static final String DFA35_eofS =
+        "\14\uffff";
+    static final String DFA35_minS =
+        "\1\121\5\65\6\uffff";
+    static final String DFA35_maxS =
+        "\1\125\5\75\6\uffff";
+    static final String DFA35_acceptS =
+        "\6\uffff\1\3\1\5\1\1\1\4\1\6\1\2";
+    static final String DFA35_specialS =
+        "\14\uffff}>";
+    static final String[] DFA35_transitionS = {
+            "\1\5\1\1\1\2\1\3\1\4",
+            "\1\10\1\13\1\6\3\uffff\1\11\1\7\1\12",
+            "\1\10\1\13\1\6\3\uffff\1\11\1\7\1\12",
+            "\1\10\1\13\1\6\3\uffff\1\11\1\7\1\12",
+            "\1\10\1\13\1\6\3\uffff\1\11\1\7\1\12",
+            "\1\10\1\13\1\6\3\uffff\1\11\1\7\1\12",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA35_eot = DFA.unpackEncodedString(DFA35_eotS);
+    static final short[] DFA35_eof = DFA.unpackEncodedString(DFA35_eofS);
+    static final char[] DFA35_min = DFA.unpackEncodedStringToUnsignedChars(DFA35_minS);
+    static final char[] DFA35_max = DFA.unpackEncodedStringToUnsignedChars(DFA35_maxS);
+    static final short[] DFA35_accept = DFA.unpackEncodedString(DFA35_acceptS);
+    static final short[] DFA35_special = DFA.unpackEncodedString(DFA35_specialS);
+    static final short[][] DFA35_transition;
+
+    static {
+        int numStates = DFA35_transitionS.length;
+        DFA35_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA35_transition[i] = DFA.unpackEncodedString(DFA35_transitionS[i]);
+        }
+    }
+
+    class DFA35 extends DFA {
+
+        public DFA35(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 35;
+            this.eot = DFA35_eot;
+            this.eof = DFA35_eof;
+            this.min = DFA35_min;
+            this.max = DFA35_max;
+            this.accept = DFA35_accept;
+            this.special = DFA35_special;
+            this.transition = DFA35_transition;
+        }
+        public String getDescription() {
+            return "439:1: convertPressure returns [double r] : (x= numericValue KILOPASCAL | x= numericValue HECTOPASCAL | x= numericValue PASCAL | x= numericValue BAR | x= numericValue MILLIBAR | x= numericValue ATMOSPHERE );";
         }
     }
     static final String DFA36_eotS =
-        "\17\uffff";
+        "\20\uffff";
     static final String DFA36_eofS =
-        "\17\uffff";
+        "\20\uffff";
     static final String DFA36_minS =
-        "\3\100\1\101\1\100\1\102\2\uffff\1\102\6\uffff";
+        "\1\121\5\50\1\53\6\42\3\uffff";
     static final String DFA36_maxS =
-        "\1\103\1\100\3\101\1\103\2\uffff\1\103\6\uffff";
+        "\1\125\5\55\1\53\6\44\3\uffff";
     static final String DFA36_acceptS =
-        "\6\uffff\1\2\1\3\1\uffff\1\6\1\7\1\1\1\10\1\4\1\5";
+        "\15\uffff\1\2\1\1\1\3";
     static final String DFA36_specialS =
-        "\17\uffff}>";
+        "\20\uffff}>";
     static final String[] DFA36_transitionS = {
-            "\1\1\1\3\1\2\1\4",
-            "\1\5",
-            "\1\6\1\7",
-            "\1\10",
-            "\1\12\1\11",
-            "\1\13\1\14",
-            "",
-            "",
-            "\1\15\1\16",
-            "",
-            "",
-            "",
+            "\1\5\1\1\1\2\1\3\1\4",
+            "\1\12\1\7\1\6\1\13\1\11\1\10",
+            "\1\12\1\7\1\6\1\13\1\11\1\10",
+            "\1\12\1\7\1\6\1\13\1\11\1\10",
+            "\1\12\1\7\1\6\1\13\1\11\1\10",
+            "\1\12\1\7\1\6\1\13\1\11\1\10",
+            "\1\14",
+            "\1\16\1\15\1\17",
+            "\1\16\1\15\1\17",
+            "\1\16\1\15\1\17",
+            "\1\16\1\15\1\17",
+            "\1\16\1\15\1\17",
+            "\1\16\1\15\1\17",
             "",
             "",
             ""
@@ -4759,7 +5131,134 @@ public class flipsAssembly extends TreeParser {
             this.transition = DFA36_transition;
         }
         public String getDescription() {
-            return "469:1: convertSubOrdinalDirection returns [double r] : ( NORTH NORTH EAST | EAST NORTH EAST | EAST SOUTH EAST | SOUTH SOUTH EAST | SOUTH SOUTH WEST | WEST SOUTH WEST | WEST NORTH WEST | NORTH NORTH WEST );";
+            return "455:1: convertSpeed returns [double r] : (x= convertDistance HOUR | x= convertDistance MINUTE | x= convertDistance SECOND );";
+        }
+    }
+    static final String DFA37_eotS =
+        "\20\uffff";
+    static final String DFA37_eofS =
+        "\20\uffff";
+    static final String DFA37_minS =
+        "\1\121\5\45\1\3\2\uffff\4\43\1\uffff\1\3\1\uffff";
+    static final String DFA37_maxS =
+        "\1\125\5\46\1\125\2\uffff\4\43\1\uffff\1\125\1\uffff";
+    static final String DFA37_acceptS =
+        "\7\uffff\1\4\1\1\4\uffff\1\2\1\uffff\1\3";
+    static final String DFA37_specialS =
+        "\20\uffff}>";
+    static final String[] DFA37_transitionS = {
+            "\1\5\1\1\1\2\1\3\1\4",
+            "\1\6\1\7",
+            "\1\6\1\7",
+            "\1\6\1\7",
+            "\1\6\1\7",
+            "\1\10\1\7",
+            "\1\10\74\uffff\4\10\15\uffff\1\15\1\11\1\12\1\13\1\14",
+            "",
+            "",
+            "\1\16",
+            "\1\16",
+            "\1\16",
+            "\1\16",
+            "",
+            "\1\15\74\uffff\4\15\15\uffff\5\17",
+            ""
+    };
+
+    static final short[] DFA37_eot = DFA.unpackEncodedString(DFA37_eotS);
+    static final short[] DFA37_eof = DFA.unpackEncodedString(DFA37_eofS);
+    static final char[] DFA37_min = DFA.unpackEncodedStringToUnsignedChars(DFA37_minS);
+    static final char[] DFA37_max = DFA.unpackEncodedStringToUnsignedChars(DFA37_maxS);
+    static final short[] DFA37_accept = DFA.unpackEncodedString(DFA37_acceptS);
+    static final short[] DFA37_special = DFA.unpackEncodedString(DFA37_specialS);
+    static final short[][] DFA37_transition;
+
+    static {
+        int numStates = DFA37_transitionS.length;
+        DFA37_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA37_transition[i] = DFA.unpackEncodedString(DFA37_transitionS[i]);
+        }
+    }
+
+    class DFA37 extends DFA {
+
+        public DFA37(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 37;
+            this.eot = DFA37_eot;
+            this.eof = DFA37_eof;
+            this.min = DFA37_min;
+            this.max = DFA37_max;
+            this.accept = DFA37_accept;
+            this.special = DFA37_special;
+            this.transition = DFA37_transition;
+        }
+        public String getDescription() {
+            return "471:1: convertAngle returns [double r] : (x= numericValue DEGREE | deg= integerValue DEGREE minNum= numericValue MINUTE | deg= integerValue DEGREE minInt= integerValue MINUTE sec= numericValue SECOND | x= numericValue RADIAN );";
+        }
+    }
+    static final String DFA40_eotS =
+        "\17\uffff";
+    static final String DFA40_eofS =
+        "\17\uffff";
+    static final String DFA40_minS =
+        "\3\100\1\101\1\100\1\102\2\uffff\1\102\6\uffff";
+    static final String DFA40_maxS =
+        "\1\103\1\100\3\101\1\103\2\uffff\1\103\6\uffff";
+    static final String DFA40_acceptS =
+        "\6\uffff\1\2\1\3\1\uffff\1\6\1\7\1\1\1\10\1\4\1\5";
+    static final String DFA40_specialS =
+        "\17\uffff}>";
+    static final String[] DFA40_transitionS = {
+            "\1\1\1\3\1\2\1\4",
+            "\1\5",
+            "\1\6\1\7",
+            "\1\10",
+            "\1\12\1\11",
+            "\1\13\1\14",
+            "",
+            "",
+            "\1\15\1\16",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA40_eot = DFA.unpackEncodedString(DFA40_eotS);
+    static final short[] DFA40_eof = DFA.unpackEncodedString(DFA40_eofS);
+    static final char[] DFA40_min = DFA.unpackEncodedStringToUnsignedChars(DFA40_minS);
+    static final char[] DFA40_max = DFA.unpackEncodedStringToUnsignedChars(DFA40_maxS);
+    static final short[] DFA40_accept = DFA.unpackEncodedString(DFA40_acceptS);
+    static final short[] DFA40_special = DFA.unpackEncodedString(DFA40_specialS);
+    static final short[][] DFA40_transition;
+
+    static {
+        int numStates = DFA40_transitionS.length;
+        DFA40_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA40_transition[i] = DFA.unpackEncodedString(DFA40_transitionS[i]);
+        }
+    }
+
+    class DFA40 extends DFA {
+
+        public DFA40(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 40;
+            this.eot = DFA40_eot;
+            this.eof = DFA40_eof;
+            this.min = DFA40_min;
+            this.max = DFA40_max;
+            this.accept = DFA40_accept;
+            this.special = DFA40_special;
+            this.transition = DFA40_transition;
+        }
+        public String getDescription() {
+            return "507:1: convertSubOrdinalDirection returns [double r] : ( NORTH NORTH EAST | EAST NORTH EAST | EAST SOUTH EAST | SOUTH SOUTH EAST | SOUTH SOUTH WEST | WEST SOUTH WEST | WEST NORTH WEST | NORTH NORTH WEST );";
         }
     }
  
@@ -4786,278 +5285,300 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_integerValue_in_defineSensor172 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DEFINE_in_defineWaypoint190 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_Identifier_in_defineWaypoint194 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_geoCoordinate_in_defineWaypoint198 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_flyCommand_in_command216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_loiterCommand_in_command221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_executeCommand_in_command226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLY_in_flyCommand240 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_flyCommandValue_in_flyCommand242 = new BitSet(new long[]{0x00000080D10F1008L});
-    public static final BitSet FOLLOW_time_in_flyCommandValue259 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_direction_in_flyCommandValue264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_speed_in_flyCommandValue269 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_distance_in_flyCommandValue274 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_pitch_in_flyCommandValue279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_roll_in_flyCommandValue284 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_duration_in_flyCommandValue289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_waypoint_in_flyCommandValue294 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_altitude_in_flyCommandValue299 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOITER_in_loiterCommand311 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_loiterCommandValue_in_loiterCommand313 = new BitSet(new long[]{0x00000080F10F1008L});
-    public static final BitSet FOLLOW_time_in_loiterCommandValue330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_speed_in_loiterCommandValue335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_loiterDirection_in_loiterCommandValue340 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_radius_in_loiterCommandValue345 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_duration_in_loiterCommandValue350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_waypoint_in_loiterCommandValue355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_altitude_in_loiterCommandValue360 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXECUTE_in_executeCommand372 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_Identifier_in_executeCommand376 = new BitSet(new long[]{0x0000000000000088L});
-    public static final BitSet FOLLOW_executeCommandParameter_in_executeCommand378 = new BitSet(new long[]{0x0000000000000088L});
-    public static final BitSet FOLLOW_PARAMETER_in_executeCommandParameter395 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_executeCommandParameter399 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PITCH_in_pitch418 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertAngle_in_pitch422 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ROLL_in_roll439 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertAngle_in_roll443 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude462 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_altitude464 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_DISTANCE_in_altitude466 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertDistance_in_altitude470 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude481 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_altitude483 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_PRESSURE_in_altitude485 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertPressure_in_altitude489 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude500 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_altitude502 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_convertFlightLevel_in_altitude506 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude517 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_altitude519 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_CLIMB_in_altitude521 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_DISTANCE_in_altitude523 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertDistance_in_altitude527 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude538 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_altitude540 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_CLIMB_in_altitude542 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_PRESSURE_in_altitude544 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertPressure_in_altitude548 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude559 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_altitude561 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_DESCEND_in_altitude563 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_DISTANCE_in_altitude565 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertDistance_in_altitude569 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ALTITUDE_in_altitude580 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_altitude582 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_DESCEND_in_altitude584 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_PRESSURE_in_altitude586 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertPressure_in_altitude590 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DISTANCE_in_distance609 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertDistance_in_distance613 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DISTANCE_in_distance624 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_LEFT_in_distance626 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertDistance_in_distance630 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DISTANCE_in_distance641 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RIGHT_in_distance643 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertDistance_in_distance647 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_RADIUS_in_radius664 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertDistance_in_radius668 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed687 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_speed689 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertSpeed_in_speed693 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed704 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_speed706 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_FASTER_in_speed708 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertSpeed_in_speed712 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed723 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_speed725 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_SLOWER_in_speed727 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertSpeed_in_speed731 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed742 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_speed744 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_FASTER_in_speed746 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_percentValue_in_speed750 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed757 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_speed759 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_SLOWER_in_speed761 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_percentValue_in_speed765 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed772 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_OPTIMAL_in_speed774 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_MINIMUM_in_speed776 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed787 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_OPTIMAL_in_speed789 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_CRUISE_in_speed791 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed802 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_OPTIMAL_in_speed804 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_MAXIMUM_in_speed806 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speed817 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_THROTTLE_in_speed819 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertThrottle_in_speed823 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TIME_in_time842 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertTime_in_time846 = new BitSet(new long[]{0x0000000002000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_time851 = new BitSet(new long[]{0x0000000002000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_time856 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_AM_in_time862 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TIME_in_time877 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertTime_in_time881 = new BitSet(new long[]{0x0000000004000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_time886 = new BitSet(new long[]{0x0000000004000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_time891 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_PM_in_time897 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TIME_in_time912 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertTime_in_time916 = new BitSet(new long[]{0x0000000008000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_time921 = new BitSet(new long[]{0x0000000008000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_time926 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_HOUR24_in_time932 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DURATION_in_duration949 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertTime_in_duration953 = new BitSet(new long[]{0x0000000000000008L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_duration958 = new BitSet(new long[]{0x0000000000000008L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertTime_in_duration963 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_direction986 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_direction988 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000FL});
-    public static final BitSet FOLLOW_convertCardinalDirection_in_direction992 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_direction1003 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_direction1005 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000003L});
-    public static final BitSet FOLLOW_convertOrdinalDirection_in_direction1009 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_direction1020 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_direction1022 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000FL});
-    public static final BitSet FOLLOW_convertSubOrdinalDirection_in_direction1026 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_direction1037 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_direction1039 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertAngle_in_direction1043 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_direction1054 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_direction1056 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_LEFT_in_direction1058 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertAngle_in_direction1062 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_direction1073 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_direction1075 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_RIGHT_in_direction1077 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_convertAngle_in_direction1081 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_turnDirection1098 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_turnDirection1100 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_LEFT_in_turnDirection1102 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_turnDirection1113 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_turnDirection1115 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_RIGHT_in_turnDirection1117 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_loiterDirection1134 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_loiterDirection1136 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_CLOCKWISE_in_loiterDirection1138 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_loiterDirection1149 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_loiterDirection1151 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_COUNTERCLOCKWISE_in_loiterDirection1153 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_geoCoordinate_in_waypoint1173 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WAYPOINT_in_waypoint1195 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_Identifier_in_waypoint1199 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1219 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_latitude_in_geoCoordinate1223 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_longitude_in_geoCoordinate1227 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LATITUDE_in_latitude1252 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertAngle_in_latitude1256 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_NORTH_in_latitude1258 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LATITUDE_in_latitude1269 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertAngle_in_latitude1273 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_latitude1275 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LONGITUDE_in_longitude1296 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertAngle_in_longitude1300 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_longitude1302 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LONGITUDE_in_longitude1313 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_convertAngle_in_longitude1317 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_longitude1319 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_numericValue_in_convertTime1344 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_HOUR_in_convertTime1346 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertTime1357 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_MINUTE_in_convertTime1359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertTime1370 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_SECOND_in_convertTime1372 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertDistance1394 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_KILOMETER_in_convertDistance1396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertDistance1407 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_METER_in_convertDistance1409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertDistance1420 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_NAUTICAL_in_convertDistance1422 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_MILE_in_convertDistance1424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertDistance1435 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_MILE_in_convertDistance1437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertDistance1448 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_YARD_in_convertDistance1450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertDistance1461 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_FOOT_in_convertDistance1463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLIGHTLEVEL_in_convertFlightLevel1483 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
-    public static final BitSet FOLLOW_FlightLevel_in_convertFlightLevel1487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertPressure1513 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_KILOPASCAL_in_convertPressure1515 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertPressure1526 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_HECTOPASCAL_in_convertPressure1528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertPressure1539 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_PASCAL_in_convertPressure1541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertPressure1552 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_BAR_in_convertPressure1554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertPressure1565 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_MILLIBAR_in_convertPressure1567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertPressure1578 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_ATMOSPHERE_in_convertPressure1580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_convertDistance_in_convertSpeed1602 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_HOUR_in_convertSpeed1604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_convertDistance_in_convertSpeed1615 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_MINUTE_in_convertSpeed1617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_convertDistance_in_convertSpeed1628 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_SECOND_in_convertSpeed1630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_percentValue_in_convertThrottle1652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertAngle1674 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1676 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_convertAngle1687 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1689 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_numericValue_in_convertAngle1693 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_MINUTE_in_convertAngle1695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_convertAngle1706 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1708 = new BitSet(new long[]{0x0000000000000000L,0x00000000003C0000L});
-    public static final BitSet FOLLOW_integerValue_in_convertAngle1712 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_MINUTE_in_convertAngle1714 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
-    public static final BitSet FOLLOW_numericValue_in_convertAngle1718 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_SECOND_in_convertAngle1720 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_convertAngle1731 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_RADIAN_in_convertAngle1733 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NORTH_in_convertCardinalDirection1753 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EAST_in_convertCardinalDirection1762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertCardinalDirection1771 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WEST_in_convertCardinalDirection1780 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NORTH_in_convertOrdinalDirection1800 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_convertOrdinalDirection1802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertOrdinalDirection1811 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_convertOrdinalDirection1813 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertOrdinalDirection1822 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_convertOrdinalDirection1824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NORTH_in_convertOrdinalDirection1833 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_convertOrdinalDirection1835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection1855 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection1857 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection1859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection1868 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection1870 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection1872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection1881 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection1883 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection1885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection1894 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection1896 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection1898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection1907 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection1909 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection1911 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection1920 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection1922 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection1924 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection1933 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection1935 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection1937 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection1946 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection1948 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection1950 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GEOCOORDINATE_in_defineWaypoint197 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_latitudeLongitude_in_defineWaypoint201 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DEFINE_in_defineWaypoint213 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_Identifier_in_defineWaypoint217 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_GEOCOORDINATE_in_defineWaypoint220 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_distanceCoordinate_in_defineWaypoint224 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_flyCommand_in_command243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_loiterCommand_in_command248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_executeCommand_in_command253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLY_in_flyCommand267 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_flyCommandValue_in_flyCommand269 = new BitSet(new long[]{0x00000080D10F1008L});
+    public static final BitSet FOLLOW_time_in_flyCommandValue286 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_direction_in_flyCommandValue291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_speed_in_flyCommandValue296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_distance_in_flyCommandValue301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_pitch_in_flyCommandValue306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_roll_in_flyCommandValue311 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_duration_in_flyCommandValue316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_waypoint_in_flyCommandValue321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_altitude_in_flyCommandValue326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOITER_in_loiterCommand338 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_loiterCommandValue_in_loiterCommand340 = new BitSet(new long[]{0x00000080F10F1008L});
+    public static final BitSet FOLLOW_time_in_loiterCommandValue357 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_speed_in_loiterCommandValue362 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_loiterDirection_in_loiterCommandValue367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_radius_in_loiterCommandValue372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_duration_in_loiterCommandValue377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_waypoint_in_loiterCommandValue382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_altitude_in_loiterCommandValue387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXECUTE_in_executeCommand399 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_Identifier_in_executeCommand403 = new BitSet(new long[]{0x0000000000000088L});
+    public static final BitSet FOLLOW_executeCommandParameter_in_executeCommand405 = new BitSet(new long[]{0x0000000000000088L});
+    public static final BitSet FOLLOW_PARAMETER_in_executeCommandParameter422 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_executeCommandParameter426 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PITCH_in_pitch445 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertAngle_in_pitch449 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ROLL_in_roll466 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertAngle_in_roll470 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude489 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_altitude491 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_DISTANCE_in_altitude493 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertDistance_in_altitude497 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude508 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_altitude510 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_PRESSURE_in_altitude512 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertPressure_in_altitude516 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude527 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_altitude529 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_convertFlightLevel_in_altitude533 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude544 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_altitude546 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_CLIMB_in_altitude548 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_DISTANCE_in_altitude550 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertDistance_in_altitude554 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude565 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_altitude567 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_CLIMB_in_altitude569 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_PRESSURE_in_altitude571 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertPressure_in_altitude575 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude586 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_altitude588 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_DESCEND_in_altitude590 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_DISTANCE_in_altitude592 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertDistance_in_altitude596 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ALTITUDE_in_altitude607 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_altitude609 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_DESCEND_in_altitude611 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_PRESSURE_in_altitude613 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertPressure_in_altitude617 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distance636 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertDistance_in_distance640 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distance651 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LEFT_in_distance653 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertDistance_in_distance657 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distance668 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RIGHT_in_distance670 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertDistance_in_distance674 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_RADIUS_in_radius691 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertDistance_in_radius695 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed714 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_speed716 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertSpeed_in_speed720 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed731 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_speed733 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_FASTER_in_speed735 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertSpeed_in_speed739 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed750 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_speed752 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_SLOWER_in_speed754 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertSpeed_in_speed758 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed769 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_speed771 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_FASTER_in_speed773 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_percentValue_in_speed777 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed784 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_speed786 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_SLOWER_in_speed788 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_percentValue_in_speed792 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed799 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_OPTIMAL_in_speed801 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_MINIMUM_in_speed803 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed814 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_OPTIMAL_in_speed816 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_CRUISE_in_speed818 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed829 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_OPTIMAL_in_speed831 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_MAXIMUM_in_speed833 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speed844 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_THROTTLE_in_speed846 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertThrottle_in_speed850 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TIME_in_time869 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertTime_in_time873 = new BitSet(new long[]{0x0000000002000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_time878 = new BitSet(new long[]{0x0000000002000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_time883 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_AM_in_time889 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TIME_in_time904 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertTime_in_time908 = new BitSet(new long[]{0x0000000004000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_time913 = new BitSet(new long[]{0x0000000004000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_time918 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_PM_in_time924 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TIME_in_time939 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertTime_in_time943 = new BitSet(new long[]{0x0000000008000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_time948 = new BitSet(new long[]{0x0000000008000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_time953 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_HOUR24_in_time959 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DURATION_in_duration976 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertTime_in_duration980 = new BitSet(new long[]{0x0000000000000008L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_duration985 = new BitSet(new long[]{0x0000000000000008L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertTime_in_duration990 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1013 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_direction1015 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000FL});
+    public static final BitSet FOLLOW_convertCardinalDirection_in_direction1019 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1030 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_direction1032 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000003L});
+    public static final BitSet FOLLOW_convertOrdinalDirection_in_direction1036 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1047 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_direction1049 = new BitSet(new long[]{0x0000000000000000L,0x000000000000000FL});
+    public static final BitSet FOLLOW_convertSubOrdinalDirection_in_direction1053 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1064 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FIXED_in_direction1066 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertAngle_in_direction1070 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1081 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_direction1083 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_LEFT_in_direction1085 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertAngle_in_direction1089 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1100 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_direction1102 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_RIGHT_in_direction1104 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_convertAngle_in_direction1108 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_turnDirection1125 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TURN_in_turnDirection1127 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_LEFT_in_turnDirection1129 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_turnDirection1140 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TURN_in_turnDirection1142 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_RIGHT_in_turnDirection1144 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_loiterDirection1161 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TURN_in_loiterDirection1163 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_CLOCKWISE_in_loiterDirection1165 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_loiterDirection1176 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TURN_in_loiterDirection1178 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_COUNTERCLOCKWISE_in_loiterDirection1180 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_geoCoordinate_in_waypoint1198 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WAYPOINT_in_waypoint1204 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_Identifier_in_waypoint1208 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1224 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate1228 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1251 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_distanceCoordinate_in_geoCoordinate1255 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_latitude_in_latitudeLongitude1289 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_longitude_in_latitudeLongitude1293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LATITUDE_in_latitude1317 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertAngle_in_latitude1321 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_NORTH_in_latitude1323 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LATITUDE_in_latitude1334 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertAngle_in_latitude1338 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_latitude1340 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LONGITUDE_in_longitude1361 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertAngle_in_longitude1365 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_longitude1367 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LONGITUDE_in_longitude1378 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertAngle_in_longitude1382 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_longitude1384 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_distanceNorth_in_distanceCoordinate1406 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_distanceEast_in_distanceCoordinate1410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DISTANCE_in_distanceNorth1434 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertDistance_in_distanceNorth1438 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_NORTH_in_distanceNorth1440 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distanceNorth1451 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertDistance_in_distanceNorth1455 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_distanceNorth1457 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distanceEast1478 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertDistance_in_distanceEast1482 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_distanceEast1484 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distanceEast1495 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_convertDistance_in_distanceEast1499 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_distanceEast1501 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_numericValue_in_convertTime1526 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_HOUR_in_convertTime1528 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertTime1539 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_MINUTE_in_convertTime1541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertTime1552 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_SECOND_in_convertTime1554 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertDistance1576 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_KILOMETER_in_convertDistance1578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertDistance1589 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_METER_in_convertDistance1591 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertDistance1602 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_NAUTICAL_in_convertDistance1604 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_MILE_in_convertDistance1606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertDistance1617 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_MILE_in_convertDistance1619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertDistance1630 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_YARD_in_convertDistance1632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertDistance1643 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_FOOT_in_convertDistance1645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLIGHTLEVEL_in_convertFlightLevel1665 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_FlightLevel_in_convertFlightLevel1669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertPressure1695 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_KILOPASCAL_in_convertPressure1697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertPressure1708 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_HECTOPASCAL_in_convertPressure1710 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertPressure1721 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_PASCAL_in_convertPressure1723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertPressure1734 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_BAR_in_convertPressure1736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertPressure1747 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_MILLIBAR_in_convertPressure1749 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertPressure1760 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_ATMOSPHERE_in_convertPressure1762 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_convertDistance_in_convertSpeed1784 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_HOUR_in_convertSpeed1786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_convertDistance_in_convertSpeed1797 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_MINUTE_in_convertSpeed1799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_convertDistance_in_convertSpeed1810 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_SECOND_in_convertSpeed1812 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_percentValue_in_convertThrottle1834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertAngle1856 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_convertAngle1869 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1871 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_numericValue_in_convertAngle1875 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_MINUTE_in_convertAngle1877 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_convertAngle1888 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1890 = new BitSet(new long[]{0x0000000000000000L,0x00000000003C0000L});
+    public static final BitSet FOLLOW_integerValue_in_convertAngle1894 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_MINUTE_in_convertAngle1896 = new BitSet(new long[]{0x0000000000000000L,0x00000000003E0000L});
+    public static final BitSet FOLLOW_numericValue_in_convertAngle1900 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_SECOND_in_convertAngle1902 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_convertAngle1913 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_RADIAN_in_convertAngle1915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NORTH_in_convertCardinalDirection1935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EAST_in_convertCardinalDirection1944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertCardinalDirection1953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WEST_in_convertCardinalDirection1962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NORTH_in_convertOrdinalDirection1982 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_convertOrdinalDirection1984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertOrdinalDirection1993 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_convertOrdinalDirection1995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertOrdinalDirection2004 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_convertOrdinalDirection2006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NORTH_in_convertOrdinalDirection2015 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_convertOrdinalDirection2017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection2037 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection2039 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection2041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection2050 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection2052 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection2054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection2063 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection2065 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection2067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection2076 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection2078 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_EAST_in_convertSubOrdinalDirection2080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection2089 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection2091 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2102 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_SOUTH_in_convertSubOrdinalDirection2104 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2115 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection2117 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection2128 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_NORTH_in_convertSubOrdinalDirection2130 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2132 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_convertDirection0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_numericValue2001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue2012 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue2033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OctalLiteral_in_integerValue2044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue2055 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_HexLiteral_in_integerValue2066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_percentValue2087 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_PERCENT_in_percentValue2089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_numericValue2183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue2194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue2215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OctalLiteral_in_integerValue2226 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue2237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_HexLiteral_in_integerValue2248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_percentValue2269 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_PERCENT_in_percentValue2271 = new BitSet(new long[]{0x0000000000000002L});
 
 }
