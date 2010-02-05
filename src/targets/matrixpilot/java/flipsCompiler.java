@@ -11,13 +11,12 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 
 public class flipsCompiler {
   public static void main(String args[]) throws
-  Exception {
-    
-    System.out.println(compile(args[0]));
+                                         Exception {
+    compile(args[0]);
   }
   
-  public static String compile(String filename) throws
-  Exception {
+  public static void compile(String filename) throws
+                                              Exception {
     System.out.println("Generating assembly code...");
     
     // File Input
@@ -68,6 +67,17 @@ public class flipsCompiler {
     }
     catch (IOException e) {}
     
-    return "";
+    System.out.println();
+    System.out.println("Generating waypoints.h file...");
+    
+    // waypoints.h Output
+    try {
+      BufferedWriter channel = new BufferedWriter(new FileWriter(filename + ".h"));
+      channel.write(parser2.waypoints.toString());
+      channel.close();
+    }
+    catch (IOException e) {}
+    
+    System.out.println(parser2.waypoints.toString());
   }
 }

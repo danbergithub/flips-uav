@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g 2010-02-04 23:24:07
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g 2010-02-05 00:27:37
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -71,7 +71,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = FLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:175:5: ( 'fly' | 'FLY' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:186:5: ( 'fly' | 'FLY' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -89,7 +89,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:175:7: 'fly'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:186:7: 'fly'
                     {
                     match("fly"); 
 
@@ -97,7 +97,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:175:13: 'FLY'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:186:13: 'FLY'
                     {
                     match("FLY"); 
 
@@ -119,7 +119,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = FIX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:177:5: ( 'fix' | 'FIX' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:188:5: ( 'fix' | 'FIX' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -137,7 +137,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:177:7: 'fix'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:188:7: 'fix'
                     {
                     match("fix"); 
 
@@ -145,7 +145,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:177:13: 'FIX'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:188:13: 'FIX'
                     {
                     match("FIX"); 
 
@@ -167,7 +167,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = REL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:178:5: ( 'rel' | 'REL' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:189:5: ( 'rel' | 'REL' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -185,7 +185,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:178:7: 'rel'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:189:7: 'rel'
                     {
                     match("rel"); 
 
@@ -193,7 +193,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:178:13: 'REL'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:189:13: 'REL'
                     {
                     match("REL"); 
 
@@ -215,7 +215,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = POS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:180:5: ( 'pos' | 'POS' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:191:5: ( 'pos' | 'POS' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -233,7 +233,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:180:7: 'pos'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:191:7: 'pos'
                     {
                     match("pos"); 
 
@@ -241,7 +241,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:180:13: 'POS'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:191:13: 'POS'
                     {
                     match("POS"); 
 
@@ -263,7 +263,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = X;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:181:3: ( 'x' | 'X' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:192:3: ( 'x' | 'X' )
             // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:
             {
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -291,7 +291,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = Y;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:182:3: ( 'y' | 'Y' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:193:3: ( 'y' | 'Y' )
             // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:
             {
             if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
@@ -319,7 +319,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = Z;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:183:3: ( 'z' | 'Z' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:194:3: ( 'z' | 'Z' )
             // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:
             {
             if ( input.LA(1)=='Z'||input.LA(1)=='z' ) {
@@ -347,7 +347,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = GEO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:5: ( 'geo' | 'GEO' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:195:5: ( 'geo' | 'GEO' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -365,7 +365,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:7: 'geo'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:195:7: 'geo'
                     {
                     match("geo"); 
 
@@ -373,7 +373,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:13: 'GEO'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:195:13: 'GEO'
                     {
                     match("GEO"); 
 
@@ -395,7 +395,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = CMD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:186:5: ( 'cmd' | 'CMD' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:197:5: ( 'cmd' | 'CMD' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -413,7 +413,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:186:7: 'cmd'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:197:7: 'cmd'
                     {
                     match("cmd"); 
 
@@ -421,7 +421,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:186:13: 'CMD'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:197:13: 'CMD'
                     {
                     match("CMD"); 
 
@@ -443,8 +443,8 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:191:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:191:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:202:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:202:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -455,7 +455,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:191:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:202:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop7:
             do {
                 int alt7=2;
@@ -504,11 +504,11 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:194:2: ( '\"' (~ ( '\"' ) )* '\"' )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:194:5: '\"' (~ ( '\"' ) )* '\"'
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:205:2: ( '\"' (~ ( '\"' ) )* '\"' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:205:5: '\"' (~ ( '\"' ) )* '\"'
             {
             match('\"'); 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:194:9: (~ ( '\"' ) )*
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:205:9: (~ ( '\"' ) )*
             loop8:
             do {
                 int alt8=2;
@@ -521,7 +521,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:194:10: ~ ( '\"' )
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:205:10: ~ ( '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -556,8 +556,8 @@ public class flipsMatrixPilotLexer extends Lexer {
     // $ANTLR start "Digit"
     public final void mDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:199:7: ( '0' .. '9' )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:199:9: '0' .. '9'
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:210:7: ( '0' .. '9' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:210:9: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -572,8 +572,8 @@ public class flipsMatrixPilotLexer extends Lexer {
     // $ANTLR start "NonZeroDigit"
     public final void mNonZeroDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:203:2: ( '1' .. '9' )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:203:4: '1' .. '9'
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:214:2: ( '1' .. '9' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:214:4: '1' .. '9'
             {
             matchRange('1','9'); 
 
@@ -588,7 +588,7 @@ public class flipsMatrixPilotLexer extends Lexer {
     // $ANTLR start "BinaryDigit"
     public final void mBinaryDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:207:2: ( '0' | '1' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:218:2: ( '0' | '1' )
             // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='1') ) {
@@ -612,7 +612,7 @@ public class flipsMatrixPilotLexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:210:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:221:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
             // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
@@ -638,8 +638,8 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = BinaryLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:213:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:213:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:224:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:224:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -651,7 +651,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:213:18: ( BinaryDigit )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:224:18: ( BinaryDigit )+
             int cnt9=0;
             loop9:
             do {
@@ -665,7 +665,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:213:18: BinaryDigit
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:224:18: BinaryDigit
             	    {
             	    mBinaryDigit(); 
 
@@ -697,11 +697,11 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = OctalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:216:2: ( '0' ( '0' .. '7' )+ )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:216:4: '0' ( '0' .. '7' )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:2: ( '0' ( '0' .. '7' )+ )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:4: '0' ( '0' .. '7' )+
             {
             match('0'); 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:216:8: ( '0' .. '7' )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:8: ( '0' .. '7' )+
             int cnt10=0;
             loop10:
             do {
@@ -715,7 +715,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:216:9: '0' .. '7'
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:9: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -747,7 +747,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = DecimalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:219:2: ( '0' | NonZeroDigit ( Digit )* )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:230:2: ( '0' | NonZeroDigit ( Digit )* )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -765,17 +765,17 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:219:4: '0'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:230:4: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:219:8: NonZeroDigit ( Digit )*
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:230:8: NonZeroDigit ( Digit )*
                     {
                     mNonZeroDigit(); 
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:219:21: ( Digit )*
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:230:21: ( Digit )*
                     loop11:
                     do {
                         int alt11=2;
@@ -788,7 +788,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:219:21: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:230:21: Digit
                     	    {
                     	    mDigit(); 
 
@@ -818,8 +818,8 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = HexLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:222:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:222:4: '0' ( 'x' | 'X' ) ( HexDigit )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:233:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:233:4: '0' ( 'x' | 'X' ) ( HexDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -831,7 +831,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:222:18: ( HexDigit )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:233:18: ( HexDigit )+
             int cnt13=0;
             loop13:
             do {
@@ -845,7 +845,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:222:18: HexDigit
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:233:18: HexDigit
             	    {
             	    mHexDigit(); 
 
@@ -877,14 +877,14 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = FloatingPointLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
             int alt20=3;
             alt20 = dfa20.predict(input);
             switch (alt20) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
                     {
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:4: ( Digit )+
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:4: ( Digit )+
                     int cnt14=0;
                     loop14:
                     do {
@@ -898,7 +898,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:4: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:4: Digit
                     	    {
                     	    mDigit(); 
 
@@ -915,7 +915,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     } while (true);
 
                     match('.'); 
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:15: ( Digit )*
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:15: ( Digit )*
                     loop15:
                     do {
                         int alt15=2;
@@ -928,7 +928,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:15: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:15: Digit
                     	    {
                     	    mDigit(); 
 
@@ -940,7 +940,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                         }
                     } while (true);
 
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:22: ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:22: ( Exponent )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -949,7 +949,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:225:22: Exponent
+                            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:236:22: Exponent
                             {
                             mExponent(); 
 
@@ -962,10 +962,10 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:226:17: '.' ( Digit )+ ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:237:17: '.' ( Digit )+ ( Exponent )?
                     {
                     match('.'); 
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:226:21: ( Digit )+
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:237:21: ( Digit )+
                     int cnt17=0;
                     loop17:
                     do {
@@ -979,7 +979,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:226:21: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:237:21: Digit
                     	    {
                     	    mDigit(); 
 
@@ -995,7 +995,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                         cnt17++;
                     } while (true);
 
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:226:28: ( Exponent )?
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:237:28: ( Exponent )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -1004,7 +1004,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:226:28: Exponent
+                            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:237:28: Exponent
                             {
                             mExponent(); 
 
@@ -1017,9 +1017,9 @@ public class flipsMatrixPilotLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:11: ( Digit )+ Exponent
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:238:11: ( Digit )+ Exponent
                     {
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:11: ( Digit )+
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:238:11: ( Digit )+
                     int cnt19=0;
                     loop19:
                     do {
@@ -1033,7 +1033,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:227:11: Digit
+                    	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:238:11: Digit
                     	    {
                     	    mDigit(); 
 
@@ -1066,8 +1066,8 @@ public class flipsMatrixPilotLexer extends Lexer {
     // $ANTLR start "Exponent"
     public final void mExponent() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:231:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:231:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -1078,7 +1078,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:231:21: ( '+' | '-' )?
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:21: ( '+' | '-' )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -1104,7 +1104,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
             }
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:231:32: ( Digit )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:32: ( Digit )+
             int cnt22=0;
             loop22:
             do {
@@ -1118,7 +1118,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt22) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:231:32: Digit
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:32: Digit
             	    {
             	    mDigit(); 
 
@@ -1148,10 +1148,10 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:235:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:235:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:246:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:246:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:235:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:246:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             int cnt23=0;
             loop23:
             do {
@@ -1206,12 +1206,12 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = Comment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:239:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:239:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:250:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:250:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
             {
             match("/*"); 
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:239:16: ( options {greedy=FALSE; } : . )*
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:250:16: ( options {greedy=FALSE; } : . )*
             loop24:
             do {
                 int alt24=2;
@@ -1242,7 +1242,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt24) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:239:46: .
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:250:46: .
             	    {
             	    matchAny(); 
 
@@ -1273,12 +1273,12 @@ public class flipsMatrixPilotLexer extends Lexer {
         try {
             int _type = LineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:253:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:253:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:9: (~ ( '\\n' | '\\r' ) )*
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:253:9: (~ ( '\\n' | '\\r' ) )*
             loop25:
             do {
                 int alt25=2;
@@ -1291,7 +1291,7 @@ public class flipsMatrixPilotLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:9: ~ ( '\\n' | '\\r' )
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:253:9: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1311,7 +1311,7 @@ public class flipsMatrixPilotLexer extends Lexer {
                 }
             } while (true);
 
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:23: ( '\\r' )?
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:253:23: ( '\\r' )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -1320,7 +1320,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt26) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:242:23: '\\r'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:253:23: '\\r'
                     {
                     match('\r'); 
 
@@ -1545,7 +1545,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             this.transition = DFA20_transition;
         }
         public String getDescription() {
-            return "224:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
+            return "235:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
         }
     }
     static final String DFA27_eotS =
