@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g 2010-02-04 16:44:47
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g 2010-02-04 23:24:07
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -14,15 +14,14 @@ public class flipsMatrixPilotLexer extends Lexer {
     public static final int LineComment=27;
     public static final int Exponent=24;
     public static final int REL=9;
-    public static final int PRE=12;
     public static final int Digit=20;
     public static final int EOF=-1;
     public static final int DecimalLiteral=16;
     public static final int HexDigit=23;
-    public static final int Y=10;
+    public static final int Y=11;
     public static final int Identifier=18;
     public static final int X=7;
-    public static final int Z=11;
+    public static final int Z=12;
     public static final int StringLiteral=19;
     public static final int WS=25;
     public static final int FLY=4;
@@ -32,6 +31,7 @@ public class flipsMatrixPilotLexer extends Lexer {
     public static final int NonZeroDigit=21;
     public static final int BinaryDigit=22;
     public static final int FloatingPointLiteral=13;
+    public static final int GEO=10;
 
     // delegates
     // delegators
@@ -342,19 +342,19 @@ public class flipsMatrixPilotLexer extends Lexer {
     }
     // $ANTLR end "Z"
 
-    // $ANTLR start "PRE"
-    public final void mPRE() throws RecognitionException {
+    // $ANTLR start "GEO"
+    public final void mGEO() throws RecognitionException {
         try {
-            int _type = PRE;
+            int _type = GEO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:5: ( 'pre' | 'PRE' )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:5: ( 'geo' | 'GEO' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0=='p') ) {
+            if ( (LA5_0=='g') ) {
                 alt5=1;
             }
-            else if ( (LA5_0=='P') ) {
+            else if ( (LA5_0=='G') ) {
                 alt5=2;
             }
             else {
@@ -365,17 +365,17 @@ public class flipsMatrixPilotLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:7: 'pre'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:7: 'geo'
                     {
-                    match("pre"); 
+                    match("geo"); 
 
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:13: 'PRE'
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:184:13: 'GEO'
                     {
-                    match("PRE"); 
+                    match("GEO"); 
 
 
                     }
@@ -388,7 +388,7 @@ public class flipsMatrixPilotLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "PRE"
+    // $ANTLR end "GEO"
 
     // $ANTLR start "CMD"
     public final void mCMD() throws RecognitionException {
@@ -1343,7 +1343,7 @@ public class flipsMatrixPilotLexer extends Lexer {
     // $ANTLR end "LineComment"
 
     public void mTokens() throws RecognitionException {
-        // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:1:8: ( T__28 | FLY | FIX | REL | POS | X | Y | Z | PRE | CMD | Identifier | StringLiteral | BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral | FloatingPointLiteral | WS | Comment | LineComment )
+        // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:1:8: ( T__28 | FLY | FIX | REL | POS | X | Y | Z | GEO | CMD | Identifier | StringLiteral | BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral | FloatingPointLiteral | WS | Comment | LineComment )
         int alt27=20;
         alt27 = dfa27.predict(input);
         switch (alt27) {
@@ -1404,9 +1404,9 @@ public class flipsMatrixPilotLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:1:38: PRE
+                // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:1:38: GEO
                 {
-                mPRE(); 
+                mGEO(); 
 
                 }
                 break;
@@ -1549,54 +1549,54 @@ public class flipsMatrixPilotLexer extends Lexer {
         }
     }
     static final String DFA27_eotS =
-        "\2\uffff\6\15\1\36\1\37\1\40\2\15\2\uffff\2\46\3\uffff\12\15\3\uffff"+
-        "\2\15\2\uffff\1\66\1\uffff\1\46\2\uffff\1\67\1\70\1\67\1\70\2\71"+
-        "\1\72\1\73\1\72\1\73\2\74\7\uffff";
+        "\2\uffff\6\17\1\36\1\37\1\40\4\17\2\uffff\2\50\3\uffff\10\17\3\uffff"+
+        "\4\17\2\uffff\1\70\1\uffff\1\50\2\uffff\1\71\1\72\1\71\1\72\2\73"+
+        "\2\74\2\75\2\76\7\uffff";
     static final String DFA27_eofS =
-        "\75\uffff";
+        "\77\uffff";
     static final String DFA27_minS =
-        "\1\11\1\uffff\1\151\1\111\1\145\1\105\1\157\1\117\3\60\1\155\1\115"+
-        "\2\uffff\2\56\2\uffff\1\52\1\171\1\170\1\131\1\130\1\154\1\114\1"+
-        "\163\1\145\1\123\1\105\3\uffff\1\144\1\104\2\uffff\1\56\1\uffff"+
-        "\1\56\2\uffff\14\60\7\uffff";
+        "\1\11\1\uffff\1\151\1\111\1\145\1\105\1\157\1\117\3\60\1\145\1\105"+
+        "\1\155\1\115\2\uffff\2\56\2\uffff\1\52\1\171\1\170\1\131\1\130\1"+
+        "\154\1\114\1\163\1\123\3\uffff\1\157\1\117\1\144\1\104\2\uffff\1"+
+        "\56\1\uffff\1\56\2\uffff\14\60\7\uffff";
     static final String DFA27_maxS =
-        "\1\172\1\uffff\1\154\1\114\1\145\1\105\1\162\1\122\3\172\1\155\1"+
-        "\115\2\uffff\1\170\1\145\2\uffff\1\57\1\171\1\170\1\131\1\130\1"+
-        "\154\1\114\1\163\1\145\1\123\1\105\3\uffff\1\144\1\104\2\uffff\1"+
-        "\145\1\uffff\1\145\2\uffff\14\172\7\uffff";
+        "\1\172\1\uffff\1\154\1\114\1\145\1\105\1\157\1\117\3\172\1\145\1"+
+        "\105\1\155\1\115\2\uffff\1\170\1\145\2\uffff\1\57\1\171\1\170\1"+
+        "\131\1\130\1\154\1\114\1\163\1\123\3\uffff\1\157\1\117\1\144\1\104"+
+        "\2\uffff\1\145\1\uffff\1\145\2\uffff\14\172\7\uffff";
     static final String DFA27_acceptS =
-        "\1\uffff\1\1\13\uffff\1\13\1\14\2\uffff\1\21\1\22\13\uffff\1\6\1"+
-        "\7\1\10\2\uffff\1\15\1\20\1\uffff\1\17\1\uffff\1\23\1\24\14\uffff"+
+        "\1\uffff\1\1\15\uffff\1\13\1\14\2\uffff\1\21\1\22\11\uffff\1\6\1"+
+        "\7\1\10\4\uffff\1\15\1\20\1\uffff\1\17\1\uffff\1\23\1\24\14\uffff"+
         "\1\16\1\2\1\3\1\4\1\5\1\11\1\12";
     static final String DFA27_specialS =
-        "\75\uffff}>";
+        "\77\uffff}>";
     static final String[] DFA27_transitionS = {
-            "\2\22\1\uffff\2\22\22\uffff\1\22\1\uffff\1\16\12\uffff\1\1\1"+
-            "\21\1\23\1\17\11\20\7\uffff\2\15\1\14\2\15\1\3\11\15\1\7\1\15"+
-            "\1\5\5\15\1\10\1\11\1\12\4\uffff\1\15\1\uffff\2\15\1\13\2\15"+
-            "\1\2\11\15\1\6\1\15\1\4\5\15\1\10\1\11\1\12",
+            "\2\24\1\uffff\2\24\22\uffff\1\24\1\uffff\1\20\12\uffff\1\1\1"+
+            "\23\1\25\1\21\11\22\7\uffff\2\17\1\16\2\17\1\3\1\14\10\17\1"+
+            "\7\1\17\1\5\5\17\1\10\1\11\1\12\4\uffff\1\17\1\uffff\2\17\1"+
+            "\15\2\17\1\2\1\13\10\17\1\6\1\17\1\4\5\17\1\10\1\11\1\12",
             "",
-            "\1\25\2\uffff\1\24",
             "\1\27\2\uffff\1\26",
-            "\1\30",
-            "\1\31",
-            "\1\32\2\uffff\1\33",
-            "\1\34\2\uffff\1\35",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
+            "\1\31\2\uffff\1\30",
+            "\1\32",
+            "\1\33",
+            "\1\34",
+            "\1\35",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
             "\1\41",
             "\1\42",
+            "\1\43",
+            "\1\44",
             "",
             "",
-            "\1\21\1\uffff\10\45\2\21\10\uffff\1\43\2\uffff\1\21\22\uffff"+
-            "\1\44\11\uffff\1\43\2\uffff\1\21\22\uffff\1\44",
-            "\1\21\1\uffff\12\47\13\uffff\1\21\37\uffff\1\21",
+            "\1\23\1\uffff\10\47\2\23\10\uffff\1\45\2\uffff\1\23\22\uffff"+
+            "\1\46\11\uffff\1\45\2\uffff\1\23\22\uffff\1\46",
+            "\1\23\1\uffff\12\51\13\uffff\1\23\37\uffff\1\23",
             "",
             "",
-            "\1\50\4\uffff\1\51",
-            "\1\52",
-            "\1\53",
+            "\1\52\4\uffff\1\53",
             "\1\54",
             "\1\55",
             "\1\56",
@@ -1610,25 +1610,27 @@ public class flipsMatrixPilotLexer extends Lexer {
             "",
             "\1\64",
             "\1\65",
+            "\1\66",
+            "\1\67",
             "",
             "",
-            "\1\21\1\uffff\10\45\2\21\13\uffff\1\21\37\uffff\1\21",
+            "\1\23\1\uffff\10\47\2\23\13\uffff\1\23\37\uffff\1\23",
             "",
-            "\1\21\1\uffff\12\47\13\uffff\1\21\37\uffff\1\21",
+            "\1\23\1\uffff\12\51\13\uffff\1\23\37\uffff\1\23",
             "",
             "",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
-            "\12\15\7\uffff\32\15\4\uffff\1\15\1\uffff\32\15",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\4\uffff\1\17\1\uffff\32\17",
             "",
             "",
             "",
@@ -1668,7 +1670,7 @@ public class flipsMatrixPilotLexer extends Lexer {
             this.transition = DFA27_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__28 | FLY | FIX | REL | POS | X | Y | Z | PRE | CMD | Identifier | StringLiteral | BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral | FloatingPointLiteral | WS | Comment | LineComment );";
+            return "1:1: Tokens : ( T__28 | FLY | FIX | REL | POS | X | Y | Z | GEO | CMD | Identifier | StringLiteral | BinaryLiteral | OctalLiteral | DecimalLiteral | HexLiteral | FloatingPointLiteral | WS | Comment | LineComment );";
         }
     }
  

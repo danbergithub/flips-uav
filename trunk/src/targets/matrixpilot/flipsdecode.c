@@ -122,37 +122,37 @@ static void FLIPSDecode() {
       PositionX.Desired += FLIPSLoadFloat();
       printf("POS   X REL %f\n", PositionX.Desired);
       break;
-      
-    case 5: // POS Y FIX value
+    
+    case 5: // POS X GEO value
+      PositionX.Desired = FLIPSLoadFloat();
+      printf("POS   X GEO %f\n", PositionX.Desired);
+      break;
+    
+    case 6: // POS Y FIX value
       PositionY.Desired = FLIPSLoadFloat();
       printf("POS   Y FIX %f\n", PositionY.Desired);
       break;
       
-    case 6: // POS Y REL value
+    case 7: // POS Y REL value
       PositionY.Desired += FLIPSLoadFloat();
       printf("POS   Y REL %f\n", PositionY.Desired);
       break;
-      
-    case 7: // POS Z FIX value
+    
+    case 8: // POS Y GEO value
+      PositionY.Desired = FLIPSLoadFloat();
+      printf("POS   Y GEO %f\n", PositionY.Desired);
+      break;
+    
+    case 9: // POS Z FIX value
       PositionZ.Desired = FLIPSLoadFloat();
       printf("POS   Z FIX %f\n", PositionZ.Desired);
       break;
       
-    case 8: // POS Z REL value
+    case 10: // POS Z REL value
       PositionZ.Desired += FLIPSLoadFloat();
       printf("POS   Z REL %f\n", PositionZ.Desired);
       break;
-      
-    case 9: // POS PRE FIX value
-      PositionPressure.Desired = FLIPSLoadFloat();
-      printf("POS PRE FIX %f\n", PositionPressure.Desired);
-      break;
-      
-    case 10: // POS PRE REL value
-      PositionPressure.Desired += FLIPSLoadFloat();
-      printf("POS PRE REL %f\n", PositionPressure.Desired);
-      break;
-      
+    
     // UNKNOWN INSTRUCTIONS
     
     default:

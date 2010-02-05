@@ -53,10 +53,11 @@ options {
     return null;
   }
   
-  public void addWaypoint(String name, Double latitude, Double longitude) {
-    Double[] coordinate = new Double[2];
-    coordinate[0] = latitude;
-    coordinate[1] = longitude;
+  public void addWaypoint(String name, Double north, Double east, Double type) {
+    Double[] coordinate = new Double[3];
+    coordinate[0] = north;
+    coordinate[1] = east;
+    coordinate[2] = type;
     waypoints.put(name, coordinate);
   }
     
@@ -118,8 +119,10 @@ defineCommand
 	;
 
 defineWaypoint
-	:	^(DEFINE name=Identifier geo=geoCoordinate)
-		{addWaypoint(name.getText(),geo.latitude,geo.longitude);}
+	:	^(DEFINE name=Identifier ^(GEOCOORDINATE geo=latitudeLongitude))
+		{addWaypoint(name.getText(),geo.latitude,geo.longitude,0d);}
+	|	^(DEFINE name=Identifier ^(GEOCOORDINATE dst=distanceCoordinate))
+		{addWaypoint(name.getText(),dst.north,dst.east,1d);}
 	;
 
 // COMMANDS
@@ -166,18 +169,12 @@ executeCommandParameter
 altitude
 	:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
 		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
-	|	^(ALTITUDE FIXED PRESSURE y=convertPressure)
-		{emit("POS PRE FIX " + y, y + " kPa Pressure Altitude");}
 	|	^(ALTITUDE FIXED x=convertFlightLevel)
 		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
 	|	^(ALTITUDE RELATIVE CLIMB DISTANCE x=convertDistance)
 		{emit("POS   Z REL " + -x, mToft(x) + "Relative Altitude");}
-	|	^(ALTITUDE RELATIVE CLIMB PRESSURE y=convertPressure)
-		{emit("POS PRE REL " + -y, -y + " kPa Relative Pressure Altitude");}
 	|	^(ALTITUDE RELATIVE DESCEND DISTANCE x=convertDistance)
 		{emit("POS   Z REL " + x, mToft(-x) + "Relative Altitude");}
-	|	^(ALTITUDE RELATIVE DESCEND PRESSURE y=convertPressure)
-		{emit("POS PRE REL " + y, y + " kPa Relative Pressure Altitude");}
 	;
 
 // DISTANCE EXPRESSIONS
@@ -194,19 +191,21 @@ distance
 // WAYPOINT EXPRESSIONS
 
 waypoint
-	:	geo=geoCoordinate
-		{String ns = geo.latitude >= 0 ? "N" : "S";}
-		{String ew = geo.longitude >= 0 ? "E" : "W";}
-		{emit("POS   X FIX " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");}
-		{emit("POS   Y FIX " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");}
+	:	geoCoordinate
 	|	^(WAYPOINT x=Identifier)
 	{
 Double[] coordinate = getWaypoint(x.getText());
 if (coordinate != null) {
   String ns = coordinate[0] >= 0 ? "N" : "S";
   String ew = coordinate[1] >= 0 ? "E" : "W";
-  emit("POS   X FIX " + coordinate[1], x.getText().toUpperCase() + " / " + Math.abs(coordinate[1]) + " " + ew + " Longitude");
-  emit("POS   Y FIX " + coordinate[0], x.getText().toUpperCase() + " / " + Math.abs(coordinate[0]) + " " + ns + " Latitude");
+  if (coordinate[2] == 0) {
+    emit("POS   X GEO " + coordinate[1], x.getText().toUpperCase() + " / " + Math.abs(coordinate[1]) + " " + ew + " Longitude");
+    emit("POS   Y GEO " + coordinate[0], x.getText().toUpperCase() + " / " + Math.abs(coordinate[0]) + " " + ns + " Latitude");
+  }
+  if (coordinate[2] == 1) {
+    emit("POS   X FIX " + coordinate[1], x.getText().toUpperCase() + " / " + mToft(Math.abs(coordinate[1])) + ew + " Distance");
+    emit("POS   Y FIX " + coordinate[0], x.getText().toUpperCase() + " / " + mToft(Math.abs(coordinate[0])) + ns + " Distance");  
+  }
 }
 else {
   emit("POS   X FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
@@ -215,8 +214,21 @@ else {
 	}
 	;
 
-geoCoordinate returns [double latitude, double longitude]
-	:	^(GEOCOORDINATE x=latitude y=longitude)
+geoCoordinate
+	:	^(GEOCOORDINATE geo=latitudeLongitude)
+		{String ns = geo.latitude >= 0 ? "N" : "S";}
+		{String ew = geo.longitude >= 0 ? "E" : "W";}
+		{emit("POS   X GEO " + geo.longitude, Math.abs(geo.longitude) + " " + ew + " Longitude");}
+		{emit("POS   Y GEO " + geo.latitude, Math.abs(geo.latitude) + " " + ns + " Latitude");}
+	|	^(GEOCOORDINATE dst=distanceCoordinate)
+		{String ns = dst.north >= 0 ? "N" : "S";}
+		{String ew = dst.east >= 0 ? "E" : "W";}
+		{emit("POS   X FIX " + dst.east, mToft(Math.abs(dst.east)) + ew + " Distance");}
+		{emit("POS   Y FIX " + dst.north, mToft(Math.abs(dst.north)) + ns + " Distance");}
+	;
+
+latitudeLongitude returns [double latitude, double longitude]
+	:	x=latitude y=longitude
 		{$latitude = x;}
 		{$longitude = y;}
 	;
@@ -232,6 +244,26 @@ longitude returns [double r]
 	:	^(LONGITUDE x=convertAngle EAST)
 		{r = x;}
 	|	^(LONGITUDE x=convertAngle WEST)
+		{r = -x;}
+	;
+
+distanceCoordinate returns [double north, double east]
+	:	x=distanceNorth y=distanceEast
+		{$north = x;}
+		{$east = y;}
+	;
+
+distanceNorth returns [double r]
+	:	^(DISTANCE x=convertDistance NORTH)
+		{r = x;}
+	|	^(DISTANCE x=convertDistance SOUTH)
+		{r = -x;}
+	;
+
+distanceEast returns [double r]
+	:	^(DISTANCE x=convertDistance EAST)
+		{r = x;}
+	|	^(DISTANCE x=convertDistance WEST)
 		{r = -x;}
 	;
 
@@ -258,22 +290,6 @@ convertFlightLevel returns [double r]
 	:	FLIGHTLEVEL x=FlightLevel
 		{String y = x.toString().replaceAll("fl","").replaceAll("ight level","").replaceAll(" ","");}
 		{r = Double.parseDouble(y) * 100d * 0.3048d;}
-	;
-
-// Standard pressure unit is the pascal
-convertPressure returns [double r]
-	:	x=numericValue KILOPASCAL
-		{r = x * 1000d;}
-	|	x=numericValue HECTOPASCAL
-		{r = x * 100d;}
-	|	x=numericValue PASCAL
-		{r = x;}
-	|	x=numericValue BAR
-		{r = x * 100000d;}
-	|	x=numericValue MILLIBAR
-		{r = x * 100d;}
-	|	x=numericValue ATMOSPHERE
-		{r = x * 101325d;}
 	;
 
 // Standard angle unit is the degree

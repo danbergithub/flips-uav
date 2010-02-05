@@ -130,12 +130,12 @@ command	:	CMD x=integerValue {emitShort(2,x);};
 
 position:	POS X FIX x=numericValue {emit(3,x);}
 	|	POS X REL x=numericValue {emit(4,x);}
-	|	POS Y FIX x=numericValue {emit(5,x);}
-	|	POS Y REL x=numericValue {emit(6,x);}
-	|	POS Z FIX x=numericValue {emit(7,x);}
-	|	POS Z REL x=numericValue {emit(8,x);}
-	|	POS PRE FIX x=numericValue {emit(9,x);}
-	|	POS PRE REL x=numericValue {emit(10,x);}
+	|	POS X GEO x=numericValue {emit(5,x);}
+	|	POS Y FIX x=numericValue {emit(6,x);}
+	|	POS Y REL x=numericValue {emit(7,x);}
+	|	POS Y GEO x=numericValue {emit(8,x);}
+	|	POS Z FIX x=numericValue {emit(9,x);}
+	|	POS Z REL x=numericValue {emit(10,x);}
 	;
 
 // NUMERIC EXPRESSIONS
@@ -181,7 +181,7 @@ POS	:	'pos'|'POS';
 X	:	'x'|'X';
 Y	:	'y'|'Y';
 Z	:	'z'|'Z';
-PRE	:	'pre'|'PRE';
+GEO	:	'geo'|'GEO';
 
 CMD	:	'cmd'|'CMD';
 
