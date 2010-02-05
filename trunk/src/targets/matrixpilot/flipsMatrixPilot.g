@@ -141,10 +141,10 @@ command	:	CMD x=integerValue {emitShort(2,x);} {cmdState = x;};
 
 position:	POS X FIX x=numericValue {emit(3,x);} {xState = x;}
 	|	POS X REL x=numericValue {emit(4,x);} {xState = x;}
-	|	POS X GEO x=numericValue {emit(5,x);} {xState = x * 10e7;}
+	|	POS X GEO x=numericValue {emit(5,x);} {xState = x * 1e7;}
 	|	POS Y FIX x=numericValue {emit(6,x);} {yState = x;}
 	|	POS Y REL x=numericValue {emit(7,x);} {yState = x;}
-	|	POS Y GEO x=numericValue {emit(8,x);} {yState = x * 10e7;}
+	|	POS Y GEO x=numericValue {emit(8,x);} {yState = x * 1e7;}
 	|	POS Z FIX x=numericValue {emit(9,x);} {zState = -x;}
 	|	POS Z REL x=numericValue {emit(10,x);} {zState = -x;}
 	;
