@@ -14,6 +14,11 @@ waypoints
   NewYork = 40.714269 -74.005973
   London = 51.00652 -0.126708
 
+  SECorner = (100m, 0m)
+  NECorner = (100m, 100m)
+  NWCorner = (0m, 100m)
+  SWCorner = (0m, 0m)
+
 Takeoff
 fly to Atlanta at 50 meters
 Normal
@@ -22,5 +27,15 @@ fly at 1000 feet
 Inverted
 fly to London
 fly to Atlanta at 250 feet
-Land
 
+// waypoints.h Example Course
+Normal
+fly to SECorner at 75 meters
+fly to NECorner
+Inverted
+fly to NWCorner
+Normal
+fly to SWCorner
+Loiter
+fly to (50m, 50m)
+Land

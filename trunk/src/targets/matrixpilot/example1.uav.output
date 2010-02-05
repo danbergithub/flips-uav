@@ -15,6 +15,11 @@ waypoints
   NewYork = 40.714269 -74.005973
   London = 51.00652 -0.126708
 
+  SECorner = (100m, 0m)
+  NECorner = (100m, 100m)
+  NWCorner = (0m, 100m)
+  SWCorner = (0m, 0m)
+
 Takeoff
 fly to Atlanta at 50 meters
 Normal
@@ -23,8 +28,18 @@ fly at 1000 feet
 Inverted
 fly to London
 fly to Atlanta at 250 feet
-Land
 
+// waypoints.h Example Course
+Normal
+fly to SECorner at 75 meters
+fly to NECorner
+Inverted
+fly to NWCorner
+Normal
+fly to SWCorner
+Loiter
+fly to (50m, 50m)
+Land
 Generating assembly code...
 CMD 1                    // TAKEOFF / Command #1
 POS   X GEO -84.387982   // ATLANTA / 84.387982 W Longitude
@@ -44,6 +59,26 @@ FLY                      // Execute
 POS   X GEO -84.387982   // ATLANTA / 84.387982 W Longitude
 POS   Y GEO 33.748995    // ATLANTA / 33.748995 N Latitude
 POS   Z FIX -76.2        // 76.2 m (250.0 ft) Altitude
+FLY                      // Execute
+CMD 0                    // NORMAL / Command #0
+POS   X FIX 100.0        // SECORNER / 100.0 m (328.0839895013123 ft) E Distance
+POS   Y FIX 0.0          // SECORNER / 0.0 m (0.0 ft) N Distance
+POS   Z FIX -75.0        // 75.0 m (246.06299212598424 ft) Altitude
+FLY                      // Execute
+POS   X FIX 100.0        // NECORNER / 100.0 m (328.0839895013123 ft) E Distance
+POS   Y FIX 100.0        // NECORNER / 100.0 m (328.0839895013123 ft) N Distance
+FLY                      // Execute
+CMD 2                    // INVERTED / Command #2
+POS   X FIX 0.0          // NWCORNER / 0.0 m (0.0 ft) E Distance
+POS   Y FIX 100.0        // NWCORNER / 100.0 m (328.0839895013123 ft) N Distance
+FLY                      // Execute
+CMD 0                    // NORMAL / Command #0
+POS   X FIX 0.0          // SWCORNER / 0.0 m (0.0 ft) E Distance
+POS   Y FIX 0.0          // SWCORNER / 0.0 m (0.0 ft) N Distance
+FLY                      // Execute
+CMD 64                   // LOITER / Command #64
+POS   X FIX 50.0         // 50.0 m (164.04199475065616 ft) E Distance
+POS   Y FIX 50.0         // 50.0 m (164.04199475065616 ft) N Distance
 FLY                      // Execute
 CMD 128                  // LAND / Command #128
 
@@ -68,6 +103,26 @@ Generating binary code...
 8 33.748995 = 8 42 6 FE F9
 9 -76.2 = 9 C2 98 66 66
 1 = 1
+0 = 0
+3 100.0 = 3 42 C8 0 0
+6 0.0 = 6 0 0 0 0
+9 -75.0 = 9 C2 96 0 0
+1 = 1
+3 100.0 = 3 42 C8 0 0
+6 100.0 = 6 42 C8 0 0
+1 = 1
+2 = 2
+3 0.0 = 3 0 0 0 0
+6 100.0 = 6 42 C8 0 0
+1 = 1
+0 = 0
+3 0.0 = 3 0 0 0 0
+6 0.0 = 6 0 0 0 0
+1 = 1
+64 = 40
+3 50.0 = 3 42 48 0 0
+6 50.0 = 6 42 48 0 0
+1 = 1
 128 = 80
 255 = FF
 
@@ -91,6 +146,26 @@ FLY
 POS   X GEO -84.387985
 POS   Y GEO 33.748997
 POS   Z FIX -76.199997
+FLY
+FP_NORMAL
+POS   X FIX 100.000000
+POS   Y FIX 0.000000
+POS   Z FIX -75.000000
+FLY
+POS   X FIX 100.000000
+POS   Y FIX 100.000000
+FLY
+FP_INVERTED
+POS   X FIX 0.000000
+POS   Y FIX 100.000000
+FLY
+FP_NORMAL
+POS   X FIX 0.000000
+POS   Y FIX 0.000000
+FLY
+FP_LOITER
+POS   X FIX 50.000000
+POS   Y FIX 50.000000
 FLY
 FP_LAND
 FLIPS: END PROGRAM
