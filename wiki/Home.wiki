@@ -1,5 +1,3 @@
-#summary Home
-
 = FLIPS =
 
 A Flight Instruction Processing System for Unmanned Aerial Vehicles
