@@ -33,8 +33,7 @@ CMD 0                    // NORMAL / Command #0
 POS   X FIX 0.0          // SWCORNER / 0.0 m (0.0 ft) E Distance
 POS   Y FIX 0.0          // SWCORNER / 0.0 m (0.0 ft) N Distance
 FLY                      // Execute
-CMD 64                   // LOITER / Command #64
+CMD 192                  // LOITERANDLAND / Command #192
 POS   X FIX 50.0         // 50.0 m (164.04199475065616 ft) E Distance
 POS   Y FIX 50.0         // 50.0 m (164.04199475065616 ft) N Distance
 FLY                      // Execute
-CMD 128                  // LAND / Command #128

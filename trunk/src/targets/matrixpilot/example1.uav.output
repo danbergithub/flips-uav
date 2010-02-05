@@ -9,6 +9,7 @@ commands
   Trigger = 32
   Loiter = 64
   Land = 128
+  LoiterAndLand = 192
 
 waypoints
   Atlanta = 33.748995 -84.387982
@@ -37,9 +38,8 @@ Inverted
 fly to NWCorner
 Normal
 fly to SWCorner
-Loiter
+LoiterAndLand
 fly to (50m, 50m)
-Land
 Generating assembly code...
 CMD 1                    // TAKEOFF / Command #1
 POS   X GEO -84.387982   // ATLANTA / 84.387982 W Longitude
@@ -76,11 +76,10 @@ CMD 0                    // NORMAL / Command #0
 POS   X FIX 0.0          // SWCORNER / 0.0 m (0.0 ft) E Distance
 POS   Y FIX 0.0          // SWCORNER / 0.0 m (0.0 ft) N Distance
 FLY                      // Execute
-CMD 64                   // LOITER / Command #64
+CMD 192                  // LOITERANDLAND / Command #192
 POS   X FIX 50.0         // 50.0 m (164.04199475065616 ft) E Distance
 POS   Y FIX 50.0         // 50.0 m (164.04199475065616 ft) N Distance
 FLY                      // Execute
-CMD 128                  // LAND / Command #128
 
 Generating binary code...
 170 = AA
@@ -119,27 +118,40 @@ Generating binary code...
 3 0.0 = 3 0 0 0 0
 6 0.0 = 6 0 0 0 0
 1 = 1
-64 = 40
+192 = C0
 3 50.0 = 3 42 48 0 0
 6 50.0 = 6 42 48 0 0
 1 = 1
-128 = 80
 255 = FF
+
+Generating waypoints.h file...
+const struct waypointDef waypoints[] = {
+                                         { { -8438798199, 3374899500, 50 } , 1 } ,
+                                         { { -7400597300, 4071426900, 50 } , 0 } ,
+                                         { { -7400597300, 4071426900, 304 } , 0 } ,
+                                         { { -12670799, 5100652000, 304 } , 2 } ,
+                                         { { -8438798199, 3374899500, 76 } , 2 } ,
+                                         { { 100, 0, 75 } , 0 } ,
+                                         { { 100, 100, 75 } , 0 } ,
+                                         { { 0, 100, 75 } , 2 } ,
+                                         { { 0, 0, 75 } , 0 } ,
+                                         { { 50, 50, 75 } , 192 } ,
+                                       } ;
 
 Running mission...
 FLIPS: BEGIN PROGRAM
-FP_TAKEOFF
+F_TAKEOFF
 POS   X GEO -84.387985
 POS   Y GEO 33.748997
 POS   Z FIX -50.000000
 FLY
-FP_NORMAL
+F_NORMAL
 POS   X GEO -74.005974
 POS   Y GEO 40.714268
 FLY
 POS   Z FIX -304.799988
 FLY
-FP_INVERTED
+F_INVERTED
 POS   X GEO -0.126708
 POS   Y GEO 51.006519
 FLY
@@ -147,7 +159,7 @@ POS   X GEO -84.387985
 POS   Y GEO 33.748997
 POS   Z FIX -76.199997
 FLY
-FP_NORMAL
+F_NORMAL
 POS   X FIX 100.000000
 POS   Y FIX 0.000000
 POS   Z FIX -75.000000
@@ -155,18 +167,17 @@ FLY
 POS   X FIX 100.000000
 POS   Y FIX 100.000000
 FLY
-FP_INVERTED
+F_INVERTED
 POS   X FIX 0.000000
 POS   Y FIX 100.000000
 FLY
-FP_NORMAL
+F_NORMAL
 POS   X FIX 0.000000
 POS   Y FIX 0.000000
 FLY
-FP_LOITER
+F_LOITER + F_LAND
 POS   X FIX 50.000000
 POS   Y FIX 50.000000
 FLY
-FP_LAND
 FLIPS: END PROGRAM
 FLIPS: HALT

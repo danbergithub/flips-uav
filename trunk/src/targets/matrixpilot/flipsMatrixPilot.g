@@ -37,6 +37,11 @@ options {
 
 @members {
       public ByteBuffer output = ByteBuffer.allocate(4096);
+      public StringBuilder waypoints = new StringBuilder();
+      public Double xState = 0d;
+      public Double yState = 0d;
+      public Double zState = 0d;
+      public Integer cmdState;
 
       public void emitByte(int value) {
         output.put((byte)value);
@@ -108,8 +113,10 @@ options {
 
 flightPlan
 	:	{emitByte(0xAA);}
+		{waypoints.append("const struct waypointDef waypoints[] = {\n");}
 		instruction*
 		{emitByte(0xFF);}
+		{waypoints.append("                                       } ;\n");}
 		{reserveCharacters();}
 		{output.flip();}
 	;
@@ -122,20 +129,24 @@ instruction
 
 // GENERAL INSTRUCTIONS
 
-fly	:	FLY {emit(1);};
+fly	:	FLY {emit(1);}
+		{waypoints.append("                                         ");}
+		{waypoints.append("{ { " + xState.longValue() + ", " + yState.longValue() + ", " + zState.intValue() + " }");}
+		{waypoints.append(" , " + cmdState.intValue() + " } ,\n");}
+	;
 
-command	:	CMD x=integerValue {emitShort(2,x);};
+command	:	CMD x=integerValue {emitShort(2,x);} {cmdState = x;};
 
 // POSITION INSTRUCTIONS
 
-position:	POS X FIX x=numericValue {emit(3,x);}
-	|	POS X REL x=numericValue {emit(4,x);}
-	|	POS X GEO x=numericValue {emit(5,x);}
-	|	POS Y FIX x=numericValue {emit(6,x);}
-	|	POS Y REL x=numericValue {emit(7,x);}
-	|	POS Y GEO x=numericValue {emit(8,x);}
-	|	POS Z FIX x=numericValue {emit(9,x);}
-	|	POS Z REL x=numericValue {emit(10,x);}
+position:	POS X FIX x=numericValue {emit(3,x);} {xState = x;}
+	|	POS X REL x=numericValue {emit(4,x);} {xState = x;}
+	|	POS X GEO x=numericValue {emit(5,x);} {xState = x * 10e7;}
+	|	POS Y FIX x=numericValue {emit(6,x);} {yState = x;}
+	|	POS Y REL x=numericValue {emit(7,x);} {yState = x;}
+	|	POS Y GEO x=numericValue {emit(8,x);} {yState = x * 10e7;}
+	|	POS Z FIX x=numericValue {emit(9,x);} {zState = -x;}
+	|	POS Z REL x=numericValue {emit(10,x);} {zState = -x;}
 	;
 
 // NUMERIC EXPRESSIONS

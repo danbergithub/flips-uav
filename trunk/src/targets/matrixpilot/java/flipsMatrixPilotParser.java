@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g 2010-02-04 23:24:07
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g 2010-02-05 00:27:37
 
   import java.nio.ByteBuffer;
 
@@ -57,6 +57,11 @@ public class flipsMatrixPilotParser extends Parser {
 
 
           public ByteBuffer output = ByteBuffer.allocate(4096);
+          public StringBuilder waypoints = new StringBuilder();
+          public Double xState = 0d;
+          public Double yState = 0d;
+          public Double zState = 0d;
+          public Integer cmdState;
 
           public void emitByte(int value) {
             output.put((byte)value);
@@ -128,14 +133,15 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "flightPlan"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:109:1: flightPlan : ( instruction )* ;
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:114:1: flightPlan : ( instruction )* ;
     public final void flightPlan() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:110:2: ( ( instruction )* )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:110:4: ( instruction )*
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:115:2: ( ( instruction )* )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:115:4: ( instruction )*
             {
             emitByte(0xAA);
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:111:3: ( instruction )*
+            waypoints.append("const struct waypointDef waypoints[] = {\n");
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:117:3: ( instruction )*
             loop1:
             do {
                 int alt1=2;
@@ -148,9 +154,9 @@ public class flipsMatrixPilotParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:111:3: instruction
+            	    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:117:3: instruction
             	    {
-            	    pushFollow(FOLLOW_instruction_in_flightPlan44);
+            	    pushFollow(FOLLOW_instruction_in_flightPlan48);
             	    instruction();
 
             	    state._fsp--;
@@ -165,6 +171,7 @@ public class flipsMatrixPilotParser extends Parser {
             } while (true);
 
             emitByte(0xFF);
+            waypoints.append("                                       } ;\n");
             reserveCharacters();
             output.flip();
 
@@ -183,10 +190,10 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "instruction"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:117:1: instruction : ( fly | command | position );
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:124:1: instruction : ( fly | command | position );
     public final void instruction() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:118:2: ( fly | command | position )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:125:2: ( fly | command | position )
             int alt2=3;
             switch ( input.LA(1) ) {
             case FLY:
@@ -213,9 +220,9 @@ public class flipsMatrixPilotParser extends Parser {
 
             switch (alt2) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:118:4: fly
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:125:4: fly
                     {
-                    pushFollow(FOLLOW_fly_in_instruction68);
+                    pushFollow(FOLLOW_fly_in_instruction76);
                     fly();
 
                     state._fsp--;
@@ -224,9 +231,9 @@ public class flipsMatrixPilotParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:119:4: command
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:126:4: command
                     {
-                    pushFollow(FOLLOW_command_in_instruction73);
+                    pushFollow(FOLLOW_command_in_instruction81);
                     command();
 
                     state._fsp--;
@@ -235,9 +242,9 @@ public class flipsMatrixPilotParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:120:4: position
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:127:4: position
                     {
-                    pushFollow(FOLLOW_position_in_instruction78);
+                    pushFollow(FOLLOW_position_in_instruction86);
                     position();
 
                     state._fsp--;
@@ -260,14 +267,17 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "fly"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:125:1: fly : FLY ;
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:132:1: fly : FLY ;
     public final void fly() throws RecognitionException {
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:125:5: ( FLY )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:125:7: FLY
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:132:5: ( FLY )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:132:7: FLY
             {
-            match(input,FLY,FOLLOW_FLY_in_fly90); 
+            match(input,FLY,FOLLOW_FLY_in_fly98); 
             emit(1);
+            waypoints.append("                                         ");
+            waypoints.append("{ { " + xState.longValue() + ", " + yState.longValue() + ", " + zState.intValue() + " }");
+            waypoints.append(" , " + cmdState.intValue() + " } ,\n");
 
             }
 
@@ -284,22 +294,23 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "command"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:127:1: command : CMD x= integerValue ;
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:138:1: command : CMD x= integerValue ;
     public final void command() throws RecognitionException {
         int x = 0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:127:9: ( CMD x= integerValue )
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:127:11: CMD x= integerValue
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:138:9: ( CMD x= integerValue )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:138:11: CMD x= integerValue
             {
-            match(input,CMD,FOLLOW_CMD_in_command100); 
-            pushFollow(FOLLOW_integerValue_in_command104);
+            match(input,CMD,FOLLOW_CMD_in_command122); 
+            pushFollow(FOLLOW_integerValue_in_command126);
             x=integerValue();
 
             state._fsp--;
 
             emitShort(2,x);
+            cmdState = x;
 
             }
 
@@ -316,133 +327,141 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "position"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:131:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue );
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:142:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue );
     public final void position() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:131:9: ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:142:9: ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue )
             int alt3=8;
             alt3 = dfa3.predict(input);
             switch (alt3) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:131:11: POS X FIX x= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:142:11: POS X FIX x= numericValue
                     {
-                    match(input,POS,FOLLOW_POS_in_position115); 
-                    match(input,X,FOLLOW_X_in_position117); 
-                    match(input,FIX,FOLLOW_FIX_in_position119); 
-                    pushFollow(FOLLOW_numericValue_in_position123);
+                    match(input,POS,FOLLOW_POS_in_position139); 
+                    match(input,X,FOLLOW_X_in_position141); 
+                    match(input,FIX,FOLLOW_FIX_in_position143); 
+                    pushFollow(FOLLOW_numericValue_in_position147);
                     x=numericValue();
 
                     state._fsp--;
 
                     emit(3,x);
+                    xState = x;
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:132:4: POS X REL x= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:143:4: POS X REL x= numericValue
                     {
-                    match(input,POS,FOLLOW_POS_in_position130); 
-                    match(input,X,FOLLOW_X_in_position132); 
-                    match(input,REL,FOLLOW_REL_in_position134); 
-                    pushFollow(FOLLOW_numericValue_in_position138);
+                    match(input,POS,FOLLOW_POS_in_position156); 
+                    match(input,X,FOLLOW_X_in_position158); 
+                    match(input,REL,FOLLOW_REL_in_position160); 
+                    pushFollow(FOLLOW_numericValue_in_position164);
                     x=numericValue();
 
                     state._fsp--;
 
                     emit(4,x);
+                    xState = x;
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:133:4: POS X GEO x= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:144:4: POS X GEO x= numericValue
                     {
-                    match(input,POS,FOLLOW_POS_in_position145); 
-                    match(input,X,FOLLOW_X_in_position147); 
-                    match(input,GEO,FOLLOW_GEO_in_position149); 
-                    pushFollow(FOLLOW_numericValue_in_position153);
+                    match(input,POS,FOLLOW_POS_in_position173); 
+                    match(input,X,FOLLOW_X_in_position175); 
+                    match(input,GEO,FOLLOW_GEO_in_position177); 
+                    pushFollow(FOLLOW_numericValue_in_position181);
                     x=numericValue();
 
                     state._fsp--;
 
                     emit(5,x);
+                    xState = x * 10e7;
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:134:4: POS Y FIX x= numericValue
-                    {
-                    match(input,POS,FOLLOW_POS_in_position160); 
-                    match(input,Y,FOLLOW_Y_in_position162); 
-                    match(input,FIX,FOLLOW_FIX_in_position164); 
-                    pushFollow(FOLLOW_numericValue_in_position168);
-                    x=numericValue();
-
-                    state._fsp--;
-
-                    emit(6,x);
-
-                    }
-                    break;
-                case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:135:4: POS Y REL x= numericValue
-                    {
-                    match(input,POS,FOLLOW_POS_in_position175); 
-                    match(input,Y,FOLLOW_Y_in_position177); 
-                    match(input,REL,FOLLOW_REL_in_position179); 
-                    pushFollow(FOLLOW_numericValue_in_position183);
-                    x=numericValue();
-
-                    state._fsp--;
-
-                    emit(7,x);
-
-                    }
-                    break;
-                case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:136:4: POS Y GEO x= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:145:4: POS Y FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position190); 
                     match(input,Y,FOLLOW_Y_in_position192); 
-                    match(input,GEO,FOLLOW_GEO_in_position194); 
+                    match(input,FIX,FOLLOW_FIX_in_position194); 
                     pushFollow(FOLLOW_numericValue_in_position198);
                     x=numericValue();
 
                     state._fsp--;
 
+                    emit(6,x);
+                    yState = x;
+
+                    }
+                    break;
+                case 5 :
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:146:4: POS Y REL x= numericValue
+                    {
+                    match(input,POS,FOLLOW_POS_in_position207); 
+                    match(input,Y,FOLLOW_Y_in_position209); 
+                    match(input,REL,FOLLOW_REL_in_position211); 
+                    pushFollow(FOLLOW_numericValue_in_position215);
+                    x=numericValue();
+
+                    state._fsp--;
+
+                    emit(7,x);
+                    yState = x;
+
+                    }
+                    break;
+                case 6 :
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:147:4: POS Y GEO x= numericValue
+                    {
+                    match(input,POS,FOLLOW_POS_in_position224); 
+                    match(input,Y,FOLLOW_Y_in_position226); 
+                    match(input,GEO,FOLLOW_GEO_in_position228); 
+                    pushFollow(FOLLOW_numericValue_in_position232);
+                    x=numericValue();
+
+                    state._fsp--;
+
                     emit(8,x);
+                    yState = x * 10e7;
 
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:137:4: POS Z FIX x= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:148:4: POS Z FIX x= numericValue
                     {
-                    match(input,POS,FOLLOW_POS_in_position205); 
-                    match(input,Z,FOLLOW_Z_in_position207); 
-                    match(input,FIX,FOLLOW_FIX_in_position209); 
-                    pushFollow(FOLLOW_numericValue_in_position213);
+                    match(input,POS,FOLLOW_POS_in_position241); 
+                    match(input,Z,FOLLOW_Z_in_position243); 
+                    match(input,FIX,FOLLOW_FIX_in_position245); 
+                    pushFollow(FOLLOW_numericValue_in_position249);
                     x=numericValue();
 
                     state._fsp--;
 
                     emit(9,x);
+                    zState = -x;
 
                     }
                     break;
                 case 8 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:138:4: POS Z REL x= numericValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:149:4: POS Z REL x= numericValue
                     {
-                    match(input,POS,FOLLOW_POS_in_position220); 
-                    match(input,Z,FOLLOW_Z_in_position222); 
-                    match(input,REL,FOLLOW_REL_in_position224); 
-                    pushFollow(FOLLOW_numericValue_in_position228);
+                    match(input,POS,FOLLOW_POS_in_position258); 
+                    match(input,Z,FOLLOW_Z_in_position260); 
+                    match(input,REL,FOLLOW_REL_in_position262); 
+                    pushFollow(FOLLOW_numericValue_in_position266);
                     x=numericValue();
 
                     state._fsp--;
 
                     emit(10,x);
+                    zState = -x;
 
                     }
                     break;
@@ -461,7 +480,7 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "numericValue"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:143:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral );
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:154:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral );
     public final double numericValue() throws RecognitionException {
         double r = 0.0;
 
@@ -470,7 +489,7 @@ public class flipsMatrixPilotParser extends Parser {
 
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:144:2: (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:155:2: (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral )
             int alt4=3;
             switch ( input.LA(1) ) {
             case BinaryLiteral:
@@ -513,9 +532,9 @@ public class flipsMatrixPilotParser extends Parser {
 
             switch (alt4) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:144:4: x= integerValue
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:155:4: x= integerValue
                     {
-                    pushFollow(FOLLOW_integerValue_in_numericValue249);
+                    pushFollow(FOLLOW_integerValue_in_numericValue289);
                     x=integerValue();
 
                     state._fsp--;
@@ -525,18 +544,18 @@ public class flipsMatrixPilotParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:146:10: y= FloatingPointLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:157:10: y= FloatingPointLiteral
                     {
-                    y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue266); 
+                    y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue306); 
                     r = Double.parseDouble(y.getText());
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:148:10: '-' y= FloatingPointLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:159:10: '-' y= FloatingPointLiteral
                     {
-                    match(input,28,FOLLOW_28_in_numericValue288); 
-                    y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue292); 
+                    match(input,28,FOLLOW_28_in_numericValue328); 
+                    y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue332); 
                     r = -Double.parseDouble(y.getText());
 
                     }
@@ -556,81 +575,81 @@ public class flipsMatrixPilotParser extends Parser {
 
 
     // $ANTLR start "integerValue"
-    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:152:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );
+    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:163:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );
     public final int integerValue() throws RecognitionException {
         int r = 0;
 
         Token x=null;
 
         try {
-            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:153:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral )
+            // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:164:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral )
             int alt5=8;
             alt5 = dfa5.predict(input);
             switch (alt5) {
                 case 1 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:153:4: x= BinaryLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:164:4: x= BinaryLiteral
                     {
-                    x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue320); 
+                    x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue360); 
                     r = Integer.parseInt(x.getText().substring(2),2);
 
                     }
                     break;
                 case 2 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:155:4: x= OctalLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:166:4: x= OctalLiteral
                     {
-                    x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue331); 
+                    x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue371); 
                     r = Integer.parseInt(x.getText().substring(1),8);
 
                     }
                     break;
                 case 3 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:157:4: x= DecimalLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:168:4: x= DecimalLiteral
                     {
-                    x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue342); 
+                    x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue382); 
                     r = Integer.parseInt(x.getText());
 
                     }
                     break;
                 case 4 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:159:4: x= HexLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:170:4: x= HexLiteral
                     {
-                    x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue353); 
+                    x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue393); 
                     r = Integer.parseInt(x.getText().substring(2),16);
 
                     }
                     break;
                 case 5 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:161:4: '-' x= BinaryLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:172:4: '-' x= BinaryLiteral
                     {
-                    match(input,28,FOLLOW_28_in_integerValue362); 
-                    x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue366); 
+                    match(input,28,FOLLOW_28_in_integerValue402); 
+                    x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue406); 
                     r = -Integer.parseInt(x.getText().substring(2),2);
 
                     }
                     break;
                 case 6 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:163:4: '-' x= OctalLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:174:4: '-' x= OctalLiteral
                     {
-                    match(input,28,FOLLOW_28_in_integerValue375); 
-                    x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue379); 
+                    match(input,28,FOLLOW_28_in_integerValue415); 
+                    x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue419); 
                     r = -Integer.parseInt(x.getText().substring(1),8);
 
                     }
                     break;
                 case 7 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:165:4: '-' x= DecimalLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:176:4: '-' x= DecimalLiteral
                     {
-                    match(input,28,FOLLOW_28_in_integerValue388); 
-                    x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue392); 
+                    match(input,28,FOLLOW_28_in_integerValue428); 
+                    x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue432); 
                     r = -Integer.parseInt(x.getText());
 
                     }
                     break;
                 case 8 :
-                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:167:4: '-' x= HexLiteral
+                    // /Users/reunice/Documents/flips-uav/src/targets/matrixpilot/flipsMatrixPilot.g:178:4: '-' x= HexLiteral
                     {
-                    match(input,28,FOLLOW_28_in_integerValue401); 
-                    x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue405); 
+                    match(input,28,FOLLOW_28_in_integerValue441); 
+                    x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue445); 
                     r = -Integer.parseInt(x.getText().substring(2),16);
 
                     }
@@ -711,7 +730,7 @@ public class flipsMatrixPilotParser extends Parser {
             this.transition = DFA3_transition;
         }
         public String getDescription() {
-            return "131:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue );";
+            return "142:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue );";
         }
     }
     static final String DFA5_eotS =
@@ -769,65 +788,65 @@ public class flipsMatrixPilotParser extends Parser {
             this.transition = DFA5_transition;
         }
         public String getDescription() {
-            return "152:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );";
+            return "163:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );";
         }
     }
  
 
-    public static final BitSet FOLLOW_instruction_in_flightPlan44 = new BitSet(new long[]{0x0000000000000072L});
-    public static final BitSet FOLLOW_fly_in_instruction68 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_command_in_instruction73 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_position_in_instruction78 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLY_in_fly90 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CMD_in_command100 = new BitSet(new long[]{0x000000001003C000L});
-    public static final BitSet FOLLOW_integerValue_in_command104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position115 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_X_in_position117 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_FIX_in_position119 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position130 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_X_in_position132 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_REL_in_position134 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position145 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_X_in_position147 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_GEO_in_position149 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position160 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_Y_in_position162 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_FIX_in_position164 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position175 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_Y_in_position177 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_REL_in_position179 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_instruction_in_flightPlan48 = new BitSet(new long[]{0x0000000000000072L});
+    public static final BitSet FOLLOW_fly_in_instruction76 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_command_in_instruction81 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_position_in_instruction86 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLY_in_fly98 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CMD_in_command122 = new BitSet(new long[]{0x000000001003C000L});
+    public static final BitSet FOLLOW_integerValue_in_command126 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position139 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_X_in_position141 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_FIX_in_position143 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position147 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position156 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_X_in_position158 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_REL_in_position160 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position173 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_X_in_position175 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_GEO_in_position177 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position181 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position190 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_Y_in_position192 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_GEO_in_position194 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_Y_in_position192 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_FIX_in_position194 = new BitSet(new long[]{0x000000001003E000L});
     public static final BitSet FOLLOW_numericValue_in_position198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position205 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_Z_in_position207 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_FIX_in_position209 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position213 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POS_in_position220 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_Z_in_position222 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_REL_in_position224 = new BitSet(new long[]{0x000000001003E000L});
-    public static final BitSet FOLLOW_numericValue_in_position228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_integerValue_in_numericValue249 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_numericValue288 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OctalLiteral_in_integerValue331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue342 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_HexLiteral_in_integerValue353 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_integerValue362 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_integerValue375 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_OctalLiteral_in_integerValue379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_integerValue388 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_integerValue401 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_HexLiteral_in_integerValue405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position207 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_Y_in_position209 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_REL_in_position211 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position224 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_Y_in_position226 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_GEO_in_position228 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position232 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position241 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_Z_in_position243 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_FIX_in_position245 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POS_in_position258 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_Z_in_position260 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_REL_in_position262 = new BitSet(new long[]{0x000000001003E000L});
+    public static final BitSet FOLLOW_numericValue_in_position266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_integerValue_in_numericValue289 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_numericValue328 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue332 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OctalLiteral_in_integerValue371 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_HexLiteral_in_integerValue393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_integerValue402 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_integerValue415 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_OctalLiteral_in_integerValue419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_integerValue428 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_integerValue441 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_HexLiteral_in_integerValue445 = new BitSet(new long[]{0x0000000000000002L});
 
 }

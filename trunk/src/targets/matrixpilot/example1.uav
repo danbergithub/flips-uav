@@ -8,6 +8,7 @@ commands
   Trigger = 32
   Loiter = 64
   Land = 128
+  LoiterAndLand = 192
 
 waypoints
   Atlanta = 33.748995 -84.387982
@@ -36,6 +37,5 @@ Inverted
 fly to NWCorner
 Normal
 fly to SWCorner
-Loiter
+LoiterAndLand
 fly to (50m, 50m)
-Land
