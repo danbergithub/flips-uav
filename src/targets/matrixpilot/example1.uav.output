@@ -40,6 +40,7 @@ Normal
 fly to SWCorner
 LoiterAndLand
 fly to (50m, 50m)
+
 Generating assembly code...
 CMD 1                    // TAKEOFF / Command #1
 POS   X GEO -84.387982   // ATLANTA / 84.387982 W Longitude
