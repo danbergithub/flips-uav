@@ -107,8 +107,8 @@ tokens {
 }
 
 flightPlan
-	:	define* command*
-	->	^(FLIGHTPLAN define* command*)
+	:	define* statement*
+	->	^(FLIGHTPLAN define* statement*)
 	;
 
 // DEFINITIONS
@@ -149,6 +149,38 @@ defineWaypoint
 defineWaypointValue
 	:	Identifier '=' geoCoordinate (('and'|',' 'and'?)? Identifier '=' geoCoordinate)*
 	->	^(DEFINE Identifier geoCoordinate)+
+	;
+
+// STATEMENTS
+
+statement
+	:	command
+	|	'repeat' statement* repeat
+	|	'wait' condition
+	;
+
+repeat
+	:	integerValue ('time'|'times')
+	|	'continuously' duration
+	|	'forever'
+	|	condition
+	;
+
+condition
+	:	'until' conditionValue
+	|	'while' conditionValue
+	;
+
+conditionValue
+	:	('the'? ('tim'|'time') ('='|'is'))? timeValue
+	|	('the'? ('dir'|'direction') ('='|'is'))? fixedDirection
+	|	('the'? ('spd'|'speed') ('='|'is'))? speedValue
+	|	('the'? ('dst'|'distance') ('='|'is')) distanceValue
+	|	('the'? ('pit'|'pitch') ('='|'is')) angularValue
+	|	('the'? ('rol'|'roll') ('='|'is')) angularValue
+	|	('the'? ('wpt'|'waypoint') ('='|'is'))? waypoint
+	|	('the'? ('alt'|'altitude') ('='|'is'))? altitudeValue
+	|	Identifier ('='|'is')? numericValue
 	;
 
 // COMMANDS

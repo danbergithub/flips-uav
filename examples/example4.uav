@@ -1,0 +1,33 @@
+sensor TouchdownSensor = 0xff00 // An Input
+command TakeAPicture = 1
+command BroadcastLandingPosition = 2
+waypoints
+  Boyd = 33.945886 -83.374767
+  SanfordStadium = 33.949794 -83.373299
+  TheArch = 33.957597 -83.375143
+
+fly at 50kph with an aoa of 10 deg
+repeat
+  fly north for 2 min
+  fly east for 2 min
+  fly south for 2 min
+  fly west for 2 min
+  TakeAPicture
+until the altitude is 200 ft
+repeat
+  go n 100ft
+  go e 100ft
+  go s 100ft
+  go w 100ft
+continuously for 10min
+repeat
+  fly to Boyd, SanfordStadium, and TheArch
+5 times
+fly at 15% power
+wait until the altitude is 20 feet
+fly with an aoa of 25 deg
+wait until the altitude is 5 feet
+fly at 0% power
+fly with an aoa of 45 deg
+wait until TouchdownSensor = 1
+BroadcastLandingPosition
