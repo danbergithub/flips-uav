@@ -342,7 +342,7 @@ speed
 	;
 
 fixedSpeed
-	:	At speedValue
+	:	At? speedValue
 	->	^(SPEED FIXED speedValue)
 	;
 
@@ -373,7 +373,7 @@ speedUnit
 	;
 
 optimalSpeed
-	:	At optimalUnit ('spd'|'speed')
+	:	At? optimalUnit ('spd'|'speed')
 	->	^(SPEED OPTIMAL optimalUnit)
 	;
 
@@ -387,7 +387,7 @@ optimalUnit
 	;
 
 throttleSpeed
-	:	At throttleValue ('pwr'|'power'|'thr'|'throttle')
+	:	At? throttleValue ('pwr'|'power'|'thr'|'throttle')
 	->	^(SPEED THROTTLE throttleValue)
 	;
 
