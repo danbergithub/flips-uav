@@ -1,10 +1,12 @@
-echo "Cleaning up..."
-rm -f java/classes/*
+#!/bin/bash
+bash clean
 echo "Compiling..."
+java -jar java/lib/antlr-3.2.jar flips.g -o java/ -verbose
+java -jar java/lib/antlr-3.2.jar flipsAssembly.g -o java/ -verbose
+java -jar java/lib/antlr-3.2.jar flipsMatrixPilot.g -o java/ -verbose
 javac -classpath java/lib/antlr-3.2.jar java/flipsLexer.java java/flipsParser.java java/flipsAssembly.java java/flipsMatrixPilotLexer.java java/flipsMatrixPilotParser.java java/flipsCompiler.java -d java/classes -verbose
 echo "Compiler finished."
 echo "Compiling interpreter..."
 gcc -O2 flips.h flips.c driver.c -o flips
 echo "Interpreter finished."
 echo "Finished."
-
