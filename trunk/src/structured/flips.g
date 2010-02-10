@@ -328,6 +328,8 @@ speedUnit
 	->	FURLONG FORTNIGHT
 	|	'fpm'
 	->	FOOT MINUTE
+	|	'fps'
+	->	FOOT SECOND
 	|	distanceUnit ('/'|'per') timeUnit
 	->	distanceUnit timeUnit
 	;
