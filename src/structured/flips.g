@@ -326,6 +326,8 @@ speedUnit
 	->	NAUTICAL MILE HOUR
 	|	'fpf'
 	->	FURLONG FORTNIGHT
+	|	'fpm'
+	->	FOOT MINUTE
 	|	distanceUnit ('/'|'per') timeUnit
 	->	distanceUnit timeUnit
 	;
