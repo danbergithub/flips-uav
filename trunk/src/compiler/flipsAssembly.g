@@ -418,14 +418,20 @@ convertDistance returns [double r]
 		{r = x * 1000d;}
 	|	x=numericValue METER
 		{r = x;}
+	|	x=numericValue CENTIMETER
+		{r = x * 0.01d;}
 	|	x=numericValue NAUTICAL MILE
 		{r = x * 1852d;}
 	|	x=numericValue MILE
 		{r = x * 1609.344d;}
+	|	x=numericValue FURLONG
+		{r = x * 201.168d;}
 	|	x=numericValue YARD
 		{r = x * 0.9144d;}
 	|	x=numericValue FOOT
 		{r = x * 0.3048d;}
+	|	x=numericValue INCH
+		{r = x * 0.0254d;}
 	;
 
 // Standard flight level (distance) unit is the meter

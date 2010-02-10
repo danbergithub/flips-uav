@@ -72,10 +72,13 @@ tokens {
   DISTANCE;
   KILOMETER;
   METER;
+  CENTIMETER;
   NAUTICAL;
   MILE;
+  FURLONG;
   YARD;
   FOOT;
+  INCH;
   LEFT;
   RIGHT;
   CLOCKWISE;
@@ -322,14 +325,20 @@ distanceUnit
 	->	KILOMETER
 	|	('m'|'meter'|'meters')
 	->	METER
+	|	('cm'|'centimeter'|'centimeters')
+	->	CENTIMETER
 	|	('nm'|'nautical' ('mi'|'mile'|'miles'))
 	->	NAUTICAL MILE
 	|	('statute')? ('mi'|'mile'|'miles')
 	->	MILE
+	|	('fur'|'furlong'|'furlongs')
+	->	FURLONG
 	|	('yd'|'yard'|'yards')
 	->	YARD
 	|	('ft'|'foot'|'feet')
 	->	FOOT
+	|	('in'|'inch'|'inches')
+	->	INCH
 	;
 
 // SPEED EXPRESSIONS
