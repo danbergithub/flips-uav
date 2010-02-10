@@ -404,7 +404,15 @@ distanceEast returns [double r]
 
 // Standard time unit is the second
 convertTime returns [double r]
-	:	x=numericValue HOUR
+	:	x=numericValue YEAR
+		{r = x * 31557600d;}
+	|	x=numericValue FORTNIGHT
+		{r = x * 1209600d;}
+	|	x=numericValue WEEK
+		{r = x * 604800d;}
+	|	x=numericValue DAY
+		{r = x * 86400d;}
+	|	x=numericValue HOUR
 		{r = x * 3600d;}
 	|	x=numericValue MINUTE
 		{r = x * 60d;}
