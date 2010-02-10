@@ -71,6 +71,7 @@ tokens {
   HOUR;
   MINUTE;
   SECOND;
+  MILLISECOND;
   DEGREE;
   RADIAN;
   DISTANCE;
@@ -452,6 +453,8 @@ timeUnit
 	|	hour
 	|	minute
 	|	second
+	|	('ms'|'millisecond'|'milliseconds')
+	->	MILLISECOND
 	;
 
 hour
