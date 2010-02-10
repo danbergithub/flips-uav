@@ -64,6 +64,10 @@ tokens {
   GEOCOORDINATE;
   LATITUDE;
   LONGITUDE;
+  YEAR;
+  FORTNIGHT;
+  WEEK;
+  DAY;
   HOUR;
   MINUTE;
   SECOND;
@@ -331,7 +335,7 @@ distanceUnit
 	->	NAUTICAL MILE
 	|	('statute')? ('mi'|'mile'|'miles')
 	->	MILE
-	|	('fur'|'furlong'|'furlongs')
+	|	('f'|'fur'|'furlong'|'furlongs')
 	->	FURLONG
 	|	('yd'|'yard'|'yards')
 	->	YARD
@@ -377,6 +381,8 @@ speedUnit
 	->	MILE HOUR
 	|	('kn'|'kt'|'kts'|'knot'|'knots')
 	->	NAUTICAL MILE HOUR
+	|	'fpf'
+	->	FURLONG FORTNIGHT
 	|	distanceUnit ('/'|'per') timeUnit
 	->	distanceUnit timeUnit
 	;
@@ -430,7 +436,16 @@ timeFormat
 	->	$hr HOUR $min MINUTE $s SECOND
 	;
 	
-timeUnit:	hour
+timeUnit
+	:	('y'|'yr'|'yrs'|'year'|'years')
+	->	YEAR
+	|	('f'|'fortnight'|'fortnights')
+	->	FORTNIGHT
+	|	('wk'|'wks'|'week'|'weeks')
+	->	WEEK
+	|	('d'|'day'|'days')
+	->	DAY
+	|	hour
 	|	minute
 	|	second
 	;
