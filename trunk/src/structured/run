@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp java/classes/:java/lib/antlr-3.2.jar flipsCompiler example1.uav

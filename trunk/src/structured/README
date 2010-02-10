@@ -1,0 +1,8 @@
+Here's how to get started compiling your first program with FLIPS.
+
+1. “svn update” on the repository to get the latest changes.
+2. “cd src/structured” to move into that directory.
+3. “bash compile” to compile the java code.
+4. “bash run” to run example1.uav and output the result to the screen.
+5. Edit the “run” file to change the location of your FLIPS program, as desired.
+

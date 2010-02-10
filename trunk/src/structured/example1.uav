@@ -1,0 +1,47 @@
+// Sticking with the Stanford waypoints :) 
+LakeLag = LocationAbsolute(37.42254297, -122.176229);
+CoHo = LocationAbsolute(37.4240085, -122.170575);
+HistoryCorner = LocationAbsolute(37.428149, -122.168719);
+KZSU = LocationAbsolute(37.429189,-122.166789);
+Home = LocationAbsolute(84.523, 98.823);
+
+TakeAPicture() = Command(1);
+DeployTheParachute() = Command(2);
+
+Takeoff();
+
+SetDestination(LocationAbsolute(78.754, 32.463));
+FlyForTime(1:00:12);
+
+SetBearing(ssw);
+SetSpeed(7.3m/s);
+FlyForTime(0:03:00);
+
+SetBearing(242 deg);
+SetSpeed(cruise);
+SetAltitudeRelative(-50 ft);
+FlyForTime(10 min);
+
+SetSpeed(max);
+SetAltitude(fl250);
+FlyToDestination(LakeLag);
+
+TakeAPicture();
+
+SetThrottle(75.3%);
+FlyToDestination(HistoryCorner);
+
+TakeAPicture();
+
+SetLoiterDirection(cw);
+SetSpeed(15mph);
+LoiterForTime(37 sec);
+
+FlyToDestination(Home);
+
+SetThrottle(0%);
+Fly();
+
+DeployTheParachute();
+
+Land();
