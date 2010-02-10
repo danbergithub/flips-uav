@@ -418,6 +418,8 @@ convertTime returns [double r]
 		{r = x * 60d;}
 	|	x=numericValue SECOND
 		{r = x;}
+	|	x=numericValue MILLISECOND
+		{r = x * 0.001d;}
 	;
 
 // Standard distance unit is the meter
@@ -467,12 +469,22 @@ convertPressure returns [double r]
 
 // Standard speed unit is the meter/second
 convertSpeed returns [double r]
-	:	x=convertDistance HOUR
+	:	x=numericValue YEAR
+		{r = x / 31557600d;}
+	|	x=numericValue FORTNIGHT
+		{r = x / 1209600d;}
+	|	x=numericValue WEEK
+		{r = x / 604800d;}
+	|	x=numericValue DAY
+		{r = x / 86400d;}
+	|	x=convertDistance HOUR
 		{r = x / 3600d;}
 	|	x=convertDistance MINUTE
 		{r = x / 60d;}
 	|	x=convertDistance SECOND
 		{r = x;}
+	|	x=convertDistance MILLISECOND
+		{r = x / 0.001d;}
 	;
 
 // Standard throttle unit is the percent
