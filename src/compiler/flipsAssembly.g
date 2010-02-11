@@ -201,7 +201,9 @@ else {
 
 executeCommandParameter
 	:	^(PARAMETER x=numericValue)
-		{emit("CMD PAR " + x, x + " Command Parameter");}
+		{emit("CMD PAR " + x, "Command Parameter");}
+	|	^(PARAMETER y=StringLiteral)
+		{emit("CMD PAR " + y, "Command Parameter");}
 	;
 
 // ATTITUDE EXPRESSIONS

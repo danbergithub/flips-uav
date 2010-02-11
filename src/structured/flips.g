@@ -189,8 +189,15 @@ loiterCommandValue
 executeCommand
 	:	Identifier '(' ')'
 	->	^(EXECUTE Identifier)
-	|	Identifier '(' numericValue (',' numericValue)*  ')'
-	->	^(EXECUTE Identifier ^(PARAMETER numericValue)+)
+	|	Identifier '(' executeCommandParameter (',' executeCommandParameter)*  ')'
+	->	^(EXECUTE Identifier executeCommandParameter+)
+	;
+
+executeCommandParameter
+	:	numericValue
+	->	^(PARAMETER numericValue)
+	|	StringLiteral
+	->	^(PARAMETER StringLiteral)
 	;
 
 // ATTITUDE EXPRESSIONS
