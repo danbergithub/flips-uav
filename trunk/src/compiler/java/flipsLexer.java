@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-02-10 14:48:05
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-02-10 21:50:59
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -98,7 +98,7 @@ public class flipsLexer extends Lexer {
     public static final int T__320=320;
     public static final int T__140=140;
     public static final int T__145=145;
-    public static final int With=85;
+    public static final int With=86;
     public static final int DURATION=28;
     public static final int T__146=146;
     public static final int T__143=143;
@@ -119,12 +119,12 @@ public class flipsLexer extends Lexer {
     public static final int T__303=303;
     public static final int OPTIMAL=22;
     public static final int T__304=304;
-    public static final int BinaryLiteral=90;
+    public static final int BinaryLiteral=91;
     public static final int BinaryDigit=97;
     public static final int THROTTLE=23;
     public static final int T__309=309;
     public static final int T__269=269;
-    public static final int FloatingPointLiteral=89;
+    public static final int FloatingPointLiteral=90;
     public static final int T__268=268;
     public static final int T__275=275;
     public static final int T__276=276;
@@ -199,7 +199,7 @@ public class flipsLexer extends Lexer {
     public static final int T__212=212;
     public static final int AM=25;
     public static final int T__211=211;
-    public static final int HexLiteral=93;
+    public static final int HexLiteral=94;
     public static final int T__239=239;
     public static final int T__237=237;
     public static final int T__238=238;
@@ -219,7 +219,7 @@ public class flipsLexer extends Lexer {
     public static final int T__241=241;
     public static final int T__240=240;
     public static final int T__228=228;
-    public static final int StringLiteral=95;
+    public static final int StringLiteral=85;
     public static final int T__229=229;
     public static final int T__224=224;
     public static final int T__225=225;
@@ -236,7 +236,7 @@ public class flipsLexer extends Lexer {
     public static final int T__230=230;
     public static final int WEEK=36;
     public static final int LT=78;
-    public static final int OctalLiteral=91;
+    public static final int OctalLiteral=92;
     public static final int LATITUDE=32;
     public static final int ATMOSPHERE=69;
     public static final int DAY=37;
@@ -246,7 +246,7 @@ public class flipsLexer extends Lexer {
     public static final int MILLIBAR=68;
     public static final int PARAMETER=7;
     public static final int COUNTERCLOCKWISE=57;
-    public static final int FlightLevel=86;
+    public static final int FlightLevel=87;
     public static final int INCH=53;
     public static final int NE=77;
     public static final int SECOND=40;
@@ -301,19 +301,19 @@ public class flipsLexer extends Lexer {
     public static final int T__187=187;
     public static final int PERCENT=58;
     public static final int T__189=189;
-    public static final int Heading=88;
+    public static final int Heading=89;
     public static final int T__180=180;
     public static final int T__182=182;
     public static final int T__181=181;
-    public static final int Digit=94;
-    public static final int DecimalLiteral=92;
+    public static final int Digit=95;
+    public static final int DecimalLiteral=93;
     public static final int T__175=175;
     public static final int T__174=174;
     public static final int FLIGHTPLAN=4;
     public static final int T__173=173;
     public static final int T__172=172;
     public static final int T__179=179;
-    public static final int Turning=87;
+    public static final int Turning=88;
     public static final int T__178=178;
     public static final int T__177=177;
     public static final int KILOPASCAL=61;
@@ -4963,8 +4963,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = To;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:688:4: ( 'to' )
-            // flips.g:688:6: 'to'
+            // flips.g:695:4: ( 'to' )
+            // flips.g:695:6: 'to'
             {
             match("to"); 
 
@@ -4984,7 +4984,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = At;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:690:4: ( '@' | 'at' )
+            // flips.g:697:4: ( '@' | 'at' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -5002,14 +5002,14 @@ public class flipsLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // flips.g:690:6: '@'
+                    // flips.g:697:6: '@'
                     {
                     match('@'); 
 
                     }
                     break;
                 case 2 :
-                    // flips.g:690:10: 'at'
+                    // flips.g:697:10: 'at'
                     {
                     match("at"); 
 
@@ -5031,7 +5031,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = With;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:692:6: ( 'w/' | 'with' )
+            // flips.g:699:6: ( 'w/' | 'with' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -5059,7 +5059,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // flips.g:692:8: 'w/'
+                    // flips.g:699:8: 'w/'
                     {
                     match("w/"); 
 
@@ -5067,7 +5067,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flips.g:692:13: 'with'
+                    // flips.g:699:13: 'with'
                     {
                     match("with"); 
 
@@ -5089,7 +5089,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Turning;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:694:9: ( 'trn' | 'turning' )
+            // flips.g:701:9: ( 'trn' | 'turning' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -5117,7 +5117,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // flips.g:694:11: 'trn'
+                    // flips.g:701:11: 'trn'
                     {
                     match("trn"); 
 
@@ -5125,7 +5125,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flips.g:694:17: 'turning'
+                    // flips.g:701:17: 'turning'
                     {
                     match("turning"); 
 
@@ -5147,7 +5147,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Heading;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:696:9: ( 'hdg' | 'heading' )
+            // flips.g:703:9: ( 'hdg' | 'heading' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -5175,7 +5175,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // flips.g:696:11: 'hdg'
+                    // flips.g:703:11: 'hdg'
                     {
                     match("hdg"); 
 
@@ -5183,7 +5183,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flips.g:696:17: 'heading'
+                    // flips.g:703:17: 'heading'
                     {
                     match("heading"); 
 
@@ -5205,10 +5205,10 @@ public class flipsLexer extends Lexer {
         try {
             int _type = FlightLevel;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:699:2: ( ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )? )
-            // flips.g:699:4: ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )?
+            // flips.g:706:2: ( ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )? )
+            // flips.g:706:4: ( 'fl' | 'flight level' ) ( ' ' )? Digit ( Digit | Digit Digit )?
             {
-            // flips.g:699:4: ( 'fl' | 'flight level' )
+            // flips.g:706:4: ( 'fl' | 'flight level' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -5246,7 +5246,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // flips.g:699:5: 'fl'
+                    // flips.g:706:5: 'fl'
                     {
                     match("fl"); 
 
@@ -5254,7 +5254,7 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flips.g:699:10: 'flight level'
+                    // flips.g:706:10: 'flight level'
                     {
                     match("flight level"); 
 
@@ -5264,7 +5264,7 @@ public class flipsLexer extends Lexer {
 
             }
 
-            // flips.g:699:26: ( ' ' )?
+            // flips.g:706:26: ( ' ' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -5273,7 +5273,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // flips.g:699:26: ' '
+                    // flips.g:706:26: ' '
                     {
                     match(' '); 
 
@@ -5283,7 +5283,7 @@ public class flipsLexer extends Lexer {
             }
 
             mDigit(); 
-            // flips.g:699:37: ( Digit | Digit Digit )?
+            // flips.g:706:37: ( Digit | Digit Digit )?
             int alt7=3;
             int LA7_0 = input.LA(1);
 
@@ -5296,14 +5296,14 @@ public class flipsLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // flips.g:699:38: Digit
+                    // flips.g:706:38: Digit
                     {
                     mDigit(); 
 
                     }
                     break;
                 case 2 :
-                    // flips.g:699:44: Digit Digit
+                    // flips.g:706:44: Digit Digit
                     {
                     mDigit(); 
                     mDigit(); 
@@ -5329,8 +5329,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:704:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // flips.g:704:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // flips.g:711:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // flips.g:711:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -5341,7 +5341,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flips.g:704:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // flips.g:711:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop8:
             do {
                 int alt8=2;
@@ -5390,11 +5390,11 @@ public class flipsLexer extends Lexer {
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:707:2: ( '\"' (~ ( '\"' ) )* '\"' )
-            // flips.g:707:4: '\"' (~ ( '\"' ) )* '\"'
+            // flips.g:714:2: ( '\"' (~ ( '\"' ) )* '\"' )
+            // flips.g:714:4: '\"' (~ ( '\"' ) )* '\"'
             {
             match('\"'); 
-            // flips.g:707:8: (~ ( '\"' ) )*
+            // flips.g:714:8: (~ ( '\"' ) )*
             loop9:
             do {
                 int alt9=2;
@@ -5407,7 +5407,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // flips.g:707:9: ~ ( '\"' )
+            	    // flips.g:714:9: ~ ( '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -5442,8 +5442,8 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "Digit"
     public final void mDigit() throws RecognitionException {
         try {
-            // flips.g:712:7: ( '0' .. '9' )
-            // flips.g:712:9: '0' .. '9'
+            // flips.g:719:7: ( '0' .. '9' )
+            // flips.g:719:9: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -5458,8 +5458,8 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "NonZeroDigit"
     public final void mNonZeroDigit() throws RecognitionException {
         try {
-            // flips.g:716:2: ( '1' .. '9' )
-            // flips.g:716:4: '1' .. '9'
+            // flips.g:723:2: ( '1' .. '9' )
+            // flips.g:723:4: '1' .. '9'
             {
             matchRange('1','9'); 
 
@@ -5474,7 +5474,7 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "BinaryDigit"
     public final void mBinaryDigit() throws RecognitionException {
         try {
-            // flips.g:720:2: ( '0' | '1' )
+            // flips.g:727:2: ( '0' | '1' )
             // flips.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='1') ) {
@@ -5498,7 +5498,7 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // flips.g:723:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
+            // flips.g:730:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
             // flips.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
@@ -5524,8 +5524,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = BinaryLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:726:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
-            // flips.g:726:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
+            // flips.g:733:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
+            // flips.g:733:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -5537,7 +5537,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flips.g:726:18: ( BinaryDigit )+
+            // flips.g:733:18: ( BinaryDigit )+
             int cnt10=0;
             loop10:
             do {
@@ -5551,7 +5551,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // flips.g:726:18: BinaryDigit
+            	    // flips.g:733:18: BinaryDigit
             	    {
             	    mBinaryDigit(); 
 
@@ -5583,11 +5583,11 @@ public class flipsLexer extends Lexer {
         try {
             int _type = OctalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:729:2: ( '0' ( '0' .. '7' )+ )
-            // flips.g:729:4: '0' ( '0' .. '7' )+
+            // flips.g:736:2: ( '0' ( '0' .. '7' )+ )
+            // flips.g:736:4: '0' ( '0' .. '7' )+
             {
             match('0'); 
-            // flips.g:729:8: ( '0' .. '7' )+
+            // flips.g:736:8: ( '0' .. '7' )+
             int cnt11=0;
             loop11:
             do {
@@ -5601,7 +5601,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // flips.g:729:9: '0' .. '7'
+            	    // flips.g:736:9: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -5633,7 +5633,7 @@ public class flipsLexer extends Lexer {
         try {
             int _type = DecimalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:732:2: ( '0' | NonZeroDigit ( Digit )* )
+            // flips.g:739:2: ( '0' | NonZeroDigit ( Digit )* )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -5651,17 +5651,17 @@ public class flipsLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // flips.g:732:4: '0'
+                    // flips.g:739:4: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // flips.g:732:8: NonZeroDigit ( Digit )*
+                    // flips.g:739:8: NonZeroDigit ( Digit )*
                     {
                     mNonZeroDigit(); 
-                    // flips.g:732:21: ( Digit )*
+                    // flips.g:739:21: ( Digit )*
                     loop12:
                     do {
                         int alt12=2;
@@ -5674,7 +5674,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // flips.g:732:21: Digit
+                    	    // flips.g:739:21: Digit
                     	    {
                     	    mDigit(); 
 
@@ -5704,8 +5704,8 @@ public class flipsLexer extends Lexer {
         try {
             int _type = HexLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:735:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
-            // flips.g:735:4: '0' ( 'x' | 'X' ) ( HexDigit )+
+            // flips.g:742:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
+            // flips.g:742:4: '0' ( 'x' | 'X' ) ( HexDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -5717,7 +5717,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flips.g:735:18: ( HexDigit )+
+            // flips.g:742:18: ( HexDigit )+
             int cnt14=0;
             loop14:
             do {
@@ -5731,7 +5731,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // flips.g:735:18: HexDigit
+            	    // flips.g:742:18: HexDigit
             	    {
             	    mHexDigit(); 
 
@@ -5763,14 +5763,14 @@ public class flipsLexer extends Lexer {
         try {
             int _type = FloatingPointLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:738:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
+            // flips.g:745:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
             int alt21=3;
             alt21 = dfa21.predict(input);
             switch (alt21) {
                 case 1 :
-                    // flips.g:738:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
+                    // flips.g:745:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
                     {
-                    // flips.g:738:4: ( Digit )+
+                    // flips.g:745:4: ( Digit )+
                     int cnt15=0;
                     loop15:
                     do {
@@ -5784,7 +5784,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // flips.g:738:4: Digit
+                    	    // flips.g:745:4: Digit
                     	    {
                     	    mDigit(); 
 
@@ -5801,7 +5801,7 @@ public class flipsLexer extends Lexer {
                     } while (true);
 
                     match('.'); 
-                    // flips.g:738:15: ( Digit )*
+                    // flips.g:745:15: ( Digit )*
                     loop16:
                     do {
                         int alt16=2;
@@ -5814,7 +5814,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // flips.g:738:15: Digit
+                    	    // flips.g:745:15: Digit
                     	    {
                     	    mDigit(); 
 
@@ -5826,7 +5826,7 @@ public class flipsLexer extends Lexer {
                         }
                     } while (true);
 
-                    // flips.g:738:22: ( Exponent )?
+                    // flips.g:745:22: ( Exponent )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -5835,7 +5835,7 @@ public class flipsLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // flips.g:738:22: Exponent
+                            // flips.g:745:22: Exponent
                             {
                             mExponent(); 
 
@@ -5848,10 +5848,10 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flips.g:739:4: '.' ( Digit )+ ( Exponent )?
+                    // flips.g:746:4: '.' ( Digit )+ ( Exponent )?
                     {
                     match('.'); 
-                    // flips.g:739:8: ( Digit )+
+                    // flips.g:746:8: ( Digit )+
                     int cnt18=0;
                     loop18:
                     do {
@@ -5865,7 +5865,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // flips.g:739:8: Digit
+                    	    // flips.g:746:8: Digit
                     	    {
                     	    mDigit(); 
 
@@ -5881,7 +5881,7 @@ public class flipsLexer extends Lexer {
                         cnt18++;
                     } while (true);
 
-                    // flips.g:739:15: ( Exponent )?
+                    // flips.g:746:15: ( Exponent )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -5890,7 +5890,7 @@ public class flipsLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // flips.g:739:15: Exponent
+                            // flips.g:746:15: Exponent
                             {
                             mExponent(); 
 
@@ -5903,9 +5903,9 @@ public class flipsLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // flips.g:740:4: ( Digit )+ Exponent
+                    // flips.g:747:4: ( Digit )+ Exponent
                     {
-                    // flips.g:740:4: ( Digit )+
+                    // flips.g:747:4: ( Digit )+
                     int cnt20=0;
                     loop20:
                     do {
@@ -5919,7 +5919,7 @@ public class flipsLexer extends Lexer {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // flips.g:740:4: Digit
+                    	    // flips.g:747:4: Digit
                     	    {
                     	    mDigit(); 
 
@@ -5952,8 +5952,8 @@ public class flipsLexer extends Lexer {
     // $ANTLR start "Exponent"
     public final void mExponent() throws RecognitionException {
         try {
-            // flips.g:744:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
-            // flips.g:744:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
+            // flips.g:751:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
+            // flips.g:751:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -5964,7 +5964,7 @@ public class flipsLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flips.g:744:21: ( '+' | '-' )?
+            // flips.g:751:21: ( '+' | '-' )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -5990,7 +5990,7 @@ public class flipsLexer extends Lexer {
 
             }
 
-            // flips.g:744:32: ( Digit )+
+            // flips.g:751:32: ( Digit )+
             int cnt23=0;
             loop23:
             do {
@@ -6004,7 +6004,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt23) {
             	case 1 :
-            	    // flips.g:744:32: Digit
+            	    // flips.g:751:32: Digit
             	    {
             	    mDigit(); 
 
@@ -6034,10 +6034,10 @@ public class flipsLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:748:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
-            // flips.g:748:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // flips.g:755:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
+            // flips.g:755:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             {
-            // flips.g:748:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // flips.g:755:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             int cnt24=0;
             loop24:
             do {
@@ -6092,12 +6092,12 @@ public class flipsLexer extends Lexer {
         try {
             int _type = Comment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:752:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
-            // flips.g:752:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
+            // flips.g:759:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
+            // flips.g:759:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
             {
             match("/*"); 
 
-            // flips.g:752:16: ( options {greedy=FALSE; } : . )*
+            // flips.g:759:16: ( options {greedy=FALSE; } : . )*
             loop25:
             do {
                 int alt25=2;
@@ -6128,7 +6128,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // flips.g:752:46: .
+            	    // flips.g:759:46: .
             	    {
             	    matchAny(); 
 
@@ -6159,12 +6159,12 @@ public class flipsLexer extends Lexer {
         try {
             int _type = LineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flips.g:755:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // flips.g:755:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // flips.g:762:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // flips.g:762:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // flips.g:755:9: (~ ( '\\n' | '\\r' ) )*
+            // flips.g:762:9: (~ ( '\\n' | '\\r' ) )*
             loop26:
             do {
                 int alt26=2;
@@ -6177,7 +6177,7 @@ public class flipsLexer extends Lexer {
 
                 switch (alt26) {
             	case 1 :
-            	    // flips.g:755:9: ~ ( '\\n' | '\\r' )
+            	    // flips.g:762:9: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -6197,7 +6197,7 @@ public class flipsLexer extends Lexer {
                 }
             } while (true);
 
-            // flips.g:755:23: ( '\\r' )?
+            // flips.g:762:23: ( '\\r' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -6206,7 +6206,7 @@ public class flipsLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // flips.g:755:23: '\\r'
+                    // flips.g:762:23: '\\r'
                     {
                     match('\r'); 
 
@@ -7950,7 +7950,7 @@ public class flipsLexer extends Lexer {
             this.transition = DFA21_transition;
         }
         public String getDescription() {
-            return "737:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
+            return "744:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
         }
     }
     static final String DFA28_eotS =
