@@ -82,10 +82,6 @@ static void FLIPSDecode() {
       
     // GENERAL INSTRUCTIONS
     
-    case 89: // TOF
-      printf("TOF\n");
-      break;
-      
     case 90: // FLY
       printf("FLY\n");
       break;
@@ -108,10 +104,6 @@ static void FLIPSDecode() {
       
       break;
     }
-      
-    case 93: // LND
-      printf("LND\n");
-      break;
       
     // POSITION INSTRUCTIONS
     
@@ -196,19 +188,7 @@ static void FLIPSDecode() {
       VelocityX.Desired += FLIPSLoadFloat();
       printf("VEL   X REL %f\n", VelocityX.Desired);
       break;
-      
-    case 17: // VEL X OPT MIN
-      printf("VEL   X OPT MIN\n");
-      break;
-      
-    case 18: // VEL X OPT CRU
-      printf("VEL   X OPT CRU\n");
-      break;
-      
-    case 19: // VEL X OPT MAX
-      printf("VEL   X OPT MAX\n");
-      break;
-      
+
     case 20: // VEL Y FIX value
       VelocityY.Desired = FLIPSLoadFloat();
       printf("VEL   Y FIX %f\n", VelocityY.Desired);
@@ -217,18 +197,6 @@ static void FLIPSDecode() {
     case 21: // VEL Y REL value
       VelocityY.Desired += FLIPSLoadFloat();
       printf("VEL   Y REL %f\n", VelocityY.Desired);
-      break;
-      
-    case 22: // VEL Y OPT MIN
-      printf("VEL   Y OPT MIN\n");
-      break;
-      
-    case 23: // VEL Y OPT CRU
-      printf("VEL   Y OPT CRU\n");
-      break;
-      
-    case 24: // VEL Y OPT MAX
-      printf("VEL   Y OPT MAX\n");
       break;
       
     case 25: // VEL Z FIX value
@@ -241,18 +209,6 @@ static void FLIPSDecode() {
       printf("VEL   Z REL %f\n", VelocityZ.Desired);
       break;
       
-    case 27: // VEL Z OPT MIN
-      printf("VEL   Z OPT MIN\n");
-      break;
-      
-    case 28: // VEL Z OPT CRU
-      printf("VEL   Z OPT CRU\n");
-      break;
-      
-    case 29: // VEL Z OPT MAX
-      printf("VEL   Z OPT MAX\n");
-      break;
-      
     case 30: // VEL ROL FIX value
       VelocityRoll.Desired = FLIPSLoadFloat();
       printf("VEL ROL FIX %f\n", VelocityRoll.Desired);
@@ -261,18 +217,6 @@ static void FLIPSDecode() {
     case 31: // VEL ROL REL value
       VelocityRoll.Desired += FLIPSLoadFloat();
       printf("VEL ROL REL %f\n", VelocityRoll.Desired);
-      break;
-      
-    case 32: // VEL ROL OPT MIN
-      printf("VEL ROL OPT MIN\n");
-      break;
-      
-    case 33: // VEL ROL OPT CRU
-      printf("VEL ROL OPT CRU\n");
-      break;
-      
-    case 34: // VEL ROL OPT MAX
-      printf("VEL ROL OPT MAX\n");
       break;
       
     case 35: // VEL PIT FIX value
@@ -285,18 +229,6 @@ static void FLIPSDecode() {
       printf("VEL PIT REL %f\n", VelocityPitch.Desired);
       break;
       
-    case 37: // VEL PIT OPT MIN
-      printf("VEL PIT OPT MIN\n");
-      break;
-      
-    case 38: // VEL PIT OPT CRU
-      printf("VEL PIT OPT CRU\n");
-      break;
-      
-    case 39: // VEL PIT OPT MAX
-      printf("VEL PIT OPT MAX\n");
-      break;
-      
     case 40: // VEL YAW FIX value
       VelocityYaw.Desired = FLIPSLoadFloat();
       printf("VEL YAW FIX %f\n", VelocityYaw.Desired);
@@ -305,18 +237,6 @@ static void FLIPSDecode() {
     case 41: // VEL YAW REL value
       VelocityYaw.Desired += FLIPSLoadFloat();
       printf("VEL YAW REL %f\n", VelocityYaw.Desired);
-      break;
-      
-    case 42: // VEL YAW OPT MIN
-      printf("VEL YAW OPT MIN\n");
-      break;
-      
-    case 43: // VEL YAW OPT CRU
-      printf("VEL YAW OPT CRU\n");
-      break;
-      
-    case 44: // VEL YAW OPT MAX
-      printf("VEL YAW OPT MAX\n");
       break;
       
     case 45: // VEL PRE FIX value
@@ -341,18 +261,6 @@ static void FLIPSDecode() {
       printf("SPD AIR REL %f\n", SpeedAir.Desired);
       break;
       
-    case 49: // SPD AIR OPT MIN
-      printf("SPD AIR OPT MIN\n");
-      break;
-      
-    case 50: // SPD AIR OPT CRU
-      printf("SPD AIR OPT CRU\n");
-      break;
-      
-    case 51: // SPD AIR OPT MAX
-      printf("SPD AIR OPT MAX\n");
-      break;
-      
     case 52: // SPD GND FIX value
       SpeedGround.Desired = FLIPSLoadFloat();
       printf("SPD GND FIX %f\n", SpeedGround.Desired);
@@ -361,18 +269,6 @@ static void FLIPSDecode() {
     case 53: // SPD GND REL value
       SpeedGround.Desired += FLIPSLoadFloat();
       printf("SPD GND REL %f\n", SpeedGround.Desired);
-      break;
-      
-    case 54: // SPD GND OPT MIN
-      printf("SPD GND OPT MIN\n");
-      break;
-      
-    case 55: // SPD GND OPT CRU
-      printf("SPD GND OPT CRU\n");
-      break;
-      
-    case 56: // SPD GND OPT MAX
-      printf("SPD GND OPT MAX\n");
       break;
       
     // ACTUATOR INSTRUCTIONS
@@ -387,10 +283,6 @@ static void FLIPSDecode() {
       printf("ACT ELE REL %f\n", Elevator.Desired);
       break;
       
-    case 59: // ACT ELE OPT
-      printf("ACT ELE OPT\n");
-      break;
-      
     case 60: // ACT AIL FIX value
       Aileron.Desired = FLIPSLoadFloat();
       printf("ACT AIL FIX %f\n", Aileron.Desired);
@@ -399,10 +291,6 @@ static void FLIPSDecode() {
     case 61: // ACT AIL REL value
       Aileron.Desired += FLIPSLoadFloat();
       printf("ACT AIL REL %f\n", Aileron.Desired);
-      break;
-      
-    case 62: // ACT AIL OPT
-      printf("ACT AIL OPT\n");
       break;
       
     case 63: // ACT RUD FIX value
@@ -415,10 +303,6 @@ static void FLIPSDecode() {
       printf("ACT RUD REL %f\n", Rudder.Desired);
       break;
       
-    case 65: // ACT RUD OPT
-      printf("ACT RUD OPT\n");
-      break;
-      
     case 66: // ACT FLA FIX value
       Flap.Desired = FLIPSLoadFloat();
       printf("ACT FLA FIX %f\n", Flap.Desired);
@@ -429,10 +313,6 @@ static void FLIPSDecode() {
       printf("ACT FLA REL %f\n", Flap.Desired);
       break;
       
-    case 68: // ACT FLA OPT
-      printf("ACT FLA OPT\n");
-      break;
-      
     case 69: // ACT THR FIX value
       Throttle.Desired = FLIPSLoadFloat();
       printf("ACT THR FIX %f\n", Throttle.Desired);
@@ -441,10 +321,6 @@ static void FLIPSDecode() {
     case 70: // ACT THR REL value
       Throttle.Desired += FLIPSLoadFloat();
       printf("ACT THR REL %f\n", Throttle.Desired);
-      break;
-      
-    case 71: // ACT THR OPT
-      printf("ACT THR OPT\n");
       break;
       
     // TRIM INSTRUCTIONS

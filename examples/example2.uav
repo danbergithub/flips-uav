@@ -28,13 +28,13 @@ fly
 
 fly
    heading 242 deg
-   at cruise speed
+   at 10m/s
    for 10 minutes
    descending 50 ft
 
 fly
    to SanfordStadium
-   at max speed
+   at 72kph
    at fl250
 
 TakeAPicture

@@ -1,11 +1,11 @@
 wpt home = 35.8962n 84.0252w
 
 takeoff
-fly to 200ft at max speed
+fly to 200ft at 10m/s
 fly heading 230.1deg for 1 minute
 go to 35.8962n 84.0252w at 25mph
 loiter clockwise at 34.2623n 84.0985w for 30 seconds with a 100ft radius
-fly east at cruise speed for 3 minutes
+fly east at 18kph for 3 minutes
 fly for 45 seconds roll 20deg with an angle of attack of 10deg
 go to 36.9852n 84.2522w at 18.3mph
 fly to 34.59n 84.25w, 34.52n 84.95w, 34.252n 84.89w at 20mph
@@ -13,5 +13,5 @@ go to 200ft
 go to home at 15mph
 fly for 1 hour at 10m/s at an altitude of 30ft aoa 10deg roll 5deg
 loiter for 2min at 115ft
-fly at minimum speed
+fly at 10mph
 land

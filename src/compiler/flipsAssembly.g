@@ -264,12 +264,6 @@ speed
 		{emit("SPD AIR REL " + -x, -x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
 	|	^(SPEED RELATIVE FASTER x=percentValue)
 	|	^(SPEED RELATIVE SLOWER x=percentValue)
-	|	^(SPEED OPTIMAL MINIMUM)
-		{emit("SPD AIR OPT MIN", "Minimum Air Speed");}
-	|	^(SPEED OPTIMAL CRUISE)
-		{emit("SPD AIR OPT CRU", "Cruise Air Speed");}
-	|	^(SPEED OPTIMAL MAXIMUM)
-		{emit("SPD AIR OPT MAX", "Maximum Air Speed");}
 	|	^(SPEED THROTTLE y=convertThrottle)
 		{emit("ACT THR FIX " + y, y + "\% Throttle");}
 	;
