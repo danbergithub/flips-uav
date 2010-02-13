@@ -115,11 +115,9 @@ flightPlan
 	;
 
 instruction
-	:	takeoff
-	|	fly
+	:	fly
 	|	loiter
 	|	command
-	|	land
 	|	position
 	|	velocity
 	|	speed
@@ -132,15 +130,11 @@ instruction
 
 // GENERAL INSTRUCTIONS
 
-takeoff	:	TOF {emit(89);};
-
 fly	:	FLY {emit(90);};
 
 loiter	:	LTR {emit(91);};
 
 command	:	CMD x=integerValue {emitShort(92,x);};
-
-land	:	LND {emit(93);};
 
 // POSITION INSTRUCTIONS
 
@@ -164,34 +158,16 @@ position:	POS X FIX x=numericValue {emit(1,x);}
 
 velocity:	VEL X FIX x=numericValue {emit(15,x);}
 	|	VEL X REL x=numericValue {emit(16,x);}
-	|	VEL X OPT MIN {emit(17);}
-	|	VEL X OPT CRU {emit(18);}
-	|	VEL X OPT MAX {emit(19);}
 	|	VEL Y FIX x=numericValue {emit(20,x);}
 	|	VEL Y REL x=numericValue {emit(21,x);}
-	|	VEL Y OPT MIN {emit(22);}
-	|	VEL Y OPT CRU {emit(23);}
-	|	VEL Y OPT MAX {emit(24);}
 	|	VEL Z FIX x=numericValue {emit(25,x);}
 	|	VEL Z REL x=numericValue {emit(26,x);}
-	|	VEL Z OPT MIN {emit(27);}
-	|	VEL Z OPT CRU {emit(28);}
-	|	VEL Z OPT MAX {emit(29);}
 	|	VEL ROL FIX x=numericValue {emit(30,x);}
 	|	VEL ROL REL x=numericValue {emit(31,x);}
-	|	VEL ROL OPT MIN {emit(32);}
-	|	VEL ROL OPT CRU {emit(33);}
-	|	VEL ROL OPT MAX {emit(34);}
 	|	VEL PIT FIX x=numericValue {emit(35,x);}
 	|	VEL PIT REL x=numericValue {emit(36,x);}
-	|	VEL PIT OPT MIN {emit(37);}
-	|	VEL PIT OPT CRU {emit(38);}
-	|	VEL PIT OPT MAX {emit(39);}
 	|	VEL YAW FIX x=numericValue {emit(40,x);}
 	|	VEL YAW REL x=numericValue {emit(41,x);}
-	|	VEL YAW OPT MIN {emit(42);}
-	|	VEL YAW OPT CRU {emit(43);}
-	|	VEL YAW OPT MAX {emit(44);}
 	|	VEL PRE FIX x=numericValue {emit(45,x);}
 	|	VEL PRE REL x=numericValue {emit(46,x);}
 	;
@@ -200,33 +176,22 @@ velocity:	VEL X FIX x=numericValue {emit(15,x);}
 
 speed	:	SPD AIR FIX x=numericValue {emit(47,x);}
 	|	SPD AIR REL x=numericValue {emit(48,x);}
-	|	SPD AIR OPT MIN {emit(49);}
-	|	SPD AIR OPT CRU {emit(50);}
-	|	SPD AIR OPT MAX {emit(51);}
 	|	SPD GND FIX x=numericValue {emit(52,x);}
 	|	SPD GND REL x=numericValue {emit(53,x);}
-	|	SPD GND OPT MIN {emit(54);}
-	|	SPD GND OPT CRU {emit(55);}
-	|	SPD GND OPT MAX {emit(56);}
 	;
 
 // ACTUATOR INSTRUCTIONS
 
 actuator:	ACT ELE FIX x=numericValue {emit(57,x);}
 	|	ACT ELE REL x=numericValue {emit(58,x);}
-	|	ACT ELE OPT {emit(59);}
 	|	ACT AIL FIX x=numericValue {emit(60,x);}
 	|	ACT AIL REL x=numericValue {emit(61,x);}
-	|	ACT AIL OPT {emit(62);}
 	|	ACT RUD FIX x=numericValue {emit(63,x);}
 	|	ACT RUD REL x=numericValue {emit(64,x);}
-	|	ACT RUD OPT {emit(65);}
 	|	ACT FLA FIX x=numericValue {emit(66,x);}
 	|	ACT FLA REL x=numericValue {emit(67,x);}
-	|	ACT FLA OPT {emit(68);}
 	|	ACT THR FIX x=numericValue {emit(69,x);}
 	|	ACT THR REL x=numericValue {emit(70,x);}
-	|	ACT THR OPT {emit(71);}
 	;
 
 // TRIM INSTRUCTIONS
@@ -292,17 +257,11 @@ integerValue returns [int r]
 
 // INSTRUCTION TOKENS
 
-TOF	:	'tof'|'TOF';
 FLY	:	'fly'|'FLY';
 LTR	:	'ltr'|'LTR';
-LND	:	'lnd'|'LND';
 
 FIX	:	'fix'|'FIX';
 REL	:	'rel'|'REL';
-OPT	:	'opt'|'OPT';
-MIN	:	'min'|'MIN';
-CRU	:	'cru'|'CRU';
-MAX	:	'max'|'MAX';
 
 POS	:	'pos'|'POS';
 X	:	'x'|'X';

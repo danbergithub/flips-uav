@@ -1,6 +1,6 @@
 $INCLUDE takeoff.uav     // Include Source File 'takeoff.uav'
 POS   Z FIX -60.96       // 60.96 m (200.0 ft) Altitude
-SPD AIR OPT MAX          // Maximum Air Speed
+SPD AIR FIX 10.0         // 10.0 m/s (22.37 mph) Air Speed
 FLY                      // Execute
 POS YAW FIX 230.1        // 230.1 deg Heading
 TIM REL 60.0             // 60.0 s (0:01:00) Duration
@@ -16,7 +16,7 @@ TIM REL 30.0             // 30.0 s (0:00:30) Duration
 RAD 30.48                // 30.48 m (100.0 ft) Radius
 LTR                      // Execute Loiter
 POS YAW FIX 90.0         // 90.0 deg Heading
-SPD AIR OPT CRU          // Cruise Air Speed
+SPD AIR FIX 5.0          // 5.0 m/s (11.18 mph) Air Speed
 TIM REL 180.0            // 180.0 s (0:03:00) Duration
 FLY                      // Execute
 TIM REL 45.0             // 45.0 s (0:00:45) Duration
@@ -50,6 +50,6 @@ FLY                      // Execute
 TIM REL 120.0            // 120.0 s (0:02:00) Duration
 POS   Z FIX -35.052      // 35.052 m (115.0 ft) Altitude
 LTR                      // Execute Loiter
-SPD AIR OPT MIN          // Minimum Air Speed
+SPD AIR FIX 4.4704       // 4.4704 m/s (10.0 mph) Air Speed
 FLY                      // Execute
 $INCLUDE land.uav        // Include Source File 'land.uav'

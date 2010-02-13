@@ -52,7 +52,6 @@ tokens {
   SPEED;
   FASTER;
   SLOWER;
-  OPTIMAL;
   THROTTLE;
   TIME;
   AM;
@@ -94,9 +93,6 @@ tokens {
   KILOPASCAL;
   HECTOPASCAL;
   PASCAL;
-  MINIMUM;
-  MAXIMUM;
-  CRUISE;
   BAR;
   MILLIBAR;
   ATMOSPHERE;
@@ -301,7 +297,6 @@ distanceUnit
 speed
 	:	fixedSpeed
 	|	relativeSpeed
-	|	optimalSpeed
 	|	throttleSpeed
 	;
 
@@ -340,20 +335,6 @@ speedUnit
 	->	FOOT SECOND
 	|	distanceUnit ('/'|'per') timeUnit
 	->	distanceUnit timeUnit
-	;
-
-optimalSpeed
-	:	'SetSpeed' '(' optimalUnit ')'
-	->	^(SPEED OPTIMAL optimalUnit)
-	;
-
-optimalUnit
-	:	('min'|'minimum')
-	->	MINIMUM
-	|	('cru'|'cruise')
-	->	CRUISE
-	|	('max'|'maximum')
-	->	MAXIMUM
 	;
 
 throttleSpeed
