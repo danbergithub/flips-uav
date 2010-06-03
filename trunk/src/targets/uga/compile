@@ -1,0 +1,13 @@
+#!/bin/bash
+
+bash clean
+
+echo "Generating the compiler..."
+java -jar java/lib/antlr-3.2.jar flipsTargetUGA.g -o java/ -verbose
+javac -classpath java/lib/antlr-3.2.jar java/flipsTargetUGALexer.java java/flipsTargetUGAParser.java java/flipsCompiler.java -d java/classes -verbose
+echo "Compiler generated."
+
+echo "Generating the interpreter..."
+gcc -O2 flips.h flips.c driver.c -o flips
+echo "Interpreter generated."
+

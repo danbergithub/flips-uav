@@ -134,14 +134,18 @@ fly	:	FLY {emit(90);};
 
 loiter	:	LTR {emit(91);};
 
-command	:	CMD x=integerValue {emitShort(92,x);};
+command	:	CMD x=integerValue {emitShort(92,x);}
+	|	CMD PAR y=numericValue {emit(95,y);}
+	;
 
 // POSITION INSTRUCTIONS
 
 position:	POS X FIX x=numericValue {emit(1,x);}
 	|	POS X REL x=numericValue {emit(2,x);}
+	|	POS X GEO x=numericValue {emit(93,x);}
 	|	POS Y FIX x=numericValue {emit(3,x);}
 	|	POS Y REL x=numericValue {emit(4,x);}
+	|	POS Y GEO x=numericValue {emit(94,x);}
 	|	POS Z FIX x=numericValue {emit(5,x);}
 	|	POS Z REL x=numericValue {emit(6,x);}
 	|	POS ROL FIX x=numericValue {emit(7,x);}
@@ -267,6 +271,7 @@ POS	:	'pos'|'POS';
 X	:	'x'|'X';
 Y	:	'y'|'Y';
 Z	:	'z'|'Z';
+GEO	:	'geo'|'GEO';
 ROL	:	'rol'|'ROL';
 PIT	:	'pit'|'PIT';
 YAW	:	'yaw'|'YAW';
@@ -288,6 +293,7 @@ THR	:	'thr'|'THR';
 TRI	:	'tri'|'TRI';
 
 CMD	:	'cmd'|'CMD';
+PAR	:	'par'|'PAR';
 
 TIM	:	'tim'|'TIM';
 

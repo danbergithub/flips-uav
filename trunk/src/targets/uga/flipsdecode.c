@@ -97,13 +97,18 @@ static void FLIPSDecode() {
       // Command Decode
       switch (command) {
         default:
-          printf("FLIPS: UNKNOWN COMMAND\n");
+          // printf("FLIPS: UNKNOWN COMMAND\n");
           FLIPS.Status = 1; // Continue
           break;
       }
-      
-      break;
     }
+    break;
+    
+    case 95: { // CMD PAR value
+      float commandParameter = FLIPSLoadFloat();
+      printf("CMD PAR %f\n", commandParameter);  
+    }
+    break;
       
     // POSITION INSTRUCTIONS
     
@@ -117,6 +122,11 @@ static void FLIPSDecode() {
       printf("POS   X REL %f\n", PositionX.Desired);
       break;
       
+    case 93: // POS X GEO value
+      PositionX.Desired += FLIPSLoadFloat();
+      printf("POS   X GEO %f\n", PositionX.Desired);
+      break;
+      
     case 3: // POS Y FIX value
       PositionY.Desired = FLIPSLoadFloat();
       printf("POS   Y FIX %f\n", PositionY.Desired);
@@ -125,6 +135,11 @@ static void FLIPSDecode() {
     case 4: // POS Y REL value
       PositionY.Desired += FLIPSLoadFloat();
       printf("POS   Y REL %f\n", PositionY.Desired);
+      break;
+      
+    case 94: // POS Y GEO value
+      PositionY.Desired += FLIPSLoadFloat();
+      printf("POS   Y GEO %f\n", PositionY.Desired);
       break;
       
     case 5: // POS Z FIX value
