@@ -28,10 +28,10 @@
 #include "flips.h"
 #include <stdio.h>
 
-int main() {
+int main(int argc, char *argv[]) {
   ConfigureFLIPS();
   
-  FILE *file = fopen("example2.bin","r");
+  FILE *file = fopen(argv[1],"r");
   char byte;
   if (file != NULL) {
     do {
