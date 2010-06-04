@@ -14,7 +14,7 @@ public class kml2flips {
     }
     else {
       try {
-        convert(args[0]);
+        convert(readFile(args[0]));
       }
       catch (IOException ex) {
         System.out.println("File not found.");
@@ -22,8 +22,8 @@ public class kml2flips {
     }
   }
   
-  public static void convert(String filename) throws
-                                              Exception {
+  public static String readFile(String filename) throws
+                                                 Exception {
     // Read the KML file
     StringBuffer buffer = new StringBuffer(1024);
     BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -36,6 +36,10 @@ public class kml2flips {
     }
     reader.close();
     
+    return buffer.toString();
+  }
+  
+  public static void convert(String data) {
     // Configure output strings
     StringBuilder waypoints = new StringBuilder();
     StringBuilder statements = new StringBuilder();
@@ -44,7 +48,7 @@ public class kml2flips {
     
     // Find the coordinates
     Pattern pattern = Pattern.compile("(-?\\d*(.\\d*)?,){2}-?\\d*(.\\d*)?\\s");
-    Matcher matcher = pattern.matcher(buffer.toString());
+    Matcher matcher = pattern.matcher(data);
     while (matcher.find()) {
       waypointCount++;
       String[] coord = matcher.group().split(",");
