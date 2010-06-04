@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SRC_KML="flight.kml"
+
+java -cp classes/ kml2flips $SRC_KML
+
