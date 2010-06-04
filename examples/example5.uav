@@ -1,0 +1,27 @@
+waypoints
+
+// Intramural Fields
+IMField1 = 33.934403 -83.371665
+IMField2 = 33.934614 -83.372928
+IMField3 = 33.933866 -83.373373
+IMField4 = 33.933136 -83.373885
+IMField5 = 33.932424 -83.374463
+IMField6 = 33.931841 -83.372768
+IMField7 = 33.933029 -83.371767
+IMField8 = 33.929974 -83.375788
+IMField9 = 33.929065 -83.375840
+IMParkingLot = 33.933489 -83.370106
+LakeHerrick = 33.930426 -83.371598
+
+
+fly to IMField1 at 665ft
+fly to IMField2 climbing 35ft
+fly up 100ft to IMField3
+fly descending 100ft to IMField4
+fly at 850ft to IMField5
+fly to IMField8 descending 150ft
+fly to IMField9
+fly to LakeHerrick at 275 meters
+fly to IMField6 descend 200ft
+fly to IMField7 at 750ft
+fly to IMParkingLot at 645ft

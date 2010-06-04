@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SRC_ASM="../../../examples/example5.uav.asm"
+SRC_KML="../../../examples/example5.uav.kml"
+
+echo "Displaying mission..."
+cat $SRC_ASM
+echo ""
+
+echo "Generating KML file..."
+java -cp java/classes/:../../../lib/antlr-3.2.jar flipsCompiler $SRC_ASM
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+  <Style id="flightPath">
+    <LineStyle>
+      <width>3</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>bf000000</color>
+    </PolyStyle>
+  </Style>
+  <Placemark>
+    <name>FLIPS Flight Plan</name>
+    <styleUrl>#flightPath</styleUrl>
+    <LineString>
+      <extrude>1</extrude>
+      <tessellate>1</tessellate>
+      <altitudeMode>absolute</altitudeMode>
+      <coordinates>
+      -83.371665,33.934403,202.692
+      -83.372928,33.934614,213.36
+      -83.373373,33.933866,243.84
+      -83.373885,33.933136,213.36
+      -83.374463,33.932424,259.08000000000004
+      -83.375788,33.929974,213.36000000000004
+      -83.37584,33.929065,213.36000000000004
+      -83.371598,33.930426,275.0
+      -83.372768,33.931841,214.04
+      -83.371767,33.933029,228.60000000000002
+      -83.370106,33.933489,196.596
+      </coordinates>
+    </LineString>
+  </Placemark>
+</Document>
+</kml>
