@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Cleaning up files..."
+rm -f java/classes/*
+
+echo "Cleaning completed."

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+bash clean
+
+echo "Generating the compiler..."
+java -jar ../../../lib/antlr-3.2.jar flipsTargetKml.g -o java/ -verbose
+javac -classpath ../../../lib/antlr-3.2.jar java/flipsTargetKmlLexer.java java/flipsTargetKmlParser.java java/flipsCompiler.java -d java/classes -verbose
+echo "Compiler generated."
+
