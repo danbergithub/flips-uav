@@ -1,0 +1,7 @@
+The kml2flips utility takes an input KML file and converts it into FLIPS code.
+
+1. "./compile" to compile the utility.
+
+Usage: ./kml2flips <filename>
+Example: ./kml2flips flight.kml
+
