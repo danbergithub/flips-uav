@@ -64,7 +64,7 @@ options {
   
   public void processCoordinate() {
     if (HasWaypoint) {
-      output.append("      " + Longitude + "," + Latitude + "," + Altitude + "\n");
+      output.append("        " + Longitude + "," + Latitude + "," + Altitude + "\n");
       HasWaypoint = false;
     }
   }

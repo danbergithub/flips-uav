@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetKml.g 2010-06-03 21:59:25
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetKml.g 2010-06-03 22:03:17
 
 
 
@@ -108,7 +108,7 @@ public class flipsTargetKmlParser extends Parser {
       
       public void processCoordinate() {
         if (HasWaypoint) {
-          output.append("      " + Longitude + "," + Latitude + "," + Altitude + "\n");
+          output.append("        " + Longitude + "," + Latitude + "," + Altitude + "\n");
           HasWaypoint = false;
         }
       }
