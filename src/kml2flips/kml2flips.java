@@ -9,7 +9,17 @@ import java.util.regex.Matcher;
 public class kml2flips {
   public static void main(String args[]) throws
                                          Exception {
-    convert(args[0]);
+    if (args.length == 0) {
+      System.out.println("Usage: ./kml2flips <filename>");
+    }
+    else {
+      try {
+        convert(args[0]);
+      }
+      catch (IOException ex) {
+        System.out.println("File not found.");
+      }
+    }
   }
   
   public static void convert(String filename) throws
@@ -32,25 +42,21 @@ public class kml2flips {
     StringBuilder inline = new StringBuilder();
     int waypointCount = 0;
     
-    // Find the coordinates block
-    Pattern pattern = Pattern.compile("<coordinates>(.|\\r|\\n)*</coordinates>");
+    // Find the coordinates
+    Pattern pattern = Pattern.compile("(-?\\d*(.\\d*)?,){2}-?\\d*(.\\d*)?\\s");
     Matcher matcher = pattern.matcher(buffer.toString());
-    while (matcher.find()) {    
-      Pattern pattern2 = Pattern.compile("(-?\\d*(.\\d*)?,){2}-?\\d*(.\\d*)?\\s?");
-      Matcher matcher2 = pattern2.matcher(matcher.group());
-      while (matcher2.find()) {
-        waypointCount++;
-        String[] coord = matcher2.group().split(",");
-        waypoints.append("Waypoint" + waypointCount + " = " + coord[1] + " " + coord[0] + "\n");
-        statements.append("fly to Waypoint" + waypointCount);
-        inline.append("fly to " + coord[1] + " " + coord[0]);
-        if (!coord[2].equals("0 ")) {
-          statements.append(" at " + coord[2].trim() + "m");
-          inline.append(" at " + coord[2].trim() + "m");
-        }
-        statements.append("\n");
-        inline.append("\n");
+    while (matcher.find()) {
+      waypointCount++;
+      String[] coord = matcher.group().split(",");
+      waypoints.append("Waypoint" + waypointCount + " = " + coord[1] + " " + coord[0] + "\n");
+      statements.append("fly to Waypoint" + waypointCount);
+      inline.append("fly to " + coord[1] + " " + coord[0]);
+      if (!coord[2].equals("0 ")) {
+        statements.append(" at " + coord[2].trim() + "m");
+        inline.append(" at " + coord[2].trim() + "m");
       }
+      statements.append("\n");
+      inline.append("\n");
     }
     
     // System.out.println(waypoints.toString());
