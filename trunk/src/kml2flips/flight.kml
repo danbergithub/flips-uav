@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>flight.kml</name>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Boyd Mall Test Flight</name>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+-83.37472690787337,33.94503020962253,0 -83.37482607839932,33.94446158850927,0 -83.37531219946568,33.94320564849638,0 -83.37430223505932,33.94297345056917,0 -83.37334991421395,33.94290128631956,0 -83.37316912663462,33.94348761526174,0 -83.37380774344241,33.9436170802633,0 -83.37400051441742,33.942806043468,0 -83.37439304285891,33.94168707638472,0 -83.37578073303932,33.94200275624356,0 -83.37645239921181,33.94220295358805,0 -83.37688003391158,33.94187683022927,0 -83.37725272314897,33.94172089357223,0 -83.37774682359205,33.94175743599813,0 -83.37825217610438,33.94185467020794,0 -83.37863260780539,33.94223954271093,0 -83.37877645780189,33.94245632433879,0 -83.37912682505458,33.94302875600554,0 -83.37900476828503,33.94329127125006,0 -83.37872451068662,33.94352973149375,0 -83.37844231668099,33.94362369402041,0 -83.37804853196963,33.94367330796877,0 -83.37756200994744,33.94396650576171,0 -83.37710228099067,33.94430555179025,0 -83.37684032530163,33.94462686243498,0 -83.37666443104563,33.94500474460084,0 -83.37641861219331,33.94505433714237,0 -83.37523638206596,33.94476395685703,0 -83.37499075407449,33.94473855120432,0 -83.37481946766161,33.94504867864949,0 </coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>
