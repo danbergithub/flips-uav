@@ -1,6 +1,7 @@
 The kml2flips utility takes an input KML file and converts it into FLIPS code.
 
 1. "./compile" to compile the utility.
+2. "chmod +x kml2flips" to make the script executable.
 
 Usage: ./kml2flips <filename>
 Example: ./kml2flips flight.kml
