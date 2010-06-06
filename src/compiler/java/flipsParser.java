@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-02-12 21:07:26
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-06-05 19:39:47
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -1152,7 +1152,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: Identifier, cmd, par
+                    // elements: cmd, par, Identifier
                     // token labels: 
                     // rule labels: par, retval, cmd
                     // token list labels: 
@@ -1166,10 +1166,10 @@ public class flipsParser extends Parser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 135:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) ) )+
                     {
-                        if ( !(stream_Identifier.hasNext()||stream_cmd.hasNext()||stream_par.hasNext()) ) {
+                        if ( !(stream_cmd.hasNext()||stream_par.hasNext()||stream_Identifier.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
-                        while ( stream_Identifier.hasNext()||stream_cmd.hasNext()||stream_par.hasNext() ) {
+                        while ( stream_cmd.hasNext()||stream_par.hasNext()||stream_Identifier.hasNext() ) {
                             // flips.g:135:5: ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1192,9 +1192,9 @@ public class flipsParser extends Parser {
                             }
 
                         }
-                        stream_Identifier.reset();
                         stream_cmd.reset();
                         stream_par.reset();
+                        stream_Identifier.reset();
 
                     }
 
@@ -1504,7 +1504,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: Identifier, sen
+            // elements: sen, Identifier
             // token labels: 
             // rule labels: retval, sen
             // token list labels: 
@@ -1517,10 +1517,10 @@ public class flipsParser extends Parser {
             root_0 = (CommonTree)adaptor.nil();
             // 145:2: -> ( ^( DEFINE Identifier ^( SENSOR $sen) ) )+
             {
-                if ( !(stream_Identifier.hasNext()||stream_sen.hasNext()) ) {
+                if ( !(stream_sen.hasNext()||stream_Identifier.hasNext()) ) {
                     throw new RewriteEarlyExitException();
                 }
-                while ( stream_Identifier.hasNext()||stream_sen.hasNext() ) {
+                while ( stream_sen.hasNext()||stream_Identifier.hasNext() ) {
                     // flips.g:145:5: ^( DEFINE Identifier ^( SENSOR $sen) )
                     {
                     CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1541,8 +1541,8 @@ public class flipsParser extends Parser {
                     }
 
                 }
-                stream_Identifier.reset();
                 stream_sen.reset();
+                stream_Identifier.reset();
 
             }
 
@@ -1852,7 +1852,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: Identifier, geoCoordinate
+            // elements: geoCoordinate, Identifier
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1864,10 +1864,10 @@ public class flipsParser extends Parser {
             root_0 = (CommonTree)adaptor.nil();
             // 155:2: -> ( ^( DEFINE Identifier geoCoordinate ) )+
             {
-                if ( !(stream_Identifier.hasNext()||stream_geoCoordinate.hasNext()) ) {
+                if ( !(stream_geoCoordinate.hasNext()||stream_Identifier.hasNext()) ) {
                     throw new RewriteEarlyExitException();
                 }
-                while ( stream_Identifier.hasNext()||stream_geoCoordinate.hasNext() ) {
+                while ( stream_geoCoordinate.hasNext()||stream_Identifier.hasNext() ) {
                     // flips.g:155:5: ^( DEFINE Identifier geoCoordinate )
                     {
                     CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1880,8 +1880,8 @@ public class flipsParser extends Parser {
                     }
 
                 }
-                stream_Identifier.reset();
                 stream_geoCoordinate.reset();
+                stream_Identifier.reset();
 
             }
 
@@ -4314,7 +4314,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: Identifier, executeCommandParameter
+                    // elements: executeCommandParameter, Identifier
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -6579,7 +6579,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: leftRightDirection, distanceValue
+            // elements: distanceValue, leftRightDirection
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -8617,7 +8617,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: timeUnit, distanceUnit
+                    // elements: distanceUnit, timeUnit
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11578,7 +11578,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: subOrdinalDirection, ordinalDirection, cardinalDirection, angularValue
+                    // elements: angularValue, subOrdinalDirection, cardinalDirection, ordinalDirection
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11723,7 +11723,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: leftRightDirection, angularValue
+            // elements: angularValue, leftRightDirection
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -14819,7 +14819,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: y, northSouthDirection, x, eastWestDirection
+                    // elements: x, y, eastWestDirection, northSouthDirection
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -14937,7 +14937,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x, y
+                    // elements: y, x
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -15139,7 +15139,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x, y
+                    // elements: y, x
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -15714,7 +15714,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x, y
+                    // elements: y, x
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
@@ -15894,7 +15894,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: y, x
+                    // elements: x, y
                     // token labels: 
                     // rule labels: retval, y, x
                     // token list labels: 
