@@ -211,11 +211,23 @@ executeCommandParameter
 pitch
 	:	^(PITCH x=convertAngle)
 		{emit("POS PIT FIX " + x, x + " deg Pitch");}
+	|	^(PITCH y=convertAngularRate)
+		{emit("VEL PIT FIX " + y, y + " deg/s Pitch");}
+	|	^(PITCH x=convertAngle ^(SPEED y=convertAngularRate))
+		{emit("POS PIT FIX " + x, x + " deg Pitch");}
+		{emit("VEL PIT FIX " + y, y + " deg/s Pitch");}
 	;
 
 roll
 	:	^(ROLL x=convertAngle)
 		{emit("POS ROL FIX " + x, x + " deg Roll");}
+	|	^(ROLL y=convertAngularRate)
+		{emit("VEL ROL FIX " + y, y + " deg/s Roll");}
+	|	^(ROLL x=convertAngle ^(SPEED y=convertAngularRate))
+		{emit("POS ROL FIX " + x, x + " deg Roll");}
+		{emit("VEL ROL FIX " + y, y + " deg/s Roll");}
+	|	^(ROLL LEVEL)
+		{emit("POS ROL FIX 0", "0 deg/s Roll");}
 	;
 
 // ALTITUDE EXPRESSIONS
@@ -264,8 +276,10 @@ speed
 		{emit("SPD AIR REL " + -x, -x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
 	|	^(SPEED RELATIVE FASTER x=percentValue)
 	|	^(SPEED RELATIVE SLOWER x=percentValue)
-	|	^(SPEED THROTTLE y=convertThrottle)
-		{emit("ACT THR FIX " + y, y + "\% Throttle");}
+	|	^(SPEED THROTTLE x=percentValue)
+		{emit("ACT THR PCT " + x, x + "\% Throttle");}
+	|	^(SPEED THROTTLE x=convertAngularRate)
+		{emit("ACT THR RPM " + (x / 6d), (x / 6d) + " RPM (" + x + " deg/s) Throttle");}
 	;
 
 // TIME EXPRESSIONS
@@ -301,6 +315,8 @@ direction
 		{emit("POS YAW REL " + -y, -y + " deg Yaw");}
 	|	^(DIRECTION RELATIVE RIGHT y=convertAngle)
 		{emit("POS YAW REL " + y, y + " deg Yaw");}
+	|	^(DIRECTION RELATIVE STRAIGHT)
+		{emit("POS YAW REL 0", "0 deg Yaw");}
 	;
 
 turnDirection
@@ -400,44 +416,56 @@ distanceEast returns [double r]
 
 // Standard time unit is the second
 convertTime returns [double r]
-	:	x=numericValue YEAR
-		{r = x * 31557600d;}
-	|	x=numericValue FORTNIGHT
-		{r = x * 1209600d;}
-	|	x=numericValue WEEK
-		{r = x * 604800d;}
-	|	x=numericValue DAY
-		{r = x * 86400d;}
-	|	x=numericValue HOUR
-		{r = x * 3600d;}
-	|	x=numericValue MINUTE
-		{r = x * 60d;}
-	|	x=numericValue SECOND
-		{r = x;}
-	|	x=numericValue MILLISECOND
-		{r = x * 0.001d;}
+	:	x=numericValue y=convertTimeUnit
+		{r = x * y;}
+	;
+
+// Standard time unit is the second
+convertTimeUnit returns [double r]
+	:	YEAR
+		{r = 31557600d;}
+	|	FORTNIGHT
+		{r = 1209600d;}
+	|	WEEK
+		{r = 604800d;}
+	|	DAY
+		{r = 86400d;}
+	|	HOUR
+		{r = 3600d;}
+	|	MINUTE
+		{r = 60d;}
+	|	SECOND
+		{r = 1d;}
+	|	MILLISECOND
+		{r = 0.001d;}
 	;
 
 // Standard distance unit is the meter
 convertDistance returns [double r]
-	:	x=numericValue KILOMETER
-		{r = x * 1000d;}
-	|	x=numericValue METER
-		{r = x;}
-	|	x=numericValue CENTIMETER
-		{r = x * 0.01d;}
-	|	x=numericValue NAUTICAL MILE
-		{r = x * 1852d;}
-	|	x=numericValue MILE
-		{r = x * 1609.344d;}
-	|	x=numericValue FURLONG
-		{r = x * 201.168d;}
-	|	x=numericValue YARD
-		{r = x * 0.9144d;}
-	|	x=numericValue FOOT
-		{r = x * 0.3048d;}
-	|	x=numericValue INCH
-		{r = x * 0.0254d;}
+	:	x=numericValue y=convertDistanceUnit
+		{r = x * y;}
+	;
+
+// Standard distance unit is the meter
+convertDistanceUnit returns [double r]
+	:	KILOMETER
+		{r = 1000d;}
+	|	METER
+		{r = 1d;}
+	|	CENTIMETER
+		{r = 0.01d;}
+	|	NAUTICAL MILE
+		{r = 1852d;}
+	|	MILE
+		{r = 1609.344d;}
+	|	FURLONG
+		{r = 201.168d;}
+	|	YARD
+		{r = 0.9144d;}
+	|	FOOT
+		{r = 0.3048d;}
+	|	INCH
+		{r = 0.0254d;}
 	;
 
 // Standard flight level (distance) unit is the meter
@@ -449,44 +477,30 @@ convertFlightLevel returns [double r]
 
 // Standard pressure unit is the pascal
 convertPressure returns [double r]
-	:	x=numericValue KILOPASCAL
-		{r = x * 1000d;}
-	|	x=numericValue HECTOPASCAL
-		{r = x * 100d;}
-	|	x=numericValue PASCAL
-		{r = x;}
-	|	x=numericValue BAR
-		{r = x * 100000d;}
-	|	x=numericValue MILLIBAR
-		{r = x * 100d;}
-	|	x=numericValue ATMOSPHERE
-		{r = x * 101325d;}
+	:	x=numericValue y=convertPressureUnit
+		{r = x * y;}
+	;
+
+// Standard pressure unit is the pascal
+convertPressureUnit returns [double r]
+	:	KILOPASCAL
+		{r = 1000d;}
+	|	HECTOPASCAL
+		{r = 100d;}
+	|	PASCAL
+		{r = 1d;}
+	|	BAR
+		{r = 100000d;}
+	|	MILLIBAR
+		{r = 100d;}
+	|	ATMOSPHERE
+		{r = 101325d;}
 	;
 
 // Standard speed unit is the meter/second
 convertSpeed returns [double r]
-	:	x=numericValue YEAR
-		{r = x / 31557600d;}
-	|	x=numericValue FORTNIGHT
-		{r = x / 1209600d;}
-	|	x=numericValue WEEK
-		{r = x / 604800d;}
-	|	x=numericValue DAY
-		{r = x / 86400d;}
-	|	x=convertDistance HOUR
-		{r = x / 3600d;}
-	|	x=convertDistance MINUTE
-		{r = x / 60d;}
-	|	x=convertDistance SECOND
-		{r = x;}
-	|	x=convertDistance MILLISECOND
-		{r = x / 0.001d;}
-	;
-
-// Standard throttle unit is the percent
-convertThrottle returns [double r]
-	:	x=percentValue
-		{r = x;}
+	:	x=convertDistance y=convertTimeUnit
+		{r = x / y;}
 	;
 
 // Standard angle unit is the degree
@@ -499,6 +513,14 @@ convertAngle returns [double r]
 		{r = deg + minInt/60d + sec/3600d;}
 	|	x=numericValue RADIAN
 		{r = x * 180d / Math.PI;}
+	;
+
+// Standard angular rate unit is the degree/second
+convertAngularRate returns [double r]
+	:	x=convertAngle y=convertTimeUnit
+		{r = x / y;}
+	|	z=numericValue REVOLUTION y=convertTimeUnit
+		{r = z / y * 360d;}
 	;
 
 // Standard heading unit is the degree

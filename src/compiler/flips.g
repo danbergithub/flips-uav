@@ -581,6 +581,8 @@ clockDirection
 	->	COUNTERCLOCKWISE
 	;
 
+// ANGULAR EXPRESSIONS
+
 angularValueWithRate
 	:	angularValue
 	|	angularValue At angularRate
