@@ -48,11 +48,14 @@ tokens {
   RELATIVE;
   ROLL;
   PITCH;
+  STRAIGHT;
+  LEVEL;
   ALTITUDE;
   SPEED;
   FASTER;
   SLOWER;
   THROTTLE;
+  REVOLUTION;
   TIME;
   AM;
   PM;
@@ -197,7 +200,7 @@ command
 	;
 
 flyCommand
-	:	('fly'|'go') flyCommandValue*
+	:	('fly'|'go') (flyCommandValue|('and'|',' 'and'?) flyCommandValue)*
 	->	^(FLY flyCommandValue*)
 	;
 
@@ -256,15 +259,17 @@ executeCommandParameter
 // ATTITUDE EXPRESSIONS
 
 pitch
-	:	('pit'|'pitch') angularValue
-	->	^(PITCH angularValue)
-	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValue
-	->	^(PITCH angularValue)
+	:	('pit'|'pitch') angularValueWithRate
+	->	^(PITCH angularValueWithRate)
+	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValueWithRate
+	->	^(PITCH angularValueWithRate)
 	;
 
 roll
-	:	('rol'|'roll') angularValue
-	->	^(ROLL angularValue)
+	:	('rol'|'roll') angularValueWithRate
+	->	^(ROLL angularValueWithRate)
+	|	('lvl'|'level')
+	->	^(ROLL LEVEL)
 	;
 
 // ALTITUDE EXPRESSIONS
@@ -390,7 +395,7 @@ speedUnit
 	->	FOOT MINUTE
 	|	'fps'
 	->	FOOT SECOND
-	|	distanceUnit ('/'|'per') timeUnit
+	|	distanceUnit Per timeUnit
 	->	distanceUnit timeUnit
 	;
 
@@ -401,6 +406,7 @@ throttleSpeed
 
 throttleValue
 	:	percentValue
+	|	angularRate
 	;
 
 // TIME EXPRESSIONS
@@ -496,6 +502,8 @@ fixedDirection
 relativeDirection
 	:	(Turning|Heading) leftRightDirection angularValue
 	->	leftRightDirection angularValue
+	|	('str'|'straight')
+	->	STRAIGHT
 	;
 
 cardinalDirection
@@ -571,6 +579,31 @@ clockDirection
 	->	CLOCKWISE
 	|	('ccw'|'counterclockwise')
 	->	COUNTERCLOCKWISE
+	;
+
+angularValueWithRate
+	:	angularValue
+	|	angularValue At angularRate
+	->	angularValue ^(SPEED angularRate)
+	|	At? angularRate
+	->	angularRate
+	|	At? angularRate To angularValue
+	->	angularValue ^(SPEED angularRate)
+	;
+
+angularRate
+	:	numericValue angularRateUnit
+	|	angularValue Per timeUnit
+	->	angularValue timeUnit
+	;
+
+angularRateUnit
+	:	'rpm'
+	->	REVOLUTION MINUTE
+	|	('hz'|'hertz')
+	->	REVOLUTION SECOND
+	|	('rev'|'revs'|'revolution'|'revolutions') Per timeUnit
+	->	REVOLUTION timeUnit
 	;
 
 angularValue
@@ -676,6 +709,8 @@ relationalOp
 To	:	'to';
 
 At	:	'@'|'at';
+
+Per	:	'/'|'per';
 
 With	:	'w/'|'with';
 
