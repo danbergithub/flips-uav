@@ -178,8 +178,8 @@ actuator:	ACT ELE FIX x=numericValue
 	|	ACT RUD REL x=numericValue
 	|	ACT FLA FIX x=numericValue
 	|	ACT FLA REL x=numericValue
-	|	ACT THR FIX x=numericValue
-	|	ACT THR REL x=numericValue
+	|	ACT THR PCT x=numericValue
+	|	ACT THR RPM x=numericValue
 	;
 
 // TRIM INSTRUCTIONS
@@ -273,6 +273,9 @@ AIL	:	'ail'|'AIL';
 RUD	:	'rud'|'RUD';
 FLA	:	'fla'|'FLA';
 THR	:	'thr'|'THR';
+
+PCT	:	'pct'|'PCT';
+RPM	:	'rpm'|'RPM';
 
 TRI	:	'tri'|'TRI';
 
