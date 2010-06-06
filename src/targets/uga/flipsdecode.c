@@ -123,7 +123,7 @@ static void FLIPSDecode() {
       break;
       
     case 93: // POS X GEO value
-      PositionX.Desired += FLIPSLoadFloat();
+      PositionX.Desired = FLIPSLoadFloat();
       printf("POS   X GEO %f\n", PositionX.Desired);
       break;
       
@@ -138,7 +138,7 @@ static void FLIPSDecode() {
       break;
       
     case 94: // POS Y GEO value
-      PositionY.Desired += FLIPSLoadFloat();
+      PositionY.Desired = FLIPSLoadFloat();
       printf("POS   Y GEO %f\n", PositionY.Desired);
       break;
       
