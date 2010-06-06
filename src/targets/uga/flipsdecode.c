@@ -328,14 +328,14 @@ static void FLIPSDecode() {
       printf("ACT FLA REL %f\n", Flap.Desired);
       break;
       
-    case 69: // ACT THR FIX value
+    case 69: // ACT THR PCT value
       Throttle.Desired = FLIPSLoadFloat();
-      printf("ACT THR FIX %f\n", Throttle.Desired);
+      printf("ACT THR PCT %f\n", Throttle.Desired);
       break;
       
-    case 70: // ACT THR REL value
-      Throttle.Desired += FLIPSLoadFloat();
-      printf("ACT THR REL %f\n", Throttle.Desired);
+    case 70: // ACT THR RPM value
+      Throttle.Desired = FLIPSLoadFloat();
+      printf("ACT THR RPM %f\n", Throttle.Desired);
       break;
       
     // TRIM INSTRUCTIONS
