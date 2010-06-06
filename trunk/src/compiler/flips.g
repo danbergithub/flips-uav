@@ -132,9 +132,9 @@ defineCommand
 	;
 
 defineCommandValue
-	:	Identifier '=' integerValue (('and'|',' 'and'?)? Identifier '=' integerValue)*
+	:	Identifier '=' integerValue ((And|',' And?)? Identifier '=' integerValue)*
 	->	^(DEFINE Identifier ^(COMMAND integerValue))+
-	|	Identifier '=' cmd=integerValue '(' par=integerValue ')' (('and'|',' 'and'?)? Identifier '=' cmd=integerValue '(' par=integerValue ')')*
+	|	Identifier '=' cmd=integerValue '(' par=integerValue ')' ((And|',' And?)? Identifier '=' cmd=integerValue '(' par=integerValue ')')*
 	->	^(DEFINE Identifier ^(COMMAND $cmd PARAMETER $par))+
 	;
 
@@ -144,7 +144,7 @@ defineSensor
 	;
 
 defineSensorValue
-	:	Identifier '=' sen=integerValue (('and'|',' 'and'?)? Identifier '=' sen=integerValue)*
+	:	Identifier '=' sen=integerValue ((And|',' And?)? Identifier '=' sen=integerValue)*
 	->	^(DEFINE Identifier ^(SENSOR $sen))+
 	;
 
@@ -154,7 +154,7 @@ defineWaypoint
 	;
 
 defineWaypointValue
-	:	Identifier '=' geoCoordinate (('and'|',' 'and'?)? Identifier '=' geoCoordinate)*
+	:	Identifier '=' geoCoordinate ((And|',' And?)? Identifier '=' geoCoordinate)*
 	->	^(DEFINE Identifier geoCoordinate)+
 	;
 
@@ -200,7 +200,7 @@ command
 	;
 
 flyCommand
-	:	('fly'|'go') (flyCommandValue|('and'|',' 'and'?) flyCommandValue)*
+	:	('fly'|'go') (flyCommandValue|(And|',' And?) flyCommandValue)*
 	->	^(FLY flyCommandValue*)
 	;
 
@@ -212,7 +212,7 @@ flyCommandValue
 	|	pitch
 	|	roll
 	|	duration
-	|	To waypoint (('and'|',' 'and'?) waypoint)*
+	|	To waypoint ((And|',' And?) waypoint)*
 	->	waypoint+
 	|	altitude
 	;
@@ -705,6 +705,8 @@ relationalOp
 // LEXER
 
 // COMMON TOKENS
+
+And	:	'&'|'and';
 
 To	:	'to';
 
