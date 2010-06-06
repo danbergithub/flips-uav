@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetUGA.g 2010-06-03 02:07:44
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetUGA.g 2010-06-06 02:02:40
 
   import java.nio.ByteBuffer;
 
@@ -10,58 +10,60 @@ import java.util.ArrayList;
 
 public class flipsTargetUGAParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLY", "LTR", "CMD", "PAR", "POS", "X", "FIX", "REL", "GEO", "Y", "Z", "ROL", "PIT", "YAW", "PRE", "VEL", "SPD", "AIR", "GND", "ACT", "ELE", "AIL", "RUD", "FLA", "THR", "TRI", "TIM", "RAD", "DIR", "L", "R", "CW", "CCW", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Identifier", "StringLiteral", "Digit", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLY", "LTR", "CMD", "PAR", "POS", "X", "FIX", "REL", "GEO", "Y", "Z", "ROL", "PIT", "YAW", "PRE", "VEL", "SPD", "AIR", "GND", "ACT", "ELE", "AIL", "RUD", "FLA", "THR", "PCT", "RPM", "TRI", "TIM", "RAD", "DIR", "L", "R", "CW", "CCW", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Identifier", "StringLiteral", "Digit", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'-'"
     };
     public static final int AIL=25;
     public static final int FIX=10;
     public static final int THR=28;
     public static final int FLA=27;
     public static final int SPD=20;
-    public static final int OctalLiteral=39;
+    public static final int OctalLiteral=41;
     public static final int AIR=21;
-    public static final int LineComment=51;
-    public static final int Exponent=48;
+    public static final int LineComment=53;
+    public static final int Exponent=50;
     public static final int YAW=17;
     public static final int PRE=18;
     public static final int EOF=-1;
-    public static final int HexDigit=47;
+    public static final int HexDigit=49;
+    public static final int Identifier=44;
     public static final int ROL=15;
-    public static final int Identifier=42;
-    public static final int TIM=30;
-    public static final int T__52=52;
-    public static final int Comment=50;
+    public static final int TIM=32;
+    public static final int T__54=54;
+    public static final int Comment=52;
     public static final int POS=8;
-    public static final int RAD=31;
+    public static final int RAD=33;
     public static final int ELE=24;
     public static final int PAR=7;
     public static final int GEO=12;
-    public static final int HexLiteral=41;
+    public static final int HexLiteral=43;
     public static final int ACT=23;
     public static final int GND=22;
-    public static final int L=33;
+    public static final int L=35;
     public static final int VEL=19;
-    public static final int TRI=29;
+    public static final int TRI=31;
     public static final int CMD=6;
     public static final int PIT=16;
     public static final int REL=11;
-    public static final int R=34;
-    public static final int Digit=44;
-    public static final int DecimalLiteral=40;
+    public static final int R=36;
+    public static final int Digit=46;
+    public static final int DecimalLiteral=42;
     public static final int Y=13;
     public static final int X=9;
-    public static final int CCW=36;
+    public static final int CCW=38;
     public static final int Z=14;
-    public static final int StringLiteral=43;
-    public static final int CW=35;
-    public static final int WS=49;
+    public static final int StringLiteral=45;
+    public static final int CW=37;
+    public static final int WS=51;
     public static final int FLY=4;
     public static final int RUD=26;
     public static final int LTR=5;
-    public static final int DIR=32;
-    public static final int NonZeroDigit=45;
-    public static final int BinaryLiteral=38;
-    public static final int BinaryDigit=46;
-    public static final int FloatingPointLiteral=37;
+    public static final int DIR=34;
+    public static final int NonZeroDigit=47;
+    public static final int BinaryLiteral=40;
+    public static final int BinaryDigit=48;
+    public static final int FloatingPointLiteral=39;
+    public static final int PCT=29;
+    public static final int RPM=30;
 
     // delegates
     // delegators
@@ -478,7 +480,7 @@ public class flipsTargetUGAParser extends Parser {
                 if ( (LA3_1==PAR) ) {
                     alt3=2;
                 }
-                else if ( ((LA3_1>=BinaryLiteral && LA3_1<=HexLiteral)||LA3_1==52) ) {
+                else if ( ((LA3_1>=BinaryLiteral && LA3_1<=HexLiteral)||LA3_1==54) ) {
                     alt3=1;
                 }
                 else {
@@ -1171,13 +1173,13 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "actuator"
-    // flipsTargetUGA.g:189:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR FIX x= numericValue | ACT THR REL x= numericValue );
+    // flipsTargetUGA.g:189:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue );
     public final void actuator() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:189:9: ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR FIX x= numericValue | ACT THR REL x= numericValue )
+            // flipsTargetUGA.g:189:9: ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue )
             int alt7=10;
             alt7 = dfa7.predict(input);
             switch (alt7) {
@@ -1302,11 +1304,11 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // flipsTargetUGA.g:197:4: ACT THR FIX x= numericValue
+                    // flipsTargetUGA.g:197:4: ACT THR PCT x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator829); 
                     match(input,THR,FOLLOW_THR_in_actuator831); 
-                    match(input,FIX,FOLLOW_FIX_in_actuator833); 
+                    match(input,PCT,FOLLOW_PCT_in_actuator833); 
                     pushFollow(FOLLOW_numericValue_in_actuator837);
                     x=numericValue();
 
@@ -1317,11 +1319,11 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // flipsTargetUGA.g:198:4: ACT THR REL x= numericValue
+                    // flipsTargetUGA.g:198:4: ACT THR RPM x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator844); 
                     match(input,THR,FOLLOW_THR_in_actuator846); 
-                    match(input,REL,FOLLOW_REL_in_actuator848); 
+                    match(input,RPM,FOLLOW_RPM_in_actuator848); 
                     pushFollow(FOLLOW_numericValue_in_actuator852);
                     x=numericValue();
 
@@ -1744,7 +1746,7 @@ public class flipsTargetUGAParser extends Parser {
                 alt11=1;
                 }
                 break;
-            case 52:
+            case 54:
                 {
                 int LA11_2 = input.LA(2);
 
@@ -1798,7 +1800,7 @@ public class flipsTargetUGAParser extends Parser {
                 case 3 :
                     // flipsTargetUGA.g:237:10: '-' y= FloatingPointLiteral
                     {
-                    match(input,52,FOLLOW_52_in_numericValue1158); 
+                    match(input,54,FOLLOW_54_in_numericValue1158); 
                     y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue1162); 
                     r = -Double.parseDouble(y.getText());
 
@@ -1865,7 +1867,7 @@ public class flipsTargetUGAParser extends Parser {
                 case 5 :
                     // flipsTargetUGA.g:250:4: '-' x= BinaryLiteral
                     {
-                    match(input,52,FOLLOW_52_in_integerValue1232); 
+                    match(input,54,FOLLOW_54_in_integerValue1232); 
                     x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue1236); 
                     r = -Integer.parseInt(x.getText().substring(2),2);
 
@@ -1874,7 +1876,7 @@ public class flipsTargetUGAParser extends Parser {
                 case 6 :
                     // flipsTargetUGA.g:252:4: '-' x= OctalLiteral
                     {
-                    match(input,52,FOLLOW_52_in_integerValue1245); 
+                    match(input,54,FOLLOW_54_in_integerValue1245); 
                     x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue1249); 
                     r = -Integer.parseInt(x.getText().substring(1),8);
 
@@ -1883,7 +1885,7 @@ public class flipsTargetUGAParser extends Parser {
                 case 7 :
                     // flipsTargetUGA.g:254:4: '-' x= DecimalLiteral
                     {
-                    match(input,52,FOLLOW_52_in_integerValue1258); 
+                    match(input,54,FOLLOW_54_in_integerValue1258); 
                     x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue1262); 
                     r = -Integer.parseInt(x.getText());
 
@@ -1892,7 +1894,7 @@ public class flipsTargetUGAParser extends Parser {
                 case 8 :
                     // flipsTargetUGA.g:256:4: '-' x= HexLiteral
                     {
-                    match(input,52,FOLLOW_52_in_integerValue1271); 
+                    match(input,54,FOLLOW_54_in_integerValue1271); 
                     x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue1275); 
                     r = -Integer.parseInt(x.getText().substring(2),16);
 
@@ -2070,9 +2072,9 @@ public class flipsTargetUGAParser extends Parser {
     static final String DFA7_eofS =
         "\21\uffff";
     static final String DFA7_minS =
-        "\1\27\1\30\5\12\12\uffff";
+        "\1\27\1\30\4\12\1\35\12\uffff";
     static final String DFA7_maxS =
-        "\1\27\1\34\5\13\12\uffff";
+        "\1\27\1\34\4\13\1\36\12\uffff";
     static final String DFA7_acceptS =
         "\7\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12";
     static final String DFA7_specialS =
@@ -2127,7 +2129,7 @@ public class flipsTargetUGAParser extends Parser {
             this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "189:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR FIX x= numericValue | ACT THR REL x= numericValue );";
+            return "189:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue );";
         }
     }
     static final String DFA8_eotS =
@@ -2135,9 +2137,9 @@ public class flipsTargetUGAParser extends Parser {
     static final String DFA8_eofS =
         "\21\uffff";
     static final String DFA8_minS =
-        "\1\35\1\30\5\12\12\uffff";
+        "\1\37\1\30\5\12\12\uffff";
     static final String DFA8_maxS =
-        "\1\35\1\34\5\13\12\uffff";
+        "\1\37\1\34\5\13\12\uffff";
     static final String DFA8_acceptS =
         "\7\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12";
     static final String DFA8_specialS =
@@ -2200,9 +2202,9 @@ public class flipsTargetUGAParser extends Parser {
     static final String DFA12_eofS =
         "\12\uffff";
     static final String DFA12_minS =
-        "\1\46\4\uffff\1\46\4\uffff";
+        "\1\50\4\uffff\1\50\4\uffff";
     static final String DFA12_maxS =
-        "\1\64\4\uffff\1\51\4\uffff";
+        "\1\66\4\uffff\1\53\4\uffff";
     static final String DFA12_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\uffff\1\5\1\6\1\7\1\10";
     static final String DFA12_specialS =
@@ -2255,7 +2257,7 @@ public class flipsTargetUGAParser extends Parser {
     }
  
 
-    public static final BitSet FOLLOW_instruction_in_flightPlan44 = new BitSet(new long[]{0x00000001E0980172L});
+    public static final BitSet FOLLOW_instruction_in_flightPlan44 = new BitSet(new long[]{0x0000000780980172L});
     public static final BitSet FOLLOW_fly_in_instruction68 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_loiter_in_instruction73 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_command_in_instruction78 = new BitSet(new long[]{0x0000000000000002L});
@@ -2269,258 +2271,258 @@ public class flipsTargetUGAParser extends Parser {
     public static final BitSet FOLLOW_direction_in_instruction118 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FLY_in_fly130 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LTR_in_loiter140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CMD_in_command150 = new BitSet(new long[]{0x001003C000000000L});
+    public static final BitSet FOLLOW_CMD_in_command150 = new BitSet(new long[]{0x00400F0000000000L});
     public static final BitSet FOLLOW_integerValue_in_command154 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CMD_in_command161 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_PAR_in_command163 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_PAR_in_command163 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_command167 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position180 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_X_in_position182 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position184 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position184 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position188 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position195 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_X_in_position197 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position199 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position199 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position203 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position210 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_X_in_position212 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_GEO_in_position214 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_GEO_in_position214 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position218 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position225 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_Y_in_position227 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position229 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position229 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position233 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position240 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_Y_in_position242 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position244 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position244 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position248 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position255 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_Y_in_position257 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_GEO_in_position259 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_GEO_in_position259 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position263 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position270 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_Z_in_position272 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position274 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position274 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position278 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position285 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_Z_in_position287 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position289 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position289 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position293 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position300 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_ROL_in_position302 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position304 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position304 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position308 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position315 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_ROL_in_position317 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position319 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position319 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position323 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position330 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_PIT_in_position332 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position334 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position334 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position338 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position345 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_PIT_in_position347 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position349 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position349 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position353 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position360 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_YAW_in_position362 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position364 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position364 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position368 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position375 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_YAW_in_position377 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position379 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position379 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position383 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position390 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_PRE_in_position392 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_position394 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_position394 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position398 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_POS_in_position405 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_PRE_in_position407 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_position409 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_position409 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_position413 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity426 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_X_in_velocity428 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity430 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity430 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity434 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity441 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_X_in_velocity443 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity445 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity445 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity449 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity456 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_Y_in_velocity458 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity460 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity460 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity464 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity471 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_Y_in_velocity473 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity475 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity475 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity479 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity486 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_Z_in_velocity488 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity490 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity490 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity494 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity501 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_Z_in_velocity503 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity505 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity505 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity509 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity516 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_ROL_in_velocity518 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity520 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity520 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity524 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity531 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_ROL_in_velocity533 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity535 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity535 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity539 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity546 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_PIT_in_velocity548 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity550 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity550 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity554 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity561 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_PIT_in_velocity563 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity565 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity565 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity569 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity576 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_YAW_in_velocity578 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity580 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity580 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity584 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity591 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_YAW_in_velocity593 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity595 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity595 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity599 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity606 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_PRE_in_velocity608 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_velocity610 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_velocity610 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity614 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_VEL_in_velocity621 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_PRE_in_velocity623 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_velocity625 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_velocity625 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_velocity629 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SPD_in_speed643 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_AIR_in_speed645 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_speed647 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_speed647 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_speed651 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SPD_in_speed658 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_AIR_in_speed660 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_speed662 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_speed662 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_speed666 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SPD_in_speed673 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_GND_in_speed675 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_speed677 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_speed677 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_speed681 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SPD_in_speed688 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_GND_in_speed690 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_speed692 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_speed692 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_speed696 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator709 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_ELE_in_actuator711 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_actuator713 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_actuator713 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator717 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator724 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_ELE_in_actuator726 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_actuator728 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_actuator728 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator732 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator739 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_AIL_in_actuator741 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_actuator743 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_actuator743 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator747 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator754 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_AIL_in_actuator756 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_actuator758 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_actuator758 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator762 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator769 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_RUD_in_actuator771 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_actuator773 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_actuator773 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator777 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator784 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_RUD_in_actuator786 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_actuator788 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_actuator788 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator792 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator799 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_FLA_in_actuator801 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_actuator803 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_actuator803 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator807 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator814 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_FLA_in_actuator816 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_actuator818 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_actuator818 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator822 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator829 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_THR_in_actuator831 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_actuator833 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_THR_in_actuator831 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_PCT_in_actuator833 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator837 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ACT_in_actuator844 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_THR_in_actuator846 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_actuator848 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_THR_in_actuator846 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_RPM_in_actuator848 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_actuator852 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim866 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_ELE_in_trim868 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_trim870 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_trim870 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim874 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim881 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_ELE_in_trim883 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_trim885 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_trim885 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim889 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim896 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_AIL_in_trim898 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_trim900 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_trim900 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim904 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim911 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_AIL_in_trim913 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_trim915 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_trim915 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim919 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim926 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_RUD_in_trim928 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_trim930 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_trim930 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim934 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim941 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_RUD_in_trim943 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_trim945 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_trim945 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim949 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim956 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_FLA_in_trim958 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_trim960 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_trim960 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim964 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim971 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_FLA_in_trim973 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_trim975 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_trim975 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim979 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim986 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_THR_in_trim988 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_trim990 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_trim990 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim994 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRI_in_trim1001 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_THR_in_trim1003 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_trim1005 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_trim1005 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_trim1009 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TIM_in_time1023 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_FIX_in_time1025 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_FIX_in_time1025 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_time1029 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TIM_in_time1036 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_REL_in_time1038 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_REL_in_time1038 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_time1042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RAD_in_radius1054 = new BitSet(new long[]{0x001003E000000000L});
+    public static final BitSet FOLLOW_RAD_in_radius1054 = new BitSet(new long[]{0x00400F8000000000L});
     public static final BitSet FOLLOW_numericValue_in_radius1058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DIR_in_direction1069 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_DIR_in_direction1069 = new BitSet(new long[]{0x0000000800000000L});
     public static final BitSet FOLLOW_L_in_direction1071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DIR_in_direction1078 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_DIR_in_direction1078 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_R_in_direction1080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DIR_in_direction1087 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_DIR_in_direction1087 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_CW_in_direction1089 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DIR_in_direction1096 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_DIR_in_direction1096 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_CCW_in_direction1098 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_integerValue_in_numericValue1119 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue1136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_numericValue1158 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_54_in_numericValue1158 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue1162 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_BinaryLiteral_in_integerValue1190 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_OctalLiteral_in_integerValue1201 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_DecimalLiteral_in_integerValue1212 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_HexLiteral_in_integerValue1223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_integerValue1232 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_54_in_integerValue1232 = new BitSet(new long[]{0x0000010000000000L});
     public static final BitSet FOLLOW_BinaryLiteral_in_integerValue1236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_integerValue1245 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_54_in_integerValue1245 = new BitSet(new long[]{0x0000020000000000L});
     public static final BitSet FOLLOW_OctalLiteral_in_integerValue1249 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_integerValue1258 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_54_in_integerValue1258 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_DecimalLiteral_in_integerValue1262 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_integerValue1271 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_54_in_integerValue1271 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_HexLiteral_in_integerValue1275 = new BitSet(new long[]{0x0000000000000002L});
 
 }

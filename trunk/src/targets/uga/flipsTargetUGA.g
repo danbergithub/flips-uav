@@ -194,8 +194,8 @@ actuator:	ACT ELE FIX x=numericValue {emit(57,x);}
 	|	ACT RUD REL x=numericValue {emit(64,x);}
 	|	ACT FLA FIX x=numericValue {emit(66,x);}
 	|	ACT FLA REL x=numericValue {emit(67,x);}
-	|	ACT THR FIX x=numericValue {emit(69,x);}
-	|	ACT THR REL x=numericValue {emit(70,x);}
+	|	ACT THR PCT x=numericValue {emit(69,x);}
+	|	ACT THR RPM x=numericValue {emit(70,x);}
 	;
 
 // TRIM INSTRUCTIONS
@@ -289,6 +289,9 @@ AIL	:	'ail'|'AIL';
 RUD	:	'rud'|'RUD';
 FLA	:	'fla'|'FLA';
 THR	:	'thr'|'THR';
+
+PCT	:	'pct'|'PCT';
+RPM	:	'rpm'|'RPM';
 
 TRI	:	'tri'|'TRI';
 
