@@ -3,6 +3,6 @@ bash clean
 echo "Compiling..."
 java -jar java/lib/antlr-3.2.jar flips.g -o java/ -verbose
 java -jar java/lib/antlr-3.2.jar flipsAssembly.g -o java/ -verbose
-javac -classpath java/lib/antlr-3.2.jar java/flipsLexer.java java/flipsParser.java java/flipsAssembly.java java/flipsCompiler.java -d java/classes -verbose
+javac -classpath java/lib/antlr-3.2.jar java/flipsLexer.java java/flipsParser.java java/flipsAssembly.java java/flipsCompiler.java java/flipsCompilerUI.java -d java/classes -verbose
 echo "Compiler finished."
 echo "Finished."
