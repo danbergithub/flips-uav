@@ -1,5 +1,6 @@
 import java.io.IOException;
 import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.tree.CommonTree;
@@ -8,27 +9,27 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 public class flipsCompiler {
   public static void main(String args[]) throws
                                          Exception {
-    if (args.length == 0) {
-      System.out.println("Usage: ./flips <filename>");
+    CharStream input = null;
+    
+    // Select an input stream
+    if (args.length > 0) {
+      // Read file
+      input = new ANTLRFileStream(args[0]);
     }
     else {
-      try {
-        System.out.print(compile(args[0]));
-      }
-      catch (IOException ex) {
-        System.out.println("File not found.");
-      }
+      // Read stdin
+      input = new ANTLRInputStream(System.in);
     }
+    
+    // Print the compiled result
+    System.out.print(compile(input));
   }
 
-  public static String compile(String filename) throws
-                                                Exception {
-    // File Input
-    CharStream input = new ANTLRFileStream(filename);
-    
+  public static String compile(CharStream input) throws
+                                                 Exception {
     // Lexer
-    flipsLexer lex = new flipsLexer(input);
-    CommonTokenStream tokens = new CommonTokenStream(lex);
+    flipsLexer lexer = new flipsLexer(input);
+    CommonTokenStream tokens = new CommonTokenStream(lexer);
     
     // Parser and AST Construction
     flipsParser parser = new flipsParser(tokens);
@@ -43,4 +44,3 @@ public class flipsCompiler {
     return walker.output.toString();
   }
 }
-
