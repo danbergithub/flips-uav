@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetUGA.g 2010-06-06 02:02:40
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetUGA.g 2010-08-25 21:23:50
 
   import java.nio.ByteBuffer;
 
@@ -83,26 +83,27 @@ public class flipsTargetUGAParser extends Parser {
 
 
           public ByteBuffer output = ByteBuffer.allocate(4096);
+          public StringBuilder debug = new StringBuilder();
 
           public void emitByte(int value) {
             output.put((byte)value);
-            System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+            debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
           }
 
           public void emitShort(int value) {
             output.putShort((short)value);
-            System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+            debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
           }
 
           public void emitShort(int instruction, int value) {
             output.put((byte)instruction);
             output.putShort((short)value);
-            System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+            debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
           }
 
           public void emitInt(int value) {
             output.putInt(value);
-            System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+            debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
           }
 
           public void emit(int instruction) {
@@ -112,19 +113,19 @@ public class flipsTargetUGAParser extends Parser {
           public void emit(int instruction, double value) {
             output.put((byte)instruction);
             output.putFloat((float)value);
-            System.out.print(Integer.toString(instruction) + " " + value);
-            System.out.print(" = " + Integer.toHexString(instruction).toUpperCase() + " ");
+            debug.append(Integer.toString(instruction) + " " + value);
+            debug.append(" = " + Integer.toHexString(instruction).toUpperCase() + " ");
             //long data = Double.doubleToRawLongBits(value);
-            //System.out.print(Integer.toHexString((int)((data >> 56) & 0xFF)).toUpperCase() + " ");
-            //System.out.print(Integer.toHexString((int)((data >> 48) & 0xFF)).toUpperCase() + " ");
-            //System.out.print(Integer.toHexString((int)((data >> 40) & 0xFF)).toUpperCase() + " ");
-            //System.out.print(Integer.toHexString((int)((data >> 32) & 0xFF)).toUpperCase() + " ");
+            //debug.append(Integer.toHexString((int)((data >> 56) & 0xFF)).toUpperCase() + " ");
+            //debug.append(Integer.toHexString((int)((data >> 48) & 0xFF)).toUpperCase() + " ");
+            //debug.append(Integer.toHexString((int)((data >> 40) & 0xFF)).toUpperCase() + " ");
+            //debug.append(Integer.toHexString((int)((data >> 32) & 0xFF)).toUpperCase() + " ");
             int data = Float.floatToRawIntBits((float)value);
-            System.out.print(Integer.toHexString((int)((data >> 24) & 0xFF)).toUpperCase() + " ");
-            System.out.print(Integer.toHexString((int)((data >> 16) & 0xFF)).toUpperCase() + " ");
-            System.out.print(Integer.toHexString((int)((data >> 8) & 0xFF)).toUpperCase() + " ");
-            System.out.print(Integer.toHexString((int)((data >> 0) & 0xFF)).toUpperCase());
-            System.out.println();
+            debug.append(Integer.toHexString((int)((data >> 24) & 0xFF)).toUpperCase() + " ");
+            debug.append(Integer.toHexString((int)((data >> 16) & 0xFF)).toUpperCase() + " ");
+            debug.append(Integer.toHexString((int)((data >> 8) & 0xFF)).toUpperCase() + " ");
+            debug.append(Integer.toHexString((int)((data >> 0) & 0xFF)).toUpperCase());
+            debug.append("\n");
           }
           
           public void reserveCharacters() {
@@ -154,14 +155,14 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "flightPlan"
-    // flipsTargetUGA.g:109:1: flightPlan : ( instruction )* ;
+    // flipsTargetUGA.g:110:1: flightPlan : ( instruction )* ;
     public final void flightPlan() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:110:2: ( ( instruction )* )
-            // flipsTargetUGA.g:110:4: ( instruction )*
+            // flipsTargetUGA.g:111:2: ( ( instruction )* )
+            // flipsTargetUGA.g:111:4: ( instruction )*
             {
             emitByte(0xAA);
-            // flipsTargetUGA.g:111:3: ( instruction )*
+            // flipsTargetUGA.g:112:3: ( instruction )*
             loop1:
             do {
                 int alt1=2;
@@ -174,7 +175,7 @@ public class flipsTargetUGAParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // flipsTargetUGA.g:111:3: instruction
+            	    // flipsTargetUGA.g:112:3: instruction
             	    {
             	    pushFollow(FOLLOW_instruction_in_flightPlan44);
             	    instruction();
@@ -209,10 +210,10 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "instruction"
-    // flipsTargetUGA.g:117:1: instruction : ( fly | loiter | command | position | velocity | speed | actuator | trim | time | radius | direction );
+    // flipsTargetUGA.g:118:1: instruction : ( fly | loiter | command | position | velocity | speed | actuator | trim | time | radius | direction );
     public final void instruction() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:118:2: ( fly | loiter | command | position | velocity | speed | actuator | trim | time | radius | direction )
+            // flipsTargetUGA.g:119:2: ( fly | loiter | command | position | velocity | speed | actuator | trim | time | radius | direction )
             int alt2=11;
             switch ( input.LA(1) ) {
             case FLY:
@@ -279,7 +280,7 @@ public class flipsTargetUGAParser extends Parser {
 
             switch (alt2) {
                 case 1 :
-                    // flipsTargetUGA.g:118:4: fly
+                    // flipsTargetUGA.g:119:4: fly
                     {
                     pushFollow(FOLLOW_fly_in_instruction68);
                     fly();
@@ -290,7 +291,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:119:4: loiter
+                    // flipsTargetUGA.g:120:4: loiter
                     {
                     pushFollow(FOLLOW_loiter_in_instruction73);
                     loiter();
@@ -301,7 +302,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:120:4: command
+                    // flipsTargetUGA.g:121:4: command
                     {
                     pushFollow(FOLLOW_command_in_instruction78);
                     command();
@@ -312,7 +313,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:121:4: position
+                    // flipsTargetUGA.g:122:4: position
                     {
                     pushFollow(FOLLOW_position_in_instruction83);
                     position();
@@ -323,7 +324,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // flipsTargetUGA.g:122:4: velocity
+                    // flipsTargetUGA.g:123:4: velocity
                     {
                     pushFollow(FOLLOW_velocity_in_instruction88);
                     velocity();
@@ -334,7 +335,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // flipsTargetUGA.g:123:4: speed
+                    // flipsTargetUGA.g:124:4: speed
                     {
                     pushFollow(FOLLOW_speed_in_instruction93);
                     speed();
@@ -345,7 +346,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // flipsTargetUGA.g:124:4: actuator
+                    // flipsTargetUGA.g:125:4: actuator
                     {
                     pushFollow(FOLLOW_actuator_in_instruction98);
                     actuator();
@@ -356,7 +357,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // flipsTargetUGA.g:125:4: trim
+                    // flipsTargetUGA.g:126:4: trim
                     {
                     pushFollow(FOLLOW_trim_in_instruction103);
                     trim();
@@ -367,7 +368,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // flipsTargetUGA.g:126:4: time
+                    // flipsTargetUGA.g:127:4: time
                     {
                     pushFollow(FOLLOW_time_in_instruction108);
                     time();
@@ -378,7 +379,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // flipsTargetUGA.g:127:4: radius
+                    // flipsTargetUGA.g:128:4: radius
                     {
                     pushFollow(FOLLOW_radius_in_instruction113);
                     radius();
@@ -389,7 +390,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // flipsTargetUGA.g:128:4: direction
+                    // flipsTargetUGA.g:129:4: direction
                     {
                     pushFollow(FOLLOW_direction_in_instruction118);
                     direction();
@@ -414,11 +415,11 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "fly"
-    // flipsTargetUGA.g:133:1: fly : FLY ;
+    // flipsTargetUGA.g:134:1: fly : FLY ;
     public final void fly() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:133:5: ( FLY )
-            // flipsTargetUGA.g:133:7: FLY
+            // flipsTargetUGA.g:134:5: ( FLY )
+            // flipsTargetUGA.g:134:7: FLY
             {
             match(input,FLY,FOLLOW_FLY_in_fly130); 
             emit(90);
@@ -438,11 +439,11 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "loiter"
-    // flipsTargetUGA.g:135:1: loiter : LTR ;
+    // flipsTargetUGA.g:136:1: loiter : LTR ;
     public final void loiter() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:135:8: ( LTR )
-            // flipsTargetUGA.g:135:10: LTR
+            // flipsTargetUGA.g:136:8: ( LTR )
+            // flipsTargetUGA.g:136:10: LTR
             {
             match(input,LTR,FOLLOW_LTR_in_loiter140); 
             emit(91);
@@ -462,7 +463,7 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "command"
-    // flipsTargetUGA.g:137:1: command : ( CMD x= integerValue | CMD PAR y= numericValue );
+    // flipsTargetUGA.g:138:1: command : ( CMD x= integerValue | CMD PAR y= numericValue );
     public final void command() throws RecognitionException {
         int x = 0;
 
@@ -470,7 +471,7 @@ public class flipsTargetUGAParser extends Parser {
 
 
         try {
-            // flipsTargetUGA.g:137:9: ( CMD x= integerValue | CMD PAR y= numericValue )
+            // flipsTargetUGA.g:138:9: ( CMD x= integerValue | CMD PAR y= numericValue )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -498,7 +499,7 @@ public class flipsTargetUGAParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
-                    // flipsTargetUGA.g:137:11: CMD x= integerValue
+                    // flipsTargetUGA.g:138:11: CMD x= integerValue
                     {
                     match(input,CMD,FOLLOW_CMD_in_command150); 
                     pushFollow(FOLLOW_integerValue_in_command154);
@@ -511,7 +512,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:138:4: CMD PAR y= numericValue
+                    // flipsTargetUGA.g:139:4: CMD PAR y= numericValue
                     {
                     match(input,CMD,FOLLOW_CMD_in_command161); 
                     match(input,PAR,FOLLOW_PAR_in_command163); 
@@ -539,18 +540,18 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "position"
-    // flipsTargetUGA.g:143:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue | POS ROL FIX x= numericValue | POS ROL REL x= numericValue | POS PIT FIX x= numericValue | POS PIT REL x= numericValue | POS YAW FIX x= numericValue | POS YAW REL x= numericValue | POS PRE FIX x= numericValue | POS PRE REL x= numericValue );
+    // flipsTargetUGA.g:144:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue | POS ROL FIX x= numericValue | POS ROL REL x= numericValue | POS PIT FIX x= numericValue | POS PIT REL x= numericValue | POS YAW FIX x= numericValue | POS YAW REL x= numericValue | POS PRE FIX x= numericValue | POS PRE REL x= numericValue );
     public final void position() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:143:9: ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue | POS ROL FIX x= numericValue | POS ROL REL x= numericValue | POS PIT FIX x= numericValue | POS PIT REL x= numericValue | POS YAW FIX x= numericValue | POS YAW REL x= numericValue | POS PRE FIX x= numericValue | POS PRE REL x= numericValue )
+            // flipsTargetUGA.g:144:9: ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue | POS ROL FIX x= numericValue | POS ROL REL x= numericValue | POS PIT FIX x= numericValue | POS PIT REL x= numericValue | POS YAW FIX x= numericValue | POS YAW REL x= numericValue | POS PRE FIX x= numericValue | POS PRE REL x= numericValue )
             int alt4=16;
             alt4 = dfa4.predict(input);
             switch (alt4) {
                 case 1 :
-                    // flipsTargetUGA.g:143:11: POS X FIX x= numericValue
+                    // flipsTargetUGA.g:144:11: POS X FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position180); 
                     match(input,X,FOLLOW_X_in_position182); 
@@ -565,7 +566,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:144:4: POS X REL x= numericValue
+                    // flipsTargetUGA.g:145:4: POS X REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position195); 
                     match(input,X,FOLLOW_X_in_position197); 
@@ -580,7 +581,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:145:4: POS X GEO x= numericValue
+                    // flipsTargetUGA.g:146:4: POS X GEO x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position210); 
                     match(input,X,FOLLOW_X_in_position212); 
@@ -595,7 +596,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:146:4: POS Y FIX x= numericValue
+                    // flipsTargetUGA.g:147:4: POS Y FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position225); 
                     match(input,Y,FOLLOW_Y_in_position227); 
@@ -610,7 +611,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // flipsTargetUGA.g:147:4: POS Y REL x= numericValue
+                    // flipsTargetUGA.g:148:4: POS Y REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position240); 
                     match(input,Y,FOLLOW_Y_in_position242); 
@@ -625,7 +626,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // flipsTargetUGA.g:148:4: POS Y GEO x= numericValue
+                    // flipsTargetUGA.g:149:4: POS Y GEO x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position255); 
                     match(input,Y,FOLLOW_Y_in_position257); 
@@ -640,7 +641,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // flipsTargetUGA.g:149:4: POS Z FIX x= numericValue
+                    // flipsTargetUGA.g:150:4: POS Z FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position270); 
                     match(input,Z,FOLLOW_Z_in_position272); 
@@ -655,7 +656,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // flipsTargetUGA.g:150:4: POS Z REL x= numericValue
+                    // flipsTargetUGA.g:151:4: POS Z REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position285); 
                     match(input,Z,FOLLOW_Z_in_position287); 
@@ -670,7 +671,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // flipsTargetUGA.g:151:4: POS ROL FIX x= numericValue
+                    // flipsTargetUGA.g:152:4: POS ROL FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position300); 
                     match(input,ROL,FOLLOW_ROL_in_position302); 
@@ -685,7 +686,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // flipsTargetUGA.g:152:4: POS ROL REL x= numericValue
+                    // flipsTargetUGA.g:153:4: POS ROL REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position315); 
                     match(input,ROL,FOLLOW_ROL_in_position317); 
@@ -700,7 +701,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // flipsTargetUGA.g:153:4: POS PIT FIX x= numericValue
+                    // flipsTargetUGA.g:154:4: POS PIT FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position330); 
                     match(input,PIT,FOLLOW_PIT_in_position332); 
@@ -715,7 +716,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 12 :
-                    // flipsTargetUGA.g:154:4: POS PIT REL x= numericValue
+                    // flipsTargetUGA.g:155:4: POS PIT REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position345); 
                     match(input,PIT,FOLLOW_PIT_in_position347); 
@@ -730,7 +731,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 13 :
-                    // flipsTargetUGA.g:155:4: POS YAW FIX x= numericValue
+                    // flipsTargetUGA.g:156:4: POS YAW FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position360); 
                     match(input,YAW,FOLLOW_YAW_in_position362); 
@@ -745,7 +746,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 14 :
-                    // flipsTargetUGA.g:156:4: POS YAW REL x= numericValue
+                    // flipsTargetUGA.g:157:4: POS YAW REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position375); 
                     match(input,YAW,FOLLOW_YAW_in_position377); 
@@ -760,7 +761,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 15 :
-                    // flipsTargetUGA.g:157:4: POS PRE FIX x= numericValue
+                    // flipsTargetUGA.g:158:4: POS PRE FIX x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position390); 
                     match(input,PRE,FOLLOW_PRE_in_position392); 
@@ -775,7 +776,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 16 :
-                    // flipsTargetUGA.g:158:4: POS PRE REL x= numericValue
+                    // flipsTargetUGA.g:159:4: POS PRE REL x= numericValue
                     {
                     match(input,POS,FOLLOW_POS_in_position405); 
                     match(input,PRE,FOLLOW_PRE_in_position407); 
@@ -804,18 +805,18 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "velocity"
-    // flipsTargetUGA.g:163:1: velocity : ( VEL X FIX x= numericValue | VEL X REL x= numericValue | VEL Y FIX x= numericValue | VEL Y REL x= numericValue | VEL Z FIX x= numericValue | VEL Z REL x= numericValue | VEL ROL FIX x= numericValue | VEL ROL REL x= numericValue | VEL PIT FIX x= numericValue | VEL PIT REL x= numericValue | VEL YAW FIX x= numericValue | VEL YAW REL x= numericValue | VEL PRE FIX x= numericValue | VEL PRE REL x= numericValue );
+    // flipsTargetUGA.g:164:1: velocity : ( VEL X FIX x= numericValue | VEL X REL x= numericValue | VEL Y FIX x= numericValue | VEL Y REL x= numericValue | VEL Z FIX x= numericValue | VEL Z REL x= numericValue | VEL ROL FIX x= numericValue | VEL ROL REL x= numericValue | VEL PIT FIX x= numericValue | VEL PIT REL x= numericValue | VEL YAW FIX x= numericValue | VEL YAW REL x= numericValue | VEL PRE FIX x= numericValue | VEL PRE REL x= numericValue );
     public final void velocity() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:163:9: ( VEL X FIX x= numericValue | VEL X REL x= numericValue | VEL Y FIX x= numericValue | VEL Y REL x= numericValue | VEL Z FIX x= numericValue | VEL Z REL x= numericValue | VEL ROL FIX x= numericValue | VEL ROL REL x= numericValue | VEL PIT FIX x= numericValue | VEL PIT REL x= numericValue | VEL YAW FIX x= numericValue | VEL YAW REL x= numericValue | VEL PRE FIX x= numericValue | VEL PRE REL x= numericValue )
+            // flipsTargetUGA.g:164:9: ( VEL X FIX x= numericValue | VEL X REL x= numericValue | VEL Y FIX x= numericValue | VEL Y REL x= numericValue | VEL Z FIX x= numericValue | VEL Z REL x= numericValue | VEL ROL FIX x= numericValue | VEL ROL REL x= numericValue | VEL PIT FIX x= numericValue | VEL PIT REL x= numericValue | VEL YAW FIX x= numericValue | VEL YAW REL x= numericValue | VEL PRE FIX x= numericValue | VEL PRE REL x= numericValue )
             int alt5=14;
             alt5 = dfa5.predict(input);
             switch (alt5) {
                 case 1 :
-                    // flipsTargetUGA.g:163:11: VEL X FIX x= numericValue
+                    // flipsTargetUGA.g:164:11: VEL X FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity426); 
                     match(input,X,FOLLOW_X_in_velocity428); 
@@ -830,7 +831,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:164:4: VEL X REL x= numericValue
+                    // flipsTargetUGA.g:165:4: VEL X REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity441); 
                     match(input,X,FOLLOW_X_in_velocity443); 
@@ -845,7 +846,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:165:4: VEL Y FIX x= numericValue
+                    // flipsTargetUGA.g:166:4: VEL Y FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity456); 
                     match(input,Y,FOLLOW_Y_in_velocity458); 
@@ -860,7 +861,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:166:4: VEL Y REL x= numericValue
+                    // flipsTargetUGA.g:167:4: VEL Y REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity471); 
                     match(input,Y,FOLLOW_Y_in_velocity473); 
@@ -875,7 +876,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // flipsTargetUGA.g:167:4: VEL Z FIX x= numericValue
+                    // flipsTargetUGA.g:168:4: VEL Z FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity486); 
                     match(input,Z,FOLLOW_Z_in_velocity488); 
@@ -890,7 +891,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // flipsTargetUGA.g:168:4: VEL Z REL x= numericValue
+                    // flipsTargetUGA.g:169:4: VEL Z REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity501); 
                     match(input,Z,FOLLOW_Z_in_velocity503); 
@@ -905,7 +906,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // flipsTargetUGA.g:169:4: VEL ROL FIX x= numericValue
+                    // flipsTargetUGA.g:170:4: VEL ROL FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity516); 
                     match(input,ROL,FOLLOW_ROL_in_velocity518); 
@@ -920,7 +921,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // flipsTargetUGA.g:170:4: VEL ROL REL x= numericValue
+                    // flipsTargetUGA.g:171:4: VEL ROL REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity531); 
                     match(input,ROL,FOLLOW_ROL_in_velocity533); 
@@ -935,7 +936,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // flipsTargetUGA.g:171:4: VEL PIT FIX x= numericValue
+                    // flipsTargetUGA.g:172:4: VEL PIT FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity546); 
                     match(input,PIT,FOLLOW_PIT_in_velocity548); 
@@ -950,7 +951,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // flipsTargetUGA.g:172:4: VEL PIT REL x= numericValue
+                    // flipsTargetUGA.g:173:4: VEL PIT REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity561); 
                     match(input,PIT,FOLLOW_PIT_in_velocity563); 
@@ -965,7 +966,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // flipsTargetUGA.g:173:4: VEL YAW FIX x= numericValue
+                    // flipsTargetUGA.g:174:4: VEL YAW FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity576); 
                     match(input,YAW,FOLLOW_YAW_in_velocity578); 
@@ -980,7 +981,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 12 :
-                    // flipsTargetUGA.g:174:4: VEL YAW REL x= numericValue
+                    // flipsTargetUGA.g:175:4: VEL YAW REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity591); 
                     match(input,YAW,FOLLOW_YAW_in_velocity593); 
@@ -995,7 +996,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 13 :
-                    // flipsTargetUGA.g:175:4: VEL PRE FIX x= numericValue
+                    // flipsTargetUGA.g:176:4: VEL PRE FIX x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity606); 
                     match(input,PRE,FOLLOW_PRE_in_velocity608); 
@@ -1010,7 +1011,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 14 :
-                    // flipsTargetUGA.g:176:4: VEL PRE REL x= numericValue
+                    // flipsTargetUGA.g:177:4: VEL PRE REL x= numericValue
                     {
                     match(input,VEL,FOLLOW_VEL_in_velocity621); 
                     match(input,PRE,FOLLOW_PRE_in_velocity623); 
@@ -1039,13 +1040,13 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "speed"
-    // flipsTargetUGA.g:181:1: speed : ( SPD AIR FIX x= numericValue | SPD AIR REL x= numericValue | SPD GND FIX x= numericValue | SPD GND REL x= numericValue );
+    // flipsTargetUGA.g:182:1: speed : ( SPD AIR FIX x= numericValue | SPD AIR REL x= numericValue | SPD GND FIX x= numericValue | SPD GND REL x= numericValue );
     public final void speed() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:181:7: ( SPD AIR FIX x= numericValue | SPD AIR REL x= numericValue | SPD GND FIX x= numericValue | SPD GND REL x= numericValue )
+            // flipsTargetUGA.g:182:7: ( SPD AIR FIX x= numericValue | SPD AIR REL x= numericValue | SPD GND FIX x= numericValue | SPD GND REL x= numericValue )
             int alt6=4;
             int LA6_0 = input.LA(1);
 
@@ -1099,7 +1100,7 @@ public class flipsTargetUGAParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // flipsTargetUGA.g:181:9: SPD AIR FIX x= numericValue
+                    // flipsTargetUGA.g:182:9: SPD AIR FIX x= numericValue
                     {
                     match(input,SPD,FOLLOW_SPD_in_speed643); 
                     match(input,AIR,FOLLOW_AIR_in_speed645); 
@@ -1114,7 +1115,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:182:4: SPD AIR REL x= numericValue
+                    // flipsTargetUGA.g:183:4: SPD AIR REL x= numericValue
                     {
                     match(input,SPD,FOLLOW_SPD_in_speed658); 
                     match(input,AIR,FOLLOW_AIR_in_speed660); 
@@ -1129,7 +1130,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:183:4: SPD GND FIX x= numericValue
+                    // flipsTargetUGA.g:184:4: SPD GND FIX x= numericValue
                     {
                     match(input,SPD,FOLLOW_SPD_in_speed673); 
                     match(input,GND,FOLLOW_GND_in_speed675); 
@@ -1144,7 +1145,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:184:4: SPD GND REL x= numericValue
+                    // flipsTargetUGA.g:185:4: SPD GND REL x= numericValue
                     {
                     match(input,SPD,FOLLOW_SPD_in_speed688); 
                     match(input,GND,FOLLOW_GND_in_speed690); 
@@ -1173,18 +1174,18 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "actuator"
-    // flipsTargetUGA.g:189:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue );
+    // flipsTargetUGA.g:190:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue );
     public final void actuator() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:189:9: ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue )
+            // flipsTargetUGA.g:190:9: ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue )
             int alt7=10;
             alt7 = dfa7.predict(input);
             switch (alt7) {
                 case 1 :
-                    // flipsTargetUGA.g:189:11: ACT ELE FIX x= numericValue
+                    // flipsTargetUGA.g:190:11: ACT ELE FIX x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator709); 
                     match(input,ELE,FOLLOW_ELE_in_actuator711); 
@@ -1199,7 +1200,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:190:4: ACT ELE REL x= numericValue
+                    // flipsTargetUGA.g:191:4: ACT ELE REL x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator724); 
                     match(input,ELE,FOLLOW_ELE_in_actuator726); 
@@ -1214,7 +1215,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:191:4: ACT AIL FIX x= numericValue
+                    // flipsTargetUGA.g:192:4: ACT AIL FIX x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator739); 
                     match(input,AIL,FOLLOW_AIL_in_actuator741); 
@@ -1229,7 +1230,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:192:4: ACT AIL REL x= numericValue
+                    // flipsTargetUGA.g:193:4: ACT AIL REL x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator754); 
                     match(input,AIL,FOLLOW_AIL_in_actuator756); 
@@ -1244,7 +1245,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // flipsTargetUGA.g:193:4: ACT RUD FIX x= numericValue
+                    // flipsTargetUGA.g:194:4: ACT RUD FIX x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator769); 
                     match(input,RUD,FOLLOW_RUD_in_actuator771); 
@@ -1259,7 +1260,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // flipsTargetUGA.g:194:4: ACT RUD REL x= numericValue
+                    // flipsTargetUGA.g:195:4: ACT RUD REL x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator784); 
                     match(input,RUD,FOLLOW_RUD_in_actuator786); 
@@ -1274,7 +1275,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // flipsTargetUGA.g:195:4: ACT FLA FIX x= numericValue
+                    // flipsTargetUGA.g:196:4: ACT FLA FIX x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator799); 
                     match(input,FLA,FOLLOW_FLA_in_actuator801); 
@@ -1289,7 +1290,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // flipsTargetUGA.g:196:4: ACT FLA REL x= numericValue
+                    // flipsTargetUGA.g:197:4: ACT FLA REL x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator814); 
                     match(input,FLA,FOLLOW_FLA_in_actuator816); 
@@ -1304,7 +1305,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // flipsTargetUGA.g:197:4: ACT THR PCT x= numericValue
+                    // flipsTargetUGA.g:198:4: ACT THR PCT x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator829); 
                     match(input,THR,FOLLOW_THR_in_actuator831); 
@@ -1319,7 +1320,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // flipsTargetUGA.g:198:4: ACT THR RPM x= numericValue
+                    // flipsTargetUGA.g:199:4: ACT THR RPM x= numericValue
                     {
                     match(input,ACT,FOLLOW_ACT_in_actuator844); 
                     match(input,THR,FOLLOW_THR_in_actuator846); 
@@ -1348,18 +1349,18 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "trim"
-    // flipsTargetUGA.g:203:1: trim : ( TRI ELE FIX x= numericValue | TRI ELE REL x= numericValue | TRI AIL FIX x= numericValue | TRI AIL REL x= numericValue | TRI RUD FIX x= numericValue | TRI RUD REL x= numericValue | TRI FLA FIX x= numericValue | TRI FLA REL x= numericValue | TRI THR FIX x= numericValue | TRI THR REL x= numericValue );
+    // flipsTargetUGA.g:204:1: trim : ( TRI ELE FIX x= numericValue | TRI ELE REL x= numericValue | TRI AIL FIX x= numericValue | TRI AIL REL x= numericValue | TRI RUD FIX x= numericValue | TRI RUD REL x= numericValue | TRI FLA FIX x= numericValue | TRI FLA REL x= numericValue | TRI THR FIX x= numericValue | TRI THR REL x= numericValue );
     public final void trim() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:203:6: ( TRI ELE FIX x= numericValue | TRI ELE REL x= numericValue | TRI AIL FIX x= numericValue | TRI AIL REL x= numericValue | TRI RUD FIX x= numericValue | TRI RUD REL x= numericValue | TRI FLA FIX x= numericValue | TRI FLA REL x= numericValue | TRI THR FIX x= numericValue | TRI THR REL x= numericValue )
+            // flipsTargetUGA.g:204:6: ( TRI ELE FIX x= numericValue | TRI ELE REL x= numericValue | TRI AIL FIX x= numericValue | TRI AIL REL x= numericValue | TRI RUD FIX x= numericValue | TRI RUD REL x= numericValue | TRI FLA FIX x= numericValue | TRI FLA REL x= numericValue | TRI THR FIX x= numericValue | TRI THR REL x= numericValue )
             int alt8=10;
             alt8 = dfa8.predict(input);
             switch (alt8) {
                 case 1 :
-                    // flipsTargetUGA.g:203:8: TRI ELE FIX x= numericValue
+                    // flipsTargetUGA.g:204:8: TRI ELE FIX x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim866); 
                     match(input,ELE,FOLLOW_ELE_in_trim868); 
@@ -1374,7 +1375,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:204:4: TRI ELE REL x= numericValue
+                    // flipsTargetUGA.g:205:4: TRI ELE REL x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim881); 
                     match(input,ELE,FOLLOW_ELE_in_trim883); 
@@ -1389,7 +1390,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:205:4: TRI AIL FIX x= numericValue
+                    // flipsTargetUGA.g:206:4: TRI AIL FIX x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim896); 
                     match(input,AIL,FOLLOW_AIL_in_trim898); 
@@ -1404,7 +1405,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:206:4: TRI AIL REL x= numericValue
+                    // flipsTargetUGA.g:207:4: TRI AIL REL x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim911); 
                     match(input,AIL,FOLLOW_AIL_in_trim913); 
@@ -1419,7 +1420,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // flipsTargetUGA.g:207:4: TRI RUD FIX x= numericValue
+                    // flipsTargetUGA.g:208:4: TRI RUD FIX x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim926); 
                     match(input,RUD,FOLLOW_RUD_in_trim928); 
@@ -1434,7 +1435,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // flipsTargetUGA.g:208:4: TRI RUD REL x= numericValue
+                    // flipsTargetUGA.g:209:4: TRI RUD REL x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim941); 
                     match(input,RUD,FOLLOW_RUD_in_trim943); 
@@ -1449,7 +1450,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // flipsTargetUGA.g:209:4: TRI FLA FIX x= numericValue
+                    // flipsTargetUGA.g:210:4: TRI FLA FIX x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim956); 
                     match(input,FLA,FOLLOW_FLA_in_trim958); 
@@ -1464,7 +1465,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // flipsTargetUGA.g:210:4: TRI FLA REL x= numericValue
+                    // flipsTargetUGA.g:211:4: TRI FLA REL x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim971); 
                     match(input,FLA,FOLLOW_FLA_in_trim973); 
@@ -1479,7 +1480,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // flipsTargetUGA.g:211:4: TRI THR FIX x= numericValue
+                    // flipsTargetUGA.g:212:4: TRI THR FIX x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim986); 
                     match(input,THR,FOLLOW_THR_in_trim988); 
@@ -1494,7 +1495,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // flipsTargetUGA.g:212:4: TRI THR REL x= numericValue
+                    // flipsTargetUGA.g:213:4: TRI THR REL x= numericValue
                     {
                     match(input,TRI,FOLLOW_TRI_in_trim1001); 
                     match(input,THR,FOLLOW_THR_in_trim1003); 
@@ -1523,13 +1524,13 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "time"
-    // flipsTargetUGA.g:217:1: time : ( TIM FIX x= numericValue | TIM REL x= numericValue );
+    // flipsTargetUGA.g:218:1: time : ( TIM FIX x= numericValue | TIM REL x= numericValue );
     public final void time() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:217:6: ( TIM FIX x= numericValue | TIM REL x= numericValue )
+            // flipsTargetUGA.g:218:6: ( TIM FIX x= numericValue | TIM REL x= numericValue )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1557,7 +1558,7 @@ public class flipsTargetUGAParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // flipsTargetUGA.g:217:8: TIM FIX x= numericValue
+                    // flipsTargetUGA.g:218:8: TIM FIX x= numericValue
                     {
                     match(input,TIM,FOLLOW_TIM_in_time1023); 
                     match(input,FIX,FOLLOW_FIX_in_time1025); 
@@ -1571,7 +1572,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:218:4: TIM REL x= numericValue
+                    // flipsTargetUGA.g:219:4: TIM REL x= numericValue
                     {
                     match(input,TIM,FOLLOW_TIM_in_time1036); 
                     match(input,REL,FOLLOW_REL_in_time1038); 
@@ -1599,14 +1600,14 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "radius"
-    // flipsTargetUGA.g:221:1: radius : RAD x= numericValue ;
+    // flipsTargetUGA.g:222:1: radius : RAD x= numericValue ;
     public final void radius() throws RecognitionException {
         double x = 0.0;
 
 
         try {
-            // flipsTargetUGA.g:221:8: ( RAD x= numericValue )
-            // flipsTargetUGA.g:221:10: RAD x= numericValue
+            // flipsTargetUGA.g:222:8: ( RAD x= numericValue )
+            // flipsTargetUGA.g:222:10: RAD x= numericValue
             {
             match(input,RAD,FOLLOW_RAD_in_radius1054); 
             pushFollow(FOLLOW_numericValue_in_radius1058);
@@ -1631,10 +1632,10 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "direction"
-    // flipsTargetUGA.g:223:1: direction : ( DIR L | DIR R | DIR CW | DIR CCW );
+    // flipsTargetUGA.g:224:1: direction : ( DIR L | DIR R | DIR CW | DIR CCW );
     public final void direction() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:224:2: ( DIR L | DIR R | DIR CW | DIR CCW )
+            // flipsTargetUGA.g:225:2: ( DIR L | DIR R | DIR CW | DIR CCW )
             int alt10=4;
             int LA10_0 = input.LA(1);
 
@@ -1676,7 +1677,7 @@ public class flipsTargetUGAParser extends Parser {
             }
             switch (alt10) {
                 case 1 :
-                    // flipsTargetUGA.g:224:4: DIR L
+                    // flipsTargetUGA.g:225:4: DIR L
                     {
                     match(input,DIR,FOLLOW_DIR_in_direction1069); 
                     match(input,L,FOLLOW_L_in_direction1071); 
@@ -1685,7 +1686,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:225:4: DIR R
+                    // flipsTargetUGA.g:226:4: DIR R
                     {
                     match(input,DIR,FOLLOW_DIR_in_direction1078); 
                     match(input,R,FOLLOW_R_in_direction1080); 
@@ -1694,7 +1695,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:226:4: DIR CW
+                    // flipsTargetUGA.g:227:4: DIR CW
                     {
                     match(input,DIR,FOLLOW_DIR_in_direction1087); 
                     match(input,CW,FOLLOW_CW_in_direction1089); 
@@ -1703,7 +1704,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:227:4: DIR CCW
+                    // flipsTargetUGA.g:228:4: DIR CCW
                     {
                     match(input,DIR,FOLLOW_DIR_in_direction1096); 
                     match(input,CCW,FOLLOW_CCW_in_direction1098); 
@@ -1726,7 +1727,7 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "numericValue"
-    // flipsTargetUGA.g:232:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral );
+    // flipsTargetUGA.g:233:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral );
     public final double numericValue() throws RecognitionException {
         double r = 0.0;
 
@@ -1735,7 +1736,7 @@ public class flipsTargetUGAParser extends Parser {
 
 
         try {
-            // flipsTargetUGA.g:233:2: (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral )
+            // flipsTargetUGA.g:234:2: (x= integerValue | y= FloatingPointLiteral | '-' y= FloatingPointLiteral )
             int alt11=3;
             switch ( input.LA(1) ) {
             case BinaryLiteral:
@@ -1778,7 +1779,7 @@ public class flipsTargetUGAParser extends Parser {
 
             switch (alt11) {
                 case 1 :
-                    // flipsTargetUGA.g:233:4: x= integerValue
+                    // flipsTargetUGA.g:234:4: x= integerValue
                     {
                     pushFollow(FOLLOW_integerValue_in_numericValue1119);
                     x=integerValue();
@@ -1790,7 +1791,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:235:10: y= FloatingPointLiteral
+                    // flipsTargetUGA.g:236:10: y= FloatingPointLiteral
                     {
                     y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue1136); 
                     r = Double.parseDouble(y.getText());
@@ -1798,7 +1799,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:237:10: '-' y= FloatingPointLiteral
+                    // flipsTargetUGA.g:238:10: '-' y= FloatingPointLiteral
                     {
                     match(input,54,FOLLOW_54_in_numericValue1158); 
                     y=(Token)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue1162); 
@@ -1821,19 +1822,19 @@ public class flipsTargetUGAParser extends Parser {
 
 
     // $ANTLR start "integerValue"
-    // flipsTargetUGA.g:241:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );
+    // flipsTargetUGA.g:242:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );
     public final int integerValue() throws RecognitionException {
         int r = 0;
 
         Token x=null;
 
         try {
-            // flipsTargetUGA.g:242:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral )
+            // flipsTargetUGA.g:243:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral )
             int alt12=8;
             alt12 = dfa12.predict(input);
             switch (alt12) {
                 case 1 :
-                    // flipsTargetUGA.g:242:4: x= BinaryLiteral
+                    // flipsTargetUGA.g:243:4: x= BinaryLiteral
                     {
                     x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue1190); 
                     r = Integer.parseInt(x.getText().substring(2),2);
@@ -1841,7 +1842,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:244:4: x= OctalLiteral
+                    // flipsTargetUGA.g:245:4: x= OctalLiteral
                     {
                     x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue1201); 
                     r = Integer.parseInt(x.getText().substring(1),8);
@@ -1849,7 +1850,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:246:4: x= DecimalLiteral
+                    // flipsTargetUGA.g:247:4: x= DecimalLiteral
                     {
                     x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue1212); 
                     r = Integer.parseInt(x.getText());
@@ -1857,7 +1858,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flipsTargetUGA.g:248:4: x= HexLiteral
+                    // flipsTargetUGA.g:249:4: x= HexLiteral
                     {
                     x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue1223); 
                     r = Integer.parseInt(x.getText().substring(2),16);
@@ -1865,7 +1866,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // flipsTargetUGA.g:250:4: '-' x= BinaryLiteral
+                    // flipsTargetUGA.g:251:4: '-' x= BinaryLiteral
                     {
                     match(input,54,FOLLOW_54_in_integerValue1232); 
                     x=(Token)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue1236); 
@@ -1874,7 +1875,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // flipsTargetUGA.g:252:4: '-' x= OctalLiteral
+                    // flipsTargetUGA.g:253:4: '-' x= OctalLiteral
                     {
                     match(input,54,FOLLOW_54_in_integerValue1245); 
                     x=(Token)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue1249); 
@@ -1883,7 +1884,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // flipsTargetUGA.g:254:4: '-' x= DecimalLiteral
+                    // flipsTargetUGA.g:255:4: '-' x= DecimalLiteral
                     {
                     match(input,54,FOLLOW_54_in_integerValue1258); 
                     x=(Token)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue1262); 
@@ -1892,7 +1893,7 @@ public class flipsTargetUGAParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // flipsTargetUGA.g:256:4: '-' x= HexLiteral
+                    // flipsTargetUGA.g:257:4: '-' x= HexLiteral
                     {
                     match(input,54,FOLLOW_54_in_integerValue1271); 
                     x=(Token)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue1275); 
@@ -1992,7 +1993,7 @@ public class flipsTargetUGAParser extends Parser {
             this.transition = DFA4_transition;
         }
         public String getDescription() {
-            return "143:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue | POS ROL FIX x= numericValue | POS ROL REL x= numericValue | POS PIT FIX x= numericValue | POS PIT REL x= numericValue | POS YAW FIX x= numericValue | POS YAW REL x= numericValue | POS PRE FIX x= numericValue | POS PRE REL x= numericValue );";
+            return "144:1: position : ( POS X FIX x= numericValue | POS X REL x= numericValue | POS X GEO x= numericValue | POS Y FIX x= numericValue | POS Y REL x= numericValue | POS Y GEO x= numericValue | POS Z FIX x= numericValue | POS Z REL x= numericValue | POS ROL FIX x= numericValue | POS ROL REL x= numericValue | POS PIT FIX x= numericValue | POS PIT REL x= numericValue | POS YAW FIX x= numericValue | POS YAW REL x= numericValue | POS PRE FIX x= numericValue | POS PRE REL x= numericValue );";
         }
     }
     static final String DFA5_eotS =
@@ -2064,7 +2065,7 @@ public class flipsTargetUGAParser extends Parser {
             this.transition = DFA5_transition;
         }
         public String getDescription() {
-            return "163:1: velocity : ( VEL X FIX x= numericValue | VEL X REL x= numericValue | VEL Y FIX x= numericValue | VEL Y REL x= numericValue | VEL Z FIX x= numericValue | VEL Z REL x= numericValue | VEL ROL FIX x= numericValue | VEL ROL REL x= numericValue | VEL PIT FIX x= numericValue | VEL PIT REL x= numericValue | VEL YAW FIX x= numericValue | VEL YAW REL x= numericValue | VEL PRE FIX x= numericValue | VEL PRE REL x= numericValue );";
+            return "164:1: velocity : ( VEL X FIX x= numericValue | VEL X REL x= numericValue | VEL Y FIX x= numericValue | VEL Y REL x= numericValue | VEL Z FIX x= numericValue | VEL Z REL x= numericValue | VEL ROL FIX x= numericValue | VEL ROL REL x= numericValue | VEL PIT FIX x= numericValue | VEL PIT REL x= numericValue | VEL YAW FIX x= numericValue | VEL YAW REL x= numericValue | VEL PRE FIX x= numericValue | VEL PRE REL x= numericValue );";
         }
     }
     static final String DFA7_eotS =
@@ -2129,7 +2130,7 @@ public class flipsTargetUGAParser extends Parser {
             this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "189:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue );";
+            return "190:1: actuator : ( ACT ELE FIX x= numericValue | ACT ELE REL x= numericValue | ACT AIL FIX x= numericValue | ACT AIL REL x= numericValue | ACT RUD FIX x= numericValue | ACT RUD REL x= numericValue | ACT FLA FIX x= numericValue | ACT FLA REL x= numericValue | ACT THR PCT x= numericValue | ACT THR RPM x= numericValue );";
         }
     }
     static final String DFA8_eotS =
@@ -2194,7 +2195,7 @@ public class flipsTargetUGAParser extends Parser {
             this.transition = DFA8_transition;
         }
         public String getDescription() {
-            return "203:1: trim : ( TRI ELE FIX x= numericValue | TRI ELE REL x= numericValue | TRI AIL FIX x= numericValue | TRI AIL REL x= numericValue | TRI RUD FIX x= numericValue | TRI RUD REL x= numericValue | TRI FLA FIX x= numericValue | TRI FLA REL x= numericValue | TRI THR FIX x= numericValue | TRI THR REL x= numericValue );";
+            return "204:1: trim : ( TRI ELE FIX x= numericValue | TRI ELE REL x= numericValue | TRI AIL FIX x= numericValue | TRI AIL REL x= numericValue | TRI RUD FIX x= numericValue | TRI RUD REL x= numericValue | TRI FLA FIX x= numericValue | TRI FLA REL x= numericValue | TRI THR FIX x= numericValue | TRI THR REL x= numericValue );";
         }
     }
     static final String DFA12_eotS =
@@ -2252,7 +2253,7 @@ public class flipsTargetUGAParser extends Parser {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "241:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );";
+            return "242:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral | '-' x= BinaryLiteral | '-' x= OctalLiteral | '-' x= DecimalLiteral | '-' x= HexLiteral );";
         }
     }
  

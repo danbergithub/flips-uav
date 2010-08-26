@@ -37,26 +37,27 @@ options {
 
 @members {
       public ByteBuffer output = ByteBuffer.allocate(4096);
+      public StringBuilder debug = new StringBuilder();
 
       public void emitByte(int value) {
         output.put((byte)value);
-        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+        debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
       }
 
       public void emitShort(int value) {
         output.putShort((short)value);
-        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+        debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
       }
 
       public void emitShort(int instruction, int value) {
         output.put((byte)instruction);
         output.putShort((short)value);
-        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+        debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
       }
 
       public void emitInt(int value) {
         output.putInt(value);
-        System.out.println(value + " = " + Integer.toHexString(value).toUpperCase());
+        debug.append(value + " = " + Integer.toHexString(value).toUpperCase() + "\n");
       }
 
       public void emit(int instruction) {
@@ -66,19 +67,19 @@ options {
       public void emit(int instruction, double value) {
         output.put((byte)instruction);
         output.putFloat((float)value);
-        System.out.print(Integer.toString(instruction) + " " + value);
-        System.out.print(" = " + Integer.toHexString(instruction).toUpperCase() + " ");
+        debug.append(Integer.toString(instruction) + " " + value);
+        debug.append(" = " + Integer.toHexString(instruction).toUpperCase() + " ");
         //long data = Double.doubleToRawLongBits(value);
-        //System.out.print(Integer.toHexString((int)((data >> 56) & 0xFF)).toUpperCase() + " ");
-        //System.out.print(Integer.toHexString((int)((data >> 48) & 0xFF)).toUpperCase() + " ");
-        //System.out.print(Integer.toHexString((int)((data >> 40) & 0xFF)).toUpperCase() + " ");
-        //System.out.print(Integer.toHexString((int)((data >> 32) & 0xFF)).toUpperCase() + " ");
+        //debug.append(Integer.toHexString((int)((data >> 56) & 0xFF)).toUpperCase() + " ");
+        //debug.append(Integer.toHexString((int)((data >> 48) & 0xFF)).toUpperCase() + " ");
+        //debug.append(Integer.toHexString((int)((data >> 40) & 0xFF)).toUpperCase() + " ");
+        //debug.append(Integer.toHexString((int)((data >> 32) & 0xFF)).toUpperCase() + " ");
         int data = Float.floatToRawIntBits((float)value);
-        System.out.print(Integer.toHexString((int)((data >> 24) & 0xFF)).toUpperCase() + " ");
-        System.out.print(Integer.toHexString((int)((data >> 16) & 0xFF)).toUpperCase() + " ");
-        System.out.print(Integer.toHexString((int)((data >> 8) & 0xFF)).toUpperCase() + " ");
-        System.out.print(Integer.toHexString((int)((data >> 0) & 0xFF)).toUpperCase());
-        System.out.println();
+        debug.append(Integer.toHexString((int)((data >> 24) & 0xFF)).toUpperCase() + " ");
+        debug.append(Integer.toHexString((int)((data >> 16) & 0xFF)).toUpperCase() + " ");
+        debug.append(Integer.toHexString((int)((data >> 8) & 0xFF)).toUpperCase() + " ");
+        debug.append(Integer.toHexString((int)((data >> 0) & 0xFF)).toUpperCase());
+        debug.append("\n");
       }
       
       public void reserveCharacters() {
