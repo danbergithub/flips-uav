@@ -34,56 +34,18 @@ options {
 }
 
 @header {
+  import java.io.IOException;
   import java.util.HashMap;
 }
 
 @members {
-  HashMap<String,Integer> commands = new HashMap<String,Integer>();
-  HashMap<String,Integer> sensors = new HashMap<String,Integer>();
-  HashMap<String,Double[]> waypoints = new HashMap<String,Double[]>();
+  SymbolTable symbols;
   public StringBuilder output = new StringBuilder();
-
-  public void addCommand(String name, Integer value) {
-    commands.put(name, value);
-  }
-
-  public Integer getCommand(String name) {
-    if (commands.containsKey(name)) {
-      return commands.get(name);
-    }
-    return null;
-  }
   
-  public void addSensor(String name, Integer value) {
-    sensors.put(name, value);
-  }
-  
-  public Integer getSensor(String name) {
-    if (sensors.containsKey(name)) {
-      return sensors.get(name);
-    }
-    return null;
-  }
-  
-  public void addWaypoint(String name, Double north, Double east, Double type) {
-    Double[] coordinate = new Double[3];
-    coordinate[0] = north;
-    coordinate[1] = east;
-    coordinate[2] = type;
-    waypoints.put(name, coordinate);
-  }
-    
-  public Double[] getWaypoint(String name) {
-    if (waypoints.containsKey(name)) {
-      return waypoints.get(name);
-    }
-    return null;
-  }
-
   public void emit(String instruction) {
     output.append(instruction + "\n");
   }
-
+  
   public void emit(String instruction, String comment) {
     instruction = padRight(instruction, 25) + "// " + comment;
     output.append(instruction + "\n");
@@ -113,34 +75,71 @@ options {
 
 // FLIGHT EXPRESSIONS
 
-flightPlan
-	:	^(FLIGHTPLAN define* command*);
+flightPlan[SymbolTable symbols]
+@init {
+  this.symbols = symbols;
+}
+	:	^(FLIGHTPLAN require* define* command*);
+
+// REQUIRES
+
+require
+	:	^(REQUIRE name=StringLiteral)
+	{
+// Read file
+CharStream input = new ANTLRFileStream(name.getText().replace("\"",""));
+
+// Lexer
+flipsLexer lexer = new flipsLexer(input);
+CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+// Parser and AST Construction
+flipsParser parser = new flipsParser(tokens);
+flipsParser.flightPlan_return root = parser.flightPlan();
+CommonTree tree = root.tree;
+CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
+
+// Semantic Check and Unit Conversion
+flipsAssembly walker = new flipsAssembly(nodes);
+walker.flightPlan(symbols);
+	}
+	;
+	catch [IOException ex] {
+		// The file could not be found. Alert the user.
+		System.out.println(ex.toString());
+	}
 
 // DEFINITIONS
 
 define
-	:	defineCommand
+	:	defineFlightPlan
+	|	defineCommand
 	|	defineSensor
 	|	defineWaypoint
 	;
 
+defineFlightPlan
+	:	^(DEFINE name=Identifier ^(FLIGHTPLAN fp=StringLiteral))
+		{symbols.define(new FlightPlanSymbol(name.getText(),fp.getText()));}
+	;
+
 defineCommand
 	:	^(DEFINE name=Identifier ^(COMMAND cmd=integerValue))
-		{addCommand(name.getText(),cmd);}
+		{symbols.define(new CommandSymbol(name.getText(),cmd));}
 	|	^(DEFINE name=Identifier ^(COMMAND cmd=integerValue PARAMETER par=integerValue))
-		{addCommand(name.getText(),cmd);}
+		{symbols.define(new CommandSymbol(name.getText(),cmd,par));}
 	;
 
 defineSensor
 	:	^(DEFINE name=Identifier ^(SENSOR sen=integerValue))
-		{addSensor(name.getText(),sen);}
+		{symbols.define(new SensorSymbol(name.getText(),sen));}
 	;
 
 defineWaypoint
 	:	^(DEFINE name=Identifier ^(GEOCOORDINATE geo=latitudeLongitude))
-		{addWaypoint(name.getText(),geo.latitude,geo.longitude,0d);}
+		{symbols.define(new LatLonWaypointSymbol(name.getText(),geo.latitude,geo.longitude));}
 	|	^(DEFINE name=Identifier ^(GEOCOORDINATE dst=distanceCoordinate))
-		{addWaypoint(name.getText(),dst.north,dst.east,1d);}
+		{symbols.define(new DistanceWaypointSymbol(name.getText(),dst.east,dst.north));}
 	;
 
 // COMMANDS
@@ -188,16 +187,21 @@ loiterCommandValue
 executeCommand
 	:	^(EXECUTE x=Identifier executeCommandParameter*)
 	{
-Integer value = getCommand(x.getText());
-if (value != null) {
-  String runValue = value.toString();
-  emit("CMD " + runValue, x.getText().toUpperCase() + " / Command #" + runValue);
+Symbol symbol = symbols.resolve(x.getText());
+if (symbol != null && symbol instanceof CommandSymbol) {
+  CommandSymbol command = (CommandSymbol)symbol;
+  emit("CMD " + command.getValue(), command.getName().toUpperCase() + " / Command #" + command.getValue());
 }
-else {
-  emit("\$INCLUDE " + x.getText() + ".uav", "Include Source File '" + x.getText() + ".uav'");
+else if (symbol != null && symbol instanceof FlightPlanSymbol) {
+  FlightPlanSymbol flightPlan = (FlightPlanSymbol)symbol;
+  emit(flightPlan.compile());
 }
 	}
 	;
+	catch [IOException ex] {
+		// The file could not be found. Alert the user.
+		System.out.println(ex.toString());
+	}
 
 executeCommandParameter
 	:	^(PARAMETER x=numericValue)
@@ -339,22 +343,20 @@ waypoint
 	:	geoCoordinate
 	|	^(WAYPOINT x=Identifier)
 	{
-Double[] coordinate = getWaypoint(x.getText());
-if (coordinate != null) {
-  String ns = coordinate[0] >= 0 ? "N" : "S";
-  String ew = coordinate[1] >= 0 ? "E" : "W";
-  if (coordinate[2] == 0) {
-    emit("POS   X GEO " + coordinate[1], x.getText().toUpperCase() + " / " + Math.abs(coordinate[1]) + " " + ew + " Longitude");
-    emit("POS   Y GEO " + coordinate[0], x.getText().toUpperCase() + " / " + Math.abs(coordinate[0]) + " " + ns + " Latitude");
-  }
-  if (coordinate[2] == 1) {
-    emit("POS   X FIX " + coordinate[1], x.getText().toUpperCase() + " / " + mToft(Math.abs(coordinate[1])) + ew + " Distance");
-    emit("POS   Y FIX " + coordinate[0], x.getText().toUpperCase() + " / " + mToft(Math.abs(coordinate[0])) + ns + " Distance");  
-  }
+Symbol symbol = symbols.resolve(x.getText());
+if (symbol != null && symbol instanceof LatLonWaypointSymbol) {
+  LatLonWaypointSymbol waypoint = (LatLonWaypointSymbol)symbol;
+  emit("POS   X GEO " + waypoint.getLongitude(), waypoint.getName().toUpperCase() + " / " + Math.abs(waypoint.getLongitude()) + " " + waypoint.getEastWest() + " Longitude");
+  emit("POS   Y GEO " + waypoint.getLatitude(), waypoint.getName().toUpperCase() + " / " + Math.abs(waypoint.getLatitude()) + " " + waypoint.getNorthSouth() + " Latitude");
+}
+else if (symbol != null && symbol instanceof DistanceWaypointSymbol) {
+  DistanceWaypointSymbol waypoint = (DistanceWaypointSymbol)symbol;
+  emit("POS   X FIX " + waypoint.getX(), waypoint.getName().toUpperCase() + " / " + mToft(Math.abs(waypoint.getX())) + waypoint.getEastWest() + " Distance");
+  emit("POS   Y FIX " + waypoint.getY(), waypoint.getName().toUpperCase() + " / " + mToft(Math.abs(waypoint.getY())) + waypoint.getNorthSouth() + " Distance");
 }
 else {
-  emit("POS   X FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
-  emit("POS   Y FIX " + x.getText(), x.getText().toUpperCase() + " Waypoint");
+  emit("POS   X FIX " + symbol.getName(), symbol.getName().toUpperCase() + " Waypoint");
+  emit("POS   Y FIX " + symbol.getName(), symbol.getName().toUpperCase() + " Waypoint");
 }
 	}
 	;

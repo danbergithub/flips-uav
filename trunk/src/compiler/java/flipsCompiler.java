@@ -38,8 +38,9 @@ public class flipsCompiler {
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
     
     // Semantic Check and Unit Conversion
+    SymbolTable symbols = new SymbolTable();
     flipsAssembly walker = new flipsAssembly(nodes);
-    walker.flightPlan();
+    walker.flightPlan(symbols);
     
     return walker.output.toString();
   }
