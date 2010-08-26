@@ -1,5 +1,7 @@
+import java.io.Reader;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.lang.StringBuffer;
 import java.lang.StringBuilder;
@@ -9,29 +11,31 @@ import java.util.regex.Matcher;
 public class kml2flips {
   public static void main(String args[]) throws
                                          Exception {
-    if (args.length == 0) {
-      System.out.println("Usage: ./kml2flips <filename>");
+    String input = null;
+    
+    // Select an input stream
+    if (args.length > 0) {
+      // Read file
+      input = readString(new FileReader(args[0]));
     }
     else {
-      try {
-        convert(readFile(args[0]));
-      }
-      catch (IOException ex) {
-        System.out.println("File not found.");
-      }
+      // Read stdin
+      input = readString(new InputStreamReader(System.in));
     }
+    
+    // Print the compiled result
+    System.out.print(compile(input));
   }
   
-  public static String readFile(String filename) throws
-                                                 Exception {
-    // Read the KML file
+  public static String readString(Reader in) throws
+                                             Exception {
     StringBuffer buffer = new StringBuffer(1024);
-    BufferedReader reader = new BufferedReader(new FileReader(filename));
+    BufferedReader reader = new BufferedReader(in);
     char[] chars = new char[1024];
     int numRead = 0;
     while ((numRead = reader.read(chars)) != -1) {
-      String data = String.valueOf(chars, 0, numRead);
-      buffer.append(data);
+      String input = String.valueOf(chars, 0, numRead);
+      buffer.append(input);
       chars = new char[1024];
     }
     reader.close();
@@ -39,7 +43,7 @@ public class kml2flips {
     return buffer.toString();
   }
   
-  public static void convert(String data) {
+  public static String compile(String input) {
     // Configure output strings
     StringBuilder waypoints = new StringBuilder();
     StringBuilder statements = new StringBuilder();
@@ -48,7 +52,7 @@ public class kml2flips {
     
     // Find the coordinates
     Pattern pattern = Pattern.compile("(-?\\d*(.\\d*)?,){2}-?\\d*(.\\d*)?\\s");
-    Matcher matcher = pattern.matcher(data);
+    Matcher matcher = pattern.matcher(input);
     while (matcher.find()) {
       waypointCount++;
       String[] coord = matcher.group().split(",");
@@ -65,6 +69,8 @@ public class kml2flips {
     
     // System.out.println(waypoints.toString());
     // System.out.println(statements.toString());
-    System.out.println(inline.toString());
+    // System.out.println(inline.toString());
+    
+    return inline.toString();
   }
 }
