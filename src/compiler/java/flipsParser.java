@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-08-25 19:41:59
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-08-25 23:05:11
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -9067,7 +9067,7 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "throttleValue"
-    // flips.g:407:1: throttleValue : ( percentValue | angularRate );
+    // flips.g:407:1: throttleValue : ( percentValue | angularRateValue );
     public final flipsParser.throttleValue_return throttleValue() throws RecognitionException {
         flipsParser.throttleValue_return retval = new flipsParser.throttleValue_return();
         retval.start = input.LT(1);
@@ -9076,12 +9076,12 @@ public class flipsParser extends Parser {
 
         flipsParser.percentValue_return percentValue284 = null;
 
-        flipsParser.angularRate_return angularRate285 = null;
+        flipsParser.angularRateValue_return angularRateValue285 = null;
 
 
 
         try {
-            // flips.g:408:2: ( percentValue | angularRate )
+            // flips.g:408:2: ( percentValue | angularRateValue )
             int alt106=2;
             int LA106_0 = input.LA(1);
 
@@ -9139,16 +9139,16 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flips.g:409:4: angularRate
+                    // flips.g:409:4: angularRateValue
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_angularRate_in_throttleValue2309);
-                    angularRate285=angularRate();
+                    pushFollow(FOLLOW_angularRateValue_in_throttleValue2309);
+                    angularRateValue285=angularRateValue();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, angularRate285.getTree());
+                    adaptor.addChild(root_0, angularRateValue285.getTree());
 
                     }
                     break;
@@ -14467,7 +14467,7 @@ public class flipsParser extends Parser {
     };
 
     // $ANTLR start "angularValueWithRate"
-    // flips.g:586:1: angularValueWithRate : ( angularValue | angularValue At angularRate -> angularValue ^( SPEED angularRate ) | ( At )? angularRate -> angularRate | ( At )? angularRate To angularValue -> angularValue ^( SPEED angularRate ) );
+    // flips.g:586:1: angularValueWithRate : ( angularValue | angularValue At angularRateValue -> angularValue ^( SPEED angularRateValue ) | ( At )? angularRateValue -> angularRateValue | ( At )? angularRateValue To angularValue -> angularValue ^( SPEED angularRateValue ) );
     public final flipsParser.angularValueWithRate_return angularValueWithRate() throws RecognitionException {
         flipsParser.angularValueWithRate_return retval = new flipsParser.angularValueWithRate_return();
         retval.start = input.LT(1);
@@ -14482,11 +14482,11 @@ public class flipsParser extends Parser {
 
         flipsParser.angularValue_return angularValue434 = null;
 
-        flipsParser.angularRate_return angularRate436 = null;
+        flipsParser.angularRateValue_return angularRateValue436 = null;
 
-        flipsParser.angularRate_return angularRate438 = null;
+        flipsParser.angularRateValue_return angularRateValue438 = null;
 
-        flipsParser.angularRate_return angularRate440 = null;
+        flipsParser.angularRateValue_return angularRateValue440 = null;
 
         flipsParser.angularValue_return angularValue442 = null;
 
@@ -14498,9 +14498,9 @@ public class flipsParser extends Parser {
         RewriteRuleTokenStream stream_At=new RewriteRuleTokenStream(adaptor,"token At");
         RewriteRuleTokenStream stream_To=new RewriteRuleTokenStream(adaptor,"token To");
         RewriteRuleSubtreeStream stream_angularValue=new RewriteRuleSubtreeStream(adaptor,"rule angularValue");
-        RewriteRuleSubtreeStream stream_angularRate=new RewriteRuleSubtreeStream(adaptor,"rule angularRate");
+        RewriteRuleSubtreeStream stream_angularRateValue=new RewriteRuleSubtreeStream(adaptor,"rule angularRateValue");
         try {
-            // flips.g:587:2: ( angularValue | angularValue At angularRate -> angularValue ^( SPEED angularRate ) | ( At )? angularRate -> angularRate | ( At )? angularRate To angularValue -> angularValue ^( SPEED angularRate ) )
+            // flips.g:587:2: ( angularValue | angularValue At angularRateValue -> angularValue ^( SPEED angularRateValue ) | ( At )? angularRateValue -> angularRateValue | ( At )? angularRateValue To angularValue -> angularValue ^( SPEED angularRateValue ) )
             int alt164=4;
             alt164 = dfa164.predict(input);
             switch (alt164) {
@@ -14519,7 +14519,7 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // flips.g:588:4: angularValue At angularRate
+                    // flips.g:588:4: angularValue At angularRateValue
                     {
                     pushFollow(FOLLOW_angularValue_in_angularValueWithRate3389);
                     angularValue434=angularValue();
@@ -14530,16 +14530,16 @@ public class flipsParser extends Parser {
                     At435=(Token)match(input,At,FOLLOW_At_in_angularValueWithRate3391);  
                     stream_At.add(At435);
 
-                    pushFollow(FOLLOW_angularRate_in_angularValueWithRate3393);
-                    angularRate436=angularRate();
+                    pushFollow(FOLLOW_angularRateValue_in_angularValueWithRate3393);
+                    angularRateValue436=angularRateValue();
 
                     state._fsp--;
 
-                    stream_angularRate.add(angularRate436.getTree());
+                    stream_angularRateValue.add(angularRateValue436.getTree());
 
 
                     // AST REWRITE
-                    // elements: angularValue, angularRate
+                    // elements: angularValue, angularRateValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -14549,15 +14549,15 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 589:2: -> angularValue ^( SPEED angularRate )
+                    // 589:2: -> angularValue ^( SPEED angularRateValue )
                     {
                         adaptor.addChild(root_0, stream_angularValue.nextTree());
-                        // flips.g:589:18: ^( SPEED angularRate )
+                        // flips.g:589:18: ^( SPEED angularRateValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                        adaptor.addChild(root_1, stream_angularRate.nextTree());
+                        adaptor.addChild(root_1, stream_angularRateValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
                         }
@@ -14568,7 +14568,7 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // flips.g:590:4: ( At )? angularRate
+                    // flips.g:590:4: ( At )? angularRateValue
                     {
                     // flips.g:590:4: ( At )?
                     int alt162=2;
@@ -14590,16 +14590,16 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_angularRate_in_angularValueWithRate3412);
-                    angularRate438=angularRate();
+                    pushFollow(FOLLOW_angularRateValue_in_angularValueWithRate3412);
+                    angularRateValue438=angularRateValue();
 
                     state._fsp--;
 
-                    stream_angularRate.add(angularRate438.getTree());
+                    stream_angularRateValue.add(angularRateValue438.getTree());
 
 
                     // AST REWRITE
-                    // elements: angularRate
+                    // elements: angularRateValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -14609,9 +14609,9 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 591:2: -> angularRate
+                    // 591:2: -> angularRateValue
                     {
-                        adaptor.addChild(root_0, stream_angularRate.nextTree());
+                        adaptor.addChild(root_0, stream_angularRateValue.nextTree());
 
                     }
 
@@ -14619,7 +14619,7 @@ public class flipsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // flips.g:592:4: ( At )? angularRate To angularValue
+                    // flips.g:592:4: ( At )? angularRateValue To angularValue
                     {
                     // flips.g:592:4: ( At )?
                     int alt163=2;
@@ -14641,12 +14641,12 @@ public class flipsParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_angularRate_in_angularValueWithRate3425);
-                    angularRate440=angularRate();
+                    pushFollow(FOLLOW_angularRateValue_in_angularValueWithRate3425);
+                    angularRateValue440=angularRateValue();
 
                     state._fsp--;
 
-                    stream_angularRate.add(angularRate440.getTree());
+                    stream_angularRateValue.add(angularRateValue440.getTree());
                     To441=(Token)match(input,To,FOLLOW_To_in_angularValueWithRate3427);  
                     stream_To.add(To441);
 
@@ -14659,7 +14659,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: angularRate, angularValue
+                    // elements: angularRateValue, angularValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -14669,15 +14669,15 @@ public class flipsParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 593:2: -> angularValue ^( SPEED angularRate )
+                    // 593:2: -> angularValue ^( SPEED angularRateValue )
                     {
                         adaptor.addChild(root_0, stream_angularValue.nextTree());
-                        // flips.g:593:18: ^( SPEED angularRate )
+                        // flips.g:593:18: ^( SPEED angularRateValue )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SPEED, "SPEED"), root_1);
 
-                        adaptor.addChild(root_1, stream_angularRate.nextTree());
+                        adaptor.addChild(root_1, stream_angularRateValue.nextTree());
 
                         adaptor.addChild(root_0, root_1);
                         }
@@ -14707,15 +14707,15 @@ public class flipsParser extends Parser {
     }
     // $ANTLR end "angularValueWithRate"
 
-    public static class angularRate_return extends ParserRuleReturnScope {
+    public static class angularRateValue_return extends ParserRuleReturnScope {
         CommonTree tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "angularRate"
-    // flips.g:596:1: angularRate : ( numericValue angularRateUnit | angularValue Per timeUnit -> angularValue timeUnit );
-    public final flipsParser.angularRate_return angularRate() throws RecognitionException {
-        flipsParser.angularRate_return retval = new flipsParser.angularRate_return();
+    // $ANTLR start "angularRateValue"
+    // flips.g:596:1: angularRateValue : ( numericValue angularRateUnit | angularValue Per timeUnit -> angularValue timeUnit );
+    public final flipsParser.angularRateValue_return angularRateValue() throws RecognitionException {
+        flipsParser.angularRateValue_return retval = new flipsParser.angularRateValue_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
@@ -14783,13 +14783,13 @@ public class flipsParser extends Parser {
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_numericValue_in_angularRate3451);
+                    pushFollow(FOLLOW_numericValue_in_angularRateValue3451);
                     numericValue443=numericValue();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, numericValue443.getTree());
-                    pushFollow(FOLLOW_angularRateUnit_in_angularRate3453);
+                    pushFollow(FOLLOW_angularRateUnit_in_angularRateValue3453);
                     angularRateUnit444=angularRateUnit();
 
                     state._fsp--;
@@ -14801,16 +14801,16 @@ public class flipsParser extends Parser {
                 case 2 :
                     // flips.g:598:4: angularValue Per timeUnit
                     {
-                    pushFollow(FOLLOW_angularValue_in_angularRate3458);
+                    pushFollow(FOLLOW_angularValue_in_angularRateValue3458);
                     angularValue445=angularValue();
 
                     state._fsp--;
 
                     stream_angularValue.add(angularValue445.getTree());
-                    Per446=(Token)match(input,Per,FOLLOW_Per_in_angularRate3460);  
+                    Per446=(Token)match(input,Per,FOLLOW_Per_in_angularRateValue3460);  
                     stream_Per.add(Per446);
 
-                    pushFollow(FOLLOW_timeUnit_in_angularRate3462);
+                    pushFollow(FOLLOW_timeUnit_in_angularRateValue3462);
                     timeUnit447=timeUnit();
 
                     state._fsp--;
@@ -14857,7 +14857,7 @@ public class flipsParser extends Parser {
         }
         return retval;
     }
-    // $ANTLR end "angularRate"
+    // $ANTLR end "angularRateValue"
 
     public static class angularRateUnit_return extends ParserRuleReturnScope {
         CommonTree tree;
@@ -19877,7 +19877,7 @@ public class flipsParser extends Parser {
             this.transition = DFA164_transition;
         }
         public String getDescription() {
-            return "586:1: angularValueWithRate : ( angularValue | angularValue At angularRate -> angularValue ^( SPEED angularRate ) | ( At )? angularRate -> angularRate | ( At )? angularRate To angularValue -> angularValue ^( SPEED angularRate ) );";
+            return "586:1: angularValueWithRate : ( angularValue | angularValue At angularRateValue -> angularValue ^( SPEED angularRateValue ) | ( At )? angularRateValue -> angularRateValue | ( At )? angularRateValue To angularValue -> angularValue ^( SPEED angularRateValue ) );";
         }
     }
     static final String DFA183_eotS =
@@ -20425,7 +20425,7 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_216_in_throttleSpeed2279 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_217_in_throttleSpeed2281 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_percentValue_in_throttleValue2304 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_angularRate_in_throttleValue2309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularRateValue_in_throttleValue2309 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_At_in_time2322 = new BitSet(new long[]{0x0000000000000000L,0x60800000F0000000L});
     public static final BitSet FOLLOW_timeValue_in_time2324 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_timeFormat_in_timeValue2335 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000000C000000L});
@@ -20581,18 +20581,18 @@ public class flipsParser extends Parser {
     public static final BitSet FOLLOW_angularValue_in_angularValueWithRate3384 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_angularValue_in_angularValueWithRate3389 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
     public static final BitSet FOLLOW_At_in_angularValueWithRate3391 = new BitSet(new long[]{0x0000000000000000L,0x20000000F8100000L,0x000000000000000CL});
-    public static final BitSet FOLLOW_angularRate_in_angularValueWithRate3393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularRateValue_in_angularValueWithRate3393 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_At_in_angularValueWithRate3409 = new BitSet(new long[]{0x0000000000000000L,0x20000000F8100000L,0x000000000000000CL});
-    public static final BitSet FOLLOW_angularRate_in_angularValueWithRate3412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularRateValue_in_angularValueWithRate3412 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_At_in_angularValueWithRate3422 = new BitSet(new long[]{0x0000000000000000L,0x20000000F8100000L,0x000000000000000CL});
-    public static final BitSet FOLLOW_angularRate_in_angularValueWithRate3425 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
+    public static final BitSet FOLLOW_angularRateValue_in_angularValueWithRate3425 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
     public static final BitSet FOLLOW_To_in_angularValueWithRate3427 = new BitSet(new long[]{0x0000000000000000L,0x00000000F8000000L});
     public static final BitSet FOLLOW_angularValue_in_angularValueWithRate3429 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_angularRate3451 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x07F0000000000000L});
-    public static final BitSet FOLLOW_angularRateUnit_in_angularRate3453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_angularValue_in_angularRate3458 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-    public static final BitSet FOLLOW_Per_in_angularRate3460 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L,0x3FFFFFFF80000000L});
-    public static final BitSet FOLLOW_timeUnit_in_angularRate3462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_angularRateValue3451 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x07F0000000000000L});
+    public static final BitSet FOLLOW_angularRateUnit_in_angularRateValue3453 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_angularValue_in_angularRateValue3458 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_Per_in_angularRateValue3460 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L,0x3FFFFFFF80000000L});
+    public static final BitSet FOLLOW_timeUnit_in_angularRateValue3462 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_308_in_angularRateUnit3480 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_309_in_angularRateUnit3493 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_310_in_angularRateUnit3495 = new BitSet(new long[]{0x0000000000000002L});
