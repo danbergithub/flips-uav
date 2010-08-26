@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetUGA.g 2010-06-06 02:02:40
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsTargetUGA.g 2010-08-25 21:23:50
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -97,7 +97,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = FLY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:264:5: ( 'fly' | 'FLY' )
+            // flipsTargetUGA.g:265:5: ( 'fly' | 'FLY' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -115,7 +115,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // flipsTargetUGA.g:264:7: 'fly'
+                    // flipsTargetUGA.g:265:7: 'fly'
                     {
                     match("fly"); 
 
@@ -123,7 +123,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:264:13: 'FLY'
+                    // flipsTargetUGA.g:265:13: 'FLY'
                     {
                     match("FLY"); 
 
@@ -145,7 +145,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = LTR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:265:5: ( 'ltr' | 'LTR' )
+            // flipsTargetUGA.g:266:5: ( 'ltr' | 'LTR' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -163,7 +163,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // flipsTargetUGA.g:265:7: 'ltr'
+                    // flipsTargetUGA.g:266:7: 'ltr'
                     {
                     match("ltr"); 
 
@@ -171,7 +171,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:265:13: 'LTR'
+                    // flipsTargetUGA.g:266:13: 'LTR'
                     {
                     match("LTR"); 
 
@@ -193,7 +193,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = FIX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:267:5: ( 'fix' | 'FIX' )
+            // flipsTargetUGA.g:268:5: ( 'fix' | 'FIX' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -211,7 +211,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // flipsTargetUGA.g:267:7: 'fix'
+                    // flipsTargetUGA.g:268:7: 'fix'
                     {
                     match("fix"); 
 
@@ -219,7 +219,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:267:13: 'FIX'
+                    // flipsTargetUGA.g:268:13: 'FIX'
                     {
                     match("FIX"); 
 
@@ -241,7 +241,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = REL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:268:5: ( 'rel' | 'REL' )
+            // flipsTargetUGA.g:269:5: ( 'rel' | 'REL' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -259,7 +259,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // flipsTargetUGA.g:268:7: 'rel'
+                    // flipsTargetUGA.g:269:7: 'rel'
                     {
                     match("rel"); 
 
@@ -267,7 +267,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:268:13: 'REL'
+                    // flipsTargetUGA.g:269:13: 'REL'
                     {
                     match("REL"); 
 
@@ -289,7 +289,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = POS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:270:5: ( 'pos' | 'POS' )
+            // flipsTargetUGA.g:271:5: ( 'pos' | 'POS' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -307,7 +307,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // flipsTargetUGA.g:270:7: 'pos'
+                    // flipsTargetUGA.g:271:7: 'pos'
                     {
                     match("pos"); 
 
@@ -315,7 +315,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:270:13: 'POS'
+                    // flipsTargetUGA.g:271:13: 'POS'
                     {
                     match("POS"); 
 
@@ -337,7 +337,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = X;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:271:3: ( 'x' | 'X' )
+            // flipsTargetUGA.g:272:3: ( 'x' | 'X' )
             // flipsTargetUGA.g:
             {
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -365,7 +365,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = Y;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:272:3: ( 'y' | 'Y' )
+            // flipsTargetUGA.g:273:3: ( 'y' | 'Y' )
             // flipsTargetUGA.g:
             {
             if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
@@ -393,7 +393,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = Z;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:273:3: ( 'z' | 'Z' )
+            // flipsTargetUGA.g:274:3: ( 'z' | 'Z' )
             // flipsTargetUGA.g:
             {
             if ( input.LA(1)=='Z'||input.LA(1)=='z' ) {
@@ -421,7 +421,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = GEO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:274:5: ( 'geo' | 'GEO' )
+            // flipsTargetUGA.g:275:5: ( 'geo' | 'GEO' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -439,7 +439,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // flipsTargetUGA.g:274:7: 'geo'
+                    // flipsTargetUGA.g:275:7: 'geo'
                     {
                     match("geo"); 
 
@@ -447,7 +447,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:274:13: 'GEO'
+                    // flipsTargetUGA.g:275:13: 'GEO'
                     {
                     match("GEO"); 
 
@@ -469,7 +469,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = ROL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:275:5: ( 'rol' | 'ROL' )
+            // flipsTargetUGA.g:276:5: ( 'rol' | 'ROL' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -487,7 +487,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // flipsTargetUGA.g:275:7: 'rol'
+                    // flipsTargetUGA.g:276:7: 'rol'
                     {
                     match("rol"); 
 
@@ -495,7 +495,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:275:13: 'ROL'
+                    // flipsTargetUGA.g:276:13: 'ROL'
                     {
                     match("ROL"); 
 
@@ -517,7 +517,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = PIT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:276:5: ( 'pit' | 'PIT' )
+            // flipsTargetUGA.g:277:5: ( 'pit' | 'PIT' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -535,7 +535,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // flipsTargetUGA.g:276:7: 'pit'
+                    // flipsTargetUGA.g:277:7: 'pit'
                     {
                     match("pit"); 
 
@@ -543,7 +543,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:276:13: 'PIT'
+                    // flipsTargetUGA.g:277:13: 'PIT'
                     {
                     match("PIT"); 
 
@@ -565,7 +565,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = YAW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:277:5: ( 'yaw' | 'YAW' )
+            // flipsTargetUGA.g:278:5: ( 'yaw' | 'YAW' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -583,7 +583,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // flipsTargetUGA.g:277:7: 'yaw'
+                    // flipsTargetUGA.g:278:7: 'yaw'
                     {
                     match("yaw"); 
 
@@ -591,7 +591,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:277:13: 'YAW'
+                    // flipsTargetUGA.g:278:13: 'YAW'
                     {
                     match("YAW"); 
 
@@ -613,7 +613,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = PRE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:278:5: ( 'pre' | 'PRE' )
+            // flipsTargetUGA.g:279:5: ( 'pre' | 'PRE' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -631,7 +631,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // flipsTargetUGA.g:278:7: 'pre'
+                    // flipsTargetUGA.g:279:7: 'pre'
                     {
                     match("pre"); 
 
@@ -639,7 +639,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:278:13: 'PRE'
+                    // flipsTargetUGA.g:279:13: 'PRE'
                     {
                     match("PRE"); 
 
@@ -661,7 +661,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = VEL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:280:5: ( 'vel' | 'VEL' )
+            // flipsTargetUGA.g:281:5: ( 'vel' | 'VEL' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -679,7 +679,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // flipsTargetUGA.g:280:7: 'vel'
+                    // flipsTargetUGA.g:281:7: 'vel'
                     {
                     match("vel"); 
 
@@ -687,7 +687,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:280:13: 'VEL'
+                    // flipsTargetUGA.g:281:13: 'VEL'
                     {
                     match("VEL"); 
 
@@ -709,7 +709,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = SPD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:282:5: ( 'spd' | 'SPD' )
+            // flipsTargetUGA.g:283:5: ( 'spd' | 'SPD' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -727,7 +727,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // flipsTargetUGA.g:282:7: 'spd'
+                    // flipsTargetUGA.g:283:7: 'spd'
                     {
                     match("spd"); 
 
@@ -735,7 +735,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:282:13: 'SPD'
+                    // flipsTargetUGA.g:283:13: 'SPD'
                     {
                     match("SPD"); 
 
@@ -757,7 +757,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = AIR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:283:5: ( 'air' | 'AIR' )
+            // flipsTargetUGA.g:284:5: ( 'air' | 'AIR' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -775,7 +775,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // flipsTargetUGA.g:283:7: 'air'
+                    // flipsTargetUGA.g:284:7: 'air'
                     {
                     match("air"); 
 
@@ -783,7 +783,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:283:13: 'AIR'
+                    // flipsTargetUGA.g:284:13: 'AIR'
                     {
                     match("AIR"); 
 
@@ -805,7 +805,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = GND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:284:5: ( 'gnd' | 'GND' )
+            // flipsTargetUGA.g:285:5: ( 'gnd' | 'GND' )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -823,7 +823,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // flipsTargetUGA.g:284:7: 'gnd'
+                    // flipsTargetUGA.g:285:7: 'gnd'
                     {
                     match("gnd"); 
 
@@ -831,7 +831,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:284:13: 'GND'
+                    // flipsTargetUGA.g:285:13: 'GND'
                     {
                     match("GND"); 
 
@@ -853,7 +853,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = ACT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:286:5: ( 'act' | 'ACT' )
+            // flipsTargetUGA.g:287:5: ( 'act' | 'ACT' )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -871,7 +871,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // flipsTargetUGA.g:286:7: 'act'
+                    // flipsTargetUGA.g:287:7: 'act'
                     {
                     match("act"); 
 
@@ -879,7 +879,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:286:13: 'ACT'
+                    // flipsTargetUGA.g:287:13: 'ACT'
                     {
                     match("ACT"); 
 
@@ -901,7 +901,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = ELE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:287:5: ( 'ele' | 'ELE' )
+            // flipsTargetUGA.g:288:5: ( 'ele' | 'ELE' )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -919,7 +919,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt16) {
                 case 1 :
-                    // flipsTargetUGA.g:287:7: 'ele'
+                    // flipsTargetUGA.g:288:7: 'ele'
                     {
                     match("ele"); 
 
@@ -927,7 +927,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:287:13: 'ELE'
+                    // flipsTargetUGA.g:288:13: 'ELE'
                     {
                     match("ELE"); 
 
@@ -949,7 +949,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = AIL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:288:5: ( 'ail' | 'AIL' )
+            // flipsTargetUGA.g:289:5: ( 'ail' | 'AIL' )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -967,7 +967,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // flipsTargetUGA.g:288:7: 'ail'
+                    // flipsTargetUGA.g:289:7: 'ail'
                     {
                     match("ail"); 
 
@@ -975,7 +975,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:288:13: 'AIL'
+                    // flipsTargetUGA.g:289:13: 'AIL'
                     {
                     match("AIL"); 
 
@@ -997,7 +997,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = RUD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:289:5: ( 'rud' | 'RUD' )
+            // flipsTargetUGA.g:290:5: ( 'rud' | 'RUD' )
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -1015,7 +1015,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt18) {
                 case 1 :
-                    // flipsTargetUGA.g:289:7: 'rud'
+                    // flipsTargetUGA.g:290:7: 'rud'
                     {
                     match("rud"); 
 
@@ -1023,7 +1023,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:289:13: 'RUD'
+                    // flipsTargetUGA.g:290:13: 'RUD'
                     {
                     match("RUD"); 
 
@@ -1045,7 +1045,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = FLA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:290:5: ( 'fla' | 'FLA' )
+            // flipsTargetUGA.g:291:5: ( 'fla' | 'FLA' )
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -1063,7 +1063,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt19) {
                 case 1 :
-                    // flipsTargetUGA.g:290:7: 'fla'
+                    // flipsTargetUGA.g:291:7: 'fla'
                     {
                     match("fla"); 
 
@@ -1071,7 +1071,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:290:13: 'FLA'
+                    // flipsTargetUGA.g:291:13: 'FLA'
                     {
                     match("FLA"); 
 
@@ -1093,7 +1093,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = THR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:291:5: ( 'thr' | 'THR' )
+            // flipsTargetUGA.g:292:5: ( 'thr' | 'THR' )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -1111,7 +1111,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt20) {
                 case 1 :
-                    // flipsTargetUGA.g:291:7: 'thr'
+                    // flipsTargetUGA.g:292:7: 'thr'
                     {
                     match("thr"); 
 
@@ -1119,7 +1119,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:291:13: 'THR'
+                    // flipsTargetUGA.g:292:13: 'THR'
                     {
                     match("THR"); 
 
@@ -1141,7 +1141,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = PCT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:293:5: ( 'pct' | 'PCT' )
+            // flipsTargetUGA.g:294:5: ( 'pct' | 'PCT' )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -1159,7 +1159,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt21) {
                 case 1 :
-                    // flipsTargetUGA.g:293:7: 'pct'
+                    // flipsTargetUGA.g:294:7: 'pct'
                     {
                     match("pct"); 
 
@@ -1167,7 +1167,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:293:13: 'PCT'
+                    // flipsTargetUGA.g:294:13: 'PCT'
                     {
                     match("PCT"); 
 
@@ -1189,7 +1189,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = RPM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:294:5: ( 'rpm' | 'RPM' )
+            // flipsTargetUGA.g:295:5: ( 'rpm' | 'RPM' )
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -1207,7 +1207,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt22) {
                 case 1 :
-                    // flipsTargetUGA.g:294:7: 'rpm'
+                    // flipsTargetUGA.g:295:7: 'rpm'
                     {
                     match("rpm"); 
 
@@ -1215,7 +1215,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:294:13: 'RPM'
+                    // flipsTargetUGA.g:295:13: 'RPM'
                     {
                     match("RPM"); 
 
@@ -1237,7 +1237,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = TRI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:296:5: ( 'tri' | 'TRI' )
+            // flipsTargetUGA.g:297:5: ( 'tri' | 'TRI' )
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -1255,7 +1255,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // flipsTargetUGA.g:296:7: 'tri'
+                    // flipsTargetUGA.g:297:7: 'tri'
                     {
                     match("tri"); 
 
@@ -1263,7 +1263,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:296:13: 'TRI'
+                    // flipsTargetUGA.g:297:13: 'TRI'
                     {
                     match("TRI"); 
 
@@ -1285,7 +1285,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = CMD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:298:5: ( 'cmd' | 'CMD' )
+            // flipsTargetUGA.g:299:5: ( 'cmd' | 'CMD' )
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -1303,7 +1303,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt24) {
                 case 1 :
-                    // flipsTargetUGA.g:298:7: 'cmd'
+                    // flipsTargetUGA.g:299:7: 'cmd'
                     {
                     match("cmd"); 
 
@@ -1311,7 +1311,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:298:13: 'CMD'
+                    // flipsTargetUGA.g:299:13: 'CMD'
                     {
                     match("CMD"); 
 
@@ -1333,7 +1333,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = PAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:299:5: ( 'par' | 'PAR' )
+            // flipsTargetUGA.g:300:5: ( 'par' | 'PAR' )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -1351,7 +1351,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt25) {
                 case 1 :
-                    // flipsTargetUGA.g:299:7: 'par'
+                    // flipsTargetUGA.g:300:7: 'par'
                     {
                     match("par"); 
 
@@ -1359,7 +1359,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:299:13: 'PAR'
+                    // flipsTargetUGA.g:300:13: 'PAR'
                     {
                     match("PAR"); 
 
@@ -1381,7 +1381,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = TIM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:301:5: ( 'tim' | 'TIM' )
+            // flipsTargetUGA.g:302:5: ( 'tim' | 'TIM' )
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -1399,7 +1399,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt26) {
                 case 1 :
-                    // flipsTargetUGA.g:301:7: 'tim'
+                    // flipsTargetUGA.g:302:7: 'tim'
                     {
                     match("tim"); 
 
@@ -1407,7 +1407,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:301:13: 'TIM'
+                    // flipsTargetUGA.g:302:13: 'TIM'
                     {
                     match("TIM"); 
 
@@ -1429,7 +1429,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = RAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:303:5: ( 'rad' | 'RAD' )
+            // flipsTargetUGA.g:304:5: ( 'rad' | 'RAD' )
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -1447,7 +1447,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // flipsTargetUGA.g:303:7: 'rad'
+                    // flipsTargetUGA.g:304:7: 'rad'
                     {
                     match("rad"); 
 
@@ -1455,7 +1455,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:303:13: 'RAD'
+                    // flipsTargetUGA.g:304:13: 'RAD'
                     {
                     match("RAD"); 
 
@@ -1477,7 +1477,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = DIR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:304:5: ( 'dir' | 'DIR' )
+            // flipsTargetUGA.g:305:5: ( 'dir' | 'DIR' )
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -1495,7 +1495,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt28) {
                 case 1 :
-                    // flipsTargetUGA.g:304:7: 'dir'
+                    // flipsTargetUGA.g:305:7: 'dir'
                     {
                     match("dir"); 
 
@@ -1503,7 +1503,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:304:13: 'DIR'
+                    // flipsTargetUGA.g:305:13: 'DIR'
                     {
                     match("DIR"); 
 
@@ -1525,7 +1525,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = L;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:305:3: ( 'l' | 'L' )
+            // flipsTargetUGA.g:306:3: ( 'l' | 'L' )
             // flipsTargetUGA.g:
             {
             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
@@ -1553,7 +1553,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = R;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:306:3: ( 'r' | 'R' )
+            // flipsTargetUGA.g:307:3: ( 'r' | 'R' )
             // flipsTargetUGA.g:
             {
             if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
@@ -1581,7 +1581,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = CW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:307:4: ( 'cw' | 'CW' )
+            // flipsTargetUGA.g:308:4: ( 'cw' | 'CW' )
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -1599,7 +1599,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt29) {
                 case 1 :
-                    // flipsTargetUGA.g:307:6: 'cw'
+                    // flipsTargetUGA.g:308:6: 'cw'
                     {
                     match("cw"); 
 
@@ -1607,7 +1607,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:307:11: 'CW'
+                    // flipsTargetUGA.g:308:11: 'CW'
                     {
                     match("CW"); 
 
@@ -1629,7 +1629,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = CCW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:308:5: ( 'ccw' | 'CCW' )
+            // flipsTargetUGA.g:309:5: ( 'ccw' | 'CCW' )
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -1647,7 +1647,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt30) {
                 case 1 :
-                    // flipsTargetUGA.g:308:7: 'ccw'
+                    // flipsTargetUGA.g:309:7: 'ccw'
                     {
                     match("ccw"); 
 
@@ -1655,7 +1655,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:308:13: 'CCW'
+                    // flipsTargetUGA.g:309:13: 'CCW'
                     {
                     match("CCW"); 
 
@@ -1677,8 +1677,8 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = Identifier;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:313:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // flipsTargetUGA.g:313:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // flipsTargetUGA.g:314:2: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // flipsTargetUGA.g:314:4: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1689,7 +1689,7 @@ public class flipsTargetUGALexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flipsTargetUGA.g:313:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // flipsTargetUGA.g:314:28: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop31:
             do {
                 int alt31=2;
@@ -1738,11 +1738,11 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = StringLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:316:2: ( '\"' (~ ( '\"' ) )* '\"' )
-            // flipsTargetUGA.g:316:5: '\"' (~ ( '\"' ) )* '\"'
+            // flipsTargetUGA.g:317:2: ( '\"' (~ ( '\"' ) )* '\"' )
+            // flipsTargetUGA.g:317:5: '\"' (~ ( '\"' ) )* '\"'
             {
             match('\"'); 
-            // flipsTargetUGA.g:316:9: (~ ( '\"' ) )*
+            // flipsTargetUGA.g:317:9: (~ ( '\"' ) )*
             loop32:
             do {
                 int alt32=2;
@@ -1755,7 +1755,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt32) {
             	case 1 :
-            	    // flipsTargetUGA.g:316:10: ~ ( '\"' )
+            	    // flipsTargetUGA.g:317:10: ~ ( '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1790,8 +1790,8 @@ public class flipsTargetUGALexer extends Lexer {
     // $ANTLR start "Digit"
     public final void mDigit() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:321:7: ( '0' .. '9' )
-            // flipsTargetUGA.g:321:9: '0' .. '9'
+            // flipsTargetUGA.g:322:7: ( '0' .. '9' )
+            // flipsTargetUGA.g:322:9: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -1806,8 +1806,8 @@ public class flipsTargetUGALexer extends Lexer {
     // $ANTLR start "NonZeroDigit"
     public final void mNonZeroDigit() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:325:2: ( '1' .. '9' )
-            // flipsTargetUGA.g:325:4: '1' .. '9'
+            // flipsTargetUGA.g:326:2: ( '1' .. '9' )
+            // flipsTargetUGA.g:326:4: '1' .. '9'
             {
             matchRange('1','9'); 
 
@@ -1822,7 +1822,7 @@ public class flipsTargetUGALexer extends Lexer {
     // $ANTLR start "BinaryDigit"
     public final void mBinaryDigit() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:329:2: ( '0' | '1' )
+            // flipsTargetUGA.g:330:2: ( '0' | '1' )
             // flipsTargetUGA.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='1') ) {
@@ -1846,7 +1846,7 @@ public class flipsTargetUGALexer extends Lexer {
     // $ANTLR start "HexDigit"
     public final void mHexDigit() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:332:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
+            // flipsTargetUGA.g:333:9: ( Digit | 'a' .. 'f' | 'A' .. 'F' )
             // flipsTargetUGA.g:
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
@@ -1872,8 +1872,8 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = BinaryLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:335:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
-            // flipsTargetUGA.g:335:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
+            // flipsTargetUGA.g:336:2: ( '0' ( 'b' | 'B' ) ( BinaryDigit )+ )
+            // flipsTargetUGA.g:336:4: '0' ( 'b' | 'B' ) ( BinaryDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -1885,7 +1885,7 @@ public class flipsTargetUGALexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flipsTargetUGA.g:335:18: ( BinaryDigit )+
+            // flipsTargetUGA.g:336:18: ( BinaryDigit )+
             int cnt33=0;
             loop33:
             do {
@@ -1899,7 +1899,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt33) {
             	case 1 :
-            	    // flipsTargetUGA.g:335:18: BinaryDigit
+            	    // flipsTargetUGA.g:336:18: BinaryDigit
             	    {
             	    mBinaryDigit(); 
 
@@ -1931,11 +1931,11 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = OctalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:338:2: ( '0' ( '0' .. '7' )+ )
-            // flipsTargetUGA.g:338:4: '0' ( '0' .. '7' )+
+            // flipsTargetUGA.g:339:2: ( '0' ( '0' .. '7' )+ )
+            // flipsTargetUGA.g:339:4: '0' ( '0' .. '7' )+
             {
             match('0'); 
-            // flipsTargetUGA.g:338:8: ( '0' .. '7' )+
+            // flipsTargetUGA.g:339:8: ( '0' .. '7' )+
             int cnt34=0;
             loop34:
             do {
@@ -1949,7 +1949,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt34) {
             	case 1 :
-            	    // flipsTargetUGA.g:338:9: '0' .. '7'
+            	    // flipsTargetUGA.g:339:9: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -1981,7 +1981,7 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = DecimalLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:341:2: ( '0' | NonZeroDigit ( Digit )* )
+            // flipsTargetUGA.g:342:2: ( '0' | NonZeroDigit ( Digit )* )
             int alt36=2;
             int LA36_0 = input.LA(1);
 
@@ -1999,17 +1999,17 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt36) {
                 case 1 :
-                    // flipsTargetUGA.g:341:4: '0'
+                    // flipsTargetUGA.g:342:4: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:341:8: NonZeroDigit ( Digit )*
+                    // flipsTargetUGA.g:342:8: NonZeroDigit ( Digit )*
                     {
                     mNonZeroDigit(); 
-                    // flipsTargetUGA.g:341:21: ( Digit )*
+                    // flipsTargetUGA.g:342:21: ( Digit )*
                     loop35:
                     do {
                         int alt35=2;
@@ -2022,7 +2022,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                         switch (alt35) {
                     	case 1 :
-                    	    // flipsTargetUGA.g:341:21: Digit
+                    	    // flipsTargetUGA.g:342:21: Digit
                     	    {
                     	    mDigit(); 
 
@@ -2052,8 +2052,8 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = HexLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:344:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
-            // flipsTargetUGA.g:344:4: '0' ( 'x' | 'X' ) ( HexDigit )+
+            // flipsTargetUGA.g:345:2: ( '0' ( 'x' | 'X' ) ( HexDigit )+ )
+            // flipsTargetUGA.g:345:4: '0' ( 'x' | 'X' ) ( HexDigit )+
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -2065,7 +2065,7 @@ public class flipsTargetUGALexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flipsTargetUGA.g:344:18: ( HexDigit )+
+            // flipsTargetUGA.g:345:18: ( HexDigit )+
             int cnt37=0;
             loop37:
             do {
@@ -2079,7 +2079,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt37) {
             	case 1 :
-            	    // flipsTargetUGA.g:344:18: HexDigit
+            	    // flipsTargetUGA.g:345:18: HexDigit
             	    {
             	    mHexDigit(); 
 
@@ -2111,14 +2111,14 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = FloatingPointLiteral;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:347:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
+            // flipsTargetUGA.g:348:2: ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent )
             int alt44=3;
             alt44 = dfa44.predict(input);
             switch (alt44) {
                 case 1 :
-                    // flipsTargetUGA.g:347:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
+                    // flipsTargetUGA.g:348:4: ( Digit )+ '.' ( Digit )* ( Exponent )?
                     {
-                    // flipsTargetUGA.g:347:4: ( Digit )+
+                    // flipsTargetUGA.g:348:4: ( Digit )+
                     int cnt38=0;
                     loop38:
                     do {
@@ -2132,7 +2132,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                         switch (alt38) {
                     	case 1 :
-                    	    // flipsTargetUGA.g:347:4: Digit
+                    	    // flipsTargetUGA.g:348:4: Digit
                     	    {
                     	    mDigit(); 
 
@@ -2149,7 +2149,7 @@ public class flipsTargetUGALexer extends Lexer {
                     } while (true);
 
                     match('.'); 
-                    // flipsTargetUGA.g:347:15: ( Digit )*
+                    // flipsTargetUGA.g:348:15: ( Digit )*
                     loop39:
                     do {
                         int alt39=2;
@@ -2162,7 +2162,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                         switch (alt39) {
                     	case 1 :
-                    	    // flipsTargetUGA.g:347:15: Digit
+                    	    // flipsTargetUGA.g:348:15: Digit
                     	    {
                     	    mDigit(); 
 
@@ -2174,7 +2174,7 @@ public class flipsTargetUGALexer extends Lexer {
                         }
                     } while (true);
 
-                    // flipsTargetUGA.g:347:22: ( Exponent )?
+                    // flipsTargetUGA.g:348:22: ( Exponent )?
                     int alt40=2;
                     int LA40_0 = input.LA(1);
 
@@ -2183,7 +2183,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     switch (alt40) {
                         case 1 :
-                            // flipsTargetUGA.g:347:22: Exponent
+                            // flipsTargetUGA.g:348:22: Exponent
                             {
                             mExponent(); 
 
@@ -2196,10 +2196,10 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // flipsTargetUGA.g:348:17: '.' ( Digit )+ ( Exponent )?
+                    // flipsTargetUGA.g:349:17: '.' ( Digit )+ ( Exponent )?
                     {
                     match('.'); 
-                    // flipsTargetUGA.g:348:21: ( Digit )+
+                    // flipsTargetUGA.g:349:21: ( Digit )+
                     int cnt41=0;
                     loop41:
                     do {
@@ -2213,7 +2213,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                         switch (alt41) {
                     	case 1 :
-                    	    // flipsTargetUGA.g:348:21: Digit
+                    	    // flipsTargetUGA.g:349:21: Digit
                     	    {
                     	    mDigit(); 
 
@@ -2229,7 +2229,7 @@ public class flipsTargetUGALexer extends Lexer {
                         cnt41++;
                     } while (true);
 
-                    // flipsTargetUGA.g:348:28: ( Exponent )?
+                    // flipsTargetUGA.g:349:28: ( Exponent )?
                     int alt42=2;
                     int LA42_0 = input.LA(1);
 
@@ -2238,7 +2238,7 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     switch (alt42) {
                         case 1 :
-                            // flipsTargetUGA.g:348:28: Exponent
+                            // flipsTargetUGA.g:349:28: Exponent
                             {
                             mExponent(); 
 
@@ -2251,9 +2251,9 @@ public class flipsTargetUGALexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // flipsTargetUGA.g:349:11: ( Digit )+ Exponent
+                    // flipsTargetUGA.g:350:11: ( Digit )+ Exponent
                     {
-                    // flipsTargetUGA.g:349:11: ( Digit )+
+                    // flipsTargetUGA.g:350:11: ( Digit )+
                     int cnt43=0;
                     loop43:
                     do {
@@ -2267,7 +2267,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                         switch (alt43) {
                     	case 1 :
-                    	    // flipsTargetUGA.g:349:11: Digit
+                    	    // flipsTargetUGA.g:350:11: Digit
                     	    {
                     	    mDigit(); 
 
@@ -2300,8 +2300,8 @@ public class flipsTargetUGALexer extends Lexer {
     // $ANTLR start "Exponent"
     public final void mExponent() throws RecognitionException {
         try {
-            // flipsTargetUGA.g:353:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
-            // flipsTargetUGA.g:353:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
+            // flipsTargetUGA.g:354:9: ( ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+ )
+            // flipsTargetUGA.g:354:11: ( 'e' | 'E' ) ( '+' | '-' )? ( Digit )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -2312,7 +2312,7 @@ public class flipsTargetUGALexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // flipsTargetUGA.g:353:21: ( '+' | '-' )?
+            // flipsTargetUGA.g:354:21: ( '+' | '-' )?
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -2338,7 +2338,7 @@ public class flipsTargetUGALexer extends Lexer {
 
             }
 
-            // flipsTargetUGA.g:353:32: ( Digit )+
+            // flipsTargetUGA.g:354:32: ( Digit )+
             int cnt46=0;
             loop46:
             do {
@@ -2352,7 +2352,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt46) {
             	case 1 :
-            	    // flipsTargetUGA.g:353:32: Digit
+            	    // flipsTargetUGA.g:354:32: Digit
             	    {
             	    mDigit(); 
 
@@ -2382,10 +2382,10 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:357:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
-            // flipsTargetUGA.g:357:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // flipsTargetUGA.g:358:4: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+ )
+            // flipsTargetUGA.g:358:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             {
-            // flipsTargetUGA.g:357:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
+            // flipsTargetUGA.g:358:6: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )+
             int cnt47=0;
             loop47:
             do {
@@ -2440,12 +2440,12 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = Comment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:361:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
-            // flipsTargetUGA.g:361:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
+            // flipsTargetUGA.g:362:9: ( '/*' ( options {greedy=FALSE; } : . )* '*/' )
+            // flipsTargetUGA.g:362:11: '/*' ( options {greedy=FALSE; } : . )* '*/'
             {
             match("/*"); 
 
-            // flipsTargetUGA.g:361:16: ( options {greedy=FALSE; } : . )*
+            // flipsTargetUGA.g:362:16: ( options {greedy=FALSE; } : . )*
             loop48:
             do {
                 int alt48=2;
@@ -2476,7 +2476,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt48) {
             	case 1 :
-            	    // flipsTargetUGA.g:361:46: .
+            	    // flipsTargetUGA.g:362:46: .
             	    {
             	    matchAny(); 
 
@@ -2507,12 +2507,12 @@ public class flipsTargetUGALexer extends Lexer {
         try {
             int _type = LineComment;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // flipsTargetUGA.g:364:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // flipsTargetUGA.g:364:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // flipsTargetUGA.g:365:2: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // flipsTargetUGA.g:365:4: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // flipsTargetUGA.g:364:9: (~ ( '\\n' | '\\r' ) )*
+            // flipsTargetUGA.g:365:9: (~ ( '\\n' | '\\r' ) )*
             loop49:
             do {
                 int alt49=2;
@@ -2525,7 +2525,7 @@ public class flipsTargetUGALexer extends Lexer {
 
                 switch (alt49) {
             	case 1 :
-            	    // flipsTargetUGA.g:364:9: ~ ( '\\n' | '\\r' )
+            	    // flipsTargetUGA.g:365:9: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2545,7 +2545,7 @@ public class flipsTargetUGALexer extends Lexer {
                 }
             } while (true);
 
-            // flipsTargetUGA.g:364:23: ( '\\r' )?
+            // flipsTargetUGA.g:365:23: ( '\\r' )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
@@ -2554,7 +2554,7 @@ public class flipsTargetUGALexer extends Lexer {
             }
             switch (alt50) {
                 case 1 :
-                    // flipsTargetUGA.g:364:23: '\\r'
+                    // flipsTargetUGA.g:365:23: '\\r'
                     {
                     match('\r'); 
 
@@ -2961,7 +2961,7 @@ public class flipsTargetUGALexer extends Lexer {
             this.transition = DFA44_transition;
         }
         public String getDescription() {
-            return "346:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
+            return "347:1: FloatingPointLiteral : ( ( Digit )+ '.' ( Digit )* ( Exponent )? | '.' ( Digit )+ ( Exponent )? | ( Digit )+ Exponent );";
         }
     }
     static final String DFA51_eotS =

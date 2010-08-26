@@ -9,8 +9,9 @@ echo ""
 
 echo "Generating binary code..."
 java -cp java/classes/:java/lib/antlr-3.2.jar flipsCompiler $SRC_ASM
+java -cp java/classes/:java/lib/antlr-3.2.jar flipsCompiler $SRC_ASM > $SRC_BIN
 echo ""
 
 echo "Running mission..."
-./flips $SRC_BIN
+./flips-vm $SRC_BIN
 

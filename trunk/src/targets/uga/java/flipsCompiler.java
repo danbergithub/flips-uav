@@ -1,9 +1,5 @@
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.channels.FileChannel;
 import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.tree.CommonTree;
@@ -12,28 +8,37 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 public class flipsCompiler {
   public static void main(String args[]) throws
                                          Exception {
-    compile(args[0]);
+    CharStream input = null;
+    
+    // Select an input stream
+    if (args.length > 0) {
+      // Read file
+      input = new ANTLRFileStream(args[0]);
+    }
+    else {
+      // Read stdin
+      input = new ANTLRInputStream(System.in);
+    }
+    
+    // Print the compiled result
+    System.out.print(compile(input));
   }
   
-  public static void compile(String filename) throws
-                                              Exception {
-    // File Input
-    CharStream input = new ANTLRFileStream(filename);
-    
+  public static String compile(CharStream input) throws
+                                                 Exception {
     // Assembly Lexer
-    flipsTargetUGALexer lex = new flipsTargetUGALexer(input);
-    CommonTokenStream tokens = new CommonTokenStream(lex);
+    flipsTargetUGALexer lexer = new flipsTargetUGALexer(input);
+    CommonTokenStream tokens = new CommonTokenStream(lexer);
     
     // Assembly Parser and Code Generator
     flipsTargetUGAParser parser = new flipsTargetUGAParser(tokens);
     parser.flightPlan();
     
-    // Binary Output
-    try {
-      FileChannel channel = new FileOutputStream(filename.replace(".asm",".bin"),false).getChannel();
-      channel.write(parser.output);
-      channel.close();
-    }
-    catch (IOException e) {}
+    // return parser.debug.toString();
+    byte[] bytes = new byte[parser.output.remaining()];
+    parser.output.get(bytes,
+                      0,
+                      bytes.length);
+    return new String(bytes);
   }
 }
