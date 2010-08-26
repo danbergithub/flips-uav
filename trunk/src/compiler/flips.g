@@ -406,7 +406,7 @@ throttleSpeed
 
 throttleValue
 	:	percentValue
-	|	angularRate
+	|	angularRateValue
 	;
 
 // TIME EXPRESSIONS
@@ -585,15 +585,15 @@ clockDirection
 
 angularValueWithRate
 	:	angularValue
-	|	angularValue At angularRate
-	->	angularValue ^(SPEED angularRate)
-	|	At? angularRate
-	->	angularRate
-	|	At? angularRate To angularValue
-	->	angularValue ^(SPEED angularRate)
+	|	angularValue At angularRateValue
+	->	angularValue ^(SPEED angularRateValue)
+	|	At? angularRateValue
+	->	angularRateValue
+	|	At? angularRateValue To angularValue
+	->	angularValue ^(SPEED angularRateValue)
 	;
 
-angularRate
+angularRateValue
 	:	numericValue angularRateUnit
 	|	angularValue Per timeUnit
 	->	angularValue timeUnit
