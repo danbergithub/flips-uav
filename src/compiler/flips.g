@@ -36,6 +36,7 @@ options {
 tokens {
   FLIGHTPLAN;
   DEFINE;
+  REQUIRE;
   COMMAND;
   PARAMETER;
   SENSOR;
@@ -114,16 +115,39 @@ tokens {
 }
 
 flightPlan
-	:	define* statement*
-	->	^(FLIGHTPLAN define* statement*)
+	:	require* define* statement*
+	->	^(FLIGHTPLAN require* define* statement*)
+	;
+
+// REQUIRES
+
+require
+	:	('req'|'require'|'requires') requireValue
+	->	requireValue
+	;
+
+requireValue
+	:	StringLiteral ((And|',' And?)? StringLiteral)*
+	->	^(REQUIRE StringLiteral)+
 	;
 
 // DEFINITIONS
 
 define
-	:	defineCommand
+	:	defineFlightPlan
+	|	defineCommand
 	|	defineSensor
 	|	defineWaypoint
+	;
+
+defineFlightPlan
+	:	('fp'|'flightplan'|'flightplans') defineFlightPlanValue
+	->	defineFlightPlanValue
+	;
+
+defineFlightPlanValue
+	:	Identifier '=' fp=StringLiteral ((And|',' And?)? Identifier '=' fp=StringLiteral)*
+	->	^(DEFINE Identifier ^(FLIGHTPLAN $fp))+
 	;
 
 defineCommand
