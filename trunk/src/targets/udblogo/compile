@@ -1,0 +1,9 @@
+#!/bin/bash
+
+bash clean
+
+echo "Generating the compiler..."
+java -jar java/lib/antlr-3.2.jar flipsTargetUdbLogo.g -o java/ -verbose
+javac -classpath java/lib/antlr-3.2.jar java/flipsTargetUdbLogoLexer.java java/flipsTargetUdbLogoParser.java java/flipsCompiler.java -d java/classes -verbose
+echo "Compiler generated."
+
