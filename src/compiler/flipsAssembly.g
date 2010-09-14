@@ -55,7 +55,7 @@ options {
     return String.format("\%1$-" + count + "s", string);
   }
   
-  static String sToHHMMSS(double value) {
+  static String toHHMMSS(double value) {
     int hours = (int)value / 3600;
     int remainder = (int)value \% 3600;
     int minutes = remainder / 60;
@@ -68,8 +68,12 @@ options {
            (decimal != 0 ? "." + decimal : "");
   }
   
-  public static String mToft(double meters) {
+  public static String toFT(double meters) {
     return meters + " m (" + (meters / 0.3048) + " ft) ";
+  }
+  
+  public static String toMPH(double metersPerSecond) {
+    return metersPerSecond + " m/s (" + (Math.round(metersPerSecond / 1609.344 * 3600 * 100) / 100f) + " mph) ";
   }
 }
 
@@ -161,6 +165,7 @@ flyCommandValue
 	:	time
 	|	direction
 	|	speed
+	|	throttle
 	|	distance
 	|	pitch
 	|	roll
@@ -177,6 +182,7 @@ loiterCommand
 loiterCommandValue
 	:	time
 	|	speed
+	|	throttle
 	|	loiterDirection
 	|	radius
 	|	duration
@@ -205,122 +211,131 @@ else if (symbol != null && symbol instanceof FlightPlanSymbol) {
 
 executeCommandParameter
 	:	^(PARAMETER x=numericValue)
-		{emit("CMD PAR " + x, "Command Parameter");}
+		{emit("CMD PAR " + x, x + " Command Parameter");}
 	|	^(PARAMETER y=StringLiteral)
-		{emit("CMD PAR " + y, "Command Parameter");}
+		{emit("CMD PAR " + y, "\"" + y + "\"" + " Command Parameter");}
 	;
 
 // ATTITUDE EXPRESSIONS
 
 pitch
-	:	^(PITCH x=convertAngle)
+	:	^(PITCH FIXED x=angularValue)
 		{emit("POS PIT FIX " + x, x + " deg Pitch");}
-	|	^(PITCH y=convertAngularRate)
+	|	^(PITCH RELATIVE x=angularValue)
+		{emit("POS PIT REL " + x, x + " deg Relative Pitch");}
+	|	^(PITCH FIXED y=angularRateValue)
 		{emit("VEL PIT FIX " + y, y + " deg/s Pitch");}
-	|	^(PITCH x=convertAngle ^(SPEED y=convertAngularRate))
+	|	^(PITCH RELATIVE y=angularRateValue)
+		{emit("VEL PIT REL " + y, y + " deg/s Relative Pitch");}
+	|	^(PITCH FIXED x=angularValue y=angularRateValue)
+		{emit("VEL PIT FIX " + y, y + " deg/s Pitch");}
 		{emit("POS PIT FIX " + x, x + " deg Pitch");}
+	|	^(PITCH RELATIVE x=angularValue y=angularRateValue)
 		{emit("VEL PIT FIX " + y, y + " deg/s Pitch");}
+		{emit("POS PIT REL " + x, x + " deg Relative Pitch");}
 	;
 
 roll
-	:	^(ROLL x=convertAngle)
+	:	^(ROLL FIXED x=angularValue)
 		{emit("POS ROL FIX " + x, x + " deg Roll");}
-	|	^(ROLL y=convertAngularRate)
+	|	^(ROLL RELATIVE x=angularValue)
+		{emit("POS ROL REL " + x, x + " deg Relative Roll");}
+	|	^(ROLL FIXED y=angularRateValue)
 		{emit("VEL ROL FIX " + y, y + " deg/s Roll");}
-	|	^(ROLL x=convertAngle ^(SPEED y=convertAngularRate))
+	|	^(ROLL RELATIVE y=angularRateValue)
+		{emit("VEL ROL REL " + y, y + " deg/s Relative Roll");}
+	|	^(ROLL FIXED x=angularValue y=angularRateValue)
+		{emit("VEL ROL FIX " + y, y + " deg/s Roll");}
 		{emit("POS ROL FIX " + x, x + " deg Roll");}
+	|	^(ROLL RELATIVE x=angularValue y=angularRateValue)
 		{emit("VEL ROL FIX " + y, y + " deg/s Roll");}
-	|	^(ROLL LEVEL)
-		{emit("POS ROL FIX 0", "0 deg/s Roll");}
+		{emit("POS ROL REL " + x, x + " deg Relative Roll");}
+	;
+
+yaw
+	:	^(YAW FIXED x=angularValue)
+		{emit("POS YAW FIX " + x, x + " deg Yaw");}
+	|	^(YAW RELATIVE x=angularValue)
+		{emit("POS YAW REL " + x, x + " deg Relative Yaw");}
+	|	^(YAW FIXED y=angularRateValue)
+		{emit("VEL YAW FIX " + y, y + " deg/s Yaw");}
+	|	^(YAW RELATIVE y=angularRateValue)
+		{emit("VEL YAW REL " + y, y + " deg/s Relative Yaw");}
+	|	^(YAW FIXED x=angularValue y=angularRateValue)
+		{emit("VEL YAW FIX " + y, y + " deg/s Yaw");}
+		{emit("POS YAW FIX " + x, x + " deg Yaw");}
+	|	^(YAW RELATIVE x=angularValue y=angularRateValue)
+		{emit("VEL YAW FIX " + y, y + " deg/s Yaw");}
+		{emit("POS YAW REL " + x, x + " deg Relative Yaw");}
 	;
 
 // ALTITUDE EXPRESSIONS
 
 altitude
-	:	^(ALTITUDE FIXED DISTANCE x=convertDistance)
-		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
-	|	^(ALTITUDE FIXED PRESSURE y=convertPressure)
+	:	^(DISTANCE FIXED Z x=distanceValue)
+		{emit("POS   Z FIX " + x, toFT(-x) + "Altitude");}
+	|	^(DISTANCE RELATIVE Z x=distanceValue)
+		{emit("POS   Z REL " + x, toFT(-x) + "Relative Altitude");}
+	|	^(DISTANCE FIXED Z y=pressureValue)
 		{emit("POS PRE FIX " + y, y + " kPa Pressure Altitude");}
-	|	^(ALTITUDE FIXED x=convertFlightLevel)
-		{emit("POS   Z FIX " + -x, mToft(x) + "Altitude");}
-	|	^(ALTITUDE RELATIVE CLIMB DISTANCE x=convertDistance)
-		{emit("POS   Z REL " + -x, mToft(x) + "Relative Altitude");}
-	|	^(ALTITUDE RELATIVE CLIMB PRESSURE y=convertPressure)
-		{emit("POS PRE REL " + -y, -y + " kPa Relative Pressure Altitude");}
-	|	^(ALTITUDE RELATIVE DESCEND DISTANCE x=convertDistance)
-		{emit("POS   Z REL " + x, mToft(-x) + "Relative Altitude");}
-	|	^(ALTITUDE RELATIVE DESCEND PRESSURE y=convertPressure)
+	|	^(DISTANCE RELATIVE Z y=pressureValue)
 		{emit("POS PRE REL " + y, y + " kPa Relative Pressure Altitude");}
 	;
 
 // DISTANCE EXPRESSIONS
 
 distance
-	:	^(DISTANCE x=convertDistance)
-		{emit("POS   X REL " + x, mToft(x) + "Relative Distance");}
-	|	^(DISTANCE LEFT x=convertDistance)
-		{emit("POS   Y REL " + -x, mToft(-x) + "Relative Left Distance");}
-	|	^(DISTANCE RIGHT x=convertDistance)
-		{emit("POS   Y REL " + x, mToft(x) + "Relative Right Distance");}
+	:	^(DISTANCE RELATIVE X x=distanceValue)
+		{emit("POS   X REL " + x, toFT(x) + "Relative X Distance");}
+	|	^(DISTANCE RELATIVE Y x=distanceValue)
+		{emit("POS   Y REL " + x, toFT(x) + "Relative Y Distance");}
 	;
 
 radius
-	:	^(RADIUS x=convertDistance)
-		{emit("RAD " + x, mToft(x) + "Radius");}
+	:	^(RADIUS x=distanceValue)
+		{emit("RAD " + x, toFT(x) + "Radius");}
 	;
 
 // SPEED EXPRESSIONS
 
 speed
-	:	^(SPEED FIXED x=convertSpeed)
-		{emit("SPD AIR FIX " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Air Speed");}
-	|	^(SPEED RELATIVE FASTER x=convertSpeed)
-		{emit("SPD AIR REL " + x, x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
-	|	^(SPEED RELATIVE SLOWER x=convertSpeed)
-		{emit("SPD AIR REL " + -x, -x + " m/s (" + (Math.round(x / 1609.344 * 3600 * 100) / 100f) + " mph) Relative Air Speed");}
-	|	^(SPEED RELATIVE FASTER x=percentValue)
-	|	^(SPEED RELATIVE SLOWER x=percentValue)
-	|	^(SPEED THROTTLE x=percentValue)
-		{emit("ACT THR PCT " + x, x + "\% Throttle");}
-	|	^(SPEED THROTTLE x=convertAngularRate)
-		{emit("ACT THR RPM " + (x / 6d), (x / 6d) + " RPM (" + x + " deg/s) Throttle");}
+	:	^(SPEED FIXED x=speedValue)
+		{emit("SPD AIR FIX " + x, toMPH(x) + "Air Speed");}
+	|	^(SPEED RELATIVE x=speedValue)
+		{emit("SPD AIR REL " + x, toMPH(x) + "Relative Air Speed");}
+	|	^(SPEED RELATIVE x=percentValue)
+	;
+
+throttle
+	:	^(THROTTLE FIXED ^(SPEED x=percentValue))
+		{emit("ACT THR FIX PCT " + x, x + "\% Throttle");}
+	|	^(THROTTLE FIXED x=angularRateValue)
+		{emit("ACT THR FIX RPM " + (x / 6d), (x / 6d) + " RPM (" + x + " deg/s) Throttle");}
+	|	^(THROTTLE RELATIVE ^(SPEED x=percentValue))
+		{emit("ACT THR REL PCT " + x, x + "\% Throttle");}
+	|	^(THROTTLE RELATIVE x=angularRateValue)
+		{emit("ACT THR REL RPM " + (x / 6d), (x / 6d) + " RPM (" + x + " deg/s) Throttle");}
 	;
 
 // TIME EXPRESSIONS
 
 time
-	:	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? AM)
-		{x = (x == 43200d) ? 0d : x;}
-		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + " AM) Time");}
-	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? PM)
-		{x = (x == 43200d) ? 0d : x;}
-		{emit("TIM FIX " + (x + y + z + 43200d), (x + y + z + 43200d) + " s (" + sToHHMMSS(x + y + z) + " PM) Time");}
-	|	^(TIME x=convertTime (y=convertTime (z=convertTime)?)? HOUR24)
-		{emit("TIM FIX " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Time");}
+	:	^(TIME FIXED x=timeValue)
+		{emit("TIM FIX " + x, x + " s (" + toHHMMSS(x) + ") Time");}
 	;
 
 duration
-	:	^(DURATION x=convertTime (y=convertTime (z=convertTime)?)?)
-		{emit("TIM REL " + (x + y + z), (x + y + z) + " s (" + sToHHMMSS(x + y + z) + ") Duration");}
+	:	^(TIME RELATIVE x=timeValue)
+		{emit("TIM REL " + x, x + " s (" + toHHMMSS(x) + ") Duration");}
 	;
 
 // DIRECTION EXPRESSIONS
 
 direction
-	:	^(DIRECTION FIXED x=convertCardinalDirection)
-		{emit("POS YAW FIX " + x, x + " deg Heading");}
-	|	^(DIRECTION FIXED x=convertOrdinalDirection)
-		{emit("POS YAW FIX " + x, x + " deg Heading");}
-	|	^(DIRECTION FIXED x=convertSubOrdinalDirection)
-		{emit("POS YAW FIX " + x, x + " deg Heading");}
-	|	^(DIRECTION FIXED y=convertAngle)
+	:	^(DIRECTION FIXED y=angularValue)
 		{emit("POS YAW FIX " + y, y + " deg Heading");}
-	|	^(DIRECTION RELATIVE LEFT y=convertAngle)
-		{emit("POS YAW REL " + -y, -y + " deg Yaw");}
-	|	^(DIRECTION RELATIVE RIGHT y=convertAngle)
+	|	^(DIRECTION RELATIVE y=angularValue)
 		{emit("POS YAW REL " + y, y + " deg Yaw");}
-	|	^(DIRECTION RELATIVE STRAIGHT)
-		{emit("POS YAW REL 0", "0 deg Yaw");}
 	;
 
 turnDirection
@@ -351,8 +366,8 @@ if (symbol != null && symbol instanceof LatLonWaypointSymbol) {
 }
 else if (symbol != null && symbol instanceof DistanceWaypointSymbol) {
   DistanceWaypointSymbol waypoint = (DistanceWaypointSymbol)symbol;
-  emit("POS   X FIX " + waypoint.getX(), waypoint.getName().toUpperCase() + " / " + mToft(Math.abs(waypoint.getX())) + waypoint.getEastWest() + " Distance");
-  emit("POS   Y FIX " + waypoint.getY(), waypoint.getName().toUpperCase() + " / " + mToft(Math.abs(waypoint.getY())) + waypoint.getNorthSouth() + " Distance");
+  emit("POS   X FIX " + waypoint.getX(), waypoint.getName().toUpperCase() + " / " + toFT(Math.abs(waypoint.getX())) + waypoint.getEastWest() + " Distance");
+  emit("POS   Y FIX " + waypoint.getY(), waypoint.getName().toUpperCase() + " / " + toFT(Math.abs(waypoint.getY())) + waypoint.getNorthSouth() + " Distance");
 }
 else {
   emit("POS   X FIX " + symbol.getName(), symbol.getName().toUpperCase() + " Waypoint");
@@ -370,230 +385,72 @@ geoCoordinate
 	|	^(GEOCOORDINATE dst=distanceCoordinate)
 		{String ns = dst.north >= 0 ? "N" : "S";}
 		{String ew = dst.east >= 0 ? "E" : "W";}
-		{emit("POS   X FIX " + dst.east, mToft(Math.abs(dst.east)) + ew + " Distance");}
-		{emit("POS   Y FIX " + dst.north, mToft(Math.abs(dst.north)) + ns + " Distance");}
+		{emit("POS   X FIX " + dst.east, toFT(Math.abs(dst.east)) + ew + " Distance");}
+		{emit("POS   Y FIX " + dst.north, toFT(Math.abs(dst.north)) + ns + " Distance");}
 	;
 
 latitudeLongitude returns [double latitude, double longitude]
-	:	x=latitude y=longitude
-		{$latitude = x;}
-		{$longitude = y;}
-	;
-
-latitude returns [double r]
-	:	^(LATITUDE x=convertAngle NORTH)
-		{r = x;}
-	|	^(LATITUDE x=convertAngle SOUTH)
-		{r = -x;}
-	;
-
-longitude returns [double r]
-	:	^(LONGITUDE x=convertAngle EAST)
-		{r = x;}
-	|	^(LONGITUDE x=convertAngle WEST)
-		{r = -x;}
+	:	^(X x=angularValue) ^(Y y=angularValue)
+		{$latitude = y;}
+		{$longitude = x;}
 	;
 
 distanceCoordinate returns [double north, double east]
-	:	x=distanceNorth y=distanceEast
-		{$north = x;}
-		{$east = y;}
+	:	^(X x=distanceValue) ^(Y y=distanceValue)
+		{$north = y;}
+		{$east = x;}
 	;
 
-distanceNorth returns [double r]
-	:	^(DISTANCE x=convertDistance NORTH)
-		{r = x;}
-	|	^(DISTANCE x=convertDistance SOUTH)
-		{r = -x;}
+angularValue returns [double r]
+	:	^(ANGLE x=numericValue DEGREE)
+		{$r = x;}
 	;
 
-distanceEast returns [double r]
-	:	^(DISTANCE x=convertDistance EAST)
-		{r = x;}
-	|	^(DISTANCE x=convertDistance WEST)
-		{r = -x;}
+angularRateValue returns [double r]
+	:	^(SPEED x=numericValue DEGREE SECOND)
+		{$r = x;}
 	;
 
-// UNIT CONVERSIONS
-
-// Standard time unit is the second
-convertTime returns [double r]
-	:	x=numericValue y=convertTimeUnit
-		{r = x * y;}
+distanceValue returns [double r]
+	:	^(DISTANCE x=numericValue METER)
+		{$r = x;}
 	;
 
-// Standard time unit is the second
-convertTimeUnit returns [double r]
-	:	YEAR
-		{r = 31557600d;}
-	|	FORTNIGHT
-		{r = 1209600d;}
-	|	WEEK
-		{r = 604800d;}
-	|	DAY
-		{r = 86400d;}
-	|	HOUR
-		{r = 3600d;}
-	|	MINUTE
-		{r = 60d;}
-	|	SECOND
-		{r = 1d;}
-	|	MILLISECOND
-		{r = 0.001d;}
+pressureValue returns [double r]
+	:	^(PRESSURE x=numericValue PASCAL)
+		{$r = x;}
 	;
 
-// Standard distance unit is the meter
-convertDistance returns [double r]
-	:	x=numericValue y=convertDistanceUnit
-		{r = x * y;}
+speedValue returns [double r]
+	:	^(SPEED x=numericValue METER SECOND)
+		{$r = x;}
 	;
 
-// Standard distance unit is the meter
-convertDistanceUnit returns [double r]
-	:	KILOMETER
-		{r = 1000d;}
-	|	METER
-		{r = 1d;}
-	|	CENTIMETER
-		{r = 0.01d;}
-	|	NAUTICAL MILE
-		{r = 1852d;}
-	|	MILE
-		{r = 1609.344d;}
-	|	FURLONG
-		{r = 201.168d;}
-	|	YARD
-		{r = 0.9144d;}
-	|	FOOT
-		{r = 0.3048d;}
-	|	INCH
-		{r = 0.0254d;}
-	;
-
-// Standard flight level (distance) unit is the meter
-convertFlightLevel returns [double r]
-	:	FLIGHTLEVEL x=FlightLevel
-		{String y = x.toString().replaceAll("fl","").replaceAll("ight level","").replaceAll(" ","");}
-		{r = Double.parseDouble(y) * 100d * 0.3048d;}
-	;
-
-// Standard pressure unit is the pascal
-convertPressure returns [double r]
-	:	x=numericValue y=convertPressureUnit
-		{r = x * y;}
-	;
-
-// Standard pressure unit is the pascal
-convertPressureUnit returns [double r]
-	:	KILOPASCAL
-		{r = 1000d;}
-	|	HECTOPASCAL
-		{r = 100d;}
-	|	PASCAL
-		{r = 1d;}
-	|	BAR
-		{r = 100000d;}
-	|	MILLIBAR
-		{r = 100d;}
-	|	ATMOSPHERE
-		{r = 101325d;}
-	;
-
-// Standard speed unit is the meter/second
-convertSpeed returns [double r]
-	:	x=convertDistance y=convertTimeUnit
-		{r = x / y;}
-	;
-
-// Standard angle unit is the degree
-convertAngle returns [double r]
-	:	x=numericValue DEGREE
-		{r = x;}
-	|	deg=integerValue DEGREE minNum=numericValue MINUTE
-		{r = deg + minNum/60d;}
-	|	deg=integerValue DEGREE minInt=integerValue MINUTE sec=numericValue SECOND
-		{r = deg + minInt/60d + sec/3600d;}
-	|	x=numericValue RADIAN
-		{r = x * 180d / Math.PI;}
-	;
-
-// Standard angular rate unit is the degree/second
-convertAngularRate returns [double r]
-	:	x=convertAngle y=convertTimeUnit
-		{r = x / y;}
-	|	z=numericValue REVOLUTION y=convertTimeUnit
-		{r = z / y * 360d;}
-	;
-
-// Standard heading unit is the degree
-convertCardinalDirection returns [double r]
-	:	NORTH
-		{r = 0d;}
-	|	EAST
-		{r = 90d;}
-	|	SOUTH
-		{r = 180d;}
-	|	WEST
-		{r = 270d;}
-	;
-
-// Standard heading unit is the degree
-convertOrdinalDirection returns [double r]
-	:	NORTH EAST
-		{r = 45d;}
-	|	SOUTH EAST
-		{r = 135d;}
-	|	SOUTH WEST
-		{r = 225d;}
-	|	NORTH WEST
-		{r = 315d;}
-	;
-
-// Standard heading unit is the degree
-convertSubOrdinalDirection returns [double r]
-	:	NORTH NORTH EAST
-		{r = 22.5d;}
-	|	EAST NORTH EAST
-		{r = 67.5d;}
-	|	EAST SOUTH EAST
-		{r = 112.5d;}
-	|	SOUTH SOUTH EAST
-		{r = 157.5d;}
-	|	SOUTH SOUTH WEST
-		{r = 202.5d;}
-	|	WEST SOUTH WEST
-		{r = 247.5d;}
-	|	WEST NORTH WEST
-		{r = 292.5d;}
-	|	NORTH NORTH WEST
-		{r = 337.5d;}
-	;
-
-convertDirection[double r]
-	:	(CLIMB|RIGHT|CLOCKWISE)
-	|	(DESCEND|LEFT|COUNTERCLOCKWISE)
+timeValue returns [double r]
+	:	^(TIME x=numericValue SECOND)
+		{$r = x;}
 	;
 
 // Standard numeric value unit is the double
 numericValue returns [double r]
 	:	x=integerValue
-		{r = (double) x;}
+		{$r = (double) x;}
 	|	y=FloatingPointLiteral
-		{r = Double.parseDouble(y.getText());}
+		{$r = Double.parseDouble(y.getText());}
 	;
 
 integerValue returns [int r]
 	:	x=BinaryLiteral
-		{r = Integer.parseInt(x.getText().substring(2),2);}
+		{$r = Integer.parseInt(x.getText().substring(2),2);}
 	|	x=OctalLiteral
-		{r = Integer.parseInt(x.getText().substring(1),8);}
+		{$r = Integer.parseInt(x.getText().substring(1),8);}
 	|	x=DecimalLiteral
-		{r = Integer.parseInt(x.getText());}
+		{$r = Integer.parseInt(x.getText());}
 	|	x=HexLiteral
-		{r = Integer.parseInt(x.getText().substring(2),16);}
+		{$r = Integer.parseInt(x.getText().substring(2),16);}
 	;
 
 percentValue returns [double r]
 	:	x=numericValue PERCENT
-		{r = x;}
+		{$r = x;}
 	;

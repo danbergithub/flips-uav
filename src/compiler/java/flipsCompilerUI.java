@@ -108,6 +108,10 @@ public class flipsCompilerUI extends JFrame {
     CommonTree tree = root.tree;
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
     
+    // Unit Conversion
+    flipsUnitConversion unitConversion = new flipsUnitConversion(nodes);
+    tree = (CommonTree)unitConversion.downup(tree, false);
+    
     // Semantic Check and Unit Conversion
     SymbolTable symbols = new SymbolTable();
     flipsAssembly walker = new flipsAssembly(nodes);

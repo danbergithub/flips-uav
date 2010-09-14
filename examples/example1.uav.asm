@@ -1,4 +1,3 @@
-$INCLUDE takeoff.uav     // Include Source File 'takeoff.uav'
 POS   Z FIX -60.96       // 60.96 m (200.0 ft) Altitude
 SPD AIR FIX 10.0         // 10.0 m/s (22.37 mph) Air Speed
 FLY                      // Execute
@@ -20,7 +19,7 @@ SPD AIR FIX 5.0          // 5.0 m/s (11.18 mph) Air Speed
 TIM REL 180.0            // 180.0 s (0:03:00) Duration
 FLY                      // Execute
 TIM REL 45.0             // 45.0 s (0:00:45) Duration
-POS ROL FIX 20.0         // 20.0 deg Roll
+POS ROL REL 20.0         // 20.0 deg Relative Roll
 POS PIT FIX 10.0         // 10.0 deg Pitch
 FLY                      // Execute
 POS   X GEO -84.2522     // 84.2522 W Longitude
@@ -45,11 +44,10 @@ TIM REL 3600.0           // 3600.0 s (1:00:00) Duration
 SPD AIR FIX 10.0         // 10.0 m/s (22.37 mph) Air Speed
 POS   Z FIX -9.144       // 9.144 m (30.0 ft) Altitude
 POS PIT FIX 10.0         // 10.0 deg Pitch
-POS ROL FIX 5.0          // 5.0 deg Roll
+POS ROL REL 5.0          // 5.0 deg Relative Roll
 FLY                      // Execute
 TIM REL 120.0            // 120.0 s (0:02:00) Duration
 POS   Z FIX -35.052      // 35.052 m (115.0 ft) Altitude
 LTR                      // Execute Loiter
 SPD AIR FIX 4.4704       // 4.4704 m/s (10.0 mph) Air Speed
 FLY                      // Execute
-$INCLUDE land.uav        // Include Source File 'land.uav'
