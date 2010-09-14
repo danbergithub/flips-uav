@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsAssembly.g 2010-09-14 00:13:50
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsAssembly.g 2010-09-14 00:36:53
 
   import java.io.IOException;
   import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class flipsAssembly extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "StringLiteral", "And", "Identifier", "To", "At", "With", "FlightLevel", "Per", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'repeat'", "'wait'", "'time'", "'times'", "'continuously'", "'forever'", "'until'", "'while'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'for'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "StringLiteral", "And", "Identifier", "To", "At", "With", "FlightLevel", "Per", "For", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'repeat'", "'wait'", "'time'", "'times'", "'continuously'", "'forever'", "'until'", "'while'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
     };
     public static final int DIRECTION=13;
     public static final int T__159=159;
@@ -122,7 +122,7 @@ public class flipsAssembly extends TreeParser {
     public static final int T__128=128;
     public static final int T__308=308;
     public static final int T__127=127;
-    public static final int WS=111;
+    public static final int WS=112;
     public static final int T__301=301;
     public static final int T__302=302;
     public static final int T__129=129;
@@ -130,12 +130,12 @@ public class flipsAssembly extends TreeParser {
     public static final int T__303=303;
     public static final int T__304=304;
     public static final int LEVEL=21;
-    public static final int BinaryLiteral=102;
-    public static final int BinaryDigit=108;
+    public static final int BinaryLiteral=103;
+    public static final int BinaryDigit=109;
     public static final int THROTTLE=26;
     public static final int T__309=309;
     public static final int T__269=269;
-    public static final int FloatingPointLiteral=101;
+    public static final int FloatingPointLiteral=102;
     public static final int T__268=268;
     public static final int T__275=275;
     public static final int T__276=276;
@@ -170,14 +170,13 @@ public class flipsAssembly extends TreeParser {
     public static final int T__119=119;
     public static final int T__116=116;
     public static final int T__117=117;
-    public static final int T__114=114;
     public static final int T__115=115;
     public static final int T__124=124;
     public static final int T__123=123;
     public static final int T__122=122;
     public static final int T__121=121;
     public static final int T__120=120;
-    public static final int HexDigit=109;
+    public static final int HexDigit=110;
     public static final int T__223=223;
     public static final int T__222=222;
     public static final int T__221=221;
@@ -199,7 +198,7 @@ public class flipsAssembly extends TreeParser {
     public static final int AM=29;
     public static final int T__212=212;
     public static final int T__211=211;
-    public static final int HexLiteral=105;
+    public static final int HexLiteral=106;
     public static final int T__239=239;
     public static final int T__237=237;
     public static final int T__238=238;
@@ -226,7 +225,7 @@ public class flipsAssembly extends TreeParser {
     public static final int T__226=226;
     public static final int T__227=227;
     public static final int NAUTICAL=53;
-    public static final int NonZeroDigit=107;
+    public static final int NonZeroDigit=108;
     public static final int NORTH=74;
     public static final int REVOLUTION=27;
     public static final int T__232=232;
@@ -237,14 +236,14 @@ public class flipsAssembly extends TreeParser {
     public static final int T__230=230;
     public static final int WEEK=40;
     public static final int LT=80;
-    public static final int OctalLiteral=103;
+    public static final int OctalLiteral=104;
     public static final int LATITUDE=36;
     public static final int ATMOSPHERE=71;
     public static final int Per=98;
     public static final int DAY=41;
     public static final int Identifier=93;
     public static final int COMMAND=7;
-    public static final int Comment=112;
+    public static final int Comment=113;
     public static final int MILLIBAR=70;
     public static final int PARAMETER=8;
     public static final int COUNTERCLOCKWISE=62;
@@ -274,8 +273,8 @@ public class flipsAssembly extends TreeParser {
     public static final int FORWARD=86;
     public static final int YEAR=38;
     public static final int MILE=54;
-    public static final int Exponent=110;
-    public static final int LineComment=113;
+    public static final int Exponent=111;
+    public static final int LineComment=114;
     public static final int YAW=19;
     public static final int T__329=329;
     public static final int DEFINE=5;
@@ -323,21 +322,22 @@ public class flipsAssembly extends TreeParser {
     public static final int ANGLE=46;
     public static final int PERCENT=63;
     public static final int T__189=189;
-    public static final int Heading=100;
+    public static final int Heading=101;
     public static final int T__180=180;
     public static final int NEGATIVE=85;
     public static final int T__182=182;
     public static final int T__181=181;
     public static final int BACKWARD=87;
-    public static final int Digit=106;
-    public static final int DecimalLiteral=104;
+    public static final int Digit=107;
+    public static final int DecimalLiteral=105;
+    public static final int For=99;
     public static final int T__175=175;
     public static final int T__174=174;
     public static final int FLIGHTPLAN=4;
     public static final int T__173=173;
     public static final int T__172=172;
     public static final int T__179=179;
-    public static final int Turning=99;
+    public static final int Turning=100;
     public static final int T__178=178;
     public static final int T__177=177;
     public static final int KILOPASCAL=66;
@@ -3544,9 +3544,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA5_eofS =
         "\14\uffff";
     static final String DFA5_minS =
-        "\1\5\1\2\1\135\1\7\1\2\1\146\4\3\2\uffff";
+        "\1\5\1\2\1\135\1\7\1\2\1\147\4\3\2\uffff";
     static final String DFA5_maxS =
-        "\1\5\1\2\1\135\1\7\1\2\1\151\4\10\2\uffff";
+        "\1\5\1\2\1\135\1\7\1\2\1\152\4\10\2\uffff";
     static final String DFA5_acceptS =
         "\12\uffff\1\2\1\1";
     static final String DFA5_specialS =
@@ -3788,9 +3788,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA14_eofS =
         "\35\uffff";
     static final String DFA14_minS =
-        "\1\21\1\2\1\17\2\27\1\uffff\1\2\1\uffff\1\2\2\145\12\57\4\3\4\uffff";
+        "\1\21\1\2\1\17\2\27\1\uffff\1\2\1\uffff\1\2\2\146\12\57\4\3\4\uffff";
     static final String DFA14_maxS =
-        "\1\21\1\2\1\20\2\56\1\uffff\1\2\1\uffff\1\2\2\151\12\57\2\3\2\27"+
+        "\1\21\1\2\1\20\2\56\1\uffff\1\2\1\uffff\1\2\2\152\12\57\2\3\2\27"+
         "\4\uffff";
     static final String DFA14_acceptS =
         "\5\uffff\1\3\1\uffff\1\4\21\uffff\1\5\1\1\1\2\1\6";
@@ -3866,9 +3866,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA15_eofS =
         "\35\uffff";
     static final String DFA15_minS =
-        "\1\22\1\2\1\17\2\27\1\2\2\uffff\1\2\2\145\12\57\4\3\4\uffff";
+        "\1\22\1\2\1\17\2\27\1\2\2\uffff\1\2\2\146\12\57\4\3\4\uffff";
     static final String DFA15_maxS =
-        "\1\22\1\2\1\20\2\56\1\2\2\uffff\1\2\2\151\12\57\2\3\2\27\4\uffff";
+        "\1\22\1\2\1\20\2\56\1\2\2\uffff\1\2\2\152\12\57\2\3\2\27\4\uffff";
     static final String DFA15_acceptS =
         "\6\uffff\1\3\1\4\21\uffff\1\5\1\1\1\6\1\2";
     static final String DFA15_specialS =
@@ -3943,9 +3943,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA16_eofS =
         "\35\uffff";
     static final String DFA16_minS =
-        "\1\23\1\2\1\17\2\27\1\2\2\uffff\1\2\2\145\12\57\4\3\4\uffff";
+        "\1\23\1\2\1\17\2\27\1\2\2\uffff\1\2\2\146\12\57\4\3\4\uffff";
     static final String DFA16_maxS =
-        "\1\23\1\2\1\20\2\56\1\2\2\uffff\1\2\2\151\12\57\2\3\2\27\4\uffff";
+        "\1\23\1\2\1\20\2\56\1\2\2\uffff\1\2\2\152\12\57\2\3\2\27\4\uffff";
     static final String DFA16_acceptS =
         "\6\uffff\1\3\1\4\21\uffff\1\1\1\5\1\2\1\6";
     static final String DFA16_specialS =
@@ -4079,9 +4079,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA20_eofS =
         "\27\uffff";
     static final String DFA20_minS =
-        "\1\32\1\2\1\17\2\27\2\2\2\145\12\57\4\uffff";
+        "\1\32\1\2\1\17\2\27\2\2\2\146\12\57\4\uffff";
     static final String DFA20_maxS =
-        "\1\32\1\2\1\20\2\27\2\2\2\151\12\77\4\uffff";
+        "\1\32\1\2\1\20\2\27\2\2\2\152\12\77\4\uffff";
     static final String DFA20_acceptS =
         "\23\uffff\1\2\1\1\1\4\1\3";
     static final String DFA20_specialS =
@@ -4169,7 +4169,7 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_Identifier_in_defineCommand202 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_COMMAND_in_defineCommand205 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_integerValue_in_defineCommand209 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_PARAMETER_in_defineCommand211 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
+    public static final BitSet FOLLOW_PARAMETER_in_defineCommand211 = new BitSet(new long[]{0x0000000000000000L,0x0000078000000000L});
     public static final BitSet FOLLOW_integerValue_in_defineCommand215 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DEFINE_in_defineSensor233 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_Identifier_in_defineSensor237 = new BitSet(new long[]{0x0000000000000200L});
@@ -4308,7 +4308,7 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_RELATIVE_in_speed1093 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_speedValue_in_speed1097 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SPEED_in_speed1108 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_speed1110 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_RELATIVE_in_speed1110 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_percentValue_in_speed1114 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_THROTTLE_in_throttle1127 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_FIXED_in_throttle1129 = new BitSet(new long[]{0x0000000000800000L});

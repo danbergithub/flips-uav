@@ -491,7 +491,7 @@ throttleValue
 time
 	:	At fixedTime
 	->	^(TIME FIXED fixedTime)
-	|	'for' relativeTime
+	|	For relativeTime
 	->	^(TIME RELATIVE relativeTime)
 	;
 
@@ -854,6 +854,8 @@ And	:	'&'|'and';
 To	:	'to';
 
 At	:	'@'|'at';
+
+For	:	'for';
 
 Per	:	'/'|'per';
 
