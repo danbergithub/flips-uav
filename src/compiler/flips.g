@@ -868,6 +868,9 @@ Heading	:	'hdg'|'heading';
 FlightLevel
 	:	('fl'|'flight level') ' '? Digit (Digit|Digit Digit)?;
 
+PlusOrMinus
+	:	'+/-';
+
 // STRING TOKENS
 
 Identifier
