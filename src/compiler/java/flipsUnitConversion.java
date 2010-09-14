@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsUnitConversion.g 2010-09-14 00:13:49
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsUnitConversion.g 2010-09-14 00:36:52
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;import java.util.Stack;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class flipsUnitConversion extends TreeRewriter {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "StringLiteral", "And", "Identifier", "To", "At", "With", "FlightLevel", "Per", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'repeat'", "'wait'", "'time'", "'times'", "'continuously'", "'forever'", "'until'", "'while'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'for'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "StringLiteral", "And", "Identifier", "To", "At", "With", "FlightLevel", "Per", "For", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'repeat'", "'wait'", "'time'", "'times'", "'continuously'", "'forever'", "'until'", "'while'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
     };
     public static final int DIRECTION=13;
     public static final int T__159=159;
@@ -120,7 +120,7 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int T__128=128;
     public static final int T__308=308;
     public static final int T__127=127;
-    public static final int WS=111;
+    public static final int WS=112;
     public static final int T__301=301;
     public static final int T__302=302;
     public static final int T__129=129;
@@ -128,12 +128,12 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int T__303=303;
     public static final int T__304=304;
     public static final int LEVEL=21;
-    public static final int BinaryLiteral=102;
-    public static final int BinaryDigit=108;
+    public static final int BinaryLiteral=103;
+    public static final int BinaryDigit=109;
     public static final int THROTTLE=26;
     public static final int T__309=309;
     public static final int T__269=269;
-    public static final int FloatingPointLiteral=101;
+    public static final int FloatingPointLiteral=102;
     public static final int T__268=268;
     public static final int T__275=275;
     public static final int T__276=276;
@@ -168,14 +168,13 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int T__119=119;
     public static final int T__116=116;
     public static final int T__117=117;
-    public static final int T__114=114;
     public static final int T__115=115;
     public static final int T__124=124;
     public static final int T__123=123;
     public static final int T__122=122;
     public static final int T__121=121;
     public static final int T__120=120;
-    public static final int HexDigit=109;
+    public static final int HexDigit=110;
     public static final int T__223=223;
     public static final int T__222=222;
     public static final int T__221=221;
@@ -197,7 +196,7 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int AM=29;
     public static final int T__212=212;
     public static final int T__211=211;
-    public static final int HexLiteral=105;
+    public static final int HexLiteral=106;
     public static final int T__239=239;
     public static final int T__237=237;
     public static final int T__238=238;
@@ -224,7 +223,7 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int T__226=226;
     public static final int T__227=227;
     public static final int NAUTICAL=53;
-    public static final int NonZeroDigit=107;
+    public static final int NonZeroDigit=108;
     public static final int NORTH=74;
     public static final int REVOLUTION=27;
     public static final int T__232=232;
@@ -235,14 +234,14 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int T__230=230;
     public static final int WEEK=40;
     public static final int LT=80;
-    public static final int OctalLiteral=103;
+    public static final int OctalLiteral=104;
     public static final int LATITUDE=36;
     public static final int ATMOSPHERE=71;
     public static final int Per=98;
     public static final int DAY=41;
     public static final int Identifier=93;
     public static final int COMMAND=7;
-    public static final int Comment=112;
+    public static final int Comment=113;
     public static final int MILLIBAR=70;
     public static final int PARAMETER=8;
     public static final int COUNTERCLOCKWISE=62;
@@ -272,8 +271,8 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int FORWARD=86;
     public static final int YEAR=38;
     public static final int MILE=54;
-    public static final int Exponent=110;
-    public static final int LineComment=113;
+    public static final int Exponent=111;
+    public static final int LineComment=114;
     public static final int YAW=19;
     public static final int T__329=329;
     public static final int DEFINE=5;
@@ -321,21 +320,22 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int ANGLE=46;
     public static final int PERCENT=63;
     public static final int T__189=189;
-    public static final int Heading=100;
+    public static final int Heading=101;
     public static final int T__180=180;
     public static final int NEGATIVE=85;
     public static final int T__182=182;
     public static final int T__181=181;
     public static final int BACKWARD=87;
-    public static final int Digit=106;
-    public static final int DecimalLiteral=104;
+    public static final int Digit=107;
+    public static final int DecimalLiteral=105;
+    public static final int For=99;
     public static final int T__175=175;
     public static final int T__174=174;
     public static final int FLIGHTPLAN=4;
     public static final int T__173=173;
     public static final int T__172=172;
     public static final int T__179=179;
-    public static final int Turning=99;
+    public static final int Turning=100;
     public static final int T__178=178;
     public static final int T__177=177;
     public static final int KILOPASCAL=66;
@@ -1163,7 +1163,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: TIME, SECOND
+                    // elements: SECOND, TIME
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1290,7 +1290,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: TIME, SECOND
+                    // elements: SECOND, TIME
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2140,7 +2140,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
             // AST REWRITE
-            // elements: Z, FIXED, DISTANCE, DISTANCE
+            // elements: DISTANCE, DISTANCE, Z, FIXED
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2300,7 +2300,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, DISTANCE, X, DISTANCE
+                    // elements: DISTANCE, DISTANCE, X, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2384,7 +2384,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DISTANCE, RELATIVE, DISTANCE, X
+                    // elements: DISTANCE, X, DISTANCE, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2468,7 +2468,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: Y, RELATIVE, DISTANCE, DISTANCE
+                    // elements: DISTANCE, RELATIVE, DISTANCE, Y
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2552,7 +2552,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, DISTANCE, DISTANCE, Y
+                    // elements: DISTANCE, Y, RELATIVE, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2714,7 +2714,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, DISTANCE, Z, DISTANCE
+                    // elements: DISTANCE, RELATIVE, DISTANCE, Z
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2798,7 +2798,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DISTANCE, RELATIVE, DISTANCE, Z
+                    // elements: RELATIVE, DISTANCE, Z, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2882,7 +2882,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, Z, DISTANCE
+                    // elements: RELATIVE, DISTANCE, Z
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2966,7 +2966,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, Z, DISTANCE
+                    // elements: Z, RELATIVE, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3649,7 +3649,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: SPEED, RELATIVE, SPEED
+                    // elements: RELATIVE, SPEED, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3729,7 +3729,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, SPEED, SPEED
+                    // elements: SPEED, RELATIVE, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3825,7 +3825,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, SPEED, SPEED
+                    // elements: SPEED, RELATIVE, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3920,7 +3920,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, SPEED, SPEED
+                    // elements: SPEED, RELATIVE, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4054,7 +4054,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
             // AST REWRITE
-            // elements: SPEED, THROTTLE, FIXED
+            // elements: FIXED, SPEED, THROTTLE
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4221,7 +4221,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, THROTTLE, SPEED
+                    // elements: SPEED, RELATIVE, THROTTLE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4475,7 +4475,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, THROTTLE
+                    // elements: THROTTLE, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4908,7 +4908,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: ANGLE, DEGREE
+                    // elements: DEGREE, ANGLE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5878,7 +5878,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, DIRECTION
+                    // elements: DIRECTION, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -7468,10 +7468,10 @@ public class flipsUnitConversion extends TreeRewriter {
         "\46\uffff";
     static final String DFA1_minS =
         "\1\10\2\uffff\1\2\2\uffff\2\2\1\uffff\1\2\1\17\1\20\1\17\1\20\1"+
-        "\uffff\1\130\2\uffff\2\145\7\uffff\12\33\1\uffff";
+        "\uffff\1\130\2\uffff\2\146\7\uffff\12\33\1\uffff";
     static final String DFA1_maxS =
         "\1\101\2\uffff\1\2\2\uffff\2\2\1\uffff\1\2\2\125\1\20\1\115\1\uffff"+
-        "\1\132\2\uffff\2\151\7\uffff\12\72\1\uffff";
+        "\1\132\2\uffff\2\152\7\uffff\12\72\1\uffff";
     static final String DFA1_acceptS =
         "\1\uffff\1\1\1\2\1\uffff\1\7\1\10\2\uffff\1\15\5\uffff\1\4\1\uffff"+
         "\1\3\1\12\2\uffff\1\16\1\13\1\14\1\20\1\17\1\5\1\6\12\uffff\1\11";
@@ -7557,10 +7557,10 @@ public class flipsUnitConversion extends TreeRewriter {
     static final String DFA2_eofS =
         "\26\uffff";
     static final String DFA2_minS =
-        "\1\34\1\2\1\52\1\2\2\uffff\1\146\4\3\1\53\1\2\1\uffff\1\145\4\3"+
+        "\1\34\1\2\1\52\1\2\2\uffff\1\147\4\3\1\53\1\2\1\uffff\1\146\4\3"+
         "\1\uffff\1\3\1\uffff";
     static final String DFA2_maxS =
-        "\1\34\1\2\1\151\1\2\2\uffff\1\151\4\3\1\54\1\2\1\uffff\1\151\4\3"+
+        "\1\34\1\2\1\152\1\2\2\uffff\1\152\4\3\1\54\1\2\1\uffff\1\152\4\3"+
         "\1\uffff\1\54\1\uffff";
     static final String DFA2_acceptS =
         "\4\uffff\1\5\1\1\7\uffff\1\3\5\uffff\1\2\1\uffff\1\4";
@@ -7569,7 +7569,7 @@ public class flipsUnitConversion extends TreeRewriter {
     static final String[] DFA2_transitionS = {
             "\1\1",
             "\1\2",
-            "\1\3\1\4\71\uffff\5\5",
+            "\1\3\1\4\72\uffff\5\5",
             "\1\6",
             "",
             "",
@@ -7746,9 +7746,9 @@ public class flipsUnitConversion extends TreeRewriter {
     static final String DFA8_eofS =
         "\46\uffff";
     static final String DFA8_minS =
-        "\1\27\1\2\1\20\1\30\2\27\2\2\2\124\4\145\24\62\4\uffff";
+        "\1\27\1\2\1\20\1\30\2\27\2\2\2\124\4\146\24\62\4\uffff";
     static final String DFA8_maxS =
-        "\1\27\1\2\1\20\1\31\2\27\2\2\2\125\4\151\24\77\4\uffff";
+        "\1\27\1\2\1\20\1\31\2\27\2\2\2\125\4\152\24\77\4\uffff";
     static final String DFA8_acceptS =
         "\42\uffff\1\3\1\1\1\4\1\2";
     static final String DFA8_specialS =
@@ -7832,9 +7832,9 @@ public class flipsUnitConversion extends TreeRewriter {
     static final String DFA9_eofS =
         "\46\uffff";
     static final String DFA9_minS =
-        "\1\32\1\2\1\20\1\30\2\27\2\2\2\24\2\145\2\uffff\2\145\24\33\2\uffff";
+        "\1\32\1\2\1\20\1\30\2\27\2\2\2\24\2\146\2\uffff\2\146\24\33\2\uffff";
     static final String DFA9_maxS =
-        "\1\32\1\2\1\20\1\31\2\27\2\2\2\125\2\151\2\uffff\2\151\24\77\2\uffff";
+        "\1\32\1\2\1\20\1\31\2\27\2\2\2\125\2\152\2\uffff\2\152\24\77\2\uffff";
     static final String DFA9_acceptS =
         "\14\uffff\1\3\1\4\26\uffff\1\1\1\2";
     static final String DFA9_specialS =
@@ -7918,11 +7918,11 @@ public class flipsUnitConversion extends TreeRewriter {
     static final String DFA10_eofS =
         "\43\uffff";
     static final String DFA10_minS =
-        "\1\24\1\2\2\uffff\1\124\2\145\12\57\1\uffff\2\3\1\uffff\4\53\1\uffff"+
+        "\1\24\1\2\2\uffff\1\124\2\146\12\57\1\uffff\2\3\1\uffff\4\53\1\uffff"+
         "\4\53\1\uffff\2\3\2\uffff";
     static final String DFA10_maxS =
-        "\1\56\1\2\2\uffff\1\125\2\151\12\60\1\uffff\2\151\1\uffff\4\53\1"+
-        "\uffff\4\53\1\uffff\2\151\2\uffff";
+        "\1\56\1\2\2\uffff\1\125\2\152\12\60\1\uffff\2\152\1\uffff\4\53\1"+
+        "\uffff\4\53\1\uffff\2\152\2\uffff";
     static final String DFA10_acceptS =
         "\2\uffff\1\7\1\10\15\uffff\1\2\2\uffff\1\1\4\uffff\1\3\4\uffff\1"+
         "\5\2\uffff\1\4\1\6";
@@ -7947,8 +7947,8 @@ public class flipsUnitConversion extends TreeRewriter {
             "\1\23\1\21",
             "\1\23\1\21",
             "",
-            "\1\24\141\uffff\1\31\1\25\1\26\1\27\1\30",
-            "\1\24\141\uffff\1\36\1\32\1\33\1\34\1\35",
+            "\1\24\142\uffff\1\31\1\25\1\26\1\27\1\30",
+            "\1\24\142\uffff\1\36\1\32\1\33\1\34\1\35",
             "",
             "\1\37",
             "\1\37",
@@ -7960,8 +7960,8 @@ public class flipsUnitConversion extends TreeRewriter {
             "\1\40",
             "\1\40",
             "",
-            "\1\31\141\uffff\5\41",
-            "\1\36\141\uffff\5\42",
+            "\1\31\142\uffff\5\41",
+            "\1\36\142\uffff\5\42",
             "",
             ""
     };
@@ -8292,31 +8292,31 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final BitSet FOLLOW_numericValue_in_convertAngle1552 = new BitSet(new long[]{0x0001000000000000L});
     public static final BitSet FOLLOW_RADIAN_in_convertAngle1554 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANGLE_in_convertAngle1577 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_POSITIVE_in_convertAngle1579 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_POSITIVE_in_convertAngle1579 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1583 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1585 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1585 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1589 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_MINUTE_in_convertAngle1591 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANGLE_in_convertAngle1614 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_POSITIVE_in_convertAngle1616 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_POSITIVE_in_convertAngle1616 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1620 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1622 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1622 = new BitSet(new long[]{0x0000000000000000L,0x0000078000000000L});
     public static final BitSet FOLLOW_integerValue_in_convertAngle1626 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_MINUTE_in_convertAngle1628 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_MINUTE_in_convertAngle1628 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1632 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_SECOND_in_convertAngle1634 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANGLE_in_convertAngle1657 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_NEGATIVE_in_convertAngle1659 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_NEGATIVE_in_convertAngle1659 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1663 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1665 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1665 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1669 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_MINUTE_in_convertAngle1671 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_ANGLE_in_convertAngle1694 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_NEGATIVE_in_convertAngle1696 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_NEGATIVE_in_convertAngle1696 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1700 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_convertAngle1702 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_convertAngle1702 = new BitSet(new long[]{0x0000000000000000L,0x0000078000000000L});
     public static final BitSet FOLLOW_integerValue_in_convertAngle1706 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_MINUTE_in_convertAngle1708 = new BitSet(new long[]{0x0000000000000000L,0x000003E000000000L});
+    public static final BitSet FOLLOW_MINUTE_in_convertAngle1708 = new BitSet(new long[]{0x0000000000000000L,0x000007C000000000L});
     public static final BitSet FOLLOW_numericValuePositive_in_convertAngle1712 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_SECOND_in_convertAngle1714 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_STRAIGHT_in_convertAngle1736 = new BitSet(new long[]{0x0000000000000002L});
@@ -8380,13 +8380,13 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final BitSet FOLLOW_WEST_in_convertSubOrdinalDirection2295 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_numericValue_in_percentValue2325 = new BitSet(new long[]{0x8000000000000000L});
     public static final BitSet FOLLOW_PERCENT_in_percentValue2327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POSITIVE_in_numericValue2347 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
+    public static final BitSet FOLLOW_POSITIVE_in_numericValue2347 = new BitSet(new long[]{0x0000000000000000L,0x0000078000000000L});
     public static final BitSet FOLLOW_integerValue_in_numericValue2351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEGATIVE_in_numericValue2360 = new BitSet(new long[]{0x0000000000000000L,0x000003C000000000L});
+    public static final BitSet FOLLOW_NEGATIVE_in_numericValue2360 = new BitSet(new long[]{0x0000000000000000L,0x0000078000000000L});
     public static final BitSet FOLLOW_integerValue_in_numericValue2364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POSITIVE_in_numericValue2373 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_POSITIVE_in_numericValue2373 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue2377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEGATIVE_in_numericValue2386 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_NEGATIVE_in_numericValue2386 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue2390 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_integerValue_in_numericValuePositive2412 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValuePositive2423 = new BitSet(new long[]{0x0000000000000002L});
