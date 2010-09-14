@@ -47,8 +47,9 @@ tokens {
   TURN;
   FIXED;
   RELATIVE;
-  ROLL;
   PITCH;
+  ROLL;
+  YAW;
   STRAIGHT;
   LEVEL;
   ALTITUDE;
@@ -75,6 +76,7 @@ tokens {
   MINUTE;
   SECOND;
   MILLISECOND;
+  ANGLE;
   DEGREE;
   RADIAN;
   DISTANCE;
@@ -112,6 +114,13 @@ tokens {
   GT;
   LE;
   GE;
+  POSITIVE;
+  NEGATIVE;
+  FORWARD;
+  BACKWARD;
+  X;
+  Y;
+  Z;
 }
 
 flightPlan
@@ -156,9 +165,9 @@ defineCommand
 	;
 
 defineCommandValue
-	:	Identifier '=' integerValue ((And|',' And?)? Identifier '=' integerValue)*
-	->	^(DEFINE Identifier ^(COMMAND integerValue))+
-	|	Identifier '=' cmd=integerValue '(' par=integerValue ')' ((And|',' And?)? Identifier '=' cmd=integerValue '(' par=integerValue ')')*
+	:	Identifier '=' integerValuePositive ((And|',' And?)? Identifier '=' integerValuePositive)*
+	->	^(DEFINE Identifier ^(COMMAND integerValuePositive))+
+	|	Identifier '=' cmd=integerValuePositive '(' par=integerValuePositive ')' ((And|',' And?)? Identifier '=' cmd=integerValuePositive '(' par=integerValuePositive ')')*
 	->	^(DEFINE Identifier ^(COMMAND $cmd PARAMETER $par))+
 	;
 
@@ -168,7 +177,7 @@ defineSensor
 	;
 
 defineSensorValue
-	:	Identifier '=' sen=integerValue ((And|',' And?)? Identifier '=' sen=integerValue)*
+	:	Identifier '=' sen=integerValuePositive ((And|',' And?)? Identifier '=' sen=integerValuePositive)*
 	->	^(DEFINE Identifier ^(SENSOR $sen))+
 	;
 
@@ -191,8 +200,8 @@ statement
 	;
 
 repeat
-	:	integerValue ('time'|'times')
-	|	'continuously' duration
+	:	integerValuePositive ('time'|'times')
+	|	'continuously' time
 	|	'forever'
 	|	condition
 	;
@@ -203,15 +212,19 @@ condition
 	;
 
 conditionValue
-	:	('the'? ('tim'|'time') ('='|'is'))? timeValue
+	:
+/*
+	|	('the'? ('tim'|'time') ('='|'is'))? timeValue
 	|	('the'? ('dir'|'direction') ('='|'is'))? fixedDirection
 	|	('the'? ('spd'|'speed') ('='|'is'))? speedValue
 	|	('the'? ('dst'|'distance') ('='|'is')) distanceValue
 	|	('the'? ('pit'|'pitch') ('='|'is')) angularValue
 	|	('the'? ('rol'|'roll') ('='|'is')) angularValue
 	|	('the'? ('wpt'|'waypoint') ('='|'is'))? waypoint
-	|	('the'? ('alt'|'altitude') ('='|'is'))? altitudeValue
+	|	('the'? ('alt'|'altitude') ('='|'is'))? (distanceValue|flightLevelValue|pressureValue)
+	|	('the'? ('pre'|'pressure') ('='|'is'))? pressureValue
 	|	Identifier ('='|'is')? numericValue
+*/
 	;
 
 // COMMANDS
@@ -232,10 +245,10 @@ flyCommandValue
 	:	time
 	|	direction
 	|	speed
+	|	throttle
 	|	distance
 	|	pitch
 	|	roll
-	|	duration
 	|	To waypoint ((And|',' And?) waypoint)*
 	->	waypoint+
 	|	altitude
@@ -251,16 +264,16 @@ turnCommandValue
 	;
 
 loiterCommand
-	:	('ltr'|'loiter') loiterCommandValue*
+	:	('ltr'|'loiter') (loiterCommandValue|(And|',' And?) loiterCommandValue)*
 	->	^(LOITER loiterCommandValue*)
 	;
 
 loiterCommandValue
 	:	time
 	|	speed
+	|	throttle
 	|	loiterDirection
 	|	radius
-	|	duration
 	|	At waypoint
 	->	waypoint
 	|	altitude
@@ -282,48 +295,64 @@ executeCommandParameter
 
 // ATTITUDE EXPRESSIONS
 
+attitude
+	:	pitch
+	|	roll
+	|	yaw
+	;
+
 pitch
-	:	('pit'|'pitch') angularValueWithRate
-	->	^(PITCH angularValueWithRate)
+	:	('pit'|'pitch') To angularValueWithRate
+	->	^(PITCH FIXED angularValueWithRate)
+	|	('pit'|'pitch') angularValueWithRate
+	->	^(PITCH RELATIVE angularValueWithRate)
 	|	(With 'an')? ('aoa'|'angle of attack') 'of'? angularValueWithRate
-	->	^(PITCH angularValueWithRate)
+	->	^(PITCH FIXED angularValueWithRate)
 	;
 
 roll
-	:	('rol'|'roll') angularValueWithRate
-	->	^(ROLL angularValueWithRate)
+	:	('rol'|'roll') To angularValueWithRate
+	->	^(ROLL FIXED angularValueWithRate)
+	|	('rol'|'roll') angularValueWithRate
+	->	^(ROLL RELATIVE angularValueWithRate)
 	|	('lvl'|'level')
 	->	^(ROLL LEVEL)
+	;
+
+yaw
+	:	direction
+	|	direction At angularRateValue
+	->	direction angularRateValue
+	|	At? angularRateValue To direction
+	->	direction angularRateValue
 	;
 
 // ALTITUDE EXPRESSIONS
 
 altitude
 	:	fixedAltitude
+	->	^(DISTANCE FIXED Z fixedAltitude)
 	|	relativeAltitude
+	->	^(DISTANCE RELATIVE Z relativeAltitude)
 	;
 
 fixedAltitude
-	:	(upDownDirection? To|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? altitudeValue
-	->	^(ALTITUDE FIXED altitudeValue)
+	:	(upDownDirection? To|At|With) ('an'? ('alt'|'altitude') 'of'?)? distanceValue
+	->	distanceValue
+	|	(upDownDirection? To|At|With) ('an'? ('alt'|'altitude') 'of'?)? flightLevelValue
+	->	flightLevelValue
+	|	(upDownDirection? To|At|With) (('an'? ('alt'|'altitude')|'a'? ('pres'|'pressure')) 'of'?)? pressureValue
+	->	pressureValue
 	;
 
 relativeAltitude
-	:	upDownDirection altitudeValue
-	->	^(ALTITUDE RELATIVE upDownDirection altitudeValue)
-	;
-
-altitudeValue
-	:	distanceValue
-	->	DISTANCE distanceValue
-	|	pressureValue
-	->	PRESSURE pressureValue
-	|	FlightLevel
-	->	FLIGHTLEVEL FlightLevel
+	:	upDownDirection distanceValue
+	|	upDownDirection pressureValue
 	;
 
 pressureValue
 	:	numericValue pressureUnit
+	->	^(PRESSURE numericValue pressureUnit)
 	;
 
 pressureUnit
@@ -341,6 +370,11 @@ pressureUnit
 	->	ATMOSPHERE
 	;
 
+flightLevelValue
+	:	FlightLevel
+	->	^(FLIGHTLEVEL FlightLevel)
+	;
+
 // DISTANCE EXPRESSIONS
 
 radius
@@ -349,12 +383,15 @@ radius
 	;
 
 distance
-	:	leftRightDirection? distanceValue
-	->	^(DISTANCE leftRightDirection? distanceValue)
+	:	forwardBackwardDirection? distanceValue
+	->	^(DISTANCE RELATIVE X forwardBackwardDirection? distanceValue)
+	|	leftRightDirection distanceValue
+	->	^(DISTANCE RELATIVE Y leftRightDirection distanceValue)
 	;
 
 distanceValue
 	:	numericValue distanceUnit
+	->	^(DISTANCE numericValue distanceUnit)
 	;
 
 distanceUnit
@@ -383,7 +420,6 @@ distanceUnit
 speed
 	:	fixedSpeed
 	|	relativeSpeed
-	|	throttleSpeed
 	;
 
 fixedSpeed
@@ -392,18 +428,22 @@ fixedSpeed
 	;
 
 relativeSpeed
-	:	speedValue 'faster'
-	->	^(SPEED RELATIVE FASTER speedValue)
-	|	speedValue 'slower'
-	->	^(SPEED RELATIVE SLOWER speedValue)
-	|	percentValue 'faster'
-	->	^(SPEED RELATIVE FASTER percentValue)
-	|	percentValue 'slower'
-	->	^(SPEED RELATIVE SLOWER percentValue)
+	:	speedValue fasterSlowerSpeed
+	->	^(SPEED RELATIVE fasterSlowerSpeed speedValue)
+	|	percentValue fasterSlowerSpeed
+	->	^(SPEED RELATIVE fasterSlowerSpeed ^(SPEED percentValue))
+	;
+
+fasterSlowerSpeed
+	:	'faster'
+	->	FASTER
+	|	'slower'
+	->	SLOWER
 	;
 
 speedValue
 	:	numericValue speedUnit
+	->	^(SPEED numericValue speedUnit)
 	;
 
 speedUnit
@@ -423,40 +463,71 @@ speedUnit
 	->	distanceUnit timeUnit
 	;
 
-throttleSpeed
+// THROTTLE EXPRESSIONS
+
+throttle
+	:	fixedThrottle
+	|	relativeThrottle
+	;
+
+fixedThrottle
 	:	At? throttleValue ('pwr'|'power'|'thr'|'throttle')
-	->	^(SPEED THROTTLE throttleValue)
+	->	^(THROTTLE FIXED throttleValue)
+	;
+
+relativeThrottle
+	:	throttleValue fasterSlowerSpeed ('pwr'|'power'|'thr'|'throttle')
+	->	^(THROTTLE RELATIVE fasterSlowerSpeed throttleValue)
 	;
 
 throttleValue
 	:	percentValue
+	->	^(SPEED percentValue)
 	|	angularRateValue
 	;
 
 // TIME EXPRESSIONS
 
 time
-	:	At timeValue
+	:	At fixedTime
+	->	^(TIME FIXED fixedTime)
+	|	'for' relativeTime
+	->	^(TIME RELATIVE relativeTime)
 	;
 
-timeValue
+fixedTime
 	:	timeFormat ('am'|'a.m.')
 	->	^(TIME timeFormat AM)
-	|	integerValue ('am'|'a.m.')
-	->	^(TIME integerValue HOUR AM)
+	|	hr=integerValuePositive ('am'|'a.m.')
+	->	^(TIME ^(HOUR $hr) AM)
 	|	timeFormat ('pm'|'p.m.')
 	->	^(TIME timeFormat PM)
-	|	integerValue ('pm'|'p.m.')
-	->	^(TIME integerValue HOUR PM)
+	|	hr=integerValuePositive ('pm'|'p.m.')
+	->	^(TIME ^(HOUR $hr) PM)
 	|	timeFormat
 	->	^(TIME timeFormat HOUR24)
 	;
 
+relativeTime
+	:	numericValuePositive timeUnit
+	->	^(TIME numericValuePositive timeUnit)
+	|	hr=integerValuePositive hour minn=numericValuePositive minute
+	->	^(TIME ^(HOUR $hr) ^(MINUTE $minn))
+	|	hr=integerValuePositive hour s=numericValuePositive second
+	->	^(TIME ^(HOUR $hr) ^(SECOND $s))
+	|	hr=integerValuePositive hour min=integerValuePositive minute s=numericValuePositive second
+	->	^(TIME ^(HOUR $hr) ^(MINUTE $min) ^(SECOND $s))
+	|	min=integerValuePositive minute s=numericValuePositive second
+	->	^(TIME ^(MINUTE $min) ^(SECOND $s))
+	|	timeFormat
+	->	^(TIME timeFormat)
+	;
+
 timeFormat
-	:	hr=integerValue ':' min=integerValue
-	->	$hr HOUR $min MINUTE
-	|	hr=integerValue ':' min=integerValue ':' s=numericValue
-	->	$hr HOUR $min MINUTE $s SECOND
+	:	hr=integerValuePositive ':' min=integerValuePositive
+	->	^(HOUR $hr) ^(MINUTE $min)
+	|	hr=integerValuePositive ':' min=integerValuePositive ':' s=numericValuePositive
+	->	^(HOUR $hr) ^(MINUTE $min) ^(SECOND $s)
 	;
 	
 timeUnit
@@ -490,19 +561,6 @@ second
 	->	SECOND
 	;
 
-duration
-	:	'for' durationValue
-	->	^(DURATION durationValue)
-	;
-
-durationValue
-	:	numericValue timeUnit
-	|	integerValue hour numericValue (minute|second)
-	|	integerValue hour integerValue minute numericValue second
-	|	integerValue minute numericValue second
-	|	timeFormat
-	;
-
 // DIRECTION EXPRESSIONS
 
 direction
@@ -514,17 +572,27 @@ direction
 
 fixedDirection
 	:	cardinalDirection
-	->	cardinalDirection
+	->	^(DIRECTION cardinalDirection)
 	|	ordinalDirection
-	->	ordinalDirection
+	->	^(DIRECTION ordinalDirection)
 	|	subOrdinalDirection
-	->	subOrdinalDirection
-	|	(Turning|Heading) (cardinalDirection|ordinalDirection|subOrdinalDirection|angularValue)
-	->	cardinalDirection? ordinalDirection? subOrdinalDirection? angularValue?
+	->	^(DIRECTION subOrdinalDirection)
+	|	(Turning|Heading) fixedDirectionTurn
+	->	fixedDirectionTurn
+	;
+
+fixedDirectionTurn
+	:	cardinalDirection
+	->	^(DIRECTION cardinalDirection)
+	|	ordinalDirection
+	->	^(DIRECTION ordinalDirection)
+	|	subOrdinalDirection
+	->	^(DIRECTION subOrdinalDirection)
+	|	angularValue
 	;
 
 relativeDirection
-	:	(Turning|Heading) leftRightDirection angularValue
+	:	(Turning|Heading)? leftRightDirection angularValue
 	->	leftRightDirection angularValue
 	|	('str'|'straight')
 	->	STRAIGHT
@@ -591,6 +659,13 @@ upDownDirection
 	->	DESCEND
 	;
 
+forwardBackwardDirection
+	:	('fwd'|'forward')
+	->	FORWARD
+	|	('bwd'|'backward'|'back')
+	->	BACKWARD
+	;
+
 leftRightDirection
 	:	('l'|'left'|'port')
 	->	LEFT
@@ -610,17 +685,18 @@ clockDirection
 angularValueWithRate
 	:	angularValue
 	|	angularValue At angularRateValue
-	->	angularValue ^(SPEED angularRateValue)
+	->	angularValue angularRateValue
 	|	At? angularRateValue
 	->	angularRateValue
 	|	At? angularRateValue To angularValue
-	->	angularValue ^(SPEED angularRateValue)
+	->	angularValue angularRateValue
 	;
 
 angularRateValue
 	:	numericValue angularRateUnit
+	->	^(SPEED numericValue angularRateUnit)
 	|	angularValue Per timeUnit
-	->	angularValue timeUnit
+	->	^(SPEED angularValue timeUnit)
 	;
 
 angularRateUnit
@@ -633,12 +709,17 @@ angularRateUnit
 	;
 
 angularValue
-	:	numericValue ('deg'|'degs'|'degree'|'degrees')
-	->	numericValue DEGREE
-	|	integerValue 'd' numericValue '\''
-	->	integerValue DEGREE numericValue MINUTE
-	|	numericValue ('rad'|'rads'|'radian'|'radians')
-	->	numericValue RADIAN
+	:	numericValue angularUnit
+	->	^(ANGLE numericValue angularUnit)
+	|	integerValue 'd' numericValuePositive '\''
+	->	^(ANGLE integerValue DEGREE numericValuePositive MINUTE)
+	;
+
+angularUnit
+	:	('deg'|'degs'|'degree'|'degrees')
+	->	DEGREE
+	|	('rad'|'rads'|'radian'|'radians')
+	->	RADIAN
 	;
 
 // WAYPOINT EXPRESSIONS
@@ -657,52 +738,88 @@ geoCoordinate
 	;
 
 latitudeLongitude
-	:	x=latitudeLongitudeValue northSouthDirection ','? y=latitudeLongitudeValue eastWestDirection
-	->	^(LATITUDE $x northSouthDirection) ^(LONGITUDE $y eastWestDirection)
-	|	'+'? x=latitudeLongitudeValue ','? '+'? y=latitudeLongitudeValue
-	->	^(LATITUDE $x NORTH) ^(LONGITUDE $y EAST)
-	|	'-' x=latitudeLongitudeValue ','? '+'? y=latitudeLongitudeValue
-	->	^(LATITUDE $x SOUTH) ^(LONGITUDE $y EAST)
-	|	'+'? x=latitudeLongitudeValue ','? '-' y=latitudeLongitudeValue
-	->	^(LATITUDE $x NORTH) ^(LONGITUDE $y WEST)
-	|	'-' x=latitudeLongitudeValue ','? '-' y=latitudeLongitudeValue
-	->	^(LATITUDE $x SOUTH) ^(LONGITUDE $y WEST)
+	:	y1=angularValue ','? x1=angularValue
+	->	^(X $x1) ^(Y $y1)
+	|	y2=numericValue ','? x2=numericValue
+	->	^(X ^(ANGLE $x2 DEGREE)) ^(Y ^(ANGLE $y2 DEGREE))
+	|	y3=latitude ','? x3=longitude
+	->	^(X $x3) ^(Y $y3)
 	;
 
-latitudeLongitudeValue
-	:	numericValue
-	->	numericValue DEGREE
-	|	angularValue
+latitude
+	:	x=numericValuePositive ns=latitudeNorthSouth
+	->	^(ANGLE $ns $x DEGREE)
+	|	x=numericValuePositive xu=angularUnit ns=latitudeNorthSouth
+	->	^(ANGLE $ns $x $xu)
+	|	deg=integerValuePositive 'd' min=numericValuePositive '\'' ns=latitudeNorthSouth
+	->	^(ANGLE $ns $deg DEGREE $min MINUTE)
+	;
+
+latitudeNorthSouth
+	:	('n'|'north')
+	->	POSITIVE
+	|	('s'|'south')
+	->	NEGATIVE
+	;
+
+longitude
+	:	x=numericValuePositive ew=longitudeEastWest
+	->	^(ANGLE $ew $x DEGREE)
+	|	x=numericValuePositive xu=angularUnit ew=longitudeEastWest
+	->	^(ANGLE $ew $x $xu)
+	|	deg=integerValuePositive 'd' min=numericValuePositive '\'' ew=longitudeEastWest
+	->	^(ANGLE $ew $deg DEGREE $min MINUTE)
+	;
+
+longitudeEastWest
+	:	('e'|'east')
+	->	POSITIVE
+	|	('w'|'west')
+	->	NEGATIVE
 	;
 
 distanceCoordinate
-	:	'(' '+'? x=distanceValue ',' '+'? y=distanceValue ')'
-	->	^(DISTANCE $y NORTH) ^(DISTANCE $x EAST)
-	|	'(' '-' x=distanceValue ',' '+'? y=distanceValue ')'
-	->	^(DISTANCE $y NORTH) ^(DISTANCE $x WEST)
-	|	'(' '+'? x=distanceValue ',' '-' y=distanceValue ')'
-	->	^(DISTANCE $y SOUTH) ^(DISTANCE $x EAST)
-	|	'(' '-' x=distanceValue ',' '-' y=distanceValue ')'
-	->	^(DISTANCE $y SOUTH) ^(DISTANCE $x WEST)
+	:	'(' x=distanceValue ',' y=distanceValue ')'
+	->	^(X $x) ^(Y $y)
+	;
+
+// PERCENT EXPRESSIONS
+
+percentValue
+	:	numericValue ('%'|'percent')
+	->	numericValue PERCENT
 	;
 
 // NUMERIC EXPRESSIONS
 
 numericValue
-	:	integerValue
+	:	'+'? integerValuePositive
+	->	POSITIVE integerValuePositive
+	|	'+'? FloatingPointLiteral
+	->	POSITIVE FloatingPointLiteral
+	|	'-' integerValuePositive
+	->	NEGATIVE integerValuePositive
+	|	'-' FloatingPointLiteral
+	->	NEGATIVE FloatingPointLiteral
+	;
+
+numericValuePositive
+	:	integerValuePositive
 	|	FloatingPointLiteral
 	;
 
 integerValue
+	:	'+'? integerValuePositive
+	->	POSITIVE integerValuePositive
+	|	'-' integerValuePositive
+	->	NEGATIVE integerValuePositive
+	;
+
+integerValuePositive
 	:	BinaryLiteral
 	|	OctalLiteral
 	|	DecimalLiteral
 	|	HexLiteral
-	;
-
-percentValue
-	:	numericValue ('%'|'percent')
-	->	numericValue PERCENT
 	;
 
 // RELATIONAL OPERATOR EXPRESSIONS

@@ -1,4 +1,3 @@
-$INCLUDE takeoff.uav     // Include Source File 'takeoff.uav'
 POS   X GEO -32.463      // 32.463 W Longitude
 POS   Y GEO 78.754       // 78.754 N Latitude
 TIM REL 3612.0           // 3612.0 s (1:00:12) Duration
@@ -28,7 +27,7 @@ FLY                      // Execute
 CMD 1                    // TAKEAPICTURE / Command #1
 POS   X GEO -98.843      // BOYD / 98.843 W Longitude
 POS   Y GEO 84.234       // BOYD / 84.234 N Latitude
-ACT THR FIX 75.3         // 75.3% Throttle
+ACT THR FIX PCT 75.3     // 75.3% Throttle
 FLY                      // Execute
 CMD 1                    // TAKEAPICTURE / Command #1
 DIR CW                   // Clockwise Loiter Direction
@@ -38,7 +37,6 @@ LTR                      // Execute Loiter
 POS   X GEO -98.823      // HOME / 98.823 W Longitude
 POS   Y GEO 84.523       // HOME / 84.523 N Latitude
 FLY                      // Execute
-ACT THR FIX 0.0          // 0.0% Throttle
+ACT THR FIX PCT 0.0      // 0.0% Throttle
 FLY                      // Execute
 CMD 2                    // DEPLOYTHEPARACHUTE / Command #2
-$INCLUDE land.uav        // Include Source File 'land.uav'
