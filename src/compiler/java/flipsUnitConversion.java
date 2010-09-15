@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsUnitConversion.g 2010-09-14 21:41:52
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsUnitConversion.g 2010-09-14 22:32:25
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;import java.util.Stack;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class flipsUnitConversion extends TreeRewriter {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "REPEAT", "CONDITION", "FOREVER", "StringLiteral", "And", "Identifier", "For", "To", "At", "With", "FlightLevel", "Per", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "PlusOrMinus", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'rpt'", "'repeat'", "'end'", "'x'", "'time'", "'times'", "'forever'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "REPEAT", "CONDITION", "FOREVER", "StringLiteral", "And", "Identifier", "For", "To", "At", "With", "FlightLevel", "Per", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "PlusOrMinus", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'rpt'", "'repeat'", "'end'", "'x'", "'time'", "'times'", "'forever'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'b'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
     };
     public static final int DIRECTION=13;
     public static final int T__159=159;
@@ -286,6 +286,7 @@ public class flipsUnitConversion extends TreeRewriter {
     public static final int WEST=77;
     public static final int T__342=342;
     public static final int T__199=199;
+    public static final int T__343=343;
     public static final int T__198=198;
     public static final int T__292=292;
     public static final int T__197=197;
@@ -1397,7 +1398,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: TIME, SECOND
+                    // elements: SECOND, TIME
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2143,7 +2144,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
             // AST REWRITE
-            // elements: DISTANCE, Z, FIXED, DISTANCE
+            // elements: Z, FIXED, DISTANCE, DISTANCE
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2303,7 +2304,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: X, DISTANCE, RELATIVE, DISTANCE
+                    // elements: RELATIVE, DISTANCE, X, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2387,7 +2388,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: X, RELATIVE, DISTANCE, DISTANCE
+                    // elements: DISTANCE, RELATIVE, DISTANCE, X
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2471,7 +2472,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DISTANCE, Y, DISTANCE, RELATIVE
+                    // elements: Y, RELATIVE, DISTANCE, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2555,7 +2556,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: Y, RELATIVE, DISTANCE, DISTANCE
+                    // elements: RELATIVE, DISTANCE, DISTANCE, Y
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2717,7 +2718,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DISTANCE, Z, DISTANCE, RELATIVE
+                    // elements: RELATIVE, DISTANCE, Z, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2801,7 +2802,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DISTANCE, Z, RELATIVE, DISTANCE
+                    // elements: DISTANCE, RELATIVE, DISTANCE, Z
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2885,7 +2886,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: Z, DISTANCE, RELATIVE
+                    // elements: RELATIVE, Z, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2969,7 +2970,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: Z, RELATIVE, DISTANCE
+                    // elements: RELATIVE, Z, DISTANCE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3652,7 +3653,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: SPEED, SPEED, RELATIVE
+                    // elements: SPEED, RELATIVE, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3732,7 +3733,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: SPEED, RELATIVE, SPEED
+                    // elements: RELATIVE, SPEED, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3828,7 +3829,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: SPEED, SPEED, RELATIVE
+                    // elements: RELATIVE, SPEED, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3923,7 +3924,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: SPEED, SPEED, RELATIVE
+                    // elements: RELATIVE, SPEED, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4057,7 +4058,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
             // AST REWRITE
-            // elements: THROTTLE, FIXED, SPEED
+            // elements: SPEED, THROTTLE, FIXED
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4224,7 +4225,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: SPEED, RELATIVE, THROTTLE
+                    // elements: RELATIVE, THROTTLE, SPEED
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4319,7 +4320,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, SPEED, THROTTLE
+                    // elements: SPEED, THROTTLE, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4398,7 +4399,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, THROTTLE
+                    // elements: THROTTLE, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4816,7 +4817,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DEGREE, ANGLE
+                    // elements: ANGLE, DEGREE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4911,7 +4912,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DEGREE, ANGLE
+                    // elements: ANGLE, DEGREE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -4995,7 +4996,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: ANGLE, DEGREE
+                    // elements: DEGREE, ANGLE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5090,7 +5091,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DEGREE, ANGLE
+                    // elements: ANGLE, DEGREE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5802,7 +5803,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: RELATIVE, DIRECTION
+                    // elements: DIRECTION, RELATIVE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5881,7 +5882,7 @@ public class flipsUnitConversion extends TreeRewriter {
 
 
                     // AST REWRITE
-                    // elements: DIRECTION, RELATIVE
+                    // elements: RELATIVE, DIRECTION
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 

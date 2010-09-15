@@ -671,9 +671,9 @@ upDownDirection
 	;
 
 forwardBackwardDirection
-	:	('fwd'|'forward')
+	:	('f'|'fwd'|'forward')
 	->	FORWARD
-	|	('bwd'|'backward'|'back')
+	|	('b'|'bwd'|'backward'|'back')
 	->	BACKWARD
 	;
 
