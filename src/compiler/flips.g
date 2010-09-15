@@ -121,6 +121,9 @@ tokens {
   X;
   Y;
   Z;
+  REPEAT;
+  CONDITION;
+  FOREVER;
 }
 
 flightPlan
@@ -195,26 +198,34 @@ defineWaypointValue
 
 statement
 	:	command
-	|	'repeat' statement* repeat
-	|	'wait' condition
+	|	repeat
+//	|	'wait' condition
 	;
 
 repeat
-	:	integerValuePositive ('time'|'times')
-	|	'continuously' time
-	|	'forever'
-	|	condition
+	:	('rpt'|'repeat') statement* 'end'
+	->	^(REPEAT ^(CONDITION FOREVER) ^(EXECUTE statement*))
+	|	('rpt'|'repeat') repeatCondition statement* 'end'
+	->	^(REPEAT ^(CONDITION repeatCondition) ^(EXECUTE statement*))
 	;
 
+repeatCondition
+	:	integerValuePositive ('x'|'time'|'times')?
+	->	integerValuePositive
+	|	For relativeTime
+	->	^(TIME RELATIVE relativeTime)
+	|	'forever'
+	->	FOREVER
+//	|	condition
+	;
+/*
 condition
 	:	'until' conditionValue
 	|	'while' conditionValue
 	;
 
 conditionValue
-	:
-/*
-	|	('the'? ('tim'|'time') ('='|'is'))? timeValue
+	:	('the'? ('tim'|'time') ('='|'is'))? timeValue
 	|	('the'? ('dir'|'direction') ('='|'is'))? fixedDirection
 	|	('the'? ('spd'|'speed') ('='|'is'))? speedValue
 	|	('the'? ('dst'|'distance') ('='|'is')) distanceValue
@@ -224,8 +235,8 @@ conditionValue
 	|	('the'? ('alt'|'altitude') ('='|'is'))? (distanceValue|flightLevelValue|pressureValue)
 	|	('the'? ('pre'|'pressure') ('='|'is'))? pressureValue
 	|	Identifier ('='|'is')? numericValue
-*/
 	;
+*/
 
 // COMMANDS
 

@@ -83,7 +83,7 @@ flightPlan[SymbolTable symbols]
 @init {
   this.symbols = symbols;
 }
-	:	^(FLIGHTPLAN require* define* command*);
+	:	^(FLIGHTPLAN require* define* statement*);
 
 // REQUIRES
 
@@ -144,6 +144,28 @@ defineWaypoint
 		{symbols.define(new LatLonWaypointSymbol(name.getText(),geo.latitude,geo.longitude));}
 	|	^(DEFINE name=Identifier ^(GEOCOORDINATE dst=distanceCoordinate))
 		{symbols.define(new DistanceWaypointSymbol(name.getText(),dst.east,dst.north));}
+	;
+
+// STATEMENTS
+
+statement
+	:	command
+	|	repeat
+//	|	wait
+	;
+
+repeat
+	:	^(REPEAT ^(CONDITION repeatCondition) ^(EXECUTE statement*))
+		{emit("RPT END", "End Repeat");}
+	;
+
+repeatCondition
+	:	x=integerValue
+		{emit("RPT NUM " + x, "Repeat " + x + " Times");}
+	|	^(TIME RELATIVE x=timeValue)
+		{emit("RPT TIM " + x, "Repeat For " + x + " s (" + toHHMMSS(x) + ") Duration");}
+	|	FOREVER
+		{emit("RPT FRV", "Repeat Forever");}
 	;
 
 // COMMANDS
