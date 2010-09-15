@@ -33,34 +33,43 @@ options {
 
 @members {
   public StringBuilder output = new StringBuilder();
+  public int indent = 0;
 
-  public void emitNoTab(String instruction) {
-    output.append(instruction + "\n");
+  public void emitIndent() {
+    for (int i = 0; i < indent; i++) {
+      output.append("\t");
+    }
   }
-  
+
   public void emit(String instruction) {
-    output.append("\t" + instruction + "\n");
+    emitIndent();
+    output.append(instruction + "\n");
   }
 
   public void emit(String instruction, double value) {
-    output.append("\t" + instruction + "(" + value + ")" + "\n");
+    emitIndent();
+    output.append(instruction + "(" + value + ")" + "\n");
   }
 
   public void emit(String instruction, double value0, double value1) {
-    output.append("\t" + instruction + "(" + value0 + "," + value1 + ")" + "\n");
+    emitIndent();
+    output.append(instruction + "(" + value0 + "," + value1 + ")" + "\n");
   }
 }
 
 flightPlan
-	:	{emitNoTab("const struct logoInstructionDef instructions[] = {\n");}
+	:	{emit("const struct logoInstructionDef instructions[] = {");}
+		{indent++;}
 		instruction*
-		{emitNoTab("} ;");}
+		{indent--;}
+		{emit("} ;");}
 	;
 
 instruction
 	:	fly
 	|	loiter
 	|	command
+	|	repeat
 	|	position
 	|	velocity
 	|	speed
@@ -73,12 +82,18 @@ instruction
 
 // GENERAL INSTRUCTIONS
 
-fly	:	FLY {emit("");};
+fly	:	FLY;
 
-loiter	:	LTR {emit("");};
+loiter	:	LTR;
 
-command	:	CMD x=integerValue {emit("// CMD " + x + "\n");}
+command	:	CMD x=integerValue {emit("// CMD " + x);}
 	|	CMD PAR y=numericValue {emit("// CMD PAR " + y);}
+	;
+
+repeat	:	RPT NUM	x=numericValue {emit("REPEAT",x);} {indent++;}
+	|	RPT TIM x=numericValue {emit("// RPT TIM " + x);} {indent++;}
+	|	RPT FRV {emit("REPEAT_FOREVER");} {indent++;}
+	|	RPT END {indent--;} {emit("END");}
 	;
 
 // POSITION INSTRUCTIONS
@@ -86,7 +101,7 @@ command	:	CMD x=integerValue {emit("// CMD " + x + "\n");}
 position:	POS X FIX x=numericValue {emit("EAST",x);}
 	|	POS X REL x=numericValue {emit("FD",x);}
 	|	POS X GEO x=numericValue {emit("// POS X GEO " + x);}
-	|	POS Y FIX x=numericValue {emit("NORTH",x);}
+	|	~(POS X FIX x=numericValue) POS Y FIX x=numericValue {emit("NORTH",x);}
 	|	POS Y REL x=numericValue {emit("RT",x);}
 	|	POS Y GEO x=numericValue {emit("// POS Y GEO " + x);}
 	|	POS Z FIX x=numericValue {emit("SET_ALT",-x);}
@@ -99,6 +114,7 @@ position:	POS X FIX x=numericValue {emit("EAST",x);}
 	|	POS YAW REL x=numericValue {emit("// POS YAW REL " + x);}
 	|	POS PRE FIX x=numericValue {emit("// POS PRE FIX " + x);}
 	|	POS PRE REL x=numericValue {emit("// POS PRE REL " + x);}
+	|	POS X FIX x=numericValue POS Y FIX y=numericValue {emit("SET_POS",x,y);}
 	;
 
 // VELOCITY INSTRUCTIONS
@@ -240,6 +256,11 @@ TRI	:	'tri'|'TRI';
 
 CMD	:	'cmd'|'CMD';
 PAR	:	'par'|'PAR';
+
+RPT	:	'rpt'|'RPT';
+NUM	:	'num'|'NUM';
+FRV	:	'frv'|'FRV';
+END	:	'end'|'END';
 
 TIM	:	'tim'|'TIM';
 
