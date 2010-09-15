@@ -31,9 +31,15 @@ options {
   language = Java;
 }
 
+@header {
+  import java.util.Queue;
+  import java.util.LinkedList;
+}
+
 @members {
   public StringBuilder output = new StringBuilder();
   public int indent = 0;
+  public Queue<String> commandParameters = new LinkedList<String>();
 
   public void emitIndent() {
     for (int i = 0; i < indent; i++) {
@@ -48,12 +54,12 @@ options {
 
   public void emit(String instruction, double value) {
     emitIndent();
-    output.append(instruction + "(" + value + ")" + "\n");
+    output.append(instruction + "(" + (int)value + ")" + "\n"); // LOGO requires an int
   }
 
   public void emit(String instruction, double value0, double value1) {
     emitIndent();
-    output.append(instruction + "(" + value0 + "," + value1 + ")" + "\n");
+    output.append(instruction + "(" + (int)value0 + "," + (int)value1 + ")" + "\n"); // LOGO requires an int
   }
 }
 
@@ -86,8 +92,39 @@ fly	:	FLY;
 
 loiter	:	LTR;
 
-command	:	CMD x=integerValue {emit("// CMD " + x);}
-	|	CMD PAR y=numericValue {emit("// CMD PAR " + y);}
+command	:	CMD x=integerValue
+	{
+String command = "";
+
+// Get the command
+switch(x) {
+  case 1:
+    command = "FLAG_ON(F_CROSS_TRACK)";
+    break;
+    
+  case 2: // FLAG_OFF
+    command = "FLAG_OFF(F_CROSS_TRACK)";
+    break;
+  
+  case 3:
+    command = "SET_ANGLE";
+    break;
+}
+
+// Get all parameters
+String parameters = "";
+if (commandParameters.size() > 0) {
+  for (int i = 0; i < commandParameters.size(); i++) {
+    String parameter = (String)commandParameters.poll();
+    parameters += parameter + ",";
+  }
+  parameters = "(" + parameters.substring(0,parameters.lastIndexOf(',')) + ")";
+}
+
+emit(command + parameters);
+	}
+	|	CMD PAR y=numericValue {commandParameters.add(String.valueOf((int)y));} // LOGO requires an int
+	|	CMD PAR z=StringLiteral {commandParameters.add(z.getText());}
 	;
 
 repeat	:	RPT NUM	x=numericValue {emit("REPEAT",x);} {indent++;}
