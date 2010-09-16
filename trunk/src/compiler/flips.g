@@ -91,8 +91,6 @@ tokens {
   INCH;
   LEFT;
   RIGHT;
-  CLOCKWISE;
-  COUNTERCLOCKWISE;
   PERCENT;
   FLIGHTLEVEL;
   PRESSURE;
@@ -577,6 +575,10 @@ second
 direction
 	:	fixedDirection
 	->	^(DIRECTION FIXED fixedDirection)
+	|	leftRightDirection To fixedDirection
+	->	^(DIRECTION FIXED ^(TURN leftRightDirection) fixedDirection)
+	|	clockDirection To fixedDirection
+	->	^(DIRECTION FIXED ^(TURN clockDirection) fixedDirection)
 	|	relativeDirection
 	->	^(DIRECTION RELATIVE relativeDirection)
 	;
@@ -660,7 +662,7 @@ subOrdinalDirection
 
 loiterDirection
 	:	Turning? clockDirection
-	->	^(DIRECTION TURN clockDirection)
+	->	^(TURN clockDirection)
 	;
 
 upDownDirection
@@ -686,9 +688,9 @@ leftRightDirection
 
 clockDirection
 	:	('cw'|'clockwise')
-	->	CLOCKWISE
+	->	RIGHT
 	|	('ccw'|'counterclockwise')
-	->	COUNTERCLOCKWISE
+	->	LEFT
 	;
 
 // ANGULAR EXPRESSIONS

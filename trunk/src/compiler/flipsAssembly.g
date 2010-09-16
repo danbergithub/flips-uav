@@ -205,7 +205,7 @@ loiterCommandValue
 	:	time
 	|	speed
 	|	throttle
-	|	loiterDirection
+	|	turnDirection
 	|	radius
 	|	duration
 	|	waypoint
@@ -356,22 +356,17 @@ duration
 direction
 	:	^(DIRECTION FIXED y=angularValue)
 		{emit("POS YAW FIX " + y, y + " deg Heading");}
+	|	^(DIRECTION FIXED turnDirection y=angularValue)
+		{emit("POS YAW FIX " + y, y + " deg Heading");}
 	|	^(DIRECTION RELATIVE y=angularValue)
 		{emit("POS YAW REL " + y, y + " deg Yaw");}
 	;
 
 turnDirection
-	:	^(DIRECTION TURN LEFT)
+	:	^(TURN LEFT)
 		{emit("DIR L", "Left Turn Direction");}
-	|	^(DIRECTION TURN RIGHT)
+	|	^(TURN RIGHT)
 		{emit("DIR R", "Right Turn Direction");}
-	;
-
-loiterDirection
-	:	^(DIRECTION TURN CLOCKWISE)
-		{emit("DIR CW", "Clockwise Loiter Direction");}
-	|	^(DIRECTION TURN COUNTERCLOCKWISE)
-		{emit("DIR CCW", "Counterclockwise Loiter Direction");}
 	;
 
 // WAYPOINT EXPRESSIONS
