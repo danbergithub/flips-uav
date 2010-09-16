@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsAssembly.g 2010-09-14 22:32:26
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flipsAssembly.g 2010-09-16 19:54:04
 
   import java.io.IOException;
   import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class flipsAssembly extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "CLOCKWISE", "COUNTERCLOCKWISE", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "REPEAT", "CONDITION", "FOREVER", "StringLiteral", "And", "Identifier", "For", "To", "At", "With", "FlightLevel", "Per", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "PlusOrMinus", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'rpt'", "'repeat'", "'end'", "'x'", "'time'", "'times'", "'forever'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'b'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "FLIGHTPLAN", "DEFINE", "REQUIRE", "COMMAND", "PARAMETER", "SENSOR", "FLY", "LOITER", "EXECUTE", "DIRECTION", "TURN", "FIXED", "RELATIVE", "PITCH", "ROLL", "YAW", "STRAIGHT", "LEVEL", "ALTITUDE", "SPEED", "FASTER", "SLOWER", "THROTTLE", "REVOLUTION", "TIME", "AM", "PM", "HOUR24", "DURATION", "RADIUS", "WAYPOINT", "GEOCOORDINATE", "LATITUDE", "LONGITUDE", "YEAR", "FORTNIGHT", "WEEK", "DAY", "HOUR", "MINUTE", "SECOND", "MILLISECOND", "ANGLE", "DEGREE", "RADIAN", "DISTANCE", "KILOMETER", "METER", "CENTIMETER", "NAUTICAL", "MILE", "FURLONG", "YARD", "FOOT", "INCH", "LEFT", "RIGHT", "PERCENT", "FLIGHTLEVEL", "PRESSURE", "KILOPASCAL", "HECTOPASCAL", "PASCAL", "BAR", "MILLIBAR", "ATMOSPHERE", "CLIMB", "DESCEND", "NORTH", "SOUTH", "EAST", "WEST", "EQ", "NE", "LT", "GT", "LE", "GE", "POSITIVE", "NEGATIVE", "FORWARD", "BACKWARD", "X", "Y", "Z", "REPEAT", "CONDITION", "FOREVER", "StringLiteral", "And", "Identifier", "For", "To", "At", "With", "FlightLevel", "Per", "Turning", "Heading", "FloatingPointLiteral", "BinaryLiteral", "OctalLiteral", "DecimalLiteral", "HexLiteral", "Digit", "PlusOrMinus", "NonZeroDigit", "BinaryDigit", "HexDigit", "Exponent", "WS", "Comment", "LineComment", "'req'", "'require'", "'requires'", "','", "'fp'", "'flightplan'", "'flightplans'", "'='", "'cmd'", "'command'", "'commands'", "'('", "')'", "'sen'", "'sensor'", "'sensors'", "'wpt'", "'waypoint'", "'waypoints'", "'rpt'", "'repeat'", "'end'", "'x'", "'time'", "'times'", "'forever'", "'fly'", "'go'", "'trn'", "'turn'", "'ltr'", "'loiter'", "'pit'", "'pitch'", "'an'", "'aoa'", "'angle of attack'", "'of'", "'rol'", "'roll'", "'lvl'", "'level'", "'alt'", "'altitude'", "'a'", "'pres'", "'pressure'", "'kpa'", "'kilopascal'", "'kilopascals'", "'hpa'", "'hectopascal'", "'hectopascals'", "'pa'", "'pascal'", "'pascals'", "'bar'", "'bars'", "'mbar'", "'millibar'", "'millibars'", "'atm'", "'atms'", "'atmosphere'", "'atmospheres'", "'in'", "'radius'", "'km'", "'kilometer'", "'kilometers'", "'m'", "'meter'", "'meters'", "'cm'", "'centimeter'", "'centimeters'", "'nm'", "'nautical'", "'mi'", "'mile'", "'miles'", "'statute'", "'f'", "'fur'", "'furlong'", "'furlongs'", "'yd'", "'yard'", "'yards'", "'ft'", "'foot'", "'feet'", "'inch'", "'inches'", "'faster'", "'slower'", "'kph'", "'mph'", "'kn'", "'kt'", "'kts'", "'knot'", "'knots'", "'fpf'", "'fpm'", "'fps'", "'pwr'", "'power'", "'thr'", "'throttle'", "'am'", "'a.m.'", "'pm'", "'p.m.'", "':'", "'y'", "'yr'", "'yrs'", "'year'", "'years'", "'fortnight'", "'fortnights'", "'wk'", "'wks'", "'week'", "'weeks'", "'d'", "'day'", "'days'", "'ms'", "'millisecond'", "'milliseconds'", "'h'", "'hr'", "'hrs'", "'hour'", "'hours'", "'min'", "'mins'", "'minute'", "'minutes'", "'s'", "'sec'", "'secs'", "'second'", "'seconds'", "'str'", "'straight'", "'n'", "'north'", "'south'", "'e'", "'east'", "'w'", "'west'", "'ne'", "'northeast'", "'se'", "'southeast'", "'sw'", "'southwest'", "'nw'", "'northwest'", "'nne'", "'north-northeast'", "'ene'", "'east-northeast'", "'ese'", "'east-southeast'", "'sse'", "'south-southeast'", "'ssw'", "'south-southwest'", "'wsw'", "'west-southwest'", "'wnw'", "'west-northwest'", "'nnw'", "'north-northwest'", "'u'", "'up'", "'c'", "'climb'", "'climbing'", "'ascend'", "'ascending'", "'down'", "'descend'", "'descending'", "'fwd'", "'forward'", "'b'", "'bwd'", "'backward'", "'back'", "'l'", "'left'", "'port'", "'r'", "'right'", "'starboard'", "'cw'", "'clockwise'", "'ccw'", "'counterclockwise'", "'rpm'", "'hz'", "'hertz'", "'rev'", "'revs'", "'revolution'", "'revolutions'", "'''", "'deg'", "'degs'", "'degree'", "'degrees'", "'rad'", "'rads'", "'radian'", "'radians'", "'%'", "'percent'", "'+'", "'-'"
     };
     public static final int DIRECTION=13;
     public static final int T__159=159;
@@ -26,10 +26,10 @@ public class flipsAssembly extends TreeParser {
     public static final int T__260=260;
     public static final int GEOCOORDINATE=35;
     public static final int T__261=261;
-    public static final int CONDITION=92;
+    public static final int CONDITION=90;
     public static final int T__266=266;
     public static final int T__267=267;
-    public static final int SOUTH=75;
+    public static final int SOUTH=73;
     public static final int T__264=264;
     public static final int FOOT=57;
     public static final int T__265=265;
@@ -41,7 +41,7 @@ public class flipsAssembly extends TreeParser {
     public static final int T__166=166;
     public static final int T__163=163;
     public static final int T__300=300;
-    public static final int HECTOPASCAL=67;
+    public static final int HECTOPASCAL=65;
     public static final int T__164=164;
     public static final int T__161=161;
     public static final int T__162=162;
@@ -49,7 +49,7 @@ public class flipsAssembly extends TreeParser {
     public static final int FASTER=24;
     public static final int T__148=148;
     public static final int T__147=147;
-    public static final int To=98;
+    public static final int To=96;
     public static final int T__149=149;
     public static final int T__247=247;
     public static final int T__246=246;
@@ -63,7 +63,7 @@ public class flipsAssembly extends TreeParser {
     public static final int T__255=255;
     public static final int KILOMETER=50;
     public static final int T__256=256;
-    public static final int EQ=78;
+    public static final int EQ=76;
     public static final int T__154=154;
     public static final int T__155=155;
     public static final int T__156=156;
@@ -77,10 +77,10 @@ public class flipsAssembly extends TreeParser {
     public static final int T__138=138;
     public static final int T__319=319;
     public static final int SENSOR=9;
-    public static final int POSITIVE=84;
+    public static final int POSITIVE=82;
     public static final int T__137=137;
     public static final int T__316=316;
-    public static final int GE=83;
+    public static final int GE=81;
     public static final int T__136=136;
     public static final int T__317=317;
     public static final int T__314=314;
@@ -106,14 +106,14 @@ public class flipsAssembly extends TreeParser {
     public static final int T__281=281;
     public static final int T__320=320;
     public static final int T__140=140;
-    public static final int Y=89;
+    public static final int Y=87;
     public static final int T__145=145;
-    public static final int With=100;
-    public static final int X=88;
+    public static final int With=98;
+    public static final int X=86;
     public static final int DURATION=32;
     public static final int T__146=146;
     public static final int T__143=143;
-    public static final int Z=90;
+    public static final int Z=88;
     public static final int T__144=144;
     public static final int T__305=305;
     public static final int T__126=126;
@@ -123,27 +123,27 @@ public class flipsAssembly extends TreeParser {
     public static final int T__128=128;
     public static final int T__308=308;
     public static final int T__127=127;
-    public static final int WS=116;
+    public static final int WS=114;
     public static final int T__301=301;
-    public static final int T__129=129;
     public static final int T__302=302;
+    public static final int T__129=129;
     public static final int STRAIGHT=20;
     public static final int T__303=303;
     public static final int T__304=304;
     public static final int LEVEL=21;
-    public static final int BinaryLiteral=106;
-    public static final int BinaryDigit=113;
+    public static final int BinaryLiteral=104;
+    public static final int BinaryDigit=111;
     public static final int THROTTLE=26;
     public static final int T__309=309;
     public static final int T__269=269;
-    public static final int FloatingPointLiteral=105;
+    public static final int FloatingPointLiteral=103;
     public static final int T__268=268;
     public static final int T__275=275;
     public static final int T__276=276;
-    public static final int GT=81;
+    public static final int GT=79;
     public static final int T__277=277;
     public static final int T__278=278;
-    public static final int REPEAT=91;
+    public static final int REPEAT=89;
     public static final int T__271=271;
     public static final int METER=51;
     public static final int T__272=272;
@@ -167,16 +167,18 @@ public class flipsAssembly extends TreeParser {
     public static final int T__217=217;
     public static final int MILLISECOND=45;
     public static final int T__218=218;
+    public static final int T__118=118;
     public static final int EXECUTE=12;
     public static final int T__119=119;
+    public static final int T__117=117;
     public static final int T__124=124;
-    public static final int PlusOrMinus=111;
+    public static final int PlusOrMinus=109;
     public static final int T__123=123;
     public static final int T__122=122;
     public static final int T__121=121;
     public static final int T__120=120;
-    public static final int FOREVER=93;
-    public static final int HexDigit=114;
+    public static final int FOREVER=91;
+    public static final int HexDigit=112;
     public static final int T__223=223;
     public static final int T__222=222;
     public static final int T__221=221;
@@ -192,23 +194,23 @@ public class flipsAssembly extends TreeParser {
     public static final int T__208=208;
     public static final int T__209=209;
     public static final int LEFT=59;
-    public static final int FLIGHTLEVEL=64;
+    public static final int FLIGHTLEVEL=62;
     public static final int CENTIMETER=52;
     public static final int T__210=210;
-    public static final int AM=29;
     public static final int T__212=212;
+    public static final int AM=29;
     public static final int T__211=211;
-    public static final int HexLiteral=109;
+    public static final int HexLiteral=107;
     public static final int T__239=239;
     public static final int T__237=237;
     public static final int T__238=238;
     public static final int T__235=235;
-    public static final int At=99;
+    public static final int At=97;
     public static final int T__236=236;
     public static final int PITCH=17;
     public static final int RIGHT=60;
     public static final int RELATIVE=16;
-    public static final int EAST=76;
+    public static final int EAST=74;
     public static final int T__245=245;
     public static final int HOUR=42;
     public static final int T__244=244;
@@ -218,46 +220,45 @@ public class flipsAssembly extends TreeParser {
     public static final int T__241=241;
     public static final int T__240=240;
     public static final int T__228=228;
-    public static final int StringLiteral=94;
+    public static final int StringLiteral=92;
     public static final int T__229=229;
     public static final int T__224=224;
     public static final int T__225=225;
     public static final int T__226=226;
     public static final int T__227=227;
     public static final int NAUTICAL=53;
-    public static final int NonZeroDigit=112;
-    public static final int NORTH=74;
+    public static final int NonZeroDigit=110;
+    public static final int NORTH=72;
     public static final int REVOLUTION=27;
     public static final int T__232=232;
     public static final int T__231=231;
     public static final int T__234=234;
     public static final int T__233=233;
-    public static final int DESCEND=73;
+    public static final int DESCEND=71;
     public static final int T__230=230;
     public static final int WEEK=40;
-    public static final int LT=80;
-    public static final int OctalLiteral=107;
+    public static final int LT=78;
+    public static final int OctalLiteral=105;
     public static final int LATITUDE=36;
-    public static final int ATMOSPHERE=71;
-    public static final int Per=102;
+    public static final int ATMOSPHERE=69;
+    public static final int Per=100;
     public static final int DAY=41;
-    public static final int Identifier=96;
+    public static final int Identifier=94;
     public static final int COMMAND=7;
-    public static final int Comment=117;
-    public static final int MILLIBAR=70;
+    public static final int Comment=115;
+    public static final int MILLIBAR=68;
     public static final int PARAMETER=8;
-    public static final int COUNTERCLOCKWISE=62;
-    public static final int FlightLevel=101;
+    public static final int FlightLevel=99;
     public static final int INCH=58;
-    public static final int NE=79;
+    public static final int NE=77;
     public static final int SECOND=44;
-    public static final int CLIMB=72;
+    public static final int CLIMB=70;
     public static final int ROLL=18;
     public static final int HOUR24=31;
     public static final int RADIAN=48;
     public static final int TURN=14;
     public static final int DEGREE=47;
-    public static final int PASCAL=68;
+    public static final int PASCAL=66;
     public static final int T__200=200;
     public static final int FLY=10;
     public static final int SLOWER=25;
@@ -265,16 +266,16 @@ public class flipsAssembly extends TreeParser {
     public static final int PM=30;
     public static final int FURLONG=55;
     public static final int LONGITUDE=37;
-    public static final int PRESSURE=65;
+    public static final int PRESSURE=63;
     public static final int T__332=332;
     public static final int T__333=333;
     public static final int T__330=330;
     public static final int T__331=331;
-    public static final int FORWARD=86;
+    public static final int FORWARD=84;
     public static final int YEAR=38;
     public static final int MILE=54;
-    public static final int Exponent=115;
-    public static final int LineComment=118;
+    public static final int Exponent=113;
+    public static final int LineComment=116;
     public static final int YAW=19;
     public static final int T__329=329;
     public static final int DEFINE=5;
@@ -285,10 +286,8 @@ public class flipsAssembly extends TreeParser {
     public static final int T__324=324;
     public static final int T__323=323;
     public static final int T__341=341;
-    public static final int WEST=77;
-    public static final int T__342=342;
+    public static final int WEST=75;
     public static final int T__199=199;
-    public static final int T__343=343;
     public static final int T__198=198;
     public static final int T__292=292;
     public static final int T__197=197;
@@ -315,7 +314,7 @@ public class flipsAssembly extends TreeParser {
     public static final int T__335=335;
     public static final int T__334=334;
     public static final int T__337=337;
-    public static final int And=95;
+    public static final int And=93;
     public static final int T__336=336;
     public static final int T__184=184;
     public static final int T__183=183;
@@ -324,36 +323,35 @@ public class flipsAssembly extends TreeParser {
     public static final int T__188=188;
     public static final int T__187=187;
     public static final int ANGLE=46;
-    public static final int PERCENT=63;
+    public static final int PERCENT=61;
     public static final int T__189=189;
-    public static final int Heading=104;
+    public static final int Heading=102;
     public static final int T__180=180;
-    public static final int NEGATIVE=85;
+    public static final int NEGATIVE=83;
     public static final int T__182=182;
     public static final int T__181=181;
-    public static final int BACKWARD=87;
-    public static final int Digit=110;
-    public static final int DecimalLiteral=108;
-    public static final int For=97;
+    public static final int BACKWARD=85;
+    public static final int Digit=108;
+    public static final int DecimalLiteral=106;
+    public static final int For=95;
     public static final int T__175=175;
     public static final int T__174=174;
     public static final int FLIGHTPLAN=4;
     public static final int T__173=173;
     public static final int T__172=172;
     public static final int T__179=179;
-    public static final int Turning=103;
+    public static final int Turning=101;
     public static final int T__178=178;
     public static final int T__177=177;
-    public static final int KILOPASCAL=66;
+    public static final int KILOPASCAL=64;
     public static final int T__176=176;
-    public static final int CLOCKWISE=61;
     public static final int T__171=171;
     public static final int T__170=170;
     public static final int LOITER=11;
     public static final int MINUTE=43;
     public static final int T__169=169;
-    public static final int BAR=69;
-    public static final int LE=82;
+    public static final int BAR=67;
+    public static final int LE=80;
 
     // delegates
     // delegators
@@ -1442,7 +1440,7 @@ public class flipsAssembly extends TreeParser {
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
-                    if ( (LA13_0==DIRECTION||LA13_0==SPEED||LA13_0==THROTTLE||LA13_0==TIME||(LA13_0>=RADIUS && LA13_0<=GEOCOORDINATE)||LA13_0==DISTANCE) ) {
+                    if ( (LA13_0==TURN||LA13_0==SPEED||LA13_0==THROTTLE||LA13_0==TIME||(LA13_0>=RADIUS && LA13_0<=GEOCOORDINATE)||LA13_0==DISTANCE) ) {
                         alt13=1;
                     }
 
@@ -1485,10 +1483,10 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "loiterCommandValue"
-    // flipsAssembly.g:204:1: loiterCommandValue : ( time | speed | throttle | loiterDirection | radius | duration | waypoint | altitude );
+    // flipsAssembly.g:204:1: loiterCommandValue : ( time | speed | throttle | turnDirection | radius | duration | waypoint | altitude );
     public final void loiterCommandValue() throws RecognitionException {
         try {
-            // flipsAssembly.g:205:2: ( time | speed | throttle | loiterDirection | radius | duration | waypoint | altitude )
+            // flipsAssembly.g:205:2: ( time | speed | throttle | turnDirection | radius | duration | waypoint | altitude )
             int alt14=8;
             alt14 = dfa14.predict(input);
             switch (alt14) {
@@ -1526,10 +1524,10 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // flipsAssembly.g:208:4: loiterDirection
+                    // flipsAssembly.g:208:4: turnDirection
                     {
-                    pushFollow(FOLLOW_loiterDirection_in_loiterCommandValue541);
-                    loiterDirection();
+                    pushFollow(FOLLOW_turnDirection_in_loiterCommandValue541);
+                    turnDirection();
 
                     state._fsp--;
 
@@ -2747,14 +2745,14 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "direction"
-    // flipsAssembly.g:356:1: direction : ( ^( DIRECTION FIXED y= angularValue ) | ^( DIRECTION RELATIVE y= angularValue ) );
+    // flipsAssembly.g:356:1: direction : ( ^( DIRECTION FIXED y= angularValue ) | ^( DIRECTION FIXED turnDirection y= angularValue ) | ^( DIRECTION RELATIVE y= angularValue ) );
     public final void direction() throws RecognitionException {
         double y = 0.0;
 
 
         try {
-            // flipsAssembly.g:357:2: ( ^( DIRECTION FIXED y= angularValue ) | ^( DIRECTION RELATIVE y= angularValue ) )
-            int alt24=2;
+            // flipsAssembly.g:357:2: ( ^( DIRECTION FIXED y= angularValue ) | ^( DIRECTION FIXED turnDirection y= angularValue ) | ^( DIRECTION RELATIVE y= angularValue ) )
+            int alt24=3;
             int LA24_0 = input.LA(1);
 
             if ( (LA24_0==DIRECTION) ) {
@@ -2764,10 +2762,23 @@ public class flipsAssembly extends TreeParser {
                     int LA24_2 = input.LA(3);
 
                     if ( (LA24_2==FIXED) ) {
-                        alt24=1;
+                        int LA24_3 = input.LA(4);
+
+                        if ( (LA24_3==TURN) ) {
+                            alt24=2;
+                        }
+                        else if ( (LA24_3==ANGLE) ) {
+                            alt24=1;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 24, 3, input);
+
+                            throw nvae;
+                        }
                     }
                     else if ( (LA24_2==RELATIVE) ) {
-                        alt24=2;
+                        alt24=3;
                     }
                     else {
                         NoViableAltException nvae =
@@ -2809,13 +2820,36 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // flipsAssembly.g:359:4: ^( DIRECTION RELATIVE y= angularValue )
+                    // flipsAssembly.g:359:4: ^( DIRECTION FIXED turnDirection y= angularValue )
                     {
                     match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1368); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,RELATIVE,FOLLOW_RELATIVE_in_direction1370); 
-                    pushFollow(FOLLOW_angularValue_in_direction1374);
+                    match(input,FIXED,FOLLOW_FIXED_in_direction1370); 
+                    pushFollow(FOLLOW_turnDirection_in_direction1372);
+                    turnDirection();
+
+                    state._fsp--;
+
+                    pushFollow(FOLLOW_angularValue_in_direction1376);
+                    y=angularValue();
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+                    emit("POS YAW FIX " + y, y + " deg Heading");
+
+                    }
+                    break;
+                case 3 :
+                    // flipsAssembly.g:361:4: ^( DIRECTION RELATIVE y= angularValue )
+                    {
+                    match(input,DIRECTION,FOLLOW_DIRECTION_in_direction1387); 
+
+                    match(input, Token.DOWN, null); 
+                    match(input,RELATIVE,FOLLOW_RELATIVE_in_direction1389); 
+                    pushFollow(FOLLOW_angularValue_in_direction1393);
                     y=angularValue();
 
                     state._fsp--;
@@ -2841,34 +2875,24 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "turnDirection"
-    // flipsAssembly.g:363:1: turnDirection : ( ^( DIRECTION TURN LEFT ) | ^( DIRECTION TURN RIGHT ) );
+    // flipsAssembly.g:365:1: turnDirection : ( ^( TURN LEFT ) | ^( TURN RIGHT ) );
     public final void turnDirection() throws RecognitionException {
         try {
-            // flipsAssembly.g:364:2: ( ^( DIRECTION TURN LEFT ) | ^( DIRECTION TURN RIGHT ) )
+            // flipsAssembly.g:366:2: ( ^( TURN LEFT ) | ^( TURN RIGHT ) )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==DIRECTION) ) {
+            if ( (LA25_0==TURN) ) {
                 int LA25_1 = input.LA(2);
 
                 if ( (LA25_1==DOWN) ) {
                     int LA25_2 = input.LA(3);
 
-                    if ( (LA25_2==TURN) ) {
-                        int LA25_3 = input.LA(4);
-
-                        if ( (LA25_3==LEFT) ) {
-                            alt25=1;
-                        }
-                        else if ( (LA25_3==RIGHT) ) {
-                            alt25=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 25, 3, input);
-
-                            throw nvae;
-                        }
+                    if ( (LA25_2==LEFT) ) {
+                        alt25=1;
+                    }
+                    else if ( (LA25_2==RIGHT) ) {
+                        alt25=2;
                     }
                     else {
                         NoViableAltException nvae =
@@ -2892,13 +2916,12 @@ public class flipsAssembly extends TreeParser {
             }
             switch (alt25) {
                 case 1 :
-                    // flipsAssembly.g:364:4: ^( DIRECTION TURN LEFT )
+                    // flipsAssembly.g:366:4: ^( TURN LEFT )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_turnDirection1391); 
+                    match(input,TURN,FOLLOW_TURN_in_turnDirection1410); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_turnDirection1393); 
-                    match(input,LEFT,FOLLOW_LEFT_in_turnDirection1395); 
+                    match(input,LEFT,FOLLOW_LEFT_in_turnDirection1412); 
 
                     match(input, Token.UP, null); 
                     emit("DIR L", "Left Turn Direction");
@@ -2906,13 +2929,12 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // flipsAssembly.g:366:4: ^( DIRECTION TURN RIGHT )
+                    // flipsAssembly.g:368:4: ^( TURN RIGHT )
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_turnDirection1406); 
+                    match(input,TURN,FOLLOW_TURN_in_turnDirection1423); 
 
                     match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_turnDirection1408); 
-                    match(input,RIGHT,FOLLOW_RIGHT_in_turnDirection1410); 
+                    match(input,RIGHT,FOLLOW_RIGHT_in_turnDirection1425); 
 
                     match(input, Token.UP, null); 
                     emit("DIR R", "Right Turn Direction");
@@ -2933,49 +2955,21 @@ public class flipsAssembly extends TreeParser {
     // $ANTLR end "turnDirection"
 
 
-    // $ANTLR start "loiterDirection"
-    // flipsAssembly.g:370:1: loiterDirection : ( ^( DIRECTION TURN CLOCKWISE ) | ^( DIRECTION TURN COUNTERCLOCKWISE ) );
-    public final void loiterDirection() throws RecognitionException {
+    // $ANTLR start "waypoint"
+    // flipsAssembly.g:374:1: waypoint : ( geoCoordinate | ^( WAYPOINT x= Identifier ) );
+    public final void waypoint() throws RecognitionException {
+        CommonTree x=null;
+
         try {
-            // flipsAssembly.g:371:2: ( ^( DIRECTION TURN CLOCKWISE ) | ^( DIRECTION TURN COUNTERCLOCKWISE ) )
+            // flipsAssembly.g:375:2: ( geoCoordinate | ^( WAYPOINT x= Identifier ) )
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( (LA26_0==DIRECTION) ) {
-                int LA26_1 = input.LA(2);
-
-                if ( (LA26_1==DOWN) ) {
-                    int LA26_2 = input.LA(3);
-
-                    if ( (LA26_2==TURN) ) {
-                        int LA26_3 = input.LA(4);
-
-                        if ( (LA26_3==CLOCKWISE) ) {
-                            alt26=1;
-                        }
-                        else if ( (LA26_3==COUNTERCLOCKWISE) ) {
-                            alt26=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 26, 3, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 26, 2, input);
-
-                        throw nvae;
-                    }
-                }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 26, 1, input);
-
-                    throw nvae;
-                }
+            if ( (LA26_0==GEOCOORDINATE) ) {
+                alt26=1;
+            }
+            else if ( (LA26_0==WAYPOINT) ) {
+                alt26=2;
             }
             else {
                 NoViableAltException nvae =
@@ -2985,74 +2979,9 @@ public class flipsAssembly extends TreeParser {
             }
             switch (alt26) {
                 case 1 :
-                    // flipsAssembly.g:371:4: ^( DIRECTION TURN CLOCKWISE )
+                    // flipsAssembly.g:375:4: geoCoordinate
                     {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_loiterDirection1427); 
-
-                    match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_loiterDirection1429); 
-                    match(input,CLOCKWISE,FOLLOW_CLOCKWISE_in_loiterDirection1431); 
-
-                    match(input, Token.UP, null); 
-                    emit("DIR CW", "Clockwise Loiter Direction");
-
-                    }
-                    break;
-                case 2 :
-                    // flipsAssembly.g:373:4: ^( DIRECTION TURN COUNTERCLOCKWISE )
-                    {
-                    match(input,DIRECTION,FOLLOW_DIRECTION_in_loiterDirection1442); 
-
-                    match(input, Token.DOWN, null); 
-                    match(input,TURN,FOLLOW_TURN_in_loiterDirection1444); 
-                    match(input,COUNTERCLOCKWISE,FOLLOW_COUNTERCLOCKWISE_in_loiterDirection1446); 
-
-                    match(input, Token.UP, null); 
-                    emit("DIR CCW", "Counterclockwise Loiter Direction");
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "loiterDirection"
-
-
-    // $ANTLR start "waypoint"
-    // flipsAssembly.g:379:1: waypoint : ( geoCoordinate | ^( WAYPOINT x= Identifier ) );
-    public final void waypoint() throws RecognitionException {
-        CommonTree x=null;
-
-        try {
-            // flipsAssembly.g:380:2: ( geoCoordinate | ^( WAYPOINT x= Identifier ) )
-            int alt27=2;
-            int LA27_0 = input.LA(1);
-
-            if ( (LA27_0==GEOCOORDINATE) ) {
-                alt27=1;
-            }
-            else if ( (LA27_0==WAYPOINT) ) {
-                alt27=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 27, 0, input);
-
-                throw nvae;
-            }
-            switch (alt27) {
-                case 1 :
-                    // flipsAssembly.g:380:4: geoCoordinate
-                    {
-                    pushFollow(FOLLOW_geoCoordinate_in_waypoint1464);
+                    pushFollow(FOLLOW_geoCoordinate_in_waypoint1443);
                     geoCoordinate();
 
                     state._fsp--;
@@ -3061,12 +2990,12 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // flipsAssembly.g:381:4: ^( WAYPOINT x= Identifier )
+                    // flipsAssembly.g:376:4: ^( WAYPOINT x= Identifier )
                     {
-                    match(input,WAYPOINT,FOLLOW_WAYPOINT_in_waypoint1470); 
+                    match(input,WAYPOINT,FOLLOW_WAYPOINT_in_waypoint1449); 
 
                     match(input, Token.DOWN, null); 
-                    x=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_waypoint1474); 
+                    x=(CommonTree)match(input,Identifier,FOLLOW_Identifier_in_waypoint1453); 
 
                     match(input, Token.UP, null); 
 
@@ -3104,7 +3033,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "geoCoordinate"
-    // flipsAssembly.g:401:1: geoCoordinate : ( ^( GEOCOORDINATE geo= latitudeLongitude ) | ^( GEOCOORDINATE dst= distanceCoordinate ) );
+    // flipsAssembly.g:396:1: geoCoordinate : ( ^( GEOCOORDINATE geo= latitudeLongitude ) | ^( GEOCOORDINATE dst= distanceCoordinate ) );
     public final void geoCoordinate() throws RecognitionException {
         flipsAssembly.latitudeLongitude_return geo = null;
 
@@ -3112,70 +3041,70 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:402:2: ( ^( GEOCOORDINATE geo= latitudeLongitude ) | ^( GEOCOORDINATE dst= distanceCoordinate ) )
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // flipsAssembly.g:397:2: ( ^( GEOCOORDINATE geo= latitudeLongitude ) | ^( GEOCOORDINATE dst= distanceCoordinate ) )
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA28_0==GEOCOORDINATE) ) {
-                int LA28_1 = input.LA(2);
+            if ( (LA27_0==GEOCOORDINATE) ) {
+                int LA27_1 = input.LA(2);
 
-                if ( (LA28_1==DOWN) ) {
-                    int LA28_2 = input.LA(3);
+                if ( (LA27_1==DOWN) ) {
+                    int LA27_2 = input.LA(3);
 
-                    if ( (LA28_2==X) ) {
-                        int LA28_3 = input.LA(4);
+                    if ( (LA27_2==X) ) {
+                        int LA27_3 = input.LA(4);
 
-                        if ( (LA28_3==DOWN) ) {
-                            int LA28_4 = input.LA(5);
+                        if ( (LA27_3==DOWN) ) {
+                            int LA27_4 = input.LA(5);
 
-                            if ( (LA28_4==ANGLE) ) {
-                                alt28=1;
+                            if ( (LA27_4==ANGLE) ) {
+                                alt27=1;
                             }
-                            else if ( (LA28_4==DISTANCE) ) {
-                                alt28=2;
+                            else if ( (LA27_4==DISTANCE) ) {
+                                alt27=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 28, 4, input);
+                                    new NoViableAltException("", 27, 4, input);
 
                                 throw nvae;
                             }
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("", 28, 3, input);
+                                new NoViableAltException("", 27, 3, input);
 
                             throw nvae;
                         }
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 28, 2, input);
+                            new NoViableAltException("", 27, 2, input);
 
                         throw nvae;
                     }
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 28, 1, input);
+                        new NoViableAltException("", 27, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
+                    new NoViableAltException("", 27, 0, input);
 
                 throw nvae;
             }
-            switch (alt28) {
+            switch (alt27) {
                 case 1 :
-                    // flipsAssembly.g:402:4: ^( GEOCOORDINATE geo= latitudeLongitude )
+                    // flipsAssembly.g:397:4: ^( GEOCOORDINATE geo= latitudeLongitude )
                     {
-                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1490); 
+                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1469); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate1494);
+                    pushFollow(FOLLOW_latitudeLongitude_in_geoCoordinate1473);
                     geo=latitudeLongitude();
 
                     state._fsp--;
@@ -3190,12 +3119,12 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // flipsAssembly.g:407:4: ^( GEOCOORDINATE dst= distanceCoordinate )
+                    // flipsAssembly.g:402:4: ^( GEOCOORDINATE dst= distanceCoordinate )
                     {
-                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1517); 
+                    match(input,GEOCOORDINATE,FOLLOW_GEOCOORDINATE_in_geoCoordinate1496); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_distanceCoordinate_in_geoCoordinate1521);
+                    pushFollow(FOLLOW_distanceCoordinate_in_geoCoordinate1500);
                     dst=distanceCoordinate();
 
                     state._fsp--;
@@ -3228,7 +3157,7 @@ public class flipsAssembly extends TreeParser {
     };
 
     // $ANTLR start "latitudeLongitude"
-    // flipsAssembly.g:414:1: latitudeLongitude returns [double latitude, double longitude] : ^( X x= angularValue ) ^( Y y= angularValue ) ;
+    // flipsAssembly.g:409:1: latitudeLongitude returns [double latitude, double longitude] : ^( X x= angularValue ) ^( Y y= angularValue ) ;
     public final flipsAssembly.latitudeLongitude_return latitudeLongitude() throws RecognitionException {
         flipsAssembly.latitudeLongitude_return retval = new flipsAssembly.latitudeLongitude_return();
         retval.start = input.LT(1);
@@ -3239,23 +3168,23 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:415:2: ( ^( X x= angularValue ) ^( Y y= angularValue ) )
-            // flipsAssembly.g:415:4: ^( X x= angularValue ) ^( Y y= angularValue )
+            // flipsAssembly.g:410:2: ( ^( X x= angularValue ) ^( Y y= angularValue ) )
+            // flipsAssembly.g:410:4: ^( X x= angularValue ) ^( Y y= angularValue )
             {
-            match(input,X,FOLLOW_X_in_latitudeLongitude1554); 
+            match(input,X,FOLLOW_X_in_latitudeLongitude1533); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_angularValue_in_latitudeLongitude1558);
+            pushFollow(FOLLOW_angularValue_in_latitudeLongitude1537);
             x=angularValue();
 
             state._fsp--;
 
 
             match(input, Token.UP, null); 
-            match(input,Y,FOLLOW_Y_in_latitudeLongitude1562); 
+            match(input,Y,FOLLOW_Y_in_latitudeLongitude1541); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_angularValue_in_latitudeLongitude1566);
+            pushFollow(FOLLOW_angularValue_in_latitudeLongitude1545);
             y=angularValue();
 
             state._fsp--;
@@ -3284,7 +3213,7 @@ public class flipsAssembly extends TreeParser {
     };
 
     // $ANTLR start "distanceCoordinate"
-    // flipsAssembly.g:420:1: distanceCoordinate returns [double north, double east] : ^( X x= distanceValue ) ^( Y y= distanceValue ) ;
+    // flipsAssembly.g:415:1: distanceCoordinate returns [double north, double east] : ^( X x= distanceValue ) ^( Y y= distanceValue ) ;
     public final flipsAssembly.distanceCoordinate_return distanceCoordinate() throws RecognitionException {
         flipsAssembly.distanceCoordinate_return retval = new flipsAssembly.distanceCoordinate_return();
         retval.start = input.LT(1);
@@ -3295,23 +3224,23 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:421:2: ( ^( X x= distanceValue ) ^( Y y= distanceValue ) )
-            // flipsAssembly.g:421:4: ^( X x= distanceValue ) ^( Y y= distanceValue )
+            // flipsAssembly.g:416:2: ( ^( X x= distanceValue ) ^( Y y= distanceValue ) )
+            // flipsAssembly.g:416:4: ^( X x= distanceValue ) ^( Y y= distanceValue )
             {
-            match(input,X,FOLLOW_X_in_distanceCoordinate1591); 
+            match(input,X,FOLLOW_X_in_distanceCoordinate1570); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_distanceValue_in_distanceCoordinate1595);
+            pushFollow(FOLLOW_distanceValue_in_distanceCoordinate1574);
             x=distanceValue();
 
             state._fsp--;
 
 
             match(input, Token.UP, null); 
-            match(input,Y,FOLLOW_Y_in_distanceCoordinate1599); 
+            match(input,Y,FOLLOW_Y_in_distanceCoordinate1578); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_distanceValue_in_distanceCoordinate1603);
+            pushFollow(FOLLOW_distanceValue_in_distanceCoordinate1582);
             y=distanceValue();
 
             state._fsp--;
@@ -3336,7 +3265,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "angularValue"
-    // flipsAssembly.g:426:1: angularValue returns [double r] : ^( ANGLE x= numericValue DEGREE ) ;
+    // flipsAssembly.g:421:1: angularValue returns [double r] : ^( ANGLE x= numericValue DEGREE ) ;
     public final double angularValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3344,18 +3273,18 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:427:2: ( ^( ANGLE x= numericValue DEGREE ) )
-            // flipsAssembly.g:427:4: ^( ANGLE x= numericValue DEGREE )
+            // flipsAssembly.g:422:2: ( ^( ANGLE x= numericValue DEGREE ) )
+            // flipsAssembly.g:422:4: ^( ANGLE x= numericValue DEGREE )
             {
-            match(input,ANGLE,FOLLOW_ANGLE_in_angularValue1628); 
+            match(input,ANGLE,FOLLOW_ANGLE_in_angularValue1607); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_angularValue1632);
+            pushFollow(FOLLOW_numericValue_in_angularValue1611);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,DEGREE,FOLLOW_DEGREE_in_angularValue1634); 
+            match(input,DEGREE,FOLLOW_DEGREE_in_angularValue1613); 
 
             match(input, Token.UP, null); 
             r = x;
@@ -3375,7 +3304,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "angularRateValue"
-    // flipsAssembly.g:431:1: angularRateValue returns [double r] : ^( SPEED x= numericValue DEGREE SECOND ) ;
+    // flipsAssembly.g:426:1: angularRateValue returns [double r] : ^( SPEED x= numericValue DEGREE SECOND ) ;
     public final double angularRateValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3383,19 +3312,19 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:432:2: ( ^( SPEED x= numericValue DEGREE SECOND ) )
-            // flipsAssembly.g:432:4: ^( SPEED x= numericValue DEGREE SECOND )
+            // flipsAssembly.g:427:2: ( ^( SPEED x= numericValue DEGREE SECOND ) )
+            // flipsAssembly.g:427:4: ^( SPEED x= numericValue DEGREE SECOND )
             {
-            match(input,SPEED,FOLLOW_SPEED_in_angularRateValue1655); 
+            match(input,SPEED,FOLLOW_SPEED_in_angularRateValue1634); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_angularRateValue1659);
+            pushFollow(FOLLOW_numericValue_in_angularRateValue1638);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,DEGREE,FOLLOW_DEGREE_in_angularRateValue1661); 
-            match(input,SECOND,FOLLOW_SECOND_in_angularRateValue1663); 
+            match(input,DEGREE,FOLLOW_DEGREE_in_angularRateValue1640); 
+            match(input,SECOND,FOLLOW_SECOND_in_angularRateValue1642); 
 
             match(input, Token.UP, null); 
             r = x;
@@ -3415,7 +3344,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "distanceValue"
-    // flipsAssembly.g:436:1: distanceValue returns [double r] : ^( DISTANCE x= numericValue METER ) ;
+    // flipsAssembly.g:431:1: distanceValue returns [double r] : ^( DISTANCE x= numericValue METER ) ;
     public final double distanceValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3423,18 +3352,18 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:437:2: ( ^( DISTANCE x= numericValue METER ) )
-            // flipsAssembly.g:437:4: ^( DISTANCE x= numericValue METER )
+            // flipsAssembly.g:432:2: ( ^( DISTANCE x= numericValue METER ) )
+            // flipsAssembly.g:432:4: ^( DISTANCE x= numericValue METER )
             {
-            match(input,DISTANCE,FOLLOW_DISTANCE_in_distanceValue1684); 
+            match(input,DISTANCE,FOLLOW_DISTANCE_in_distanceValue1663); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_distanceValue1688);
+            pushFollow(FOLLOW_numericValue_in_distanceValue1667);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,METER,FOLLOW_METER_in_distanceValue1690); 
+            match(input,METER,FOLLOW_METER_in_distanceValue1669); 
 
             match(input, Token.UP, null); 
             r = x;
@@ -3454,7 +3383,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "pressureValue"
-    // flipsAssembly.g:441:1: pressureValue returns [double r] : ^( PRESSURE x= numericValue PASCAL ) ;
+    // flipsAssembly.g:436:1: pressureValue returns [double r] : ^( PRESSURE x= numericValue PASCAL ) ;
     public final double pressureValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3462,18 +3391,18 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:442:2: ( ^( PRESSURE x= numericValue PASCAL ) )
-            // flipsAssembly.g:442:4: ^( PRESSURE x= numericValue PASCAL )
+            // flipsAssembly.g:437:2: ( ^( PRESSURE x= numericValue PASCAL ) )
+            // flipsAssembly.g:437:4: ^( PRESSURE x= numericValue PASCAL )
             {
-            match(input,PRESSURE,FOLLOW_PRESSURE_in_pressureValue1711); 
+            match(input,PRESSURE,FOLLOW_PRESSURE_in_pressureValue1690); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_pressureValue1715);
+            pushFollow(FOLLOW_numericValue_in_pressureValue1694);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,PASCAL,FOLLOW_PASCAL_in_pressureValue1717); 
+            match(input,PASCAL,FOLLOW_PASCAL_in_pressureValue1696); 
 
             match(input, Token.UP, null); 
             r = x;
@@ -3493,7 +3422,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "speedValue"
-    // flipsAssembly.g:446:1: speedValue returns [double r] : ^( SPEED x= numericValue METER SECOND ) ;
+    // flipsAssembly.g:441:1: speedValue returns [double r] : ^( SPEED x= numericValue METER SECOND ) ;
     public final double speedValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3501,19 +3430,19 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:447:2: ( ^( SPEED x= numericValue METER SECOND ) )
-            // flipsAssembly.g:447:4: ^( SPEED x= numericValue METER SECOND )
+            // flipsAssembly.g:442:2: ( ^( SPEED x= numericValue METER SECOND ) )
+            // flipsAssembly.g:442:4: ^( SPEED x= numericValue METER SECOND )
             {
-            match(input,SPEED,FOLLOW_SPEED_in_speedValue1738); 
+            match(input,SPEED,FOLLOW_SPEED_in_speedValue1717); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_speedValue1742);
+            pushFollow(FOLLOW_numericValue_in_speedValue1721);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,METER,FOLLOW_METER_in_speedValue1744); 
-            match(input,SECOND,FOLLOW_SECOND_in_speedValue1746); 
+            match(input,METER,FOLLOW_METER_in_speedValue1723); 
+            match(input,SECOND,FOLLOW_SECOND_in_speedValue1725); 
 
             match(input, Token.UP, null); 
             r = x;
@@ -3533,7 +3462,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "timeValue"
-    // flipsAssembly.g:451:1: timeValue returns [double r] : ^( TIME x= numericValue SECOND ) ;
+    // flipsAssembly.g:446:1: timeValue returns [double r] : ^( TIME x= numericValue SECOND ) ;
     public final double timeValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3541,18 +3470,18 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:452:2: ( ^( TIME x= numericValue SECOND ) )
-            // flipsAssembly.g:452:4: ^( TIME x= numericValue SECOND )
+            // flipsAssembly.g:447:2: ( ^( TIME x= numericValue SECOND ) )
+            // flipsAssembly.g:447:4: ^( TIME x= numericValue SECOND )
             {
-            match(input,TIME,FOLLOW_TIME_in_timeValue1767); 
+            match(input,TIME,FOLLOW_TIME_in_timeValue1746); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_numericValue_in_timeValue1771);
+            pushFollow(FOLLOW_numericValue_in_timeValue1750);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,SECOND,FOLLOW_SECOND_in_timeValue1773); 
+            match(input,SECOND,FOLLOW_SECOND_in_timeValue1752); 
 
             match(input, Token.UP, null); 
             r = x;
@@ -3572,7 +3501,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "numericValue"
-    // flipsAssembly.g:457:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral );
+    // flipsAssembly.g:452:1: numericValue returns [double r] : (x= integerValue | y= FloatingPointLiteral );
     public final double numericValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3581,27 +3510,27 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:458:2: (x= integerValue | y= FloatingPointLiteral )
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // flipsAssembly.g:453:2: (x= integerValue | y= FloatingPointLiteral )
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( ((LA29_0>=BinaryLiteral && LA29_0<=HexLiteral)) ) {
-                alt29=1;
+            if ( ((LA28_0>=BinaryLiteral && LA28_0<=HexLiteral)) ) {
+                alt28=1;
             }
-            else if ( (LA29_0==FloatingPointLiteral) ) {
-                alt29=2;
+            else if ( (LA28_0==FloatingPointLiteral) ) {
+                alt28=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
-            switch (alt29) {
+            switch (alt28) {
                 case 1 :
-                    // flipsAssembly.g:458:4: x= integerValue
+                    // flipsAssembly.g:453:4: x= integerValue
                     {
-                    pushFollow(FOLLOW_integerValue_in_numericValue1796);
+                    pushFollow(FOLLOW_integerValue_in_numericValue1775);
                     x=integerValue();
 
                     state._fsp--;
@@ -3611,9 +3540,9 @@ public class flipsAssembly extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // flipsAssembly.g:460:4: y= FloatingPointLiteral
+                    // flipsAssembly.g:455:4: y= FloatingPointLiteral
                     {
-                    y=(CommonTree)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue1807); 
+                    y=(CommonTree)match(input,FloatingPointLiteral,FOLLOW_FloatingPointLiteral_in_numericValue1786); 
                     r = Double.parseDouble(y.getText());
 
                     }
@@ -3633,72 +3562,72 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "integerValue"
-    // flipsAssembly.g:464:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral );
+    // flipsAssembly.g:459:1: integerValue returns [int r] : (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral );
     public final int integerValue() throws RecognitionException {
         int r = 0;
 
         CommonTree x=null;
 
         try {
-            // flipsAssembly.g:465:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral )
-            int alt30=4;
+            // flipsAssembly.g:460:2: (x= BinaryLiteral | x= OctalLiteral | x= DecimalLiteral | x= HexLiteral )
+            int alt29=4;
             switch ( input.LA(1) ) {
             case BinaryLiteral:
                 {
-                alt30=1;
+                alt29=1;
                 }
                 break;
             case OctalLiteral:
                 {
-                alt30=2;
+                alt29=2;
                 }
                 break;
             case DecimalLiteral:
                 {
-                alt30=3;
+                alt29=3;
                 }
                 break;
             case HexLiteral:
                 {
-                alt30=4;
+                alt29=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt30) {
+            switch (alt29) {
                 case 1 :
-                    // flipsAssembly.g:465:4: x= BinaryLiteral
+                    // flipsAssembly.g:460:4: x= BinaryLiteral
                     {
-                    x=(CommonTree)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue1828); 
+                    x=(CommonTree)match(input,BinaryLiteral,FOLLOW_BinaryLiteral_in_integerValue1807); 
                     r = Integer.parseInt(x.getText().substring(2),2);
 
                     }
                     break;
                 case 2 :
-                    // flipsAssembly.g:467:4: x= OctalLiteral
+                    // flipsAssembly.g:462:4: x= OctalLiteral
                     {
-                    x=(CommonTree)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue1839); 
+                    x=(CommonTree)match(input,OctalLiteral,FOLLOW_OctalLiteral_in_integerValue1818); 
                     r = Integer.parseInt(x.getText().substring(1),8);
 
                     }
                     break;
                 case 3 :
-                    // flipsAssembly.g:469:4: x= DecimalLiteral
+                    // flipsAssembly.g:464:4: x= DecimalLiteral
                     {
-                    x=(CommonTree)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue1850); 
+                    x=(CommonTree)match(input,DecimalLiteral,FOLLOW_DecimalLiteral_in_integerValue1829); 
                     r = Integer.parseInt(x.getText());
 
                     }
                     break;
                 case 4 :
-                    // flipsAssembly.g:471:4: x= HexLiteral
+                    // flipsAssembly.g:466:4: x= HexLiteral
                     {
-                    x=(CommonTree)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue1861); 
+                    x=(CommonTree)match(input,HexLiteral,FOLLOW_HexLiteral_in_integerValue1840); 
                     r = Integer.parseInt(x.getText().substring(2),16);
 
                     }
@@ -3718,7 +3647,7 @@ public class flipsAssembly extends TreeParser {
 
 
     // $ANTLR start "percentValue"
-    // flipsAssembly.g:475:1: percentValue returns [double r] : x= numericValue PERCENT ;
+    // flipsAssembly.g:470:1: percentValue returns [double r] : x= numericValue PERCENT ;
     public final double percentValue() throws RecognitionException {
         double r = 0.0;
 
@@ -3726,15 +3655,15 @@ public class flipsAssembly extends TreeParser {
 
 
         try {
-            // flipsAssembly.g:476:2: (x= numericValue PERCENT )
-            // flipsAssembly.g:476:4: x= numericValue PERCENT
+            // flipsAssembly.g:471:2: (x= numericValue PERCENT )
+            // flipsAssembly.g:471:4: x= numericValue PERCENT
             {
-            pushFollow(FOLLOW_numericValue_in_percentValue1882);
+            pushFollow(FOLLOW_numericValue_in_percentValue1861);
             x=numericValue();
 
             state._fsp--;
 
-            match(input,PERCENT,FOLLOW_PERCENT_in_percentValue1884); 
+            match(input,PERCENT,FOLLOW_PERCENT_in_percentValue1863); 
             r = x;
 
             }
@@ -3767,9 +3696,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA5_eofS =
         "\14\uffff";
     static final String DFA5_minS =
-        "\1\5\1\2\1\140\1\7\1\2\1\152\4\3\2\uffff";
+        "\1\5\1\2\1\136\1\7\1\2\1\150\4\3\2\uffff";
     static final String DFA5_maxS =
-        "\1\5\1\2\1\140\1\7\1\2\1\155\4\10\2\uffff";
+        "\1\5\1\2\1\136\1\7\1\2\1\153\4\10\2\uffff";
     static final String DFA5_acceptS =
         "\12\uffff\1\1\1\2";
     static final String DFA5_specialS =
@@ -3827,9 +3756,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA6_eofS =
         "\12\uffff";
     static final String DFA6_minS =
-        "\1\5\1\2\1\140\1\43\1\2\1\130\1\2\1\56\2\uffff";
+        "\1\5\1\2\1\136\1\43\1\2\1\126\1\2\1\56\2\uffff";
     static final String DFA6_maxS =
-        "\1\5\1\2\1\140\1\43\1\2\1\130\1\2\1\61\2\uffff";
+        "\1\5\1\2\1\136\1\43\1\2\1\126\1\2\1\61\2\uffff";
     static final String DFA6_acceptS =
         "\10\uffff\1\1\1\2";
     static final String DFA6_specialS =
@@ -3885,9 +3814,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA12_eofS =
         "\20\uffff";
     static final String DFA12_minS =
-        "\1\15\1\2\3\uffff\1\2\3\uffff\2\17\2\uffff\1\130\2\uffff";
+        "\1\15\1\2\3\uffff\1\2\3\uffff\2\17\2\uffff\1\126\2\uffff";
     static final String DFA12_maxS =
-        "\1\61\1\2\3\uffff\1\2\3\uffff\2\20\2\uffff\1\132\2\uffff";
+        "\1\61\1\2\3\uffff\1\2\3\uffff\2\20\2\uffff\1\130\2\uffff";
     static final String DFA12_acceptS =
         "\2\uffff\1\2\1\3\1\4\1\uffff\1\6\1\7\1\11\2\uffff\1\1\1\10\1\uffff"+
         "\1\12\1\5";
@@ -3951,7 +3880,7 @@ public class flipsAssembly extends TreeParser {
     static final String DFA14_eofS =
         "\13\uffff";
     static final String DFA14_minS =
-        "\1\15\1\2\6\uffff\1\17\2\uffff";
+        "\1\16\1\2\6\uffff\1\17\2\uffff";
     static final String DFA14_maxS =
         "\1\61\1\2\6\uffff\1\20\2\uffff";
     static final String DFA14_acceptS =
@@ -3959,7 +3888,7 @@ public class flipsAssembly extends TreeParser {
     static final String DFA14_specialS =
         "\13\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\1\4\11\uffff\1\2\2\uffff\1\3\1\uffff\1\1\4\uffff\1\5\2\6\15"+
+            "\1\4\10\uffff\1\2\2\uffff\1\3\1\uffff\1\1\4\uffff\1\5\2\6\15"+
             "\uffff\1\7",
             "\1\10",
             "",
@@ -4003,7 +3932,7 @@ public class flipsAssembly extends TreeParser {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "204:1: loiterCommandValue : ( time | speed | throttle | loiterDirection | radius | duration | waypoint | altitude );";
+            return "204:1: loiterCommandValue : ( time | speed | throttle | turnDirection | radius | duration | waypoint | altitude );";
         }
     }
     static final String DFA17_eotS =
@@ -4011,12 +3940,11 @@ public class flipsAssembly extends TreeParser {
     static final String DFA17_eofS =
         "\35\uffff";
     static final String DFA17_minS =
-        "\1\21\1\2\1\17\2\27\1\uffff\1\2\1\uffff\1\2\2\151\12\57\4\3\4\uffff";
+        "\1\21\1\2\1\17\2\27\1\uffff\2\2\1\uffff\2\147\12\57\4\3\4\uffff";
     static final String DFA17_maxS =
-        "\1\21\1\2\1\20\2\56\1\uffff\1\2\1\uffff\1\2\2\155\12\57\2\3\2\27"+
-        "\4\uffff";
+        "\1\21\1\2\1\20\2\56\1\uffff\2\2\1\uffff\2\153\12\57\2\3\2\27\4\uffff";
     static final String DFA17_acceptS =
-        "\5\uffff\1\3\1\uffff\1\4\21\uffff\1\5\1\1\1\2\1\6";
+        "\5\uffff\1\3\2\uffff\1\4\20\uffff\1\5\1\1\1\6\1\2";
     static final String DFA17_specialS =
         "\35\uffff}>";
     static final String[] DFA17_transitionS = {
@@ -4024,11 +3952,11 @@ public class flipsAssembly extends TreeParser {
             "\1\2",
             "\1\3\1\4",
             "\1\5\26\uffff\1\6",
-            "\1\7\26\uffff\1\10",
+            "\1\10\26\uffff\1\7",
             "",
             "\1\11",
-            "",
             "\1\12",
+            "",
             "\1\17\1\13\1\14\1\15\1\16",
             "\1\24\1\20\1\21\1\22\1\23",
             "\1\25",
@@ -4044,7 +3972,7 @@ public class flipsAssembly extends TreeParser {
             "\1\27",
             "\1\30",
             "\1\32\23\uffff\1\31",
-            "\1\33\23\uffff\1\34",
+            "\1\34\23\uffff\1\33",
             "",
             "",
             "",
@@ -4089,12 +4017,11 @@ public class flipsAssembly extends TreeParser {
     static final String DFA18_eofS =
         "\35\uffff";
     static final String DFA18_minS =
-        "\1\22\1\2\1\17\2\27\1\2\1\uffff\1\2\1\uffff\2\151\12\57\4\3\4\uffff";
+        "\1\22\1\2\1\17\2\27\1\2\2\uffff\1\2\2\147\12\57\4\3\4\uffff";
     static final String DFA18_maxS =
-        "\1\22\1\2\1\20\2\56\1\2\1\uffff\1\2\1\uffff\2\155\12\57\2\3\2\27"+
-        "\4\uffff";
+        "\1\22\1\2\1\20\2\56\1\2\2\uffff\1\2\2\153\12\57\2\3\2\27\4\uffff";
     static final String DFA18_acceptS =
-        "\6\uffff\1\3\1\uffff\1\4\20\uffff\1\5\1\1\1\6\1\2";
+        "\6\uffff\1\3\1\4\21\uffff\1\5\1\1\1\6\1\2";
     static final String DFA18_specialS =
         "\35\uffff}>";
     static final String[] DFA18_transitionS = {
@@ -4102,11 +4029,11 @@ public class flipsAssembly extends TreeParser {
             "\1\2",
             "\1\3\1\4",
             "\1\6\26\uffff\1\5",
-            "\1\10\26\uffff\1\7",
+            "\1\7\26\uffff\1\10",
             "\1\11",
             "",
-            "\1\12",
             "",
+            "\1\12",
             "\1\17\1\13\1\14\1\15\1\16",
             "\1\24\1\20\1\21\1\22\1\23",
             "\1\25",
@@ -4167,9 +4094,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA19_eofS =
         "\35\uffff";
     static final String DFA19_minS =
-        "\1\23\1\2\1\17\2\27\1\2\1\uffff\1\2\1\uffff\2\151\12\57\4\3\4\uffff";
+        "\1\23\1\2\1\17\2\27\1\2\1\uffff\1\2\1\uffff\2\147\12\57\4\3\4\uffff";
     static final String DFA19_maxS =
-        "\1\23\1\2\1\20\2\56\1\2\1\uffff\1\2\1\uffff\2\155\12\57\2\3\2\27"+
+        "\1\23\1\2\1\20\2\56\1\2\1\uffff\1\2\1\uffff\2\153\12\57\2\3\2\27"+
         "\4\uffff";
     static final String DFA19_acceptS =
         "\6\uffff\1\3\1\uffff\1\4\20\uffff\1\1\1\5\1\2\1\6";
@@ -4245,11 +4172,11 @@ public class flipsAssembly extends TreeParser {
     static final String DFA20_eofS =
         "\13\uffff";
     static final String DFA20_minS =
-        "\1\61\1\2\1\17\2\132\2\61\4\uffff";
+        "\1\61\1\2\1\17\2\130\2\61\4\uffff";
     static final String DFA20_maxS =
-        "\1\61\1\2\1\20\2\132\2\101\4\uffff";
+        "\1\61\1\2\1\20\2\130\2\77\4\uffff";
     static final String DFA20_acceptS =
-        "\7\uffff\1\3\1\1\1\2\1\4";
+        "\7\uffff\1\1\1\3\1\2\1\4";
     static final String DFA20_specialS =
         "\13\uffff}>";
     static final String[] DFA20_transitionS = {
@@ -4258,8 +4185,8 @@ public class flipsAssembly extends TreeParser {
             "\1\3\1\4",
             "\1\5",
             "\1\6",
-            "\1\10\17\uffff\1\7",
-            "\1\11\17\uffff\1\12",
+            "\1\7\15\uffff\1\10",
+            "\1\11\15\uffff\1\12",
             "",
             "",
             "",
@@ -4304,9 +4231,9 @@ public class flipsAssembly extends TreeParser {
     static final String DFA23_eofS =
         "\27\uffff";
     static final String DFA23_minS =
-        "\1\32\1\2\1\17\2\27\2\2\2\151\12\57\4\uffff";
+        "\1\32\1\2\1\17\2\27\2\2\2\147\12\57\4\uffff";
     static final String DFA23_maxS =
-        "\1\32\1\2\1\20\2\27\2\2\2\155\12\77\4\uffff";
+        "\1\32\1\2\1\20\2\27\2\2\2\153\12\75\4\uffff";
     static final String DFA23_acceptS =
         "\23\uffff\1\1\1\2\1\3\1\4";
     static final String DFA23_specialS =
@@ -4321,16 +4248,16 @@ public class flipsAssembly extends TreeParser {
             "\1\10",
             "\1\15\1\11\1\12\1\13\1\14",
             "\1\22\1\16\1\17\1\20\1\21",
-            "\1\24\17\uffff\1\23",
-            "\1\24\17\uffff\1\23",
-            "\1\24\17\uffff\1\23",
-            "\1\24\17\uffff\1\23",
-            "\1\24\17\uffff\1\23",
-            "\1\26\17\uffff\1\25",
-            "\1\26\17\uffff\1\25",
-            "\1\26\17\uffff\1\25",
-            "\1\26\17\uffff\1\25",
-            "\1\26\17\uffff\1\25",
+            "\1\24\15\uffff\1\23",
+            "\1\24\15\uffff\1\23",
+            "\1\24\15\uffff\1\23",
+            "\1\24\15\uffff\1\23",
+            "\1\24\15\uffff\1\23",
+            "\1\26\15\uffff\1\25",
+            "\1\26\15\uffff\1\25",
+            "\1\26\15\uffff\1\25",
+            "\1\26\15\uffff\1\25",
+            "\1\26\15\uffff\1\25",
             "",
             "",
             "",
@@ -4373,9 +4300,9 @@ public class flipsAssembly extends TreeParser {
  
 
     public static final BitSet FOLLOW_FLIGHTPLAN_in_flightPlan69 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_require_in_flightPlan71 = new BitSet(new long[]{0x0000000000001C68L,0x0000000008000000L});
-    public static final BitSet FOLLOW_define_in_flightPlan74 = new BitSet(new long[]{0x0000000000001C28L,0x0000000008000000L});
-    public static final BitSet FOLLOW_statement_in_flightPlan77 = new BitSet(new long[]{0x0000000000001C08L,0x0000000008000000L});
+    public static final BitSet FOLLOW_require_in_flightPlan71 = new BitSet(new long[]{0x0000000000001C68L,0x0000000002000000L});
+    public static final BitSet FOLLOW_define_in_flightPlan74 = new BitSet(new long[]{0x0000000000001C28L,0x0000000002000000L});
+    public static final BitSet FOLLOW_statement_in_flightPlan77 = new BitSet(new long[]{0x0000000000001C08L,0x0000000002000000L});
     public static final BitSet FOLLOW_REQUIRE_in_require91 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_StringLiteral_in_require95 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_defineFlightPlan_in_define119 = new BitSet(new long[]{0x0000000000000002L});
@@ -4394,7 +4321,7 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_Identifier_in_defineCommand202 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_COMMAND_in_defineCommand205 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_integerValue_in_defineCommand209 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_PARAMETER_in_defineCommand211 = new BitSet(new long[]{0x0000000000000000L,0x00003C0000000000L});
+    public static final BitSet FOLLOW_PARAMETER_in_defineCommand211 = new BitSet(new long[]{0x0000000000000000L,0x00000F0000000000L});
     public static final BitSet FOLLOW_integerValue_in_defineCommand215 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DEFINE_in_defineSensor233 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_Identifier_in_defineSensor237 = new BitSet(new long[]{0x0000000000000200L});
@@ -4414,7 +4341,7 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_CONDITION_in_repeat336 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_repeatCondition_in_repeat338 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_EXECUTE_in_repeat342 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_statement_in_repeat344 = new BitSet(new long[]{0x0000000000001C08L,0x0000000008000000L});
+    public static final BitSet FOLLOW_statement_in_repeat344 = new BitSet(new long[]{0x0000000000001C08L,0x0000000002000000L});
     public static final BitSet FOLLOW_integerValue_in_repeatCondition364 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TIME_in_repeatCondition374 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_RELATIVE_in_repeatCondition376 = new BitSet(new long[]{0x0000000010000000L});
@@ -4436,11 +4363,11 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_waypoint_in_flyCommandValue490 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_altitude_in_flyCommandValue495 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LOITER_in_loiterCommand507 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_loiterCommandValue_in_loiterCommand509 = new BitSet(new long[]{0x0002000E14862008L});
+    public static final BitSet FOLLOW_loiterCommandValue_in_loiterCommand509 = new BitSet(new long[]{0x0002000E14866008L});
     public static final BitSet FOLLOW_time_in_loiterCommandValue526 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_speed_in_loiterCommandValue531 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_throttle_in_loiterCommandValue536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_loiterDirection_in_loiterCommandValue541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_turnDirection_in_loiterCommandValue541 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_radius_in_loiterCommandValue546 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_duration_in_loiterCommandValue551 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_waypoint_in_loiterCommandValue556 = new BitSet(new long[]{0x0000000000000002L});
@@ -4513,27 +4440,27 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_angularValue_in_yaw988 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_angularRateValue_in_yaw992 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DISTANCE_in_altitude1015 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_altitude1017 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_FIXED_in_altitude1017 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
     public static final BitSet FOLLOW_Z_in_altitude1019 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_distanceValue_in_altitude1023 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DISTANCE_in_altitude1034 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_altitude1036 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_RELATIVE_in_altitude1036 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
     public static final BitSet FOLLOW_Z_in_altitude1038 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_distanceValue_in_altitude1042 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DISTANCE_in_altitude1053 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_FIXED_in_altitude1055 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_Z_in_altitude1057 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_FIXED_in_altitude1055 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_Z_in_altitude1057 = new BitSet(new long[]{0x8000000000000000L});
     public static final BitSet FOLLOW_pressureValue_in_altitude1061 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DISTANCE_in_altitude1072 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_altitude1074 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
-    public static final BitSet FOLLOW_Z_in_altitude1076 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_RELATIVE_in_altitude1074 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_Z_in_altitude1076 = new BitSet(new long[]{0x8000000000000000L});
     public static final BitSet FOLLOW_pressureValue_in_altitude1080 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DISTANCE_in_distance1099 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_distance1101 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_RELATIVE_in_distance1101 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
     public static final BitSet FOLLOW_X_in_distance1103 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_distanceValue_in_distance1107 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DISTANCE_in_distance1118 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_distance1120 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
+    public static final BitSet FOLLOW_RELATIVE_in_distance1120 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
     public static final BitSet FOLLOW_Y_in_distance1122 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_distanceValue_in_distance1126 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_RADIUS_in_radius1143 = new BitSet(new long[]{0x0000000000000004L});
@@ -4545,7 +4472,7 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_RELATIVE_in_speed1185 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_speedValue_in_speed1189 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SPEED_in_speed1200 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_speed1202 = new BitSet(new long[]{0x0000000000000000L,0x00003E0000000000L});
+    public static final BitSet FOLLOW_RELATIVE_in_speed1202 = new BitSet(new long[]{0x0000000000000000L,0x00000F8000000000L});
     public static final BitSet FOLLOW_percentValue_in_speed1206 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_THROTTLE_in_throttle1219 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_FIXED_in_throttle1221 = new BitSet(new long[]{0x0000000000800000L});
@@ -4571,62 +4498,58 @@ public class flipsAssembly extends TreeParser {
     public static final BitSet FOLLOW_FIXED_in_direction1353 = new BitSet(new long[]{0x0000400000000000L});
     public static final BitSet FOLLOW_angularValue_in_direction1357 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_DIRECTION_in_direction1368 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_RELATIVE_in_direction1370 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_angularValue_in_direction1374 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_turnDirection1391 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_turnDirection1393 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_LEFT_in_turnDirection1395 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_turnDirection1406 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_turnDirection1408 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_RIGHT_in_turnDirection1410 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_loiterDirection1427 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_loiterDirection1429 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_CLOCKWISE_in_loiterDirection1431 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DIRECTION_in_loiterDirection1442 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_TURN_in_loiterDirection1444 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_COUNTERCLOCKWISE_in_loiterDirection1446 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_geoCoordinate_in_waypoint1464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WAYPOINT_in_waypoint1470 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_Identifier_in_waypoint1474 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1490 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate1494 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1517 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_distanceCoordinate_in_geoCoordinate1521 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_X_in_latitudeLongitude1554 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_angularValue_in_latitudeLongitude1558 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_Y_in_latitudeLongitude1562 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_angularValue_in_latitudeLongitude1566 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_X_in_distanceCoordinate1591 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_distanceValue_in_distanceCoordinate1595 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_Y_in_distanceCoordinate1599 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_distanceValue_in_distanceCoordinate1603 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_ANGLE_in_angularValue1628 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_angularValue1632 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_angularValue1634 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_angularRateValue1655 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_angularRateValue1659 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_DEGREE_in_angularRateValue1661 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SECOND_in_angularRateValue1663 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_DISTANCE_in_distanceValue1684 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_distanceValue1688 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_METER_in_distanceValue1690 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_PRESSURE_in_pressureValue1711 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_pressureValue1715 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_PASCAL_in_pressureValue1717 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_SPEED_in_speedValue1738 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_speedValue1742 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_METER_in_speedValue1744 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SECOND_in_speedValue1746 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TIME_in_timeValue1767 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_numericValue_in_timeValue1771 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SECOND_in_timeValue1773 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_integerValue_in_numericValue1796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue1807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue1828 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OctalLiteral_in_integerValue1839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue1850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_HexLiteral_in_integerValue1861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_numericValue_in_percentValue1882 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_PERCENT_in_percentValue1884 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FIXED_in_direction1370 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_turnDirection_in_direction1372 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_angularValue_in_direction1376 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DIRECTION_in_direction1387 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RELATIVE_in_direction1389 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_angularValue_in_direction1393 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TURN_in_turnDirection1410 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_LEFT_in_turnDirection1412 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TURN_in_turnDirection1423 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_RIGHT_in_turnDirection1425 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_geoCoordinate_in_waypoint1443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WAYPOINT_in_waypoint1449 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_Identifier_in_waypoint1453 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1469 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_latitudeLongitude_in_geoCoordinate1473 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_GEOCOORDINATE_in_geoCoordinate1496 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_distanceCoordinate_in_geoCoordinate1500 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_X_in_latitudeLongitude1533 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_angularValue_in_latitudeLongitude1537 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_Y_in_latitudeLongitude1541 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_angularValue_in_latitudeLongitude1545 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_X_in_distanceCoordinate1570 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_distanceValue_in_distanceCoordinate1574 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_Y_in_distanceCoordinate1578 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_distanceValue_in_distanceCoordinate1582 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ANGLE_in_angularValue1607 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_angularValue1611 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_angularValue1613 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_angularRateValue1634 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_angularRateValue1638 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_DEGREE_in_angularRateValue1640 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SECOND_in_angularRateValue1642 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_DISTANCE_in_distanceValue1663 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_distanceValue1667 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_METER_in_distanceValue1669 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_PRESSURE_in_pressureValue1690 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_pressureValue1694 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_PASCAL_in_pressureValue1696 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_SPEED_in_speedValue1717 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_speedValue1721 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_METER_in_speedValue1723 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SECOND_in_speedValue1725 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_TIME_in_timeValue1746 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_numericValue_in_timeValue1750 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SECOND_in_timeValue1752 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_integerValue_in_numericValue1775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FloatingPointLiteral_in_numericValue1786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BinaryLiteral_in_integerValue1807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OctalLiteral_in_integerValue1818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DecimalLiteral_in_integerValue1829 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_HexLiteral_in_integerValue1840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_numericValue_in_percentValue1861 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_PERCENT_in_percentValue1863 = new BitSet(new long[]{0x0000000000000002L});
 
 }
