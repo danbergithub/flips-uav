@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-09-16 19:54:01
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 flips.g 2010-12-31 03:16:21
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -1883,7 +1883,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: par, cmd, Identifier
+                    // elements: Identifier, cmd, par
                     // token labels: 
                     // rule labels: par, retval, cmd
                     // token list labels: 
@@ -1897,10 +1897,10 @@ public class flipsParser extends Parser {
                     root_0 = (CommonTree)adaptor.nil();
                     // 172:2: -> ( ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) ) )+
                     {
-                        if ( !(stream_par.hasNext()||stream_cmd.hasNext()||stream_Identifier.hasNext()) ) {
+                        if ( !(stream_Identifier.hasNext()||stream_cmd.hasNext()||stream_par.hasNext()) ) {
                             throw new RewriteEarlyExitException();
                         }
-                        while ( stream_par.hasNext()||stream_cmd.hasNext()||stream_Identifier.hasNext() ) {
+                        while ( stream_Identifier.hasNext()||stream_cmd.hasNext()||stream_par.hasNext() ) {
                             // flips.g:172:5: ^( DEFINE Identifier ^( COMMAND $cmd PARAMETER $par) )
                             {
                             CommonTree root_1 = (CommonTree)adaptor.nil();
@@ -1923,9 +1923,9 @@ public class flipsParser extends Parser {
                             }
 
                         }
-                        stream_par.reset();
-                        stream_cmd.reset();
                         stream_Identifier.reset();
+                        stream_cmd.reset();
+                        stream_par.reset();
 
                     }
 
@@ -7129,7 +7129,7 @@ public class flipsParser extends Parser {
 
 
             // AST REWRITE
-            // elements: numericValue, pressureUnit
+            // elements: pressureUnit, numericValue
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -8161,7 +8161,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: distanceValue, forwardBackwardDirection
+                    // elements: forwardBackwardDirection, distanceValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -9705,7 +9705,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: speedValue, fasterSlowerSpeed
+                    // elements: fasterSlowerSpeed, speedValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -9752,7 +9752,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: percentValue, fasterSlowerSpeed
+                    // elements: fasterSlowerSpeed, percentValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11996,15 +11996,15 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: hr, min, s
+                    // elements: min, s, hr
                     // token labels: 
-                    // rule labels: min, hr, retval, s
+                    // rule labels: hr, min, retval, s
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
+                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
                     RewriteRuleSubtreeStream stream_s=new RewriteRuleSubtreeStream(adaptor,"rule s",s!=null?s.tree:null);
 
@@ -12285,15 +12285,15 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: hr, min
+                    // elements: min, hr
                     // token labels: 
-                    // rule labels: min, hr, retval
+                    // rule labels: hr, min, retval
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_hr=new RewriteRuleSubtreeStream(adaptor,"rule hr",hr!=null?hr.tree:null);
+                    RewriteRuleSubtreeStream stream_min=new RewriteRuleSubtreeStream(adaptor,"rule min",min!=null?min.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
@@ -12353,7 +12353,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: s, hr, min
+                    // elements: hr, s, min
                     // token labels: 
                     // rule labels: min, hr, retval, s
                     // token list labels: 
@@ -13639,7 +13639,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: leftRightDirection, fixedDirection
+                    // elements: fixedDirection, leftRightDirection
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -14437,7 +14437,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: leftRightDirection, angularValue
+                    // elements: angularValue, leftRightDirection
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17189,7 +17189,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: angularValue, angularRateValue
+                    // elements: angularRateValue, angularValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17527,7 +17527,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: numericValue, angularRateUnit
+                    // elements: angularRateUnit, numericValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -17576,7 +17576,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: angularValue, timeUnit
+                    // elements: timeUnit, angularValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -18116,7 +18116,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: integerValue, numericValuePositive
+                    // elements: numericValuePositive, integerValue
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -18757,7 +18757,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x1, y1
+                    // elements: y1, x1
                     // token labels: 
                     // rule labels: retval, y1, x1
                     // token list labels: 
@@ -18927,7 +18927,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: x3, y3
+                    // elements: y3, x3
                     // token labels: 
                     // rule labels: retval, y3, x3
                     // token list labels: 
@@ -19155,17 +19155,17 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: xu, x, ns
+                    // elements: ns, x, xu
                     // token labels: 
-                    // rule labels: retval, ns, x, xu
+                    // rule labels: retval, ns, xu, x
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
                     RewriteRuleSubtreeStream stream_ns=new RewriteRuleSubtreeStream(adaptor,"rule ns",ns!=null?ns.tree:null);
-                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
                     RewriteRuleSubtreeStream stream_xu=new RewriteRuleSubtreeStream(adaptor,"rule xu",xu!=null?xu.tree:null);
+                    RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
                     // 766:2: -> ^( ANGLE $ns $x $xu)
@@ -19217,7 +19217,7 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: min, deg, ns
+                    // elements: min, ns, deg
                     // token labels: 
                     // rule labels: min, retval, ns, deg
                     // token list labels: 
@@ -19632,17 +19632,17 @@ public class flipsParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: ew, x, xu
+                    // elements: xu, x, ew
                     // token labels: 
-                    // rule labels: ew, retval, xu, x
+                    // rule labels: ew, retval, x, xu
                     // token list labels: 
                     // rule list labels: 
                     // wildcard labels: 
                     retval.tree = root_0;
                     RewriteRuleSubtreeStream stream_ew=new RewriteRuleSubtreeStream(adaptor,"rule ew",ew!=null?ew.tree:null);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-                    RewriteRuleSubtreeStream stream_xu=new RewriteRuleSubtreeStream(adaptor,"rule xu",xu!=null?xu.tree:null);
                     RewriteRuleSubtreeStream stream_x=new RewriteRuleSubtreeStream(adaptor,"rule x",x!=null?x.tree:null);
+                    RewriteRuleSubtreeStream stream_xu=new RewriteRuleSubtreeStream(adaptor,"rule xu",xu!=null?xu.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
                     // 782:2: -> ^( ANGLE $ew $x $xu)
